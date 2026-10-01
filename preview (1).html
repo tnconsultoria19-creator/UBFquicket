@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <title>Unity Bridge Foundation | Economic Integration & Formalisation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Unity Bridge Foundation targets employment opportunities, enterprise formalisation, and long-term sustainability for historically disadvantaged work-seekers.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!-- Presentation Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'Helvetica', 'Arial', 'sans-serif'],
+                        handwriting: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        // Elegant, Sophisticated Palette
+                        'brand-navy': '#112240',      // Deep Oxford Blue
+                        'brand-dark': '#0a1629',      // Midnight Blue
+                        'brand-teal': '#2c5f53',      // Elegant Forest/Emerald
+                        'brand-teal-light': '#5e9485',// Muted Sage
+                        'brand-orange': '#cda34f',    // Champagne Gold
+                        'brand-coral': '#d4af37',     // Rich Gold
+                        'brand-cyan': '#8bb8b1',      // Soft Celadon
+                        'brand-text': '#2b3440',
+                        'brand-text-light': '#596575',
+                        'brand-gray': '#f8f9fa',
+                        'brand-gray-dark': '#eaedf0'
+                    },
+                    borderRadius: {
+                        'sm': '1rem',
+                        DEFAULT: '1.5rem',
+                        'md': '2rem',
+                        'lg': '2.5rem',
+                        'xl': '3rem',
+                        '2xl': '3.5rem',
+                        '3xl': '4rem',
+                        'sweep': '9vw',
+                        'sweep-lg': '15vw',
+                        'sweep-xl': '22vw'
+                    },
+                    boxShadow: {
+                        'custom': '0px 4px 20px 0px rgba(0,0,0,0.06)',
+                        'custom-hover': '0px 12px 30px -5px rgba(0,0,0,0.12)',
+                        'elegant': '0px 20px 40px -10px rgba(17, 34, 64, 0.15)',
+                        'glow': '0px 0px 20px 0px rgba(7, 200, 163, 0.3)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            -webkit-font-smoothing: antialiased; 
+            color: #596575; 
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #2b3440;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 12px; background-color: #f8f9fa; }
+        ::-webkit-scrollbar-track { border-radius: 50px; }
+        ::-webkit-scrollbar-thumb { background-color: #cda34f; border-radius: 50px; border: 3px solid #f8f9fa; }
+
+        /* SPA View Transitions */
+        .page-view {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .page-view.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Nav Link Animation */
+        .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 50%;
+            background-color: #cda34f;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Wobbly Button Animation */
+        .dsm-wobble-horizontal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px transparent;
+            transition: all 0.3s ease-in-out;
+        }
+        .dsm-wobble-horizontal:hover {
+            animation-name: wobble-horizontal;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes wobble-horizontal {
+            16.65% { transform: translateX(6px); }
+            33.3% { transform: translateX(-5px); }
+            49.95% { transform: translateX(4px); }
+            66.6% { transform: translateX(-2px); }
+            83.25% { transform: translateX(1px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Accordion & Tabs */
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tab-content.active { display: block; }
+        .tab-btn { border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+        .tab-btn.active { border-color: #cda34f; color: #112240 !important; }
+        
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; opacity: 0; }
+        .faq-accordion.active .faq-answer { max-height: 600px; opacity: 1; margin-top: 1rem; }
+        .faq-accordion.active .faq-icon { transform: rotate(45deg); color: #cda34f; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Hide scrollbar for carousels */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom Theme Variables */
+        :root {
+            --primary: #112240;
+            --secondary: #cda34f;
+            --surface-dim: #f8f9fa;
+            --outline-variant: #eaedf0;
+        }
+
+        .text-shadow-strong {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.6);
+        }
+
+        /* ==========================================================================
+           PRESENTATION STYLES (SCOPED)
+           ========================================================================== */
+        #view-presentation {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: #f3f4f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .pres-slide {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            padding: 2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .pres-slide.active {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+        }
+
+        .pres-slide-content {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pres-header-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #3AA89B, #1A4B6E);
+            flex-shrink: 0;
+        }
+
+        .pres-controls {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .pres-control-btn {
+            background: #1A4B6E;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: none;
+            outline: none;
+        }
+
+        .pres-control-btn:hover {
+            background: #3AA89B;
+            transform: scale(1.1);
+        }
+
+        .pres-progress-indicator {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            color: #1A4B6E;
+            font-weight: bold;
+            font-size: 1.1rem;
+            z-index: 100;
+        }
+
+        .pres-bullet-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .pres-bullet-point i {
+            color: #3AA89B;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .pres-title-hero {
+            background: linear-gradient(rgba(26, 75, 110, 0.9), rgba(26, 75, 110, 0.9)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80');
+            background-size: cover;
+            color: white;
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pres-animate-in {
+            animation: fadeInSlide 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
+
+    <!-- TOP NAVBAR -->
+    <nav id="main-nav" class="fixed w-full z-50 top-0 bg-white shadow-[0px_4px_20px_0px_rgba(17,34,64,0.05)] h-[95px] flex items-center transition-all duration-300">
+        <div class="w-full max-w-[2560px] mx-auto px-5 sm:px-8 lg:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a onclick="switchPage('home')" class="flex-shrink-0 flex items-center h-full gap-4 cursor-pointer group">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVAjhn2f4Q9faqA4fVUJdUxDvqi4-RZFTdMNOwVrn7Qy5fVBxXPCtmYU1goEA9VONRmVSe0yBdpj-qZLRxhY0wE5Gu8hdSOVKNizDPh-8WYvc0vQxtC6wOP-AOmCBIVIT0WHVFel9uxRNCAHzRlWq2EY7_hPodc2guHNnVfdvESjDCUOMDZdAwkh4vpc4/s320/4b3833b3-83b3-4fa9-b48d-5ef03566c492.png" alt="Unity Bridge Foundation Logo" class="h-16 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col justify-center">
+                    <span class="font-bold text-[17px] md:text-[22px] text-brand-navy leading-none uppercase tracking-[0.05em] md:tracking-[0.1em]">UNITY BRIDGE FOUNDATION</span>
+                    <span class="text-[11px] md:text-xs text-brand-orange uppercase tracking-[0.2em] mt-1 font-extrabold">South Africa</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden xl:flex items-center space-x-10">
+                <a onclick="switchPage('home')" id="nav-home" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer active">Home</a>
+                <a onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Programs</a>
+                <a onclick="switchPage('how')" id="nav-how" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Methodology</a>
+                <a onclick="switchPage('lab')" id="nav-lab" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">The Lab</a>
+                <a onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Shop</a>
+                <a onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQ</a>
+                
+                <a onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Partner</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button onclick="toggleMobileMenu()" class="xl:hidden text-brand-navy focus:outline-none z-[60]">
+                <i class="ph ph-list text-3xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-navy z-50 xl:hidden pt-24 px-8 overflow-y-auto pb-10 transition-transform duration-500 translate-x-full">
+        <div class="flex justify-end mb-8">
+            <button onclick="toggleMobileMenu()" class="text-white focus:outline-none">
+                <i class="ph ph-x text-4xl hover:text-brand-orange transition-colors"></i>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-8 text-center mt-10">
+            <a onclick="switchPage('home'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Home</a>
+            <a onclick="switchPage('services'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Programs</a>
+            <a onclick="switchPage('how'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Methodology</a>
+            <a onclick="switchPage('lab'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">The Lab</a>
+            <a onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Pricing</a>
+            <a onclick="switchPage('shop'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Shop (Vendors)</a>
+            <a onclick="switchPage('faq'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">FAQ</a>
+            <a onclick="openContactModal(); toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[15px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div id="contact-modal" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+        <div class="bg-white rounded-3xl p-8 md:p-10 w-full max-w-xs shadow-2xl transform scale-95 transition-transform duration-300" id="contact-modal-content">
+            <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
+                <h3 class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3>
+                <button onclick="closeContactModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
+                    <i class="ph-bold ph-x text-2xl"></i>
+                </button>
+            </div>
+            <p class="text-brand-text-light text-sm mb-6 leading-relaxed">Reach out to the Unity Bridge Foundation team through any of the channels below.</p>
+            
+            <div class="space-y-4">
+                <a href="tel:+27839410276" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-brand-navy shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-phone text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">Call Us</span>
+                        <span class="block font-bold text-brand-navy text-sm">+27 83 941 0276</span>
+                    </div>
+                </a>
+                
+                <a href="https://wa.me/27839410276" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-[#25D366] shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">WhatsApp</span>
+                        <span class="block font-bold text-brand-navy text-sm">+27 83 941 0276</span>
+                    </div>
+                </a>
+
+                <a href="mailto:admin@unitybridge-foundation.org" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-brand-orange shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-envelope-simple text-xl"></i>
+                    </div>
+                    <div class="w-full">
+                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">Email</span>
+                        <span class="block font-bold text-brand-navy text-sm break-words whitespace-normal">admin@unitybridge-foundation.org</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTION MODAL -->
+    <div id="action-modal" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+        <div class="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl transform scale-95 transition-transform duration-300" id="action-modal-content">
+            <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
+                <h3 class="text-xl font-bold text-brand-navy" id="action-modal-title">Get Involved</h3>
+                <button onclick="closeActionModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
+                    <i class="ph-bold ph-x text-2xl"></i>
+                </button>
+            </div>
+            <form id="action-form" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-bold text-brand-navy uppercase tracking-widest mb-1">Your Name</label>
+                    <input type="text" id="action-name" class="w-full bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal" required>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-brand-navy uppercase tracking-widest mb-1">Message / Details</label>
+                    <textarea id="action-message" rows="3" class="w-full bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal" required></textarea>
+                </div>
+                <div class="pt-2 flex flex-col gap-3">
+                    <button type="button" onclick="submitAction('email')" class="w-full bg-brand-orange text-white font-extrabold rounded-full py-3 text-xs uppercase tracking-widest hover:bg-brand-navy transition-colors flex items-center justify-center gap-2">
+                        <i class="ph-fill ph-envelope-simple text-lg"></i> Send via Email
+                    </button>
+                    <button type="button" onclick="submitAction('whatsapp')" class="w-full bg-[#25D366] text-white font-extrabold rounded-full py-3 text-xs uppercase tracking-widest hover:bg-[#1EBE5A] transition-colors flex items-center justify-center gap-2">
+                        <i class="ph-fill ph-whatsapp-logo text-lg"></i> Send via WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN APP ROUTER -->
+    <main id="app-root" class="pt-[85px]">
+
+        <!-- ================= PAGE: HOME ================= -->
+        <div id="view-home" class="page-view active">
+            <!-- FULLSCREEN HERO SECTION -->
+            <section class="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.pexels.com/photos/6146703/pexels-photo-6146703.jpeg" class="w-full h-full object-cover object-center" alt="Hero Background">
+                </div>
+
+                <div class="relative max-w-[1920px] mx-auto w-full px-6 sm:px-8 lg:px-[10%] z-10 flex flex-col items-center text-center mt-10 md:mt-0">
+                    <div class="w-full md:max-w-4xl reveal flex flex-col justify-center items-center">
+                        <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-6 border-b border-brand-orange/50 pb-2 text-shadow-strong drop-shadow-md">Strategic Integration</span>
+                        <h1 class="text-4xl sm:text-5xl md:text-[5vw] lg:text-[70px] leading-[1.1em] font-extrabold text-white mb-8 text-shadow-strong">
+                            Our business is to <br>
+                            <span class="text-brand-teal-light italic font-light">grow yours.</span>
+                        </h1>
+                        
+                        <p class="mb-12 text-[16px] md:text-[20px] text-white leading-relaxed max-w-3xl font-bold text-shadow-strong">
+                            Do you have the drive to ignite positive change? We nurture aspiring entrepreneurs and enthusiastic work-seekers. We equip you with institutional tools, connect you directly with formal markets to thrive, and aggressively pursue our long-term sustainability goals.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto justify-center">
+                            <a onclick="openContactModal()" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-brand-orange text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase hover:bg-white hover:text-brand-navy transition-colors shadow-[0_0_30px_rgba(205,163,79,0.4)] cursor-pointer">
+                                Partner with us
+                            </a>
+                            <a onclick="switchPage('services')" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-transparent text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase border-2 border-white hover:bg-white hover:text-brand-navy transition-colors cursor-pointer shadow-lg backdrop-blur-sm">
+                                Our Programs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REIMAGINED: Our Mandate Section -->
+            <section class="bg-white py-20 md:py-32 px-6 sm:px-8 lg:px-[10%] relative overflow-hidden border-b border-gray-100">
+                <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-gray to-transparent skew-x-12 translate-x-20"></div>
+
+                <div class="max-w-[1920px] mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                    
+                    <!-- Left: Typography & Mission -->
+                    <div class="w-full lg:w-5/12 reveal">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-px bg-brand-orange"></div>
+                            <span class="text-brand-orange font-bold tracking-[0.2em] uppercase text-xs">Our Mandate</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-light text-brand-navy mb-8 leading-[1.2em]">
+                            Transforming communities, <br>
+                            <span class="font-bold text-brand-teal">one project at a time.</span>
+                        </h2>
+                        <p class="text-brand-text-light text-lg leading-relaxed mb-10 font-light">
+                            We bridge the gap between affluent resources and high-potential individuals. By deploying focused capital and structured education, we catalyze sustainable economic participation for those historically excluded from the formal market.
+                        </p>
+                        <a onclick="switchPage('services')" class="dsm-wobble-horizontal group flex items-center gap-4 cursor-pointer">
+                            <span class="w-12 h-12 rounded-full border border-brand-orange flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
+                                <i class="ph ph-arrow-right text-xl"></i>
+                            </span>
+                            <span class="text-brand-navy font-extrabold uppercase tracking-widest text-sm group-hover:text-brand-orange transition-colors">View All Projects</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Right: Staggered Elegant Images -->
+                    <div class="w-full lg:w-7/12 relative h-[500px] md:h-[600px] reveal delay-100">
+                        <div class="absolute top-0 right-0 w-[70%] md:w-[65%] h-[70%] rounded-[3rem] overflow-hidden shadow-2xl border-[4px] border-white z-20 hover:z-30 transition-all duration-500 hover:scale-105 cursor-pointer group" onclick="switchPage('services')">
+                            <img src="https://images.pexels.com/photos/14776851/pexels-photo-14776851.jpeg" alt="Agriculture and Food Security" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h4 class="text-xl md:text-2xl text-white font-bold mb-1 drop-shadow-lg">Agriculture & Food Security</h4>
+                                <span class="text-brand-teal-light text-[10px] md:text-xs uppercase tracking-widest font-extrabold drop-shadow-md">Food Independence & Donor Funding</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 w-[60%] md:w-[55%] h-[65%] rounded-[3rem] overflow-hidden shadow-2xl border-[4px] border-white z-10 hover:z-30 transition-all duration-500 hover:scale-105 cursor-pointer group" onclick="switchPage('services')">
+                            <img src="https://images.pexels.com/photos/6720586/pexels-photo-6720586.jpeg" alt="Economic Outreach" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h4 class="text-xl md:text-2xl text-white font-bold mb-1 drop-shadow-lg">White Label Income</h4>
+                                <span class="text-brand-orange text-[10px] md:text-xs uppercase tracking-widest font-extrabold drop-shadow-md">Enterprise Fulfillment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            
+            <!-- VOLUNTEER / DONOR SECTION -->
+            <section id="volunteer-home" class="py-20 md:py-28 bg-brand-gray reveal border-b border-gray-200">
+                <div class="max-w-[1920px] mx-auto px-6 lg:px-[10%]">
+                    <div class="flex flex-col lg:flex-row items-center gap-16">
+                        <div class="w-full lg:w-1/2 reveal">
+                            <span class="text-brand-orange font-bold text-xs uppercase tracking-widest mb-4 block">Corporate Citizenship</span>
+                            <h2 class="text-3xl md:text-4xl lg:text-5xl text-brand-navy font-extrabold mb-6 leading-tight">Charity, Volunteer & Donor Initiatives</h2>
+                            <p class="text-brand-text-light text-lg leading-relaxed mb-8 font-light">
+                                True integration and sustainability go beyond capital deployment. Our team and institutional partners actively participate in on-the-ground charity and capacity-building events. We invite UBF staff and partners to join our hands-on mentorship clinics, resource distribution drives, or become a donor to directly fund these vital sustainability initiatives.
+                            </p>
+                            <ul class="space-y-4 mb-10 text-sm font-bold text-brand-text">
+                                <li class="flex items-center gap-3 border-b border-gray-200 pb-3"><i class="ph-fill ph-calendar-check text-brand-teal text-xl"></i> Quarterly Mentorship Clinics</li>
+                                <li class="flex items-center gap-3 border-b border-gray-200 pb-3"><i class="ph-fill ph-chalkboard-teacher text-brand-teal text-xl"></i> Professional Skills Workshops</li>
+                                <li class="flex items-center gap-3 border-b border-gray-200 pb-3"><i class="ph-fill ph-users-three text-brand-teal text-xl"></i> Enterprise Resource Drives</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-4">
+                                <a onclick="openActionModal('Register to Volunteer')" class="cursor-pointer dsm-wobble-horizontal bg-brand-navy text-white border border-brand-navy py-3.5 px-8 rounded-full text-xs uppercase tracking-widest font-extrabold hover:bg-brand-orange hover:border-brand-orange transition-colors">Register to Volunteer</a>
+                                <a onclick="openActionModal('Become a Donor')" class="cursor-pointer dsm-wobble-horizontal bg-transparent text-brand-navy border border-brand-navy py-3.5 px-8 rounded-full text-xs uppercase tracking-widest font-extrabold hover:bg-brand-navy hover:text-white transition-colors">Become a Donor</a>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full lg:w-1/2 relative reveal delay-100">
+                            <div class="aspect-square bg-white p-6 shadow-elegant relative z-10 border border-gray-100 rounded-[3rem]">
+                                <img src="https://images.pexels.com/photos/7475178/pexels-photo-7475178.jpeg" alt="Volunteer Team" class="w-full h-full object-cover transition-all duration-700 rounded-[2.5rem]">
+                            </div>
+                            <div class="absolute -bottom-6 -left-6 w-full h-full border-2 border-brand-orange/30 z-0 rounded-[3.5rem]"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GLOBAL CTA SECTION -->
+            <section class="bg-brand-navy py-8 md:py-12 px-6 sm:px-8 lg:px-[10%] reveal relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
+                    <div class="w-full md:w-3/5 text-center md:text-left mb-6 md:mb-0 pr-0 md:pr-10">
+                        <h2 class="text-white text-xl md:text-2xl font-extrabold leading-tight mb-2">Ready to accelerate formalisation and employment?</h2>
+                        <p class="text-white/70 text-sm font-light">Partner with Unity Bridge Foundation to deploy strategic interventions in your community.</p>
+                    </div>
+                    <div class="w-full md:w-2/5 flex justify-center md:justify-end">
+                        <a onclick="openContactModal()" class="dsm-wobble-horizontal text-center bg-brand-orange text-white font-extrabold py-3 px-8 rounded-full text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all flex items-center gap-3 uppercase tracking-widest cursor-pointer">
+                            <span>Initiate Contact</span>
+                            <i class="ph-bold ph-arrow-right text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE: SERVICES (PROGRAMS) ================= -->
+        <div id="view-services" class="page-view">
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
+                <div class="max-w-4xl mx-auto relative z-10 reveal">
+                    <span class="text-brand-teal font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Strategies</span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy mb-6">Structured <span class="text-brand-orange italic font-light">Programs</span></h1>
+                    <p class="text-lg md:text-xl text-brand-text-light font-light">Comprehensive interventions providing high-quality infrastructure for formalisation and employment.</p>
+                </div>
+            </section>
+
+            <section class="py-20 md:py-24 bg-white border-t border-gray-100">
+                <div class="max-w-[1920px] mx-auto px-6 sm:px-8 lg:px-[10%] relative">
+                    
+                    <!-- Service 1 -->
+                    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-24 reveal">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-dark shadow-elegant">
+                                <img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="Startup Engine" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
+                            </div>
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b-4 border-r-4 border-brand-orange z-0 rounded-br-[2.5rem]"></div>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                            <span class="text-brand-orange font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-orange pb-2 inline-block w-max">Track 01</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">The Startup Engine</h3>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">Designed for individuals who have a vision but lack the roadmap. We provide the technical chassis for your passion, moving you from concept to formal entity.</p>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Ideation & Validation</h5><p class="text-sm text-brand-text-light">Market analysis and conceptual stress-testing.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">6-Week Technical Build</h5><p class="text-sm text-brand-text-light">Rapid institutional build and asset creation.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Operational Handover</h5><p class="text-sm text-brand-text-light">Systems training and autonomous operational transfer.</p></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 mb-24 reveal delay-100">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-dark shadow-elegant">
+                                <img src="https://images.pexels.com/photos/36889849/pexels-photo-36889849.jpeg" alt="The Accelerator" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
+                            </div>
+                            <div class="absolute -top-6 -left-6 w-32 h-32 border-t-4 border-l-4 border-brand-teal-light z-0 rounded-tl-[2.5rem]"></div>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                            <span class="text-brand-teal-light font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-teal-light pb-2 inline-block w-max">Track 02</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">The Accelerator</h3>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">For businesses already in operation, UBF performs a technical audit to identify and complete missing structural assets required for corporate procurement and funding.</p>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Corporate Documentation</h5><p class="text-sm text-brand-text-light">Business plans, profiles, and pitch decks.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Statutory Compliance</h5><p class="text-sm text-brand-text-light">CIPC & SARS registration and alignment.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Financial Infrastructure</h5><p class="text-sm text-brand-text-light">Active commercial banking set up.</p></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-24 reveal delay-200">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-dark shadow-elegant">
+                                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" alt="Youth Employment" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
+                            </div>
+                            <div class="absolute -bottom-6 -left-6 w-32 h-32 border-b-4 border-l-4 border-brand-coral z-0 rounded-bl-[2.5rem]"></div>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                            <span class="text-brand-coral font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-coral pb-2 inline-block w-max">Track 03</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Employment Opportunities</h3>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">Securing the future for historically disadvantaged work-seekers through CV drives, corporate cover letter creation, and intensive job application execution.</p>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Professional Portfolio</h5><p class="text-sm text-brand-text-light">Institutional-grade CV and profile construction.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Market Penetration</h5><p class="text-sm text-brand-text-light">Intensive 3-month directed application drive.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Recruitment Mastery</h5><p class="text-sm text-brand-text-light">Interview preparation and corporate etiquette.</p></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 mb-24 reveal delay-200">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-dark shadow-elegant">
+                                <img src="https://images.pexels.com/photos/34211747/pexels-photo-34211747.jpeg" alt="The School Bridge" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
+                            </div>
+                            <div class="absolute -top-6 -right-6 w-32 h-32 border-t-4 border-r-4 border-brand-cyan z-0 rounded-tr-[2.5rem]"></div>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                            <span class="text-brand-cyan font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-cyan pb-2 inline-block w-max">Track 04</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">The School Bridge</h3>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">Targeted educational integration providing fundamental resources, mentorship, and foundational learning support to disadvantaged youth communities.</p>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Resource Distribution</h5><p class="text-sm text-brand-text-light">Providing essential schooling materials and tools.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Youth Mentorship</h5><p class="text-sm text-brand-text-light">Guidance clinics led by established professionals.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Community Integration</h5><p class="text-sm text-brand-text-light">Building bridges between affluent institutions and local schools.</p></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 reveal delay-200">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-dark shadow-elegant">
+                                <img src="https://images.pexels.com/photos/34411687/pexels-photo-34411687.jpeg" alt="Agriculture & Food Security" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
+                            </div>
+                            <div class="absolute -bottom-6 -left-6 w-32 h-32 border-b-4 border-l-4 border-brand-orange z-0 rounded-bl-[2.5rem]"></div>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                            <span class="text-brand-orange font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-orange pb-2 inline-block w-max">Track 05</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Agriculture & Food Security</h3>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">Targeted agro-initiatives fostering community food independence and creating sustainable agricultural enterprise models.</p>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Food Independence</h5><p class="text-sm text-brand-text-light">Establishing localized and reliable food sources.</p></div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Agro-Enterprise Modeling</h5><p class="text-sm text-brand-text-light">Formalizing agricultural efforts into viable sustainable businesses.</p></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Buffer Layer -->
+            <div class="h-24 bg-brand-gray w-full"></div>
+        </div>
+
+
+        <!-- ================= PAGE: HOW WE WORK ================= -->
+        <div id="view-how" class="page-view">
+            <!-- Image Background Banner -->
+            <section class="relative pt-32 md:pt-48 pb-24 px-6 text-center overflow-hidden flex items-center justify-center">
+                <!-- Static Image Hero -->
+                <div class="absolute inset-0 w-full h-full z-0 bg-brand-navy">
+                    <img src="https://media.istockphoto.com/id/2220243310/photo/volunteers-discussing-during-donation-drive-in-office.jpg?b=1&s=612x612&w=0&k=20&c=U4ECqIbZ_XEPzwOQbdGLU5hSeKRWJ_ZKVCNcOmZfwIE=" class="w-full h-full object-cover opacity-40 mix-blend-luminosity" alt="Methodology Background">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-gray via-transparent to-transparent"></div>
+                </div>
+
+                <div class="max-w-4xl mx-auto relative z-10 reveal">
+                    <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Our Methodology</span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">The <span class="text-brand-teal-light italic font-light">Way</span> We Work</h1>
+                    <p class="text-lg md:text-xl text-white/80 font-light">Strategic frameworks designed to secure compliance, drive placements, formalize operations, and build sustainable enterprises.</p>
+                </div>
+            </section>
+
+            <!-- 4 Steps Section -->
+            <section class="py-16 md:py-24 bg-brand-gray">
+                <div class="max-w-[1920px] mx-auto px-6 lg:px-[10%]">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 border border-gray-200 rounded-[3rem] overflow-hidden shadow-elegant">
+                        <!-- Step 1 -->
+                        <div class="bg-white p-10 lg:p-12 reveal transition-transform hover:-translate-y-2 relative group">
+                            <div class="text-6xl text-brand-orange mb-6 font-extrabold font-sans group-hover:scale-110 transition-transform origin-left">01</div>
+                            <h5 class="text-lg font-extrabold text-brand-navy uppercase tracking-wider mb-4">Assessment & Planning</h5>
+                            <p class="text-sm text-brand-text-light leading-relaxed font-light">Evaluation of specific community and enterprise needs. Through rigorous consultations, we identify high-yield areas for intervention.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="bg-white p-10 lg:p-12 reveal delay-100 transition-transform hover:-translate-y-2 relative group">
+                            <div class="text-6xl text-brand-teal mb-6 font-extrabold font-sans group-hover:scale-110 transition-transform origin-left">02</div>
+                            <h5 class="text-lg font-extrabold text-brand-navy uppercase tracking-wider mb-4">Strategy Formulation</h5>
+                            <p class="text-sm text-brand-text-light leading-relaxed font-light">Developing tailored blueprints for formalisation and targeted employment acquisition, ensuring logical and actionable execution.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="bg-white p-10 lg:p-12 reveal delay-200 transition-transform hover:-translate-y-2 relative group">
+                            <div class="text-6xl text-brand-cyan mb-6 font-extrabold font-sans group-hover:scale-110 transition-transform origin-left">03</div>
+                            <h5 class="text-lg font-extrabold text-brand-navy uppercase tracking-wider mb-4">Execution & Action</h5>
+                            <p class="text-sm text-brand-text-light leading-relaxed font-light">Rapid implementation of CV deployment, structural business modeling, and statutory compliance acquisition.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="bg-white p-10 lg:p-12 reveal delay-300 transition-transform hover:-translate-y-2 relative group">
+                            <div class="text-6xl text-brand-coral mb-6 font-extrabold font-sans group-hover:scale-110 transition-transform origin-left">04</div>
+                            <h5 class="text-lg font-extrabold text-brand-navy uppercase tracking-wider mb-4">Ongoing Governance</h5>
+                            <p class="text-sm text-brand-text-light leading-relaxed font-light">Continuous oversight of newly formalized businesses and placed candidates, ensuring long-term sustainability and growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="py-24 bg-white border-t border-gray-100">
+                <div class="max-w-[1920px] mx-auto px-6 lg:px-[10%]">
+                    <div class="text-center mb-20 reveal">
+                        <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Governance</span>
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-brand-navy">Executive Board</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-10">
+                        <!-- Member 1 -->
+                        <div class="flex flex-col items-center group cursor-pointer reveal">
+                            <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
+                                <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdyurPAUrDYCyS7pjX9YN1WVfn3UPVG0Rb8av91bTLtU8-leGNe-JTjVQx0eB3tT5ZkXKgPk06FfNshGlQYGCy2m9o2NYSGFWBCG3GoGB5gOsqyG5J5nYtrOQENkqTN8U5fI8BEEjvYEg_5z9JsQiaN7TQsOQ?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" alt="Executive Director">
+                            </div>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Logan J.</h5>
+                            <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Executive Director</div>
+                        </div>
+                        <!-- Member 2 -->
+                        <div class="flex flex-col items-center group cursor-pointer reveal delay-100">
+                            <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
+                                <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc1qOy9OoFzNPjfPgDphUt_aLu5Qh4q_A-7JFnjgCXC-CoMTXoPTE1HNx5HkPF3w5OB6W-9DI8_TT3XHy9KyqEpL6HcVHVLqALTTYn5474Qeju_9dELWEBVbc3LlTiRAXU-nBgprpvOoNAmiDX-auBj75QLSzg?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover object-top transition-all duration-700 hover:scale-105" alt="Director of Operations">
+                            </div>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Tarcio S.</h5>
+                            <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Director of Operations</div>
+                        </div>
+                        <!-- Member 3 -->
+                        <div class="flex flex-col items-center group cursor-pointer reveal delay-200">
+                            <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
+                                <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcQkNjeygWljod0Wf1vJ_uLjNH-fpZxEV2ybVraraezR8R-nbrnC9vRb_0Aqcag4I74WVORVpNb02ENXcnDHHmmiwEwop4wxct7pfq_YTipOshMgThIfuqgWAd0ToOzb4hklyV77EKBssY-AQgglap6jvbf3Uc?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" alt="Head of Strategy">
+                            </div>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Monique M.</h5>
+                            <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Head of Strategy</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buffer Layer -->
+            <div class="h-24 bg-brand-gray w-full"></div>
+        </div>
+
+        <!-- ================= PAGE: EMPOWERMENT LAB ================= -->
+        <div id="view-lab" class="page-view">
+            <section class="bg-brand-dark pt-32 md:pt-40 pb-24 px-6 relative overflow-hidden text-center md:text-left">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-screen"></div>
+                <div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-brand-teal-light rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
+                <div class="absolute bottom-[-10%] left-[-5%] w-[30vw] h-[30vw] bg-brand-orange rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
+
+                <div class="max-w-[1920px] mx-auto px-0 lg:px-[10%] relative z-10 reveal">
+                    <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+                        <div>
+                            <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Knowledge Hub</span>
+                            <h1 class="text-4xl md:text-6xl lg:text-[70px] font-extrabold text-white mb-4 leading-tight">Empowerment <span class="text-brand-teal-light italic font-light">Lab</span></h1>
+                            <p class="text-lg text-white/70 max-w-xl font-light">Your central repository for zero-to-low-cost resources, practical tools, step-by-step guides, and direct mentoring access.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="py-20 bg-brand-gray border-t border-gray-200 relative">
+                <!-- FROSTED GLASS COMING SOON OVERLAY -->
+                <div class="absolute inset-0 z-50 backdrop-blur-md bg-brand-gray/60 flex items-center justify-center pointer-events-none">
+                    <div class="bg-brand-navy border-2 border-brand-orange py-6 px-16 rounded-full shadow-2xl transform -rotate-6">
+                        <span class="text-white text-2xl md:text-4xl font-extrabold uppercase tracking-[0.2em]">Launching Soon</span>
+                    </div>
+                </div>
+
+                <div class="max-w-[1920px] mx-auto px-6 lg:px-[10%] relative z-10 opacity-40">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                        
+                        <!-- Featured Toolkit (Spans 2 columns) -->
+                        <div class="col-span-1 lg:col-span-2 bg-gradient-to-br from-brand-navy to-[#1a365d] p-10 md:p-12 rounded-[3rem] shadow-elegant transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-orange opacity-10 rounded-full blur-3xl"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center gap-3 mb-6">
+                                    <span class="bg-brand-orange text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest">Featured Toolkit</span>
+                                </div>
+                                <h4 class="text-3xl md:text-4xl font-extrabold text-white mb-4 pr-10">The Complete 90-Day Formalisation Blueprint</h4>
+                                <p class="text-base text-white/70 mb-10 max-w-xl font-light">From idea to CIPC registered, compliant, and operational. Follow our structured 12-week guide to legitimize your enterprise at near-zero cost.</p>
+                            </div>
+                        </div>
+
+                        <!-- Mentoring (Span 1) -->
+                        <div class="col-span-1 bg-brand-orange p-10 rounded-[3rem] shadow-sm flex flex-col h-full text-white relative overflow-hidden">
+                            <div class="absolute -right-8 -bottom-8 opacity-10">
+                                <i class="ph-fill ph-chalkboard-teacher text-[200px]"></i>
+                            </div>
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div class="w-14 h-14 bg-white/20 text-white rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm">
+                                    <i class="ph-fill ph-calendar-plus text-3xl"></i>
+                                </div>
+                                <h4 class="text-2xl font-extrabold text-white mb-3">1-on-1 Mentorship</h4>
+                                <p class="text-sm text-white/90 mb-8 flex-grow font-light">Stuck on your business plan? Book a free 30-min virtual session with our enterprise experts.</p>
+                            </div>
+                        </div>
+
+                        <!-- Audio/Podcast -->
+                        <div class="col-span-1 bg-white p-8 md:p-10 rounded-[3rem] border border-gray-200 shadow-sm">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center">
+                                    <i class="ph-fill ph-headphones text-3xl"></i>
+                                </div>
+                                <span class="text-brand-text-light text-[10px] font-extrabold px-3 py-1.5 bg-gray-100 rounded-full uppercase tracking-widest">Audio</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-brand-navy mb-3">Founder's Podcast: Overcoming the Funding Gap</h4>
+                            <p class="text-sm text-brand-text-light mb-6 font-light">Listen to real stories from youth entrepreneurs who scaled without initial capital.</p>
+                        </div>
+
+                        <!-- Video -->
+                        <div class="col-span-1 bg-white p-8 md:p-10 rounded-[3rem] border border-gray-200 shadow-sm">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-14 h-14 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center">
+                                    <i class="ph-fill ph-youtube-logo text-3xl"></i>
+                                </div>
+                                <span class="text-brand-text-light text-[10px] font-extrabold px-3 py-1.5 bg-gray-100 rounded-full uppercase tracking-widest">Video</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-brand-navy mb-3">Mobile CIPC Registration Masterclass</h4>
+                            <p class="text-sm text-brand-text-light mb-6 font-light">Watch this quick 5-minute tutorial on registering your business using just your smartphone.</p>
+                        </div>
+
+                        <!-- Template -->
+                        <div class="col-span-1 bg-white p-8 md:p-10 rounded-[3rem] border border-gray-200 shadow-sm">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-14 h-14 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center">
+                                    <i class="ph-fill ph-file-text text-3xl"></i>
+                                </div>
+                                <span class="text-brand-text-light text-[10px] font-extrabold px-3 py-1.5 bg-gray-100 rounded-full uppercase tracking-widest">Template</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-brand-navy mb-3">Corporate Pitch Deck Template</h4>
+                            <p class="text-sm text-brand-text-light mb-6 font-light">A plug-and-play PowerPoint template structured specifically for corporate procurement presentations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE: PRICING (PARTNERSHIPS) ================= -->
+        <div id="view-pricing" class="page-view">
+            <section class="bg-brand-navy pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                <div class="max-w-4xl mx-auto relative z-10 reveal">
+                    <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Investment Tiers</span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">Partnership <span class="text-brand-teal-light italic font-light">Tranches</span></h1>
+                    <p class="text-lg md:text-xl text-white/80 font-light">Support our Foundation through specific intake allocations and strategic corporate sponsorships.</p>
+                </div>
+            </section>
+
+            <section class="py-20 md:py-28 bg-brand-gray border-t border-gray-200">
+                <div class="max-w-[1920px] mx-auto px-6 lg:px-[10%]">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        
+                        <!-- Basic -->
+                        <div class="bg-white p-10 border border-gray-200 flex flex-col h-full reveal shadow-sm hover:shadow-custom transition-shadow rounded-[3rem]">
+                            <div class="text-brand-teal font-extrabold text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2"><i class="ph-fill ph-user"></i> Individual Allocation</div>
+                            <h5 class="text-2xl font-extrabold text-brand-navy mb-2">Startup Engine Intake</h5>
+                            <div class="text-4xl font-extrabold text-brand-navy mb-6">R 1,500 <span class="text-sm text-gray-400 font-normal">/ intake</span></div>
+                            <p class="text-sm mb-8 flex-grow text-brand-text-light font-light">Sponsor capital required to guide one founder through our 6-week technical build.</p>
+                            
+                            <ul class="space-y-4 mb-10 text-sm font-bold">
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Idea Validation Funding</li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Digital Identity Capital</li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Training Subsidies</li>
+                            </ul>
+                            <a onclick="openContactModal()" class="dsm-wobble-horizontal w-full text-center bg-transparent text-brand-navy border-2 border-brand-navy py-4 rounded-full font-extrabold hover:bg-brand-navy hover:text-white transition-colors cursor-pointer uppercase tracking-widest text-[11px]">Commit Funds</a>
+                        </div>
+
+                        <!-- Standard (Highlighted) -->
+                        <div class="bg-brand-navy p-10 border border-brand-navy shadow-elegant flex flex-col h-full transform lg:-translate-y-6 relative reveal delay-100 rounded-[3.5rem] overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-brand-orange text-white font-extrabold text-[10px] uppercase tracking-widest py-3 px-6 rounded-bl-3xl">Primary Mandate</div>
+                            <div class="text-brand-orange font-extrabold text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2 mt-4"><i class="ph-fill ph-star"></i> Institutional Cohort</div>
+                            <h5 class="text-2xl font-extrabold text-white mb-2">Placement Drive</h5>
+                            <div class="text-4xl font-extrabold text-white mb-6">R 15,000 <span class="text-sm text-white/50 font-normal">/ cohort</span></div>
+                            <p class="text-white/80 text-sm mb-8 flex-grow font-light">Fund a 3-month directed application drive for 10 historically disadvantaged work-seekers.</p>
+                            
+                            <ul class="space-y-4 mb-10 text-sm font-bold text-white/90">
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Portfolio Construction</li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Managed Application Drives</li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Recruitment Network Access</li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Audited Placement Reports</li>
+                            </ul>
+                            <a onclick="openContactModal()" class="dsm-wobble-horizontal w-full text-center bg-brand-orange text-white border-2 border-brand-orange py-4 rounded-full font-extrabold hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-widest text-[11px]">Sponsor Cohort</a>
+                        </div>
+
+                        <!-- Premium -->
+                        <div class="bg-white p-10 border border-gray-200 flex flex-col h-full reveal delay-200 shadow-sm hover:shadow-custom transition-shadow rounded-[3rem]">
+                            <div class="text-brand-teal font-extrabold text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2"><i class="ph-fill ph-buildings"></i> Network Partner</div>
+                            <h5 class="text-2xl font-extrabold text-brand-navy mb-2">The Accelerator Audit</h5>
+                            <div class="text-4xl font-extrabold text-brand-navy mb-6">R 5,000 <span class="text-sm text-gray-400 font-normal">/ audit</span></div>
+                            <p class="text-sm mb-8 flex-grow text-brand-text-light font-light">Deploy capital to provide an active informal business with a total formalisation upgrade.</p>
+                            
+                            <ul class="space-y-4 mb-10 text-sm font-bold">
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Business Plan Formulation</li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> CIPC & SARS Filings</li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Commercial Banking Setup</li>
+                            </ul>
+                            <a onclick="openContactModal()" class="dsm-wobble-horizontal w-full text-center bg-transparent text-brand-navy border-2 border-brand-navy py-4 rounded-full font-extrabold hover:bg-brand-navy hover:text-white transition-colors cursor-pointer uppercase tracking-widest text-[11px]">Fund Audit</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-brand-gray text-center px-6 reveal border-t border-gray-300">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-brand-navy text-3xl font-extrabold mb-6">Ready to empower the next generation?</h2>
+                    <a onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-navy text-white py-4 px-10 rounded-full uppercase tracking-widest font-extrabold cursor-pointer hover:bg-brand-orange transition-colors">Become a Partner</a>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE: FAQ ================= -->
+        <div id="view-faq" class="page-view">
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 text-center border-b border-gray-200">
+                <div class="max-w-3xl mx-auto reveal">
+                    <span class="text-brand-teal-light font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Insights</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-brand-navy mb-6">Common <span class="text-brand-orange italic font-light">Inquiries</span></h1>
+                </div>
+            </section>
+
+            <section class="py-20 md:py-24 bg-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <!-- FAQ Tabs -->
+                    <div class="flex justify-center border-b border-gray-200 mb-12 gap-8">
+                        <button onclick="switchFaqTab('faq-tab-1')" id="btn-faq-tab-1" class="faq-tab-btn tab-btn active pb-4 text-[11px] font-extrabold uppercase tracking-[0.2em] text-brand-navy border-brand-teal-light">Methodologies</button>
+                        <button onclick="switchFaqTab('faq-tab-2')" id="btn-faq-tab-2" class="faq-tab-btn tab-btn pb-4 text-[11px] font-extrabold uppercase tracking-[0.2em] text-gray-400">Governance</button>
+                    </div>
+
+                    <!-- Programs FAQ Content -->
+                    <div id="faq-tab-1" class="faq-tab-content active">
+                        <!-- Accordion 1 -->
+                        <div class="faq-accordion border-b border-gray-200 py-6 cursor-pointer" onclick="toggleAccordion(this)">
+                            <div class="flex justify-between items-center group">
+                                <h6 class="text-lg font-extrabold text-brand-navy pr-4 group-hover:text-brand-teal transition-colors">What constitutes the 14-Day Intervention?</h6>
+                                <i class="ph ph-plus text-2xl faq-icon transition-transform text-brand-teal"></i>
+                            </div>
+                            <div class="faq-answer text-sm md:text-base text-brand-text-light leading-relaxed pr-8 font-light">
+                                Direct assistance for historically disadvantaged work-seekers. We provide professional CV architecture reviews, layout evaluations, and rigorous employability coaching completely free of charge to designated community members.
+                            </div>
+                        </div>
+                        <!-- Accordion 2 -->
+                        <div class="faq-accordion border-b border-gray-200 py-6 cursor-pointer" onclick="toggleAccordion(this)">
+                            <div class="flex justify-between items-center group">
+                                <h6 class="text-lg font-extrabold text-brand-navy pr-4 group-hover:text-brand-teal transition-colors">How does the White Label stream function?</h6>
+                                <i class="ph ph-plus text-2xl faq-icon transition-transform text-brand-teal"></i>
+                            </div>
+                            <div class="faq-answer text-sm md:text-base text-brand-text-light leading-relaxed pr-8 font-light">
+                                It generates immediate income channels for individuals lacking proprietary business concepts. Participants broker Digital Identity products while UBF assumes responsibility for technical fulfillment and deployment.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Partnerships FAQ Content -->
+                    <div id="faq-tab-2" class="faq-tab-content">
+                        <!-- Accordion 3 -->
+                        <div class="faq-accordion border-b border-gray-200 py-6 cursor-pointer" onclick="toggleAccordion(this)">
+                            <div class="flex justify-between items-center group">
+                                <h6 class="text-lg font-extrabold text-brand-navy pr-4 group-hover:text-brand-teal transition-colors">How can our institution participate?</h6>
+                                <i class="ph ph-plus text-2xl faq-icon transition-transform text-brand-teal"></i>
+                            </div>
+                            <div class="faq-answer text-sm md:text-base text-brand-text-light leading-relaxed pr-8 font-light">
+                                We bridge affluent institutions with high-potential cohorts. Your organization can allocate grants that empower UBF to execute job preparation and placement initiatives for historically disadvantaged candidates.
+                            </div>
+                        </div>
+                        <!-- Accordion 4 -->
+                        <div class="faq-accordion border-b border-gray-200 py-6 cursor-pointer" onclick="toggleAccordion(this)">
+                            <div class="flex justify-between items-center group">
+                                <h6 class="text-lg font-extrabold text-brand-navy pr-4 group-hover:text-brand-teal transition-colors">Are capital contributions tax-deductible?</h6>
+                                <i class="ph ph-plus text-2xl faq-icon transition-transform text-brand-teal"></i>
+                            </div>
+                            <div class="faq-answer text-sm md:text-base text-brand-text-light leading-relaxed pr-8 font-light">
+                                Affirmative. Unity Bridge Foundation is a registered Non-Profit Organisation (NPO) and Public Benefit Organisation (PBO). Corporate sponsorships and allocations are processed officially to yield tax benefits.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-brand-orange text-center px-6 reveal">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-white text-3xl font-extrabold mb-6">Still have questions?</h2>
+                    <a onclick="openContactModal()" class="dsm-wobble-horizontal bg-transparent border-2 border-white text-white py-3.5 px-10 rounded-full uppercase tracking-widest font-extrabold cursor-pointer hover:bg-white hover:text-brand-orange transition-colors">Reach Out to Us</a>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE: SHOP ================= -->
+        <div id="view-shop" class="page-view">
+            <section class="bg-brand-navy pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                <div class="max-w-4xl mx-auto relative z-10 reveal">
+                    <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Commercial Ecosystem</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Vendor <span class="text-brand-teal-light italic font-light">Network</span></h1>
+                    <p class="text-lg text-white/80 font-light">Procure high-grade operational assets from our curated network of suppliers. Products designed to accelerate business formalisation and enhance work-seeker marketability.</p>
+                </div>
+            </section>
+
+            <section class="py-32 bg-brand-gray border-t border-gray-200 flex items-center justify-center">
+                <div class="text-center reveal">
+                    <div class="w-24 h-24 bg-brand-orange/20 text-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ph-fill ph-storefront text-5xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-4">Store Opening Soon</h2>
+                    <p class="text-brand-text-light text-lg">We are currently curating our vendor network to bring you the best operational assets.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: PRESENTATION (HIDDEN) ================= -->
+        <div id="view-presentation" class="page-view">
+            
+            <div class="pres-progress-indicator" id="pres-progress">Slide 1 / 7</div>
+            
+            <div class="pres-controls">
+                <button class="pres-control-btn" onclick="changeSlide(-1)" title="Previous Slide"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="pres-control-btn" onclick="changeSlide(1)" title="Next Slide"><i class="fa-solid fa-arrow-right"></i></button>
+                <button class="pres-control-btn" style="background:#e11d48; margin-left: 10px;" onclick="switchPage('home')" title="Close Presentation"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Slide 1: Title -->
+            <div class="pres-slide active" id="pres-slide-1">
+                <div class="pres-slide-content pres-title-hero">
+                    <div class="pres-header-bar"></div>
+                    <div class="p-12 flex flex-col items-center justify-center h-full text-center">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVAjhn2f4Q9faqA4fVUJdUxDvqi4-RZFTdMNOwVrn7Qy5fVBxXPCtmYU1goEA9VONRmVSe0yBdpj-qZLRxhY0wE5Gu8hdSOVKNizDPh-8WYvc0vQxtC6wOP-AOmCBIVIT0WHVFel9uxRNCAHzRlWq2EY7_hPodc2guHNnVfdvESjDCUOMDZdAwkh4vpc4/s320/4b3833b3-83b3-4fa9-b48d-5ef03566c492.png" alt="UBF Logo" class="w-64 mb-8 bg-white p-4 rounded-xl">
+                        <h1 class="text-4xl font-bold mb-4 uppercase tracking-wider" style="color:white; letter-spacing: normal;">Unity Bridge Foundation SA</h1>
+                        <h2 class="text-2xl mb-8 opacity-90" style="color:white; letter-spacing: normal;">A School-Based Bio-Education and Sustainable Honeybush Harvesting Pilot Project</h2>
+                        <div class="h-1 w-24 bg-white mb-8"></div>
+                        <p class="text-xl max-w-2xl text-white">Presentation of Expression of Interest (EOI) for UNDP / GEF-6 DFFE Honeybush Small Grant</p>
+                        <p class="mt-12 text-sm uppercase tracking-widest opacity-75 text-white">May 2026 • Cape Town, South Africa</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Who We Are -->
+            <div class="pres-slide" id="pres-slide-2">
+                <div class="pres-slide-content">
+                    <div class="pres-header-bar"></div>
+                    <div class="p-12 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <h2 class="text-3xl font-bold text-slate-800 border-l-4 border-teal-500 pl-4" style="color:#1e293b; letter-spacing:normal;">Who is Unity Bridge Foundation SA?</h2>
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVAjhn2f4Q9faqA4fVUJdUxDvqi4-RZFTdMNOwVrn7Qy5fVBxXPCtmYU1goEA9VONRmVSe0yBdpj-qZLRxhY0wE5Gu8hdSOVKNizDPh-8WYvc0vQxtC6wOP-AOmCBIVIT0WHVFel9uxRNCAHzRlWq2EY7_hPodc2guHNnVfdvESjDCUOMDZdAwkh4vpc4/s320/4b3833b3-83b3-4fa9-b48d-5ef03566c492.png" class="h-12">
+                        </div>
+                        <div class="grid grid-cols-2 gap-12 flex-grow items-center">
+                            <div>
+                                <div class="pres-bullet-point">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <p class="text-lg">Based in <strong>Grassy Park</strong> and <strong>Lotus River</strong> communities, City of Cape Town.</p>
+                                </div>
+                                <div class="pres-bullet-point">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <p class="text-lg">Established and founded in <strong>January 2025</strong>.</p>
+                                </div>
+                                <div class="pres-bullet-point">
+                                    <i class="fas fa-handshake"></i>
+                                    <p class="text-lg">An emerging-NPO evolving through <strong>strategic partnerships</strong> to respond to the needs of our residents.</p>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-teal-100 italic text-slate-600 shadow-inner">
+                                "UBF SA exists to bridge the gap between talent, opportunity, small businesses, and the environment."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Vision & Mission -->
+            <div class="pres-slide" id="pres-slide-3">
+                <div class="pres-slide-content">
+                    <div class="pres-header-bar"></div>
+                    <div class="p-12 h-full flex flex-col">
+                        <h2 class="text-3xl font-bold text-slate-800 border-l-4 border-teal-500 pl-4 mb-12" style="color:#1e293b; letter-spacing:normal;">Vision and Mission</h2>
+                        <div class="grid grid-cols-3 gap-8">
+                            <div class="bg-white border p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                                <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
+                                    <i class="fas fa-seedling text-2xl"></i>
+                                </div>
+                                <h3 class="font-bold text-xl mb-3 text-slate-800" style="color:#1e293b; letter-spacing:normal;">Sustainable SDGs</h3>
+                                <p class="text-slate-600">Empowering young people and job seekers through initiatives that uphold Global Sustainable Development Goals.</p>
+                            </div>
+                            <div class="bg-white border p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+                                    <i class="fas fa-chart-line text-2xl"></i>
+                                </div>
+                                <h3 class="font-bold text-xl mb-3 text-slate-800" style="color:#1e293b; letter-spacing:normal;">Green Economy</h3>
+                                <p class="text-slate-600">Positioning work seekers and small businesses within the future Green Economy of South Africa.</p>
+                            </div>
+                            <div class="bg-white border p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                                <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-4">
+                                    <i class="fas fa-hands-helping text-2xl"></i>
+                                </div>
+                                <h3 class="font-bold text-xl mb-3 text-slate-800" style="color:#1e293b; letter-spacing:normal;">Ethical Leadership</h3>
+                                <p class="text-slate-600">Cultivating ethical community and economic leadership to protect agricultural and environmental heritage.</p>
+                            </div>
+                        </div>
+                        <div class="mt-auto bg-slate-900 text-white p-8 rounded-xl flex items-center">
+                            <i class="fas fa-quote-left text-3xl text-teal-400 mr-6"></i>
+                            <p class="text-xl text-white">Creating environmentally responsible and sustainable pathways to work, dignity, and shared prosperity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Problem Statement -->
+            <div class="pres-slide" id="pres-slide-4">
+                <div class="pres-slide-content">
+                    <div class="pres-header-bar"></div>
+                    <div class="p-12 h-full flex flex-col">
+                        <h2 class="text-3xl font-bold text-slate-800 border-l-4 border-teal-500 pl-4 mb-8" style="color:#1e293b; letter-spacing:normal;">Problem Statement</h2>
+                        <div class="grid grid-cols-2 gap-12 flex-grow">
+                            <div class="space-y-6">
+                                <div class="p-6 bg-red-50 rounded-xl border-l-4 border-red-500">
+                                    <h3 class="font-bold text-red-800 mb-2" style="letter-spacing:normal;">Limited Connection</h3>
+                                    <p class="text-red-700">Lack of connection to Fynbos conservation areas (Princess Vlei, Rondevlei) among youth and unemployed.</p>
+                                </div>
+                                <div class="p-6 bg-amber-50 rounded-xl border-l-4 border-amber-500">
+                                    <h3 class="font-bold text-amber-800 mb-2" style="letter-spacing:normal;">Knowledge Gap</h3>
+                                    <p class="text-amber-700">Limited awareness of Sustainable Harvesting Guidelines for Honeybush species in the Cape Metro.</p>
+                                </div>
+                                <div class="p-6 bg-slate-100 rounded-xl border-l-4 border-slate-500">
+                                    <h3 class="font-bold text-slate-800 mb-2" style="letter-spacing:normal;">Heritage Loss</h3>
+                                    <p class="text-slate-700">Loss of agricultural and environmental heritage and lack of economic opportunity.</p>
+                                </div>
+                            </div>
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/40 flex items-end p-8">
+                                    <p class="text-white font-semibold text-lg">Reconnecting community and economic opportunity to environmental heritage.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: The Pilot Plan -->
+            <div class="pres-slide" id="pres-slide-5">
+                <div class="pres-slide-content overflow-y-auto">
+                    <div class="pres-header-bar"></div>
+                    <div class="p-8 h-full flex flex-col items-center">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-4" style="color:#1e293b; letter-spacing:normal;">Honeybush Small Grant Pilot Plan</h2>
+                        <p class="text-teal-600 font-bold mb-6">Investment Area 1: Sustainable Harvesting Training • ZAR 300,000</p>
+                        
+                        <div class="grid grid-cols-4 gap-4 w-full text-sm">
+                            <div class="bg-green-700 text-white p-4 rounded-lg">
+                                <span class="block font-bold mb-2">PHASE 1</span>
+                                <span class="block text-xs mb-4">June - July 2026</span>
+                                <ul class="space-y-1 list-disc pl-4 text-white">
+                                    <li>Formalize Partnerships</li>
+                                    <li>Targeting Vulnerable Groups</li>
+                                    <li>Establish FPIC</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-800 text-white p-4 rounded-lg">
+                                <span class="block font-bold mb-2">PHASE 2</span>
+                                <span class="block text-xs mb-4">Aug - Sept 2026</span>
+                                <ul class="space-y-1 list-disc pl-4 text-white">
+                                    <li>Honeybush Introduction</li>
+                                    <li>Guidelines Overview</li>
+                                    <li>Field Awareness</li>
+                                </ul>
+                            </div>
+                            <div class="bg-teal-700 text-white p-4 rounded-lg">
+                                <span class="block font-bold mb-2">PHASE 3</span>
+                                <span class="block text-xs mb-4">Oct - Nov 2026</span>
+                                <ul class="space-y-1 list-disc pl-4 text-white">
+                                    <li>Harvesting Techniques</li>
+                                    <li>Legal Frameworks</li>
+                                    <li>Ethical Stewardship</li>
+                                </ul>
+                            </div>
+                            <div class="bg-emerald-800 text-white p-4 rounded-lg">
+                                <span class="block font-bold mb-2">PHASE 4</span>
+                                <span class="block text-xs mb-4">Dec 2026 - Mar 2027</span>
+                                <ul class="space-y-1 list-disc pl-4 text-white">
+                                    <li>Practical Workshops</li>
+                                    <li>Knowledge Assessment</li>
+                                    <li>Certification</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-8 mt-12 w-full">
+                            <div class="flex items-center space-x-4 bg-slate-50 p-4 rounded-xl border shadow-sm">
+                                <div class="text-3xl text-teal-600 font-bold">25</div>
+                                <div class="text-slate-600 text-xs">Honeybush Stewards Professionalized</div>
+                            </div>
+                            <div class="flex items-center space-x-4 bg-slate-50 p-4 rounded-xl border shadow-sm">
+                                <div class="text-3xl text-teal-600 font-bold">1,500+</div>
+                                <div class="text-slate-600 text-xs">Learners Impacted Through Outreach</div>
+                            </div>
+                            <div class="flex items-center space-x-4 bg-slate-50 p-4 rounded-xl border shadow-sm">
+                                <div class="text-3xl text-teal-600 font-bold">30%</div>
+                                <div class="text-slate-600 text-xs">Allocated to Personnel & Human Resources</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Strategic Partners -->
+            <div class="pres-slide" id="pres-slide-6">
+                <div class="pres-slide-content">
+                    <div class="pres-header-bar"></div>
+                    <div class="p-12 h-full flex flex-col">
+                        <h2 class="text-3xl font-bold text-slate-800 border-l-4 border-teal-500 pl-4 mb-8" style="color:#1e293b; letter-spacing:normal;">Strategic Partners</h2>
+                        <div class="grid grid-cols-2 gap-8 flex-grow">
+                            <div class="bg-slate-50 p-8 rounded-2xl">
+                                <h3 class="text-xl font-bold text-blue-900 mb-6 flex items-center" style="letter-spacing:normal;">
+                                    <i class="fas fa-school mr-3"></i> Kannemeyer Primary School
+                                </h3>
+                                <p class="text-slate-700 mb-4">Workshop Site and learning corridor to adjacent Fynbos conservation sites.</p>
+                                <div class="text-sm bg-white p-3 rounded shadow-sm">
+                                    <strong>POCs:</strong> Principal & designated Heads of Department
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 p-8 rounded-2xl">
+                                <h3 class="text-xl font-bold text-blue-900 mb-6 flex items-center" style="letter-spacing:normal;">
+                                    <i class="fas fa-microscope mr-3"></i> Cape Flats Fynbos Nursery
+                                </h3>
+                                <p class="text-slate-700 mb-4">Technical expertise and botanical guidance for sustainable harvesting.</p>
+                                <div class="text-sm bg-white p-3 rounded shadow-sm">
+                                    <strong>Specialist:</strong> Dr. Caitlin von Witt (Botanist)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex flex-wrap gap-4 justify-center">
+                            <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full border border-teal-200 text-sm font-semibold">Ward 65 Endorsement</span>
+                            <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full border border-teal-200 text-sm font-semibold">SANBI Kirstenbosch</span>
+                            <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full border border-teal-200 text-sm font-semibold">Princess Vlei Forum</span>
+                            <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full border border-teal-200 text-sm font-semibold">CCT Biodiversity Dept</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Conclusion -->
+            <div class="pres-slide" id="pres-slide-7">
+                <div class="pres-slide-content pres-title-hero">
+                    <div class="pres-header-bar"></div>
+                    <div class="p-12 h-full flex flex-col items-center justify-center text-center">
+                        <i class="fas fa-seedling text-6xl text-teal-400 mb-8"></i>
+                        <h2 class="text-4xl font-bold mb-6" style="color:white; letter-spacing:normal;">Bridging the Gap</h2>
+                        <p class="text-2xl max-w-3xl leading-relaxed mb-12 text-white">
+                            "Creating sustainable livelihoods through biodiversity education. Enabling historically disadvantaged communities to meaningfully participate in the value chain of a heritage and endangered plant species."
+                        </p>
+                        <div class="h-1 w-32 bg-teal-400 mb-12"></div>
+                        <h3 class="text-xl font-semibold uppercase tracking-widest text-white">Unity Bridge Foundation SA</h3>
+                        <p class="mt-4 opacity-75 text-white">Thank you for your consideration</p>
+                        
+                        <div class="mt-12 flex space-x-8 text-white">
+                            <div class="flex items-center"><i class="fas fa-globe mr-2"></i> Grassy Park, Cape Town</div>
+                            <div class="flex items-center"><i class="fas fa-handshake mr-2"></i> UBF SA EOI Presentation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= LEGAL PAGES ================= -->
+        <div id="view-privacy" class="page-view">
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 border-b border-gray-200">
+                <div class="max-w-4xl mx-auto reveal text-center">
+                    <span class="text-brand-teal-light font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Legal</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6">Privacy Policy</h1>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-3xl mx-auto px-6 text-brand-text-light font-light leading-relaxed space-y-6">
+                    <p>At Unity Bridge Foundation, we take your privacy seriously. This Privacy Policy outlines our commitment to protecting the personal information you provide to us.</p>
+                    <h3 class="text-xl font-bold text-brand-navy mt-8">Data Collection</h3>
+                    <p>We collect information you voluntarily provide when registering for events, making donations, or utilizing our forms. This may include your name, email address, phone number, and organization details.</p>
+                    <h3 class="text-xl font-bold text-brand-navy mt-8">How We Use Your Data</h3>
+                    <p>The information we collect is strictly used to facilitate program deployments, communicate institutional updates, process charitable donations, and provide you with required tax certificates.</p>
+                    <p class="pt-8 text-sm italic">For full detailed disclosures, please contact our administrative office.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-popi" class="page-view">
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 border-b border-gray-200">
+                <div class="max-w-4xl mx-auto reveal text-center">
+                    <span class="text-brand-teal-light font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Legal</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6">POPI Act Compliance</h1>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-3xl mx-auto px-6 text-brand-text-light font-light leading-relaxed space-y-6">
+                    <p>Unity Bridge Foundation adheres strictly to the Protection of Personal Information Act (POPIA) of South Africa.</p>
+                    <h3 class="text-xl font-bold text-brand-navy mt-8">Your Rights</h3>
+                    <p>As a data subject, you have the right to request access to the personal information we hold about you. You also have the right to ask us to update, correct or delete your personal information.</p>
+                    <h3 class="text-xl font-bold text-brand-navy mt-8">Data Security</h3>
+                    <p>We are legally obligated to provide adequate protection for the personal information we hold and to stop unauthorized access and use of personal information. We continually review our security controls and related processes to ensure your personal information remains secure.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-terms" class="page-view">
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 border-b border-gray-200">
+                <div class="max-w-4xl mx-auto reveal text-center">
+                    <span class="text-brand-teal-light font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Legal</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6">Terms of Engagement</h1>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-3xl mx-auto px-6 text-brand-text-light font-light leading-relaxed space-y-6">
+                    <p>By interacting with the Unity Bridge Foundation, either as a work-seeker, entrepreneur, or corporate partner, you agree to the following terms of engagement.</p>
+                    <h3 class="text-xl font-bold text-brand-navy mt-8">Service Limitations</h3>
+                    <p>While UBF provides extensive frameworks and educational material, we do not guarantee specific financial outcomes, job placements, or tender acquisitions. Success is dependent on the participant's execution.</p>
+                    <h3 class="text-xl font-bold text-brand-navy mt-8">Code of Conduct</h3>
+                    <p>All participants and partners are expected to engage in a professional, respectful manner. UBF reserves the right to terminate any mentorship or funding program if a participant breaches our institutional code of conduct.</p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-brand-dark pt-20 md:pt-28 pb-10 px-6 sm:px-8 lg:px-[10%] relative overflow-hidden border-t border-white/5">
+        <!-- Background Image for Footer -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/31635958/pexels-photo-31635958.jpeg" class="w-full h-full object-cover opacity-40" alt="Footer Background">
+        </div>
+        <div id="join" class="absolute -top-[20px] opacity-0"></div>
+        <div class="max-w-[1920px] mx-auto relative z-10">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 border-b border-white/10 pb-16 mb-10 reveal">
+                
+                <!-- Branding & Registration -->
+                <div class="md:col-span-12 lg:col-span-5 flex flex-col gap-8">
+                    <div class="flex items-center gap-4">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVAjhn2f4Q9faqA4fVUJdUxDvqi4-RZFTdMNOwVrn7Qy5fVBxXPCtmYU1goEA9VONRmVSe0yBdpj-qZLRxhY0wE5Gu8hdSOVKNizDPh-8WYvc0vQxtC6wOP-AOmCBIVIT0WHVFel9uxRNCAHzRlWq2EY7_hPodc2guHNnVfdvESjDCUOMDZdAwkh4vpc4/s320/4b3833b3-83b3-4fa9-b48d-5ef03566c492.png" alt="Unity Bridge Foundation Logo" class="h-20 md:h-24 w-auto object-contain">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-xl md:text-2xl text-white leading-tight uppercase tracking-[0.05em] md:tracking-[0.1em]">UNITY BRIDGE FOUNDATION</span>
+                            <span class="font-extrabold text-xs md:text-sm text-brand-orange uppercase tracking-[0.2em] mt-1">South Africa</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-white/80 text-[15px] leading-relaxed font-bold">
+                        Execute your corporate mandate alongside proven infrastructure. We exist to drive sustainable employment opportunities and accelerate enterprise formalisation.
+                    </p>
+
+                    <div class="bg-white/5 p-6 border border-white/10 mt-2 rounded-[2.5rem] backdrop-blur-sm">
+                        <h5 class="text-brand-orange text-[12px] uppercase tracking-widest font-bold mb-4">Statutory Registration</h5>
+                        <div class="space-y-3 text-white/90 text-[13px] font-mono">
+                            <p class="flex justify-between items-center border-b border-white/10 pb-2"><span class="font-sans">NPO Reg No:</span> <strong>317-103-NPO</strong></p>
+                            <p class="flex justify-between items-center border-b border-white/10 pb-2"><span class="font-sans">Tax Payer Ref:</span> <strong>9792761190</strong></p>
+                            <p class="text-[11px] text-white/60 pt-2 font-sans italic">Registered to issue statutory certifications for tax and compliance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="md:col-span-6 lg:col-span-3 flex flex-col">
+                    <h4 class="text-xs text-brand-orange font-bold mb-6 uppercase tracking-[0.2em]">Directory</h4>
+                    <div class="flex flex-col gap-4 font-bold">
+                        <a onclick="switchPage('home')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Overview</a>
+                        <a onclick="switchPage('services')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Strategies</a>
+                        <a onclick="switchPage('how')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Methodology</a>
+                        <a onclick="switchPage('lab')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">The Lab</a>
+                        <a onclick="switchPage('pricing')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Partnerships</a>
+                        <a onclick="switchPage('shop')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Vendor Network</a>
+                        <a onclick="switchPage('faq')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Insights</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter & Socials -->
+                <div class="md:col-span-6 lg:col-span-4 flex flex-col">
+                    <h4 class="text-xs text-brand-orange font-bold mb-6 uppercase tracking-[0.2em]">Join the Network</h4>
+                    <p class="text-white/80 text-[14px] leading-relaxed mb-6 font-bold">Subscribe to receive updates on our impact reports, new vendor additions, and volunteer opportunities.</p>
+                    
+                    <form class="flex w-full bg-brand-navy/60 border border-white/20 focus-within:border-brand-teal-light transition-colors mb-10 rounded-full overflow-hidden backdrop-blur-md">
+                        <input type="email" placeholder="Corporate Email Address" required class="bg-transparent border-none outline-none text-white px-6 py-3 w-full text-sm placeholder-white/50 font-bold">
+                        <button type="submit" class="bg-brand-orange text-white px-6 font-extrabold text-xs uppercase tracking-widest hover:bg-brand-teal transition-colors">Subscribe</button>
+                    </form>
+                    
+                    <h4 class="text-xs text-brand-orange font-bold mb-6 uppercase tracking-[0.2em]">Connect</h4>
+                    <div class="flex gap-3">
+                        <a href="https://www.facebook.com/share/1BMWfhqMxA/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-teal transition-all">
+                            <i class="ph-fill ph-facebook-logo text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/unitybridge_foundationsa?igsh=czR5dzY2MTlkeHFj&utm_source=qr" target="_blank" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-teal transition-all">
+                            <i class="ph-fill ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@unitybridge_foundationsa" target="_blank" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-teal transition-all">
+                            <i class="ph-fill ph-tiktok-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 reveal delay-100 text-center md:text-left">
+                <p class="text-white/60 font-bold text-[13px] m-0">
+                    &copy; 2026 Unity Bridge Foundation. All Rights Reserved.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6 text-[13px] items-center">
+                    <a onclick="switchPage('privacy')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Privacy Policy</a>
+                    <a onclick="switchPage('popi')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">POPI Act</a>
+                    <a onclick="switchPage('terms')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Terms of Engagement</a>
+                    <!-- HIDDEN PRESENTATION BUTTON -->
+                    <a onclick="switchPage('presentation')" class="text-white/30 hover:text-white font-bold transition-colors cursor-pointer text-[11px] ml-4">Presentation</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:text-right border-t border-white/10 pt-6">
+                <p class="text-white/60 text-[11px] font-bold">
+                    Designed & Developed by <a href="https://www.silvestre.co.za" target="_blank" class="text-brand-orange hover:text-white transition-colors font-extrabold tracking-widest uppercase">Silvestre Solutions</a>
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Router Logic (Single File Multi-Page)
+        function switchPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Show target page
+            document.getElementById('view-' + pageId).classList.add('active');
+            
+            // Update Nav Links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active', 'text-brand-orange');
+                link.classList.add('text-brand-text');
+            });
+            const activeLink = document.getElementById('nav-' + pageId);
+            if(activeLink) {
+                activeLink.classList.add('active', 'text-brand-orange');
+                activeLink.classList.remove('text-brand-text');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'auto' });
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(!mobileMenu.classList.contains('translate-x-full')) {
+                toggleMobileMenu();
+            }
+            
+            // Trigger reveals
+            setTimeout(observeReveals, 100);
+
+            // Trigger presentation logic if presentation page is opened
+            if(pageId === 'presentation') {
+                currentSlide = 1;
+                updatePresentation();
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
+            if (!menu.classList.contains('translate-x-full')) {
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                document.body.style.overflow = ''; 
+            }
+        }
+
+        // Contact Modal Logic
+        function openContactModal() {
+            const modal = document.getElementById('contact-modal');
+            const content = document.getElementById('contact-modal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contact-modal');
+            const content = document.getElementById('contact-modal-content');
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Action Modal Logic (Volunteer / Donor)
+        function openActionModal(title) {
+            document.getElementById('action-modal-title').innerText = title;
+            const modal = document.getElementById('action-modal');
+            const content = document.getElementById('action-modal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeActionModal() {
+            const modal = document.getElementById('action-modal');
+            const content = document.getElementById('action-modal-content');
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        function submitAction(method) {
+            const name = document.getElementById('action-name').value;
+            const msg = document.getElementById('action-message').value;
+            const subject = document.getElementById('action-modal-title').innerText;
+            
+            if(!name || !msg) {
+                alert("Please fill in your name and message.");
+                return;
+            }
+
+            const text = `Hi, my name is ${name}. I am reaching out regarding: ${subject}. ${msg}`;
+            
+            if(method === 'whatsapp') {
+                window.open(`https://wa.me/27839410276?text=${encodeURIComponent(text)}`, '_blank');
+            } else {
+                window.location.href = `mailto:admin@unitybridge-foundation.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+            }
+            closeActionModal();
+        }
+
+        // FAQ Tabs Toggle
+        function switchFaqTab(tabId) {
+            document.querySelectorAll('.faq-tab-content').forEach(content => {
+                content.classList.remove('active');
+                content.classList.add('hidden');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById(tabId).classList.add('active');
+            }, 10);
+
+            document.querySelectorAll('.faq-tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'text-brand-navy', 'border-brand-teal-light');
+                btn.classList.add('text-gray-400', 'border-transparent');
+            });
+            const targetBtn = document.getElementById('btn-' + tabId);
+            targetBtn.classList.add('active', 'text-brand-navy', 'border-brand-teal-light');
+            targetBtn.classList.remove('text-gray-400', 'border-transparent');
+        }
+
+        // Accordion Toggle
+        function toggleAccordion(element) {
+            element.classList.toggle('active');
+        }
+
+        // Scroll Reveal Intersection Observer
+        function observeReveals() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
+        }
+        
+        // Solidify Navbar on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if(window.scrollY > 50) {
+                nav.classList.add('py-2'); 
+            } else {
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // Presentation Specific Logic
+        let currentSlide = 1;
+        const totalSlides = 7; 
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 1) currentSlide = 1;
+            if (currentSlide > totalSlides) currentSlide = totalSlides;
+            updatePresentation();
+        }
+
+        function updatePresentation() {
+            // Hide all slides
+            const slides = document.querySelectorAll('.pres-slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Show the active one
+            const activeSlide = document.getElementById('pres-slide-' + currentSlide);
+            if(activeSlide) {
+                activeSlide.classList.add('active');
+                
+                // Trigger animations
+                const animElements = activeSlide.querySelectorAll('.pres-slide-content > *');
+                animElements.forEach((el, index) => {
+                    el.style.animationDelay = `${index * 0.1}s`;
+                    el.classList.remove('pres-animate-in');
+                    void el.offsetWidth; // Trigger reflow
+                    el.classList.add('pres-animate-in');
+                });
+            }
+            
+            // Update counter
+            document.getElementById('pres-progress').innerText = `Slide ${currentSlide} / ${totalSlides}`;
+        }
+
+        // Keyboard navigation for presentation
+        document.addEventListener('keydown', (e) => {
+            // Only trigger if presentation view is active
+            if(document.getElementById('view-presentation').classList.contains('active')) {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    changeSlide(1);
+                } else if (e.key === 'ArrowLeft') {
+                    changeSlide(-1);
+                }
+            }
+        });
+
+        // Initialize logic on load
+        document.addEventListener('DOMContentLoaded', () => {
+            observeReveals();
+        });
+    </script>
+</body>
+</html>
