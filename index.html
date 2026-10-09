@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <title>Unity Bridge Foundation South Africa | Local Talent, Opportunity & Enterprise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Unity Bridge Foundation South Africa connects local talent, opportunity and enterprise through small-business support, work pathways and community-based environmental learning.">
+    <meta name="theme-color" content="#112240">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <meta property="og:title" content="Unity Bridge Foundation South Africa">
+    <meta property="og:description" content="Connecting local talent, opportunity and enterprise.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!-- Presentation Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'Helvetica', 'Arial', 'sans-serif'],
+                        handwriting: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        // Elegant, Sophisticated Palette
+                        'brand-navy': '#112240',      // Deep Oxford Blue
+                        'brand-dark': '#0a1629',      // Midnight Blue
+                        'brand-teal': '#2c5f53',      // Elegant Forest/Emerald
+                        'brand-teal-light': '#5e9485',// Muted Sage
+                        'brand-orange': '#cda34f',    // Champagne Gold
+                        'brand-coral': '#d4af37',     // Rich Gold
+                        'brand-cyan': '#8bb8b1',      // Soft Celadon
+                        'brand-text': '#2b3440',
+                        'brand-text-light': '#596575',
+                        'brand-gray': '#f8f9fa',
+                        'brand-gray-dark': '#eaedf0'
+                    },
+                    borderRadius: {
+                        'sm': '1rem',
+                        DEFAULT: '1.5rem',
+                        'md': '2rem',
+                        'lg': '2.5rem',
+                        'xl': '3rem',
+                        '2xl': '3.5rem',
+                        '3xl': '4rem',
+                        'sweep': '9vw',
+                        'sweep-lg': '15vw',
+                        'sweep-xl': '22vw'
+                    },
+                    boxShadow: {
+                        'custom': '0px 4px 20px 0px rgba(0,0,0,0.06)',
+                        'custom-hover': '0px 12px 30px -5px rgba(0,0,0,0.12)',
+                        'elegant': '0px 20px 40px -10px rgba(17, 34, 64, 0.15)',
+                        'glow': '0px 0px 20px 0px rgba(7, 200, 163, 0.3)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            -webkit-font-smoothing: antialiased; 
+            color: #596575; 
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #2b3440;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 12px; background-color: #f8f9fa; }
+        ::-webkit-scrollbar-track { border-radius: 50px; }
+        ::-webkit-scrollbar-thumb { background-color: #cda34f; border-radius: 50px; border: 3px solid #f8f9fa; }
+
+        /* SPA View Transitions */
+        .page-view {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .page-view.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Nav Link Animation */
+        .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 50%;
+            background-color: #cda34f;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Wobbly Button Animation */
+        .dsm-wobble-horizontal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px transparent;
+            transition: all 0.3s ease-in-out;
+        }
+        .dsm-wobble-horizontal:hover {
+            animation-name: wobble-horizontal;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes wobble-horizontal {
+            16.65% { transform: translateX(6px); }
+            33.3% { transform: translateX(-5px); }
+            49.95% { transform: translateX(4px); }
+            66.6% { transform: translateX(-2px); }
+            83.25% { transform: translateX(1px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Accordion & Tabs */
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tab-content.active { display: block; }
+        .tab-btn { border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+        .tab-btn.active { border-color: #cda34f; color: #112240 !important; }
+        
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; opacity: 0; }
+        .faq-accordion.active .faq-answer { max-height: 600px; opacity: 1; margin-top: 1rem; }
+        .faq-accordion.active .faq-icon { transform: rotate(45deg); color: #cda34f; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Hide scrollbar for carousels */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom Theme Variables */
+        :root {
+            --primary: #112240;
+            --secondary: #cda34f;
+            --surface-dim: #f8f9fa;
+            --outline-variant: #eaedf0;
+        }
+
+        .text-shadow-strong {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.6);
+        }
+
+        /* ==========================================================================
+           PRESENTATION STYLES (SCOPED)
+           ========================================================================== */
+        #view-presentation {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: #f3f4f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .pres-slide {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            padding: 2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .pres-slide.active {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+        }
+
+        .pres-slide-content {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pres-header-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #3AA89B, #1A4B6E);
+            flex-shrink: 0;
+        }
+
+        .pres-controls {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .pres-control-btn {
+            background: #1A4B6E;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: none;
+            outline: none;
+        }
+
+        .pres-control-btn:hover {
+            background: #3AA89B;
+            transform: scale(1.1);
+        }
+
+        .pres-progress-indicator {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            color: #1A4B6E;
+            font-weight: bold;
+            font-size: 1.1rem;
+            z-index: 100;
+        }
+
+        .pres-bullet-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .pres-bullet-point i {
+            color: #3AA89B;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .pres-title-hero {
+            background: linear-gradient(rgba(26, 75, 110, 0.9), rgba(26, 75, 110, 0.9)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80');
+            background-size: cover;
+            color: white;
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pres-animate-in {
+            animation: fadeInSlide 0.6s ease-out forwards;
+        }
+    
+        /* Refined responsive and accessibility layer */
+        html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+        body { overflow-x: hidden; }
+        #main-nav { min-height: 82px; height: 82px; }
+        #main-nav a.group span:first-child { font-size: clamp(.78rem, 1.7vw, 1.35rem) !important; letter-spacing: .035em !important; line-height: 1.15 !important; }
+        #main-nav a.group span:nth-child(2) { font-size: .65rem !important; letter-spacing: .15em !important; }
+        #app-root h1 { font-size: clamp(1.9rem, 4.7vw, 3.25rem) !important; line-height: 1.13 !important; }
+        #app-root #hero-title { font-size: clamp(2.2rem, 5.7vw, 4.3rem) !important; line-height: 1.08 !important; }
+        #app-root h2 { font-size: clamp(1.3rem, 3vw, 2rem) !important; line-height: 1.25 !important; }
+        #app-root h3 { font-size: clamp(1.15rem, 2.3vw, 1.55rem) !important; line-height: 1.3 !important; }
+        #app-root h4, #app-root h5, #app-root h6 { line-height: 1.35 !important; }
+        #app-root p { line-height: 1.65; }
+        .dsm-wobble-horizontal { min-height: 44px; padding: .72rem 1.1rem !important; font-size: .76rem !important; letter-spacing: .055em !important; line-height: 1.25 !important; box-shadow: none !important; white-space: normal; text-align: center; }
+        button, input, select, textarea { font: inherit; }
+        button { min-height: 44px; cursor: pointer; }
+        .form-label { display: block; margin-bottom: .35rem; color: #112240; font-size: .82rem; font-weight: 700; line-height: 1.45; }
+        .form-control { display: block; width: 100%; min-height: 44px; border: 1px solid #cbd5e1; border-radius: .7rem; background: #fff; padding: .7rem .8rem; color: #112240; font-size: 16px; }
+        .form-control:focus { outline: 3px solid rgba(44,95,83,.22); border-color: #2c5f53; }
+        .check-label { display: flex; align-items: flex-start; gap: .6rem; color: #596575; font-size: .8rem; line-height: 1.5; }
+        .check-label input { width: 18px; height: 18px; flex-shrink: 0; margin-top: .1rem; accent-color: #2c5f53; }
+        .faq-item { border: 1px solid #e2e8f0; border-radius: .85rem; padding: 1rem 1.1rem; }
+        .faq-item summary { cursor: pointer; color: #112240; font-weight: 750; padding-right: .5rem; }
+        .faq-item summary::marker { color: #2c5f53; }
+        .faq-item p { margin-top: .8rem; color: #596575; font-size: .9rem; line-height: 1.65; }
+        .legal-copy { color: #596575; font-size: .95rem; line-height: 1.7; }
+        .legal-copy h2 { color: #112240; font-size: 1.2rem; font-weight: 800; margin: 1.65rem 0 .5rem; }
+        .legal-copy p { margin-bottom: .9rem; }
+        .legal-copy ul { list-style: disc; padding-left: 1.3rem; margin: .5rem 0 1rem; }
+        .legal-copy li { margin-bottom: .4rem; }
+        .skip-link { position: absolute; left: .75rem; top: .5rem; z-index: 10000; transform: translateY(-160%); background: #fff; color: #112240; border: 2px solid #2c5f53; border-radius: .5rem; padding: .7rem 1rem; font-weight: 800; }
+        .skip-link:focus { transform: translateY(0); }
+        a[role="button"], a[role="link"] { cursor: pointer; }
+        a[role="button"]:focus-visible, a[role="link"]:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #cda34f; outline-offset: 3px; }
+        .third-party-notice { position: fixed; z-index: 90; left: 1rem; right: 1rem; bottom: 1rem; max-width: 850px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid #dbe2e8; border-radius: .9rem; background: rgba(255,255,255,.97); color: #334155; box-shadow: 0 8px 30px rgba(15,23,42,.14); font-size: .78rem; }
+        .third-party-notice p { margin: 0; line-height: 1.5; }
+        .third-party-notice button { flex-shrink: 0; border: 1px solid #cbd5e1; border-radius: 999px; padding: .45rem .8rem; background: #fff; color: #112240; font-size: .75rem; font-weight: 700; }
+        .third-party-notice button:focus-visible { outline: 3px solid #cda34f; outline-offset: 2px; }
+        @media (max-width: 639px) {
+            #main-nav { height: 72px !important; min-height: 72px !important; }
+            #main-nav a.group { gap: .5rem !important; max-width: calc(100vw - 5rem); }
+            #main-nav a.group img { height: 3rem !important; max-width: 3.25rem; }
+            #main-nav a.group span:first-child { font-size: .73rem !important; letter-spacing: .01em !important; }
+            #main-nav a.group span:nth-child(2) { font-size: .56rem !important; letter-spacing: .1em !important; }
+            #app-root { padding-top: 72px !important; }
+            #app-root #hero { min-height: 66svh; }
+            #app-root #hero .max-w-6xl { padding-top: 3rem; padding-bottom: 3rem; }
+            #app-root section { scroll-margin-top: 78px; }
+            .initiative-grid { grid-template-columns: minmax(0,1fr); }
+            .third-party-notice { left: .5rem; right: .5rem; bottom: .5rem; align-items: flex-start; padding: .75rem; gap: .6rem; font-size: .72rem; }
+            .third-party-notice button { min-height: 38px; padding: .4rem .65rem; }
+            .dsm-wobble-horizontal { max-width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        }
+
+    </style>
+</head>
+<body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
+    <a class="skip-link" href="#app-root">Skip to main content</a>
+
+    <!-- TOP NAVBAR -->
+    <nav id="main-nav" aria-label="Primary navigation" class="fixed w-full z-50 top-0 bg-white shadow-[0px_4px_20px_0px_rgba(17,34,64,0.05)] h-[95px] flex items-center transition-all duration-300">
+        <div class="w-full max-w-[2560px] mx-auto px-5 sm:px-8 lg:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a role="button" tabindex="0" onclick="switchPage('home')" class="flex-shrink-0 flex items-center h-full gap-4 cursor-pointer group">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVAjhn2f4Q9faqA4fVUJdUxDvqi4-RZFTdMNOwVrn7Qy5fVBxXPCtmYU1goEA9VONRmVSe0yBdpj-qZLRxhY0wE5Gu8hdSOVKNizDPh-8WYvc0vQxtC6wOP-AOmCBIVIT0WHVFel9uxRNCAHzRlWq2EY7_hPodc2guHNnVfdvESjDCUOMDZdAwkh4vpc4/s320/4b3833b3-83b3-4fa9-b48d-5ef03566c492.png" alt="Unity Bridge Foundation Logo" class="h-16 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col justify-center">
+                    <span class="font-bold text-[17px] md:text-[22px] text-brand-navy leading-none uppercase tracking-[0.05em] md:tracking-[0.1em]">UNITY BRIDGE FOUNDATION</span>
+                    <span class="text-[11px] md:text-xs text-brand-orange uppercase tracking-[0.2em] mt-1 font-extrabold">South Africa</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden xl:flex items-center space-x-10">
+                <a role="button" tabindex="0" onclick="switchPage('home')" id="nav-home" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer active">Home</a>
+                <a role="button" tabindex="0" onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Work</a>
+                <a role="button" tabindex="0" onclick="switchPage('how')" id="nav-how" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Approach</a>
+                <a role="button" tabindex="0" onclick="switchPage('lab')" id="nav-lab" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Learning</a>
+                <a role="button" tabindex="0" onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Get Involved</a>
+                <a role="button" tabindex="0" onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQs</a>
+                
+                <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Partner</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-toggle" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()" class="xl:hidden text-brand-navy focus:outline-none z-[60]">
+                <i class="ph ph-list text-3xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" aria-label="Mobile navigation" class="fixed inset-0 bg-brand-navy z-50 xl:hidden pt-24 px-8 overflow-y-auto pb-10 transition-transform duration-500 translate-x-full">
+        <div class="flex justify-end mb-8">
+            <button onclick="toggleMobileMenu()" class="text-white focus:outline-none">
+                <i class="ph ph-x text-4xl hover:text-brand-orange transition-colors"></i>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-8 text-center mt-10">
+            <a role="button" tabindex="0" onclick="switchPage('home'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Home</a>
+            <a role="button" tabindex="0" onclick="switchPage('services'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Our Work</a>
+            <a role="button" tabindex="0" onclick="switchPage('how'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Our Approach</a>
+            <a role="button" tabindex="0" onclick="switchPage('lab'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Learning</a>
+            <a role="button" tabindex="0" onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Pricing</a>
+            <a role="button" tabindex="0" onclick="switchPage('shop'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Get Involved</a>
+            <a role="button" tabindex="0" onclick="switchPage('faq'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">FAQs</a>
+            <a role="button" tabindex="0" onclick="openContactModal(); toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[15px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-heading" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+        <div class="bg-white rounded-3xl p-8 md:p-10 w-full max-w-xs shadow-2xl transform scale-95 transition-transform duration-300" id="contact-modal-content">
+            <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
+                <h3 id="contact-modal-heading" class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3>
+                <button onclick="closeContactModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
+                    <i class="ph-bold ph-x text-2xl"></i>
+                </button>
+            </div>
+            <p class="text-brand-text-light text-sm mb-6 leading-relaxed">Reach out to the Unity Bridge Foundation team through any of the channels below.</p>
+            
+            <div class="space-y-4">
+                <a href="tel:+27817461041" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-brand-navy shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-phone text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">Call Us</span>
+                        <span class="block font-bold text-brand-navy text-sm">+27 81 746 1041</span>
+                    </div>
+                </a>
+                
+                <a href="https://wa.me/27817461041" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-[#25D366] shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">WhatsApp</span>
+                        <span class="block font-bold text-brand-navy text-sm">+27 81 746 1041</span>
+                    </div>
+                </a>
+
+                <a href="mailto:info@unitybridge-foundation.org" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-brand-orange shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-envelope-simple text-xl"></i>
+                    </div>
+                    <div class="w-full">
+                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">Email</span>
+                        <span class="block font-bold text-brand-navy text-sm break-words whitespace-normal">info@unitybridge-foundation.org</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTION MODAL -->
+    <div id="action-modal" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+        <div class="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl transform scale-95 transition-transform duration-300" id="action-modal-content">
+            <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
+                <h3 class="text-xl font-bold text-brand-navy" id="action-modal-title">Get Involved</h3>
+                <button onclick="closeActionModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
+                    <i class="ph-bold ph-x text-2xl"></i>
+                </button>
+            </div>
+            <form id="action-form" class="space-y-4">
+                <div>
+                    <label for="action-name" class="block text-[10px] font-bold text-brand-navy uppercase tracking-widest mb-1">Your Name</label>
+                    <input type="text" id="action-name" class="w-full bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal" required>
+                </div>
+                <div>
+                    <label for="action-message" class="block text-[10px] font-bold text-brand-navy uppercase tracking-widest mb-1">Message / Details</label>
+                    <textarea id="action-message" rows="3" class="w-full bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal" required></textarea>
+                </div>
+                <div class="pt-2 flex flex-col gap-3">
+                    <button type="button" onclick="submitAction('email')" class="w-full bg-brand-orange text-white font-extrabold rounded-full py-3 text-xs uppercase tracking-widest hover:bg-brand-navy transition-colors flex items-center justify-center gap-2">
+                        <i class="ph-fill ph-envelope-simple text-lg"></i> Send via Email
+                    </button>
+                    <button type="button" onclick="submitAction('whatsapp')" class="w-full bg-[#25D366] text-white font-extrabold rounded-full py-3 text-xs uppercase tracking-widest hover:bg-[#1EBE5A] transition-colors flex items-center justify-center gap-2">
+                        <i class="ph-fill ph-whatsapp-logo text-lg"></i> Send via WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN APP ROUTER -->
+    <main id="app-root" class="pt-[85px]" tabindex="-1" aria-label="Unity Bridge Foundation website content">
+        <div id="main-content" tabindex="-1"></div>
+
+        <!-- HOME -->
+        <div id="view-home" class="page-view active">
+            <section id="hero" class="relative min-h-[72svh] md:min-h-[78svh] flex items-center justify-center overflow-hidden bg-brand-navy">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.pexels.com/photos/6146703/pexels-photo-6146703.jpeg" alt="People learning and working together in a community setting" class="w-full h-full object-cover object-center" fetchpriority="high">
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-navy/75 to-brand-navy/45"></div>
+                </div>
+                <div class="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 lg:px-12 py-16 md:py-20">
+                    <div class="max-w-3xl reveal">
+                        <span class="text-brand-orange font-bold tracking-[0.16em] uppercase text-xs sm:text-sm mb-4 block">Unity Bridge Foundation · South Africa</span>
+                        <h1 id="hero-title" class="font-extrabold text-white mb-5 leading-tight">Connecting local talent, opportunity and enterprise.</h1>
+                        <p class="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl mb-7">We support small and medium-sized businesses to grow and create opportunities for unemployed graduates and young people. Our work also promotes ethical community leadership and practical pathways that respect the environment.</p>
+                        <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+                            <a href="#initiatives" class="dsm-wobble-horizontal rounded-full bg-brand-orange text-white font-bold uppercase cursor-pointer">Explore current initiatives</a>
+                            <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal rounded-full border border-white/80 text-white font-bold uppercase cursor-pointer">Partner with UBF</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The current initiatives appear immediately after the hero. -->
+            <section id="initiatives" class="home-section bg-brand-gray px-5 sm:px-8 lg:px-12 py-12 md:py-16 scroll-mt-24">
+                <div class="max-w-6xl mx-auto">
+                    <div class="max-w-2xl mb-7 md:mb-9 reveal">
+                        <span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Current initiatives</span>
+                        <h2 class="text-brand-navy font-extrabold mt-2 mb-3">Get involved in a programme</h2>
+                        <p class="text-brand-text-light">Read a short overview, open the details if you need them, or start an expression of interest below.</p>
+                    </div>
+
+                    <div class="initiative-grid grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+                        <article class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-custom reveal">
+                            <div class="h-44 sm:h-52 overflow-hidden">
+                                <img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="A person planning and developing a small business" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="p-5 sm:p-6">
+                                <div class="flex flex-wrap gap-2 items-center mb-3">
+                                    <span class="text-xs uppercase tracking-wider font-bold text-brand-teal">Business development</span>
+                                    <span class="text-xs text-brand-text-light bg-brand-gray px-3 py-1 rounded-full">2–30 November 2026</span>
+                                </div>
+                                <h3 class="text-brand-navy font-extrabold mb-2">Small Business Startup Program</h3>
+                                <p class="text-sm sm:text-base text-brand-text-light leading-relaxed mb-4">A four-week programme to help participants organise and professionalise a business idea or small business, with practical work on planning, research, payments, digital presence and operations.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <button type="button" onclick="toggleProgramDetails('startup')" aria-controls="startup-details" aria-expanded="false" class="dsm-wobble-horizontal bg-white border border-brand-navy text-brand-navy rounded-full font-bold">Find out more</button>
+                                    <button type="button" onclick="toggleInitiativeForm('startup')" aria-controls="startup-signup-wrap" aria-expanded="false" class="dsm-wobble-horizontal bg-brand-teal text-white rounded-full font-bold">Sign up</button>
+                                </div>
+                                <div id="startup-details" class="hidden border-t border-gray-200 pt-4 mt-2 text-sm text-brand-text-light" tabindex="-1">
+                                    <p class="font-semibold text-brand-navy mb-2">Programme dates: 2–30 November 2026</p>
+                                    <p class="mb-3">The poster lists the following end-of-programme resources:</p>
+                                    <ul class="list-disc pl-5 space-y-1 mb-4">
+                                        <li>Business plan</li>
+                                        <li>Market research</li>
+                                        <li>Banking and payment facilitation</li>
+                                        <li>Website and e-commerce</li>
+                                        <li>Business operations tools</li>
+                                        <li>Business professionalisation guides</li>
+                                    </ul>
+                                    <p class="mb-3">Register through Quicket or send UBF an expression of interest using the form below. Submission of an enquiry does not by itself confirm a place.</p>
+                                    <a class="underline text-brand-teal font-bold underline-offset-4" href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer">Open the Quicket registration page</a>
+                                </div>
+                                <div id="startup-signup-wrap" class="hidden border-t border-gray-200 pt-5 mt-4">
+                                    <h4 class="text-brand-navy font-bold mb-1">Register your interest</h4>
+                                    <p class="text-xs text-brand-text-light mb-4">Complete the fields below. This static website prepares an email; it does not save form responses online.</p>
+                                    <form class="initiative-form space-y-3" onsubmit="return submitInitiativeForm(event, 'startup')">
+                                        <label class="form-label" for="startup-name">Full name <span aria-hidden="true">*</span></label>
+                                        <input id="startup-name" name="Full name" autocomplete="name" required class="form-control" type="text">
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            <div><label class="form-label" for="startup-email">Email address <span aria-hidden="true">*</span></label><input id="startup-email" name="Email" autocomplete="email" required class="form-control" type="email"></div>
+                                            <div><label class="form-label" for="startup-phone">Phone number</label><input id="startup-phone" name="Phone" autocomplete="tel" class="form-control" type="tel"></div>
+                                        </div>
+                                        <label class="form-label" for="startup-business">Business name or idea (optional)</label>
+                                        <input id="startup-business" name="Business name or idea" class="form-control" type="text">
+                                        <label class="form-label" for="startup-stage">Where are you with the business?</label>
+                                        <select id="startup-stage" name="Business stage" class="form-control">
+                                            <option value="">Select an option</option><option>Business idea</option><option>Early-stage business</option><option>Already trading</option>
+                                        </select>
+                                        <label class="check-label"><input type="checkbox" name="Privacy acknowledgement" value="Yes" required> <span>I have read the <a role="link" tabindex="0" onclick="switchPage('privacy')" class="underline font-semibold">Privacy Policy</a> and understand how my information will be used to respond to this enquiry.</span></label>
+                                        <label class="check-label"><input type="checkbox" name="Optional updates" value="Yes"> <span>Send me occasional updates about UBF initiatives (optional).</span></label>
+                                        <button class="dsm-wobble-horizontal bg-brand-teal text-white rounded-full font-bold" type="submit">Prepare my sign-up email</button>
+                                    </form>
+                                    <p class="text-xs text-brand-text-light mt-3">You can also register on <a href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer" class="underline font-semibold">Quicket</a>.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-custom reveal delay-100">
+                            <div class="h-44 sm:h-52 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80" alt="Native vegetation in a natural conservation area" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="p-5 sm:p-6">
+                                <div class="flex flex-wrap gap-2 items-center mb-3">
+                                    <span class="text-xs uppercase tracking-wider font-bold text-brand-teal">Environment and work pathways</span>
+                                    <span class="text-xs text-brand-text-light bg-brand-gray px-3 py-1 rounded-full">2026–2027 pilot</span>
+                                </div>
+                                <h3 class="text-brand-navy font-extrabold mb-2">Sustainable Honeybush Programme</h3>
+                                <p class="text-sm sm:text-base text-brand-text-light leading-relaxed mb-4">A planned community-based pilot combining sustainable Honeybush harvesting education, practical skills and fynbos conservation, with a focus on creating pathways for unemployed stewards.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <button type="button" onclick="toggleProgramDetails('honeybush')" aria-controls="honeybush-details" aria-expanded="false" class="dsm-wobble-horizontal bg-white border border-brand-navy text-brand-navy rounded-full font-bold">Find out more</button>
+                                    <button type="button" onclick="toggleInitiativeForm('honeybush')" aria-controls="honeybush-signup-wrap" aria-expanded="false" class="dsm-wobble-horizontal bg-brand-teal text-white rounded-full font-bold">Sign up</button>
+                                </div>
+                                <div id="honeybush-details" class="hidden border-t border-gray-200 pt-4 mt-2 text-sm text-brand-text-light" tabindex="-1">
+                                    <p class="mb-3">The work plan describes an intake target of 25 unemployed stewards, with community mobilisation across Grassy Park and Lotus River. The timeline is phased:</p>
+                                    <ul class="list-disc pl-5 space-y-1 mb-4">
+                                        <li>October–November 2026: mobilisation and steward selection.</li>
+                                        <li>November–December 2026: foundational learning on sustainable harvesting.</li>
+                                        <li>January–February 2027: planned practical training and field expeditions.</li>
+                                        <li>March–April 2027: community bio-education and market-pathway activities.</li>
+                                    </ul>
+                                    <p class="mb-3">Training dates, eligibility and selection are subject to programme arrangements and available places. Sending an expression of interest does not guarantee selection.</p>
+                                    <p>Applicants may be contacted for further information if their application is relevant to the intake process.</p>
+                                </div>
+                                <div id="honeybush-signup-wrap" class="hidden border-t border-gray-200 pt-5 mt-4">
+                                    <h4 class="text-brand-navy font-bold mb-1">Register your interest</h4>
+                                    <p class="text-xs text-brand-text-light mb-4">Complete the fields below. This static website prepares an email; it does not save form responses online.</p>
+                                    <form class="initiative-form space-y-3" onsubmit="return submitInitiativeForm(event, 'honeybush')">
+                                        <label class="form-label" for="honeybush-name">Full name <span aria-hidden="true">*</span></label>
+                                        <input id="honeybush-name" name="Full name" autocomplete="name" required class="form-control" type="text">
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            <div><label class="form-label" for="honeybush-email">Email address <span aria-hidden="true">*</span></label><input id="honeybush-email" name="Email" autocomplete="email" required class="form-control" type="email"></div>
+                                            <div><label class="form-label" for="honeybush-phone">Phone number</label><input id="honeybush-phone" name="Phone" autocomplete="tel" class="form-control" type="tel"></div>
+                                        </div>
+                                        <label class="form-label" for="honeybush-community">Community or suburb <span aria-hidden="true">*</span></label>
+                                        <input id="honeybush-community" name="Community or suburb" autocomplete="address-level2" required class="form-control" type="text" placeholder="e.g. Grassy Park or Lotus River">
+                                        <label class="form-label" for="honeybush-availability">Anything you would like us to know? (optional)</label>
+                                        <textarea id="honeybush-availability" name="Additional information" rows="3" class="form-control"></textarea>
+                                        <label class="check-label"><input type="checkbox" name="Privacy acknowledgement" value="Yes" required> <span>I have read the <a role="link" tabindex="0" onclick="switchPage('privacy')" class="underline font-semibold">Privacy Policy</a> and understand how my information will be used to respond to this enquiry.</span></label>
+                                        <label class="check-label"><input type="checkbox" name="Optional updates" value="Yes"> <span>Send me occasional updates about UBF initiatives (optional).</span></label>
+                                        <button class="dsm-wobble-horizontal bg-brand-teal text-white rounded-full font-bold" type="submit">Prepare my sign-up email</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <p class="text-xs text-brand-text-light mt-5">Programme information is based on UBF’s current poster and work plan. Dates and arrangements may change; UBF will confirm the details with applicants.</p>
+                </div>
+            </section>
+
+            <section class="home-section bg-white px-5 sm:px-8 lg:px-12 py-12 md:py-16">
+                <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div class="reveal">
+                        <span class="text-brand-orange font-bold uppercase tracking-[0.16em] text-xs">About UBF</span>
+                        <h2 class="text-brand-navy font-extrabold mt-2 mb-4">Who we are</h2>
+                        <p class="text-brand-text-light leading-relaxed mb-4">Unity Bridge Foundation (U.B.F.) South Africa is a Cape Town-based non-profit organisation. We work to connect local talent, opportunity and enterprise by helping small and medium-sized businesses grow and create opportunities for unemployed graduates and young people.</p>
+                        <p class="text-brand-text-light leading-relaxed">Our work also aims to cultivate ethical community and economic leadership and support environmental and economic pathways to work, dignity and shared prosperity.</p>
+                    </div>
+                    <div class="reveal delay-100 bg-brand-gray rounded-2xl p-6 sm:p-8 border border-gray-100">
+                        <h3 class="text-brand-navy font-bold mb-4">What we focus on</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-3"><span class="text-brand-teal mt-1"><i class="ph-fill ph-check-circle text-xl" aria-hidden="true"></i></span><div><h4 class="text-brand-navy font-bold">Small business professionalisation</h4><p class="text-sm text-brand-text-light">Practical planning, digital presence, business operations and access to appropriate support.</p></div></div>
+                            <div class="flex gap-3"><span class="text-brand-teal mt-1"><i class="ph-fill ph-check-circle text-xl" aria-hidden="true"></i></span><div><h4 class="text-brand-navy font-bold">Skills and work pathways</h4><p class="text-sm text-brand-text-light">Helping local SMEs strengthen their capacity to grow and engage talent responsibly.</p></div></div>
+                            <div class="flex gap-3"><span class="text-brand-teal mt-1"><i class="ph-fill ph-check-circle text-xl" aria-hidden="true"></i></span><div><h4 class="text-brand-navy font-bold">Community and environmental learning</h4><p class="text-sm text-brand-text-light">Supporting community participation and sustainable approaches to local environmental resources.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-section bg-brand-navy text-white px-5 sm:px-8 lg:px-12 py-12 md:py-16">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 md:gap-10 items-start md:items-center justify-between">
+                    <div class="max-w-2xl reveal">
+                        <span class="text-brand-orange font-bold uppercase tracking-[0.16em] text-xs">Working together</span>
+                        <h2 class="text-white font-extrabold mt-2 mb-3">Are you a business, community organisation or potential programme partner?</h2>
+                        <p class="text-white/80 leading-relaxed">Contact UBF to discuss practical ways to support local enterprise, work-readiness and community-based environmental initiatives. The scope of each collaboration is agreed directly with partners.</p>
+                    </div>
+                    <button type="button" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white rounded-full font-bold uppercase shrink-0">Contact UBF</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- OUR WORK -->
+        <div id="view-services" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-12 md:py-16 text-center border-b border-gray-200">
+                <div class="max-w-3xl mx-auto reveal">
+                    <span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Our work</span>
+                    <h1 class="text-brand-navy font-extrabold mt-2 mb-4">Practical support for people, businesses and communities</h1>
+                    <p class="text-brand-text-light">UBF’s work connects small business development, employment pathways and environmental learning. Current participation opportunities are listed below.</p>
+                </div>
+            </section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-10 md:py-14">
+                <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <article class="rounded-2xl border border-gray-200 p-5 sm:p-6">
+                        <i class="ph ph-briefcase-business text-3xl text-brand-teal" aria-hidden="true"></i>
+                        <h2 class="text-brand-navy font-bold mt-3 mb-2">Business professionalisation</h2>
+                        <p class="text-sm text-brand-text-light mb-4">Support for business planning, market research, digital presence, payment access and everyday operations, according to each programme’s scope.</p>
+                        <button type="button" onclick="switchPage('home'); setTimeout(function(){document.getElementById('initiatives').scrollIntoView({behavior:'smooth'});},100)" class="dsm-wobble-horizontal border border-brand-navy text-brand-navy rounded-full font-bold">View startup programme</button>
+                    </article>
+                    <article class="rounded-2xl border border-gray-200 p-5 sm:p-6">
+                        <i class="ph ph-leaf text-3xl text-brand-teal" aria-hidden="true"></i>
+                        <h2 class="text-brand-navy font-bold mt-3 mb-2">Sustainable Honeybush pilot</h2>
+                        <p class="text-sm text-brand-text-light mb-4">A phased pilot focused on sustainable harvesting knowledge, practical training, fynbos conservation and community bio-education.</p>
+                        <button type="button" onclick="switchPage('home'); setTimeout(function(){document.getElementById('initiatives').scrollIntoView({behavior:'smooth'});},100)" class="dsm-wobble-horizontal border border-brand-navy text-brand-navy rounded-full font-bold">View Honeybush intake</button>
+                    </article>
+                    <article class="rounded-2xl border border-gray-200 p-5 sm:p-6">
+                        <i class="ph ph-users-three text-3xl text-brand-teal" aria-hidden="true"></i>
+                        <h2 class="text-brand-navy font-bold mt-3 mb-2">Local enterprise and work pathways</h2>
+                        <p class="text-sm text-brand-text-light">UBF’s broader mission is to help SMEs grow and absorb unemployed graduates and young people, while building ethical community and economic leadership.</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- APPROACH -->
+        <div id="view-how" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-12 md:py-16 text-center">
+                <div class="max-w-3xl mx-auto reveal">
+                    <span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Our approach</span>
+                    <h1 class="text-brand-navy font-extrabold mt-2 mb-4">Community-led, practical and partnership-based</h1>
+                    <p class="text-brand-text-light">The approach is designed around local needs and the scope of each initiative, rather than a one-size-fits-all promise.</p>
+                </div>
+            </section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-10 md:py-14">
+                <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <article class="p-5 rounded-2xl border border-gray-200"><span class="text-brand-orange text-sm font-bold">01</span><h2 class="text-brand-navy font-bold mt-2 mb-2">Listen and identify needs</h2><p class="text-sm text-brand-text-light">Engage participants, SMEs and community stakeholders to understand the practical need.</p></article>
+                    <article class="p-5 rounded-2xl border border-gray-200"><span class="text-brand-orange text-sm font-bold">02</span><h2 class="text-brand-navy font-bold mt-2 mb-2">Plan the support</h2><p class="text-sm text-brand-text-light">Set out the activity, timeframes, participation requirements and relevant partners.</p></article>
+                    <article class="p-5 rounded-2xl border border-gray-200"><span class="text-brand-orange text-sm font-bold">03</span><h2 class="text-brand-navy font-bold mt-2 mb-2">Build practical capability</h2><p class="text-sm text-brand-text-light">Use applied learning and programme activities relevant to the agreed initiative.</p></article>
+                    <article class="p-5 rounded-2xl border border-gray-200"><span class="text-brand-orange text-sm font-bold">04</span><h2 class="text-brand-navy font-bold mt-2 mb-2">Review next steps</h2><p class="text-sm text-brand-text-light">Communicate progress and identify realistic follow-on opportunities with relevant partners.</p></article>
+                </div>
+                <div class="max-w-4xl mx-auto mt-8 bg-brand-gray rounded-2xl p-5 sm:p-6">
+                    <h2 class="text-brand-navy font-bold mb-2">Our commitments</h2>
+                    <p class="text-sm text-brand-text-light">We aim to communicate requirements clearly, treat applicants respectfully, handle personal information carefully and avoid promising outcomes that depend on external decisions or available resources.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- LEARNING -->
+        <div id="view-lab" class="page-view">
+            <section class="bg-brand-navy text-white px-5 sm:px-8 lg:px-12 py-12 md:py-16">
+                <div class="max-w-5xl mx-auto reveal">
+                    <span class="text-brand-orange font-bold uppercase tracking-[0.16em] text-xs">Learning and information</span>
+                    <h1 class="text-white font-extrabold mt-2 mb-4">Practical knowledge for local progress</h1>
+                    <p class="text-white/80 max-w-3xl">This page brings together information about UBF’s current initiatives. As activities progress, further programme materials can be added here.</p>
+                </div>
+            </section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-10 md:py-14">
+                <div class="max-w-5xl mx-auto space-y-5">
+                    <article class="rounded-2xl border border-gray-200 p-5 sm:p-6">
+                        <h2 class="text-brand-navy font-bold mb-2">Small Business Startup Program</h2>
+                        <p class="text-sm text-brand-text-light mb-3">The November programme covers business planning, market research, banking and payment facilitation, website and e-commerce, business operations tools and professionalisation guides.</p>
+                        <a href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer" class="text-brand-teal font-bold underline underline-offset-4">Quicket registration</a>
+                    </article>
+                    <article class="rounded-2xl border border-gray-200 p-5 sm:p-6">
+                        <h2 class="text-brand-navy font-bold mb-2">Sustainable Honeybush Programme</h2>
+                        <p class="text-sm text-brand-text-light">The 2026–2027 pilot work plan covers foundational learning, planned accredited practical training, field activities and community education related to sustainable harvesting and fynbos conservation. Dates and arrangements are subject to confirmation.</p>
+                    </article>
+                    <p class="text-xs text-brand-text-light">Only programme materials confirmed by UBF should be published here. This page does not currently offer a resource download or booking service.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- PARTNERSHIPS -->
+        <div id="view-pricing" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-12 md:py-16 text-center border-b border-gray-200">
+                <div class="max-w-3xl mx-auto">
+                    <span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Partnerships</span>
+                    <h1 class="text-brand-navy font-extrabold mt-2 mb-4">Work with Unity Bridge Foundation</h1>
+                    <p class="text-brand-text-light">We welcome conversations with businesses, community organisations, training providers and potential supporters whose work aligns with local enterprise, youth opportunity and environmental learning.</p>
+                </div>
+            </section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-10 md:py-14">
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <article class="rounded-2xl border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Potential areas of collaboration</h2><ul class="list-disc pl-5 space-y-2 text-sm text-brand-text-light"><li>Practical business skills and professionalisation support.</li><li>Training venues, equipment or in-kind resources.</li><li>Responsible work experience or employment pathways, where available.</li><li>Community learning and environmental initiatives.</li></ul></article>
+                    <article class="rounded-2xl border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Discuss a partnership</h2><p class="text-sm text-brand-text-light mb-4">Programme scope, costs, responsibilities and reporting requirements are discussed directly and confirmed in writing. This website does not publish a standard sponsorship rate card or promise tax deductibility.</p><button type="button" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-teal text-white rounded-full font-bold">Contact UBF</button></article>
+                </div>
+            </section>
+        </div>
+
+        <!-- FAQ -->
+        <div id="view-faq" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-12 md:py-16 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">FAQs</span>
+                    <h1 class="text-brand-navy font-extrabold mt-2 mb-4">Common questions</h1>
+                    <p class="text-brand-text-light">The information below explains the current application and partnership process.</p>
+                </div>
+            </section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-8 md:py-12">
+                <div class="max-w-3xl mx-auto space-y-3">
+                    <details class="faq-item"><summary>How do I apply for a current initiative?</summary><p>Open the initiative card on the home page, select “Sign up” and complete the expression-of-interest form. This version of the website prepares an email; it does not save responses in an online database. The Startup Program also has a Quicket registration page.</p></details>
+                    <details class="faq-item"><summary>Does submitting a form guarantee a place?</summary><p>No. An expression of interest is not confirmation of selection. UBF will communicate any relevant eligibility requirements, available places and next steps.</p></details>
+                    <details class="faq-item"><summary>When does the Small Business Startup Program run?</summary><p>The supplied poster lists 2 November to 30 November 2026. The Quicket page is available from the programme card on the home page.</p></details>
+                    <details class="faq-item"><summary>What is the Honeybush Programme?</summary><p>It is a phased 2026–2027 pilot described in UBF’s work plan. Activities include planned learning on sustainable harvesting, practical training, field activities and community education. The published work plan identifies an intake target of 25 unemployed stewards; selection and dates remain subject to arrangements and available places.</p></details>
+                    <details class="faq-item"><summary>How will UBF use my personal information?</summary><p>Information is used to respond to your enquiry and manage relevant programme steps. It may be shared with service providers or programme partners where needed and lawful. Read the <a role="link" tabindex="0" onclick="switchPage('privacy')" class="underline font-semibold">Privacy Policy</a> for details and how to make a rights request.</p></details>
+                    <details class="faq-item"><summary>How can my organisation partner with UBF?</summary><p>Use the contact option or email info@unitybridge-foundation.org to outline your organisation and the area of support you would like to discuss. UBF will confirm whether there is a suitable opportunity.</p></details>
+                </div>
+            </section>
+        </div>
+
+        <!-- GET INVOLVED -->
+        <div id="view-shop" class="page-view">
+            <section class="bg-brand-navy text-white px-5 sm:px-8 lg:px-12 py-12 md:py-16">
+                <div class="max-w-5xl mx-auto">
+                    <span class="text-brand-orange font-bold uppercase tracking-[0.16em] text-xs">Get involved</span>
+                    <h1 class="text-white font-extrabold mt-2 mb-4">Connect with local opportunity</h1>
+                    <p class="text-white/80 max-w-3xl">UBF works towards stronger local enterprises, responsible workforce practices and community-based environmental learning. If your organisation or business can contribute, start a conversation with our team.</p>
+                </div>
+            </section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-10 md:py-14">
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <article class="rounded-2xl bg-brand-gray p-5"><h2 class="text-brand-navy font-bold mb-2">SMEs</h2><p class="text-sm text-brand-text-light">Discuss practical business development needs and ways to grow responsibly.</p></article>
+                    <article class="rounded-2xl bg-brand-gray p-5"><h2 class="text-brand-navy font-bold mb-2">Community partners</h2><p class="text-sm text-brand-text-light">Explore participation in community learning and local initiatives.</p></article>
+                    <article class="rounded-2xl bg-brand-gray p-5"><h2 class="text-brand-navy font-bold mb-2">Organisations and supporters</h2><p class="text-sm text-brand-text-light">Discuss relevant training, resources, collaboration or support opportunities.</p></article>
+                </div>
+                <div class="max-w-5xl mx-auto mt-6 rounded-2xl border border-gray-200 p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+                    <div><h2 class="text-brand-navy font-bold mb-1">Start a conversation</h2><p class="text-sm text-brand-text-light">Tell us who you are and what you would like to explore.</p></div>
+                    <button type="button" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-teal text-white rounded-full font-bold shrink-0">Contact UBF</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- PRIVACY POLICY -->
+        <div id="view-privacy" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-10 md:py-14 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Privacy and information</span><h1 class="text-brand-navy font-extrabold mt-2 mb-3">Privacy Policy</h1><p class="text-sm text-brand-text-light">Last reviewed: 9 October 2026. This draft should be checked against UBF’s actual operations and service-provider contracts before publication.</p></div></section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-8 md:py-12"><div class="legal-copy max-w-4xl mx-auto">
+                <p>Unity Bridge Foundation South Africa (“UBF”, “we”, “us”) is a Cape Town-based non-profit organisation. This notice explains how we may handle personal information when you visit this website, ask a question, express interest in a programme or discuss a partnership. UBF should be contacted if you need a copy of this notice in another format.</p>
+                <h2>Information we may collect</h2><p>Depending on your interaction, this may include your name, email address, telephone number, community or suburb, business name or stage, information you include in a message, programme application details, communication preferences and correspondence. The website’s hosting and third-party asset providers may also process technical information such as IP address, browser/device details, requested resources and security logs.</p>
+                <h2>Why we use it</h2><ul><li>To respond to enquiries and expressions of interest.</li><li>To administer applications, communicate selection steps and coordinate programme activities.</li><li>To work with relevant delivery partners and, where necessary, prepare programme monitoring or reporting.</li><li>To communicate optional UBF updates where permitted and where you have chosen to receive them.</li><li>To maintain website security, address misuse and meet legal obligations.</li></ul>
+                <h2>When information may be shared</h2><p>UBF may share the minimum information reasonably needed with service providers who help host or maintain the website, support email and communications, or provide technical services. Depending on the initiative and the steps required, relevant information may also be shared with programme delivery partners, training providers, venues, referral or prospective host organisations, funders or reporting bodies, or public authorities where this is necessary and lawful. This may include sharing information with a third party to assess an application, coordinate activities, verify participation or report on programme delivery. We do not state that every listed category receives information for every programme; access should be limited to the purpose involved.</p>
+                <h2>Website hosting and third-party services</h2><p>This page loads certain fonts, icons, stylesheets and images from third-party services. When your browser requests these resources, those providers may receive technical information. The website repository does not identify the final hosting configuration or all provider contracts; UBF should confirm the actual host, operators, data locations and access arrangements before launch. Some providers may process information outside South Africa. Where applicable, UBF must assess and put in place the safeguards required by POPIA.</p>
+                <h2>Lawful processing and choice</h2><p>UBF should process personal information only for a defined, lawful purpose and on a basis permitted by law, such as taking steps at your request, performing a relevant arrangement, meeting a legal duty, protecting a legitimate interest where applicable or obtaining consent when required. You can decline optional marketing updates without affecting your programme enquiry. If you withdraw consent, this does not make earlier lawful processing unlawful, and UBF may need to retain some records for legal or administrative reasons.</p>
+                <h2>Retention and security</h2><p>Information should be kept only for as long as reasonably necessary for the purpose for which it was collected, subject to applicable legal, contractual, reporting and audit requirements. UBF should use appropriate organisational and technical safeguards and restrict access to people who need the information for their roles. No website or transmission method can be represented as completely secure.</p>
+                <h2>Your rights</h2><p>Subject to applicable law and any relevant limits, you may ask whether UBF holds information about you, request access, request correction or deletion, object to certain processing, or withdraw consent where processing is based on consent. You may also opt out of direct marketing. Use the <a role="link" tabindex="0" onclick="switchPage('data-rights')" class="underline font-semibold">Data rights request</a> page or email admin@unitybridge-foundation.org. UBF may need to verify your identity before acting.</p>
+                <h2>Children’s information</h2><p>Please do not submit personal information about another person, or information about a person under 18, through these forms without authority to do so. If an under-18 applicant wishes to participate, contact UBF first so that the appropriate consent and programme arrangements can be confirmed.</p>
+                <h2>Complaints and contact</h2><p>For privacy questions or requests, contact <a href="mailto:admin@unitybridge-foundation.org" class="underline font-semibold">admin@unitybridge-foundation.org</a>. You may also contact the South African Information Regulator through its official website: <a href="https://inforegulator.org.za/" target="_blank" rel="noopener noreferrer" class="underline font-semibold">inforegulator.org.za</a>.</p>
+            </div></section>
+        </div>
+
+        <!-- POPIA -->
+        <div id="view-popi" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-10 md:py-14 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">South Africa</span><h1 class="text-brand-navy font-extrabold mt-2 mb-3">POPIA and data protection</h1><p class="text-brand-text-light">How UBF intends to handle personal information responsibly.</p></div></section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-8 md:py-12"><div class="legal-copy max-w-4xl mx-auto">
+                <p>The Protection of Personal Information Act 4 of 2013 (POPIA) regulates the processing of personal information in South Africa. A website policy is only one part of responsible data handling; UBF must also make sure its actual practices, contracts, staff access and records meet applicable requirements.</p>
+                <h2>Our intended approach</h2><ul><li>Collect information that is relevant to the stated enquiry or programme.</li><li>Explain the purpose of collection and the categories of recipients where information may be shared.</li><li>Use appropriate access controls and safeguards.</li><li>Keep records only as long as required for their purpose and applicable obligations.</li><li>Respond to valid access, correction, deletion, objection and consent-withdrawal requests.</li><li>Handle security incidents and any required notifications in accordance with applicable law.</li></ul>
+                <h2>Information officer and requests</h2><p>For privacy-related requests, contact <a href="mailto:admin@unitybridge-foundation.org" class="underline font-semibold">admin@unitybridge-foundation.org</a>. UBF should confirm and publish the designated Information Officer’s details and its internal process before launch. To submit a request, use the <a role="link" tabindex="0" onclick="switchPage('data-rights')" class="underline font-semibold">Data rights request</a> form.</p>
+                <h2>Third-party operators and programme partners</h2><p>UBF’s website hosting provider and technical service providers may process information needed to operate, secure or maintain the website. Programme-related information may also need to be shared with relevant delivery or reporting partners. UBF should document these relationships, limit access and sharing to what is required, and confirm safeguards for any cross-border processing.</p>
+                <p class="text-sm">For the legislation and official guidance, visit <a href="https://www.gov.za/documents/protection-personal-information-act" target="_blank" rel="noopener noreferrer" class="underline font-semibold">the South African Government’s POPIA page</a> and the <a href="https://inforegulator.org.za/" target="_blank" rel="noopener noreferrer" class="underline font-semibold">Information Regulator</a>.</p>
+            </div></section>
+        </div>
+
+        <!-- COOKIE POLICY -->
+        <div id="view-cookies" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-10 md:py-14 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Website information</span><h1 class="text-brand-navy font-extrabold mt-2 mb-3">Cookie and third-party resource policy</h1><p class="text-sm text-brand-text-light">Last reviewed: 9 October 2026.</p></div></section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-8 md:py-12"><div class="legal-copy max-w-4xl mx-auto">
+                <h2>What this site uses</h2><p>The HTML file reviewed for this update does not intentionally add an analytics or advertising pixel. It does load some website assets from third-party providers, including font, icon, stylesheet and image services. A provider may receive a connection request and technical details when your browser loads its resource.</p>
+                <h2>Cookies and similar technologies</h2><p>Cookies or similar technologies may be used by the website host or third-party providers according to their own configurations. The final hosting environment and provider settings have not been verified from this repository alone, so UBF should check the live site before making a complete statement about cookies, analytics or tracking. If analytics, embedded forms, video, maps or marketing tools are added later, this policy and any required choices should be updated.</p>
+                <h2>Your choices</h2><p>You can adjust cookie controls in your browser and choose not to load external content, although some page styling or images may then be unavailable. A browser setting does not necessarily stop all technical requests initiated by a website. Please review the provider’s own privacy information for details about its processing.</p>
+                <h2>Contact</h2><p>Questions about this policy can be sent to <a href="mailto:admin@unitybridge-foundation.org" class="underline font-semibold">admin@unitybridge-foundation.org</a>.</p>
+            </div></section>
+        </div>
+
+        <!-- TERMS -->
+        <div id="view-terms" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-10 md:py-14 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Website terms</span><h1 class="text-brand-navy font-extrabold mt-2 mb-3">Terms of Service</h1><p class="text-sm text-brand-text-light">Last reviewed: 9 October 2026.</p></div></section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-8 md:py-12"><div class="legal-copy max-w-4xl mx-auto">
+                <h2>Website information</h2><p>This website provides general information about Unity Bridge Foundation, its stated mission and current initiatives. UBF aims to keep information accurate and current, but programme schedules, availability, requirements and delivery arrangements may change. Please confirm material details directly with UBF before relying on them.</p>
+                <h2>Applications and selection</h2><p>Submitting an expression of interest or registering through an external platform does not guarantee selection, a place, employment, funding, business growth or a particular financial outcome. Any applicable eligibility requirements, selection process, programme conditions or fees should be confirmed by UBF in writing.</p>
+                <h2>Third-party links</h2><p>The website may link to third-party sites, including a registration platform and service providers. Those sites are managed by their respective operators and are subject to their own terms and privacy practices. UBF does not control those sites.</p>
+                <h2>Acceptable use</h2><p>Do not misuse the site, attempt to gain unauthorised access, submit information about another person without authority or use the site for unlawful purposes. Contact UBF if you identify a possible security or content issue.</p>
+                <h2>Intellectual property and changes</h2><p>Unless otherwise stated, website text and UBF materials are intended for UBF’s programme information. Do not copy logos or third-party materials in a way that implies endorsement. UBF may update this site and these terms as programmes and technical arrangements change.</p>
+                <h2>Contact</h2><p>Questions about these terms may be sent to <a href="mailto:info@unitybridge-foundation.org" class="underline font-semibold">info@unitybridge-foundation.org</a>.</p>
+            </div></section>
+        </div>
+
+        <!-- UNSUBSCRIBE -->
+        <div id="view-unsubscribe" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-10 md:py-14 border-b border-gray-200"><div class="max-w-3xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Communication preferences</span><h1 class="text-brand-navy font-extrabold mt-2 mb-3">Unsubscribe from updates</h1><p class="text-brand-text-light">Use this form to prepare an email asking UBF to stop sending optional updates to your address.</p></div></section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-8 md:py-12"><div class="max-w-3xl mx-auto rounded-2xl border border-gray-200 p-5 sm:p-7">
+                <p class="text-sm text-brand-text-light mb-5">This static website does not operate a mailing-list database, so this form opens your email application rather than automatically changing a mailing-list record. You can also email admin@unitybridge-foundation.org directly.</p>
+                <form class="space-y-4" onsubmit="return submitUnsubscribe(event)">
+                    <div><label class="form-label" for="unsubscribe-email">Email address to unsubscribe <span aria-hidden="true">*</span></label><input type="email" id="unsubscribe-email" name="Email address" autocomplete="email" required class="form-control"></div>
+                    <div><label class="form-label" for="unsubscribe-note">Optional note</label><textarea id="unsubscribe-note" name="Note" rows="3" class="form-control"></textarea></div>
+                    <button type="submit" class="dsm-wobble-horizontal bg-brand-teal text-white rounded-full font-bold">Prepare unsubscribe email</button>
+                </form>
+            </div></section>
+        </div>
+
+        <!-- DATA RIGHTS -->
+        <div id="view-data-rights" class="page-view">
+            <section class="bg-brand-gray px-5 sm:px-8 lg:px-12 py-10 md:py-14 border-b border-gray-200"><div class="max-w-3xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-[0.16em] text-xs">Privacy requests</span><h1 class="text-brand-navy font-extrabold mt-2 mb-3">Data access, correction or deletion request</h1><p class="text-brand-text-light">Use this form to prepare a message to UBF about personal information it may hold.</p></div></section>
+            <section class="bg-white px-5 sm:px-8 lg:px-12 py-8 md:py-12"><div class="max-w-3xl mx-auto rounded-2xl border border-gray-200 p-5 sm:p-7">
+                <p class="text-sm text-brand-text-light mb-5">UBF may ask for reasonable identity verification before acting. A request for deletion is assessed under applicable law; some records may need to be retained where a lawful requirement applies. This static website prepares an email and does not store the request.</p>
+                <form class="space-y-4" onsubmit="return submitDataRequest(event)">
+                    <div><label class="form-label" for="rights-name">Full name <span aria-hidden="true">*</span></label><input type="text" id="rights-name" name="Full name" autocomplete="name" required class="form-control"></div>
+                    <div><label class="form-label" for="rights-email">Email address for response <span aria-hidden="true">*</span></label><input type="email" id="rights-email" name="Email address" autocomplete="email" required class="form-control"></div>
+                    <div><label class="form-label" for="rights-type">Request type <span aria-hidden="true">*</span></label><select id="rights-type" name="Request type" required class="form-control"><option value="">Choose one</option><option>Access my information</option><option>Correct my information</option><option>Request deletion</option><option>Object to processing</option><option>Withdraw consent</option><option>Other privacy question</option></select></div>
+                    <div><label class="form-label" for="rights-details">Details of your request <span aria-hidden="true">*</span></label><textarea id="rights-details" name="Request details" rows="4" required class="form-control"></textarea></div>
+                    <button type="submit" class="dsm-wobble-horizontal bg-brand-teal text-white rounded-full font-bold">Prepare privacy request email</button>
+                </form>
+            </div></section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white px-5 sm:px-8 lg:px-12 pt-10 md:pt-14 pb-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-white/15 pb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVAjhn2f4Q9faqA4fVUJdUxDvqi4-RZFTdMNOwVrn7Qy5fVBxXPCtmYU1goEA9VONRmVSe0yBdpj-qZLRxhY0wE5Gu8hdSOVKNizDPh-8WYvc0vQxtC6wOP-AOmCBIVIT0WHVFel9uxRNCAHzRlWq2EY7_hPodc2guHNnVfdvESjDCUOMDZdAwkh4vpc4/s320/4b3833b3-83b3-4fa9-b48d-5ef03566c492.png" alt="Unity Bridge Foundation logo" class="h-14 w-auto object-contain bg-white rounded-md p-1">
+                        <div><p class="font-bold text-sm sm:text-base uppercase tracking-wide">Unity Bridge Foundation</p><p class="text-brand-orange text-xs mt-1">South Africa</p></div>
+                    </div>
+                    <p class="text-white/75 text-sm leading-relaxed">Connecting local talent, opportunity and enterprise through small-business support, work pathways and community-based environmental learning.</p>
+                </div>
+                <div>
+                    <h2 class="text-brand-orange font-bold uppercase tracking-wider text-xs mb-4">Explore</h2>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-3 text-sm text-white/80">
+                        <a role="button" tabindex="0" onclick="switchPage('home')">Home</a>
+                        <a role="button" tabindex="0" onclick="switchPage('services')">Our work</a>
+                        <a role="button" tabindex="0" onclick="switchPage('how')">Our approach</a>
+                        <a role="button" tabindex="0" onclick="switchPage('lab')">Learning</a>
+                        <a role="button" tabindex="0" onclick="switchPage('pricing')">Partnerships</a>
+                        <a role="button" tabindex="0" onclick="switchPage('shop')">Get involved</a>
+                        <a role="button" tabindex="0" onclick="switchPage('faq')">FAQs</a>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-brand-orange font-bold uppercase tracking-wider text-xs mb-4">Contact</h2>
+                    <div class="space-y-3 text-sm text-white/80">
+                        <p><i class="ph ph-globe mr-2" aria-hidden="true"></i><a href="https://www.unitybridge-foundation.org" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4">www.unitybridge-foundation.org</a></p>
+                        <p><i class="ph ph-envelope-simple mr-2" aria-hidden="true"></i><a href="mailto:info@unitybridge-foundation.org" class="underline underline-offset-4">info@unitybridge-foundation.org</a></p>
+                        <p><i class="ph ph-phone mr-2" aria-hidden="true"></i><a href="tel:+27817461041" class="underline underline-offset-4">+27 81 746 1041</a></p>
+                        <p class="text-xs text-white/60">Privacy requests: <a href="mailto:admin@unitybridge-foundation.org" class="underline underline-offset-4">admin@unitybridge-foundation.org</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-5 flex flex-col lg:flex-row gap-4 justify-between items-start lg:items-center text-xs text-white/65">
+                <p>© 2026 Unity Bridge Foundation South Africa. All rights reserved.</p>
+                <div class="flex flex-wrap gap-x-4 gap-y-2">
+                    <a role="button" tabindex="0" onclick="switchPage('privacy')">Privacy Policy</a>
+                    <a role="button" tabindex="0" onclick="switchPage('popi')">POPIA</a>
+                    <a role="button" tabindex="0" onclick="switchPage('cookies')">Cookie Policy</a>
+                    <a role="button" tabindex="0" onclick="switchPage('terms')">Terms of Service</a>
+                    <a role="button" tabindex="0" onclick="switchPage('unsubscribe')">Unsubscribe</a>
+                    <a role="button" tabindex="0" onclick="switchPage('data-rights')">Data deletion / rights request</a>
+                </div>
+            </div>
+            <p class="mt-4 pt-4 border-t border-white/10 text-xs text-white/50">Website form notice: expression-of-interest and rights forms prepare an email through your device. They do not currently submit to or store data in a website database.</p>
+        </div>
+    </footer>
+    <div id="third-party-notice" class="third-party-notice" role="region" aria-label="Third-party resource notice">
+        <p>This site loads some fonts, icons, stylesheets and images from third-party providers. Those services may receive technical data when a resource is requested. <a role="button" tabindex="0" onclick="switchPage('cookies')" class="underline font-semibold">Read the Cookie Policy</a>.</p>
+        <button type="button" onclick="dismissThirdPartyNotice()" aria-label="Dismiss third-party resource notice">Dismiss</button>
+    </div>
+<!-- INTERACTIVE SCRIPTS -->
+    <script>
+        function switchPage(pageId) {
+            var target = document.getElementById('view-' + pageId);
+            if (!target) return;
+            document.querySelectorAll('.page-view').forEach(function(page) {
+                page.classList.remove('active');
+                page.setAttribute('aria-hidden', 'true');
+            });
+            target.classList.add('active');
+            target.setAttribute('aria-hidden', 'false');
+            document.querySelectorAll('.nav-link').forEach(function(link) {
+                link.classList.remove('active', 'text-brand-orange');
+                link.classList.add('text-brand-text');
+                link.removeAttribute('aria-current');
+            });
+            var activeLink = document.getElementById('nav-' + pageId);
+            if (activeLink) {
+                activeLink.classList.add('active', 'text-brand-orange');
+                activeLink.classList.remove('text-brand-text');
+                activeLink.setAttribute('aria-current', 'page');
+            }
+            window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            var menu = document.getElementById('mobile-menu');
+            if (menu && !menu.classList.contains('translate-x-full')) toggleMobileMenu();
+        }
+
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            var button = document.getElementById('mobile-menu-toggle');
+            if (!menu) return;
+            menu.classList.toggle('translate-x-full');
+            var open = !menu.classList.contains('translate-x-full');
+            document.body.style.overflow = open ? 'hidden' : '';
+            if (button) button.setAttribute('aria-expanded', String(open));
+            if (open) {
+                var firstLink = menu.querySelector('a, button');
+                if (firstLink) firstLink.focus();
+            } else if (button) {
+                button.focus();
+            }
+        }
+
+        function openContactModal() {
+            var modal = document.getElementById('contact-modal');
+            var content = document.getElementById('contact-modal-content');
+            if (!modal || !content) return;
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            window.setTimeout(function() {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                var firstContact = modal.querySelector('a, button');
+                if (firstContact) firstContact.focus();
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            var modal = document.getElementById('contact-modal');
+            var content = document.getElementById('contact-modal-content');
+            if (!modal || !content) return;
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            modal.setAttribute('aria-hidden', 'true');
+            window.setTimeout(function() {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+
+        function submitAction(method) {
+            var nameField = document.getElementById('action-name');
+            var msgField = document.getElementById('action-message');
+            var subjectField = document.getElementById('action-modal-title');
+            if (!nameField || !msgField || !subjectField) return;
+            var name = nameField.value.trim();
+            var msg = msgField.value.trim();
+            var subject = subjectField.innerText || 'Contact UBF';
+            if (!name || !msg) { alert('Please enter your name and message.'); return; }
+            var text = 'Hi, my name is ' + name + '. I am contacting UBF about: ' + subject + '. ' + msg;
+            if (method === 'whatsapp') {
+                window.open('https://wa.me/27817461041?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
+            } else {
+                window.location.href = 'mailto:info@unitybridge-foundation.org?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
+            }
+            closeContactModal();
+        }
+
+        function toggleProgramDetails(program) {
+            var panel = document.getElementById(program + '-details');
+            var buttons = document.querySelectorAll('[aria-controls="' + program + '-details"]');
+            if (!panel) return;
+            var opening = panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', !opening);
+            buttons.forEach(function(button) { button.setAttribute('aria-expanded', String(opening)); });
+            if (opening) panel.focus();
+        }
+
+        function toggleInitiativeForm(program) {
+            var panel = document.getElementById(program + '-signup-wrap');
+            var buttons = document.querySelectorAll('[aria-controls="' + program + '-signup-wrap"]');
+            if (!panel) return;
+            var opening = panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', !opening);
+            buttons.forEach(function(button) { button.setAttribute('aria-expanded', String(opening)); });
+            if (opening) {
+                panel.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+                window.setTimeout(function() {
+                    var first = panel.querySelector('input:not([type="checkbox"]), select, textarea');
+                    if (first) first.focus({ preventScroll: true });
+                }, 350);
+            }
+        }
+
+        function submitInitiativeForm(event, program) {
+            event.preventDefault();
+            var form = event.currentTarget;
+            if (!form.reportValidity()) return false;
+            var labels = {
+                startup: 'Small Business Startup Program (2–30 November 2026)',
+                honeybush: 'Sustainable Honeybush Programme (2026–2027 intake)'
+            };
+            var lines = ['Programme: ' + (labels[program] || program), ''];
+            new FormData(form).forEach(function(value, key) {
+                lines.push(key + ': ' + String(value));
+            });
+            lines.push('', 'Please contact me about the next steps.');
+            var subject = 'Expression of interest — ' + (labels[program] || program);
+            var href = 'mailto:info@unitybridge-foundation.org?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+            window.location.href = href;
+            return false;
+        }
+
+        function submitUnsubscribe(event) {
+            event.preventDefault();
+            var form = event.currentTarget;
+            if (!form.reportValidity()) return false;
+            var data = new FormData(form);
+            var lines = [];
+            data.forEach(function(value, key) { lines.push(key + ': ' + String(value)); });
+            lines.push('', 'Please stop sending optional UBF email updates to the address above and confirm when processed.');
+            window.location.href = 'mailto:admin@unitybridge-foundation.org?subject=' + encodeURIComponent('Unsubscribe request') + '&body=' + encodeURIComponent(lines.join('\n'));
+            return false;
+        }
+
+        function submitDataRequest(event) {
+            event.preventDefault();
+            var form = event.currentTarget;
+            if (!form.reportValidity()) return false;
+            var lines = [];
+            new FormData(form).forEach(function(value, key) { lines.push(key + ': ' + String(value)); });
+            lines.push('', 'Please let me know if you need reasonable identity verification or further details to process this request.');
+            window.location.href = 'mailto:admin@unitybridge-foundation.org?subject=' + encodeURIComponent('POPIA personal information request') + '&body=' + encodeURIComponent(lines.join('\n'));
+            return false;
+        }
+
+        function dismissThirdPartyNotice() {
+            var notice = document.getElementById('third-party-notice');
+            if (notice) notice.remove();
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                var modal = document.getElementById('contact-modal');
+                if (modal && !modal.classList.contains('hidden')) closeContactModal();
+                var menu = document.getElementById('mobile-menu');
+                if (menu && !menu.classList.contains('translate-x-full')) toggleMobileMenu();
+            }
+            if ((event.key === 'Enter' || event.key === ' ') && event.target && event.target.matches('a[role="button"], a[role="link"]') && !event.target.hasAttribute('href')) {
+                event.preventDefault();
+                event.target.click();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.page-view').forEach(function(page) {
+                page.setAttribute('aria-hidden', page.classList.contains('active') ? 'false' : 'true');
+            });
+        });
+    </script>
+</body>
+</html>
