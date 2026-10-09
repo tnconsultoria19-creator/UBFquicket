@@ -2,9 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
-    <title>Unity Bridge Foundation | Economic Integration & Formalisation</title>
+    <title>Unity Bridge Foundation South Africa | Local Talent, Opportunity & Enterprise</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Unity Bridge Foundation targets employment opportunities, enterprise formalisation, and long-term sustainability for historically disadvantaged work-seekers.">
+    <meta name="description" content="Unity Bridge Foundation South Africa connects local talent, opportunity and enterprise through small-business development, work pathways and community-based environmental learning.">
+    <meta name="theme-color" content="#112240">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,16 +44,9 @@
                         'brand-gray-dark': '#eaedf0'
                     },
                     borderRadius: {
-                        'sm': '1rem',
-                        DEFAULT: '1.5rem',
-                        'md': '2rem',
-                        'lg': '2.5rem',
-                        'xl': '3rem',
-                        '2xl': '3.5rem',
-                        '3xl': '4rem',
-                        'sweep': '9vw',
-                        'sweep-lg': '15vw',
-                        'sweep-xl': '22vw'
+                        'sm': '0.25rem', DEFAULT: '0.375rem', 'md': '0.5rem',
+                        'lg': '0.625rem', 'xl': '0.75rem', '2xl': '0.875rem',
+                        '3xl': '1rem', 'sweep': '2vw', 'sweep-lg': '3vw', 'sweep-xl': '4vw'
                     },
                     boxShadow: {
                         'custom': '0px 4px 20px 0px rgba(0,0,0,0.06)',
@@ -295,12 +290,50 @@
         .pres-animate-in {
             animation: fadeInSlide 0.6s ease-out forwards;
         }
+
+        /* Responsive refinement: compact scale, restrained corners, readable fallback. */
+        *,*::before,*::after{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:5rem}
+        body{font-size:15px} #main-nav{height:78px;min-height:78px} #app-root{padding-top:78px}
+        #main-nav a.group{gap:.75rem!important} #main-nav a.group img{max-height:3.7rem}
+        #main-nav a.group span:first-child{letter-spacing:.035em!important;line-height:1.12!important}
+        #app-root h1{font-size:clamp(1.95rem,4.2vw,3.4rem)!important;line-height:1.12!important;letter-spacing:-.025em!important}
+        #app-root h2{font-size:clamp(1.45rem,2.8vw,2.25rem)!important;line-height:1.2!important}
+        #app-root h3{font-size:clamp(1.15rem,2vw,1.6rem)!important;line-height:1.3!important}
+        #view-home>section:first-child h1{font-size:clamp(2.2rem,5.1vw,4.25rem)!important} #app-root p{line-height:1.65}
+        #app-root [class*="rounded-"]:not([class*="rounded-full"]),#contact-modal-content,#action-modal-content{border-radius:8px!important}
+        #app-root [class*="rounded-br-["],#app-root [class*="rounded-tr-["],#app-root [class*="rounded-tl-["],#app-root [class*="rounded-bl-["]{border-radius:8px!important}
+        .dsm-wobble-horizontal{min-height:42px;padding:.68rem 1rem!important;font-size:.76rem!important;letter-spacing:.055em!important;box-shadow:none!important;animation:none!important}
+        a.dsm-wobble-horizontal,button.dsm-wobble-horizontal,button[class*="rounded-full"],a[class*="rounded-full"]{border-radius:4px!important}
+        #app-root section[class*="py-20"],#app-root section[class*="py-24"],#app-root section[class*="py-28"],#app-root section[class*="py-32"]{padding-block:clamp(2.75rem,5vw,4rem)!important}
+        .reveal,.reveal.active{opacity:1!important;transform:none!important}
+        .initiative-section{border-block:1px solid #e5e7eb}.initiative-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+        .initiative-card{display:flex;flex-direction:column;background:#fff;border:1px solid #d9dee5;min-width:0}
+        .initiative-card-media{height:190px;overflow:hidden;background:#e8eeea}.initiative-card-media img{height:100%;width:100%;object-fit:cover}
+        .initiative-card-content{padding:1.35rem}.initiative-card h3{margin:.35rem 0 .6rem;color:#112240}.initiative-card p{font-size:.94rem}
+        .initiative-label{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#2c5f53}
+        .initiative-actions{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0 .2rem}
+        .initiative-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:.6rem .9rem;font-weight:800;font-size:.76rem;border:1px solid #2c5f53;border-radius:4px!important}
+        .initiative-btn.primary{background:#2c5f53;color:#fff}.initiative-btn.secondary{background:#fff;color:#112240;border-color:#b7c1ca}
+        .initiative-details{border-top:1px solid #e1e5e9;margin-top:1rem;padding-top:1rem;font-size:.9rem}
+        .initiative-details ul{list-style:disc;padding-left:1.2rem;margin:.6rem 0 1rem}
+        .form-label{display:block;margin-bottom:.3rem;color:#112240;font-size:.8rem;font-weight:800}
+        .form-control{width:100%;min-height:42px;border:1px solid #c8d0d8;border-radius:4px;padding:.65rem .75rem;background:#fff;color:#112240;font-size:16px}
+        .form-check{display:flex;gap:.55rem;align-items:flex-start;font-size:.78rem;line-height:1.5}.form-check input{margin-top:.15rem;width:17px;height:17px;accent-color:#2c5f53;flex-shrink:0}
+        .legal-copy{max-width:850px;margin:0 auto;color:#596575;line-height:1.7}.legal-copy h2{font-size:1.15rem;font-weight:800;color:#112240;margin:1.5rem 0 .5rem}.legal-copy p{margin:.65rem 0}
+        .skip-link{position:absolute;left:.75rem;top:.5rem;z-index:200;background:#fff;border:2px solid #2c5f53;padding:.65rem .9rem;color:#112240;font-weight:800;transform:translateY(-150%)}.skip-link:focus{transform:translateY(0)}
+        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #cda34f;outline-offset:3px}
+        .image-fallback{background:linear-gradient(135deg,#eef1ed,#d9e3df)!important}
+        @media(max-width:639px){#main-nav{height:70px!important;min-height:70px!important}#main-nav a.group{max-width:calc(100vw - 4.75rem);gap:.5rem!important}#main-nav a.group img{max-height:2.9rem!important;max-width:3.1rem}#main-nav a.group span:first-child{font-size:.72rem!important;letter-spacing:.01em!important}#main-nav a.group span:nth-child(2){font-size:.55rem!important;letter-spacing:.1em!important}#app-root{padding-top:70px!important}#view-home>section:first-child{min-height:72svh!important}#view-home>section:first-child h1{font-size:clamp(2rem,8.2vw,3rem)!important}.initiative-grid{grid-template-columns:minmax(0,1fr)}.initiative-card-media{height:175px}.initiative-card-content{padding:1rem}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
     </style>
 </head>
 <body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
+    <a class="skip-link" href="#app-root">Skip to main content</a>
+    <noscript><div style="padding:1rem;background:#fff3cd;color:#112240;text-align:center">This website uses JavaScript for menus and programme details. For enquiries, email info@unitybridge-foundation.org.</div></noscript>
 
     <!-- TOP NAVBAR -->
-    <nav id="main-nav" class="fixed w-full z-50 top-0 bg-white shadow-[0px_4px_20px_0px_rgba(17,34,64,0.05)] h-[95px] flex items-center transition-all duration-300">
+    <nav id="main-nav" aria-label="Primary navigation" class="fixed w-full z-50 top-0 bg-white shadow-[0px_4px_20px_0px_rgba(17,34,64,0.05)] h-[78px] flex items-center transition-all duration-300">
         <div class="w-full max-w-[2560px] mx-auto px-5 sm:px-8 lg:px-12 flex justify-between items-center">
             <!-- Logo -->
             <a onclick="switchPage('home')" class="flex-shrink-0 flex items-center h-full gap-4 cursor-pointer group">
@@ -324,7 +357,7 @@
             </div>
 
             <!-- Mobile Hamburger -->
-            <button onclick="toggleMobileMenu()" class="xl:hidden text-brand-navy focus:outline-none z-[60]">
+            <button id="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()" class="xl:hidden text-brand-navy focus:outline-none z-[60]">
                 <i class="ph ph-list text-3xl"></i>
             </button>
         </div>
@@ -350,10 +383,10 @@
     </div>
 
     <!-- CONTACT MODAL -->
-    <div id="contact-modal" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+    <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-heading" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
         <div class="bg-white rounded-3xl p-8 md:p-10 w-full max-w-xs shadow-2xl transform scale-95 transition-transform duration-300" id="contact-modal-content">
             <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
-                <h3 class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3>
+                <h3 id="contact-modal-heading" class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3>
                 <button onclick="closeContactModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
                     <i class="ph-bold ph-x text-2xl"></i>
                 </button>
@@ -395,7 +428,7 @@
     </div>
 
     <!-- ACTION MODAL -->
-    <div id="action-modal" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+    <div id="action-modal" role="dialog" aria-modal="true" aria-labelledby="action-modal-title" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
         <div class="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl transform scale-95 transition-transform duration-300" id="action-modal-content">
             <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
                 <h3 class="text-xl font-bold text-brand-navy" id="action-modal-title">Get Involved</h3>
