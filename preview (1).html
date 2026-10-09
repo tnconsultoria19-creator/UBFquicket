@@ -361,6 +361,7 @@
 </head>
 <body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
     <a class="skip-link" href="#app-root">Skip to main content</a>
+    <noscript><div style="padding:1rem;background:#fff3cd;color:#112240;text-align:center">This website needs JavaScript for its page navigation and email-based forms. For programme enquiries, email info@unitybridge-foundation.org.</div></noscript>
 
     <!-- TOP NAVBAR -->
     <nav id="main-nav" aria-label="Primary navigation" class="fixed w-full z-50 top-0 bg-white shadow-[0px_4px_20px_0px_rgba(17,34,64,0.05)] h-[95px] flex items-center transition-all duration-300">
@@ -405,7 +406,7 @@
             <a role="button" tabindex="0" onclick="switchPage('services'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Our Work</a>
             <a role="button" tabindex="0" onclick="switchPage('how'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Our Approach</a>
             <a role="button" tabindex="0" onclick="switchPage('lab'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Learning</a>
-            <a role="button" tabindex="0" onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Pricing</a>
+            <a role="button" tabindex="0" onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Partnerships</a>
             <a role="button" tabindex="0" onclick="switchPage('shop'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Get Involved</a>
             <a role="button" tabindex="0" onclick="switchPage('faq'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">FAQs</a>
             <a role="button" tabindex="0" onclick="openContactModal(); toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[15px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Contact Us</a>
@@ -434,7 +435,7 @@
                     </div>
                 </a>
                 
-                <a href="https://wa.me/27817461041" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                <a href="https://wa.me/27817461041" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-[#25D366] shadow-sm group-hover:scale-110 transition-transform">
                         <i class="ph-fill ph-whatsapp-logo text-xl"></i>
                     </div>
@@ -454,36 +455,6 @@
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-
-    <!-- ACTION MODAL -->
-    <div id="action-modal" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
-        <div class="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl transform scale-95 transition-transform duration-300" id="action-modal-content">
-            <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
-                <h3 class="text-xl font-bold text-brand-navy" id="action-modal-title">Get Involved</h3>
-                <button onclick="closeActionModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
-                    <i class="ph-bold ph-x text-2xl"></i>
-                </button>
-            </div>
-            <form id="action-form" class="space-y-4">
-                <div>
-                    <label for="action-name" class="block text-[10px] font-bold text-brand-navy uppercase tracking-widest mb-1">Your Name</label>
-                    <input type="text" id="action-name" class="w-full bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal" required>
-                </div>
-                <div>
-                    <label for="action-message" class="block text-[10px] font-bold text-brand-navy uppercase tracking-widest mb-1">Message / Details</label>
-                    <textarea id="action-message" rows="3" class="w-full bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal" required></textarea>
-                </div>
-                <div class="pt-2 flex flex-col gap-3">
-                    <button type="button" onclick="submitAction('email')" class="w-full bg-brand-orange text-white font-extrabold rounded-full py-3 text-xs uppercase tracking-widest hover:bg-brand-navy transition-colors flex items-center justify-center gap-2">
-                        <i class="ph-fill ph-envelope-simple text-lg"></i> Send via Email
-                    </button>
-                    <button type="button" onclick="submitAction('whatsapp')" class="w-full bg-[#25D366] text-white font-extrabold rounded-full py-3 text-xs uppercase tracking-widest hover:bg-[#1EBE5A] transition-colors flex items-center justify-center gap-2">
-                        <i class="ph-fill ph-whatsapp-logo text-lg"></i> Send via WhatsApp
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -807,7 +778,7 @@
                 <h2>Why we use it</h2><ul><li>To respond to enquiries and expressions of interest.</li><li>To administer applications, communicate selection steps and coordinate programme activities.</li><li>To work with relevant delivery partners and, where necessary, prepare programme monitoring or reporting.</li><li>To communicate optional UBF updates where permitted and where you have chosen to receive them.</li><li>To maintain website security, address misuse and meet legal obligations.</li></ul>
                 <h2>When information may be shared</h2><p>UBF may share the minimum information reasonably needed with service providers who help host or maintain the website, support email and communications, or provide technical services. Depending on the initiative and the steps required, relevant information may also be shared with programme delivery partners, training providers, venues, referral or prospective host organisations, funders or reporting bodies, or public authorities where this is necessary and lawful. This may include sharing information with a third party to assess an application, coordinate activities, verify participation or report on programme delivery. We do not state that every listed category receives information for every programme; access should be limited to the purpose involved.</p>
                 <h2>Website hosting and third-party services</h2><p>This page loads certain fonts, icons, stylesheets and images from third-party services. When your browser requests these resources, those providers may receive technical information. The website repository does not identify the final hosting configuration or all provider contracts; UBF should confirm the actual host, operators, data locations and access arrangements before launch. Some providers may process information outside South Africa. Where applicable, UBF must assess and put in place the safeguards required by POPIA.</p>
-                <h2>Lawful processing and choice</h2><p>UBF should process personal information only for a defined, lawful purpose and on a basis permitted by law, such as taking steps at your request, performing a relevant arrangement, meeting a legal duty, protecting a legitimate interest where applicable or obtaining consent when required. You can decline optional marketing updates without affecting your programme enquiry. If you withdraw consent, this does not make earlier lawful processing unlawful, and UBF may need to retain some records for legal or administrative reasons.</p>
+                <h2>Lawful processing and choice</h2><p>UBF should process personal information only for a defined, lawful purpose and on a basis permitted by law, such as taking steps at your request, performing a relevant arrangement, meeting a legal duty, protecting a legitimate interest where applicable or obtaining consent when required. You can decline optional marketing updates without affecting your programme enquiry. If you withdraw consent, this does not make earlier lawful processing unlawful, and UBF may need to retain some records for legal or administrative reasons. UBF should send direct marketing by electronic communication only where permitted by POPIA; such messages should identify the sender and provide a clear way to ask that further messages stop. Use the Unsubscribe page or email admin@unitybridge-foundation.org.</p>
                 <h2>Retention and security</h2><p>Information should be kept only for as long as reasonably necessary for the purpose for which it was collected, subject to applicable legal, contractual, reporting and audit requirements. UBF should use appropriate organisational and technical safeguards and restrict access to people who need the information for their roles. No website or transmission method can be represented as completely secure.</p>
                 <h2>Your rights</h2><p>Subject to applicable law and any relevant limits, you may ask whether UBF holds information about you, request access, request correction or deletion, object to certain processing, or withdraw consent where processing is based on consent. You may also opt out of direct marketing. Use the <a role="link" tabindex="0" onclick="switchPage('data-rights')" class="underline font-semibold">Data rights request</a> page or email admin@unitybridge-foundation.org. UBF may need to verify your identity before acting.</p>
                 <h2>Children’s information</h2><p>Please do not submit personal information about another person, or information about a person under 18, through these forms without authority to do so. If an under-18 applicant wishes to participate, contact UBF first so that the appropriate consent and programme arrangements can be confirmed.</p>
