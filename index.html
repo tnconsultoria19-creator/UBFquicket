@@ -2,9 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
-    <title>Unity Bridge Foundation | Economic Integration & Formalisation</title>
+    <title>Unity Bridge Foundation South Africa | Local Talent, Opportunity & Enterprise</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Unity Bridge Foundation targets employment opportunities, enterprise formalisation, and long-term sustainability for historically disadvantaged work-seekers.">
+    <meta name="description" content="Unity Bridge Foundation South Africa connects local talent, opportunity and enterprise through small-business development, work pathways and community-based environmental learning.">
+    <meta name="theme-color" content="#112240">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,16 +44,9 @@
                         'brand-gray-dark': '#eaedf0'
                     },
                     borderRadius: {
-                        'sm': '1rem',
-                        DEFAULT: '1.5rem',
-                        'md': '2rem',
-                        'lg': '2.5rem',
-                        'xl': '3rem',
-                        '2xl': '3.5rem',
-                        '3xl': '4rem',
-                        'sweep': '9vw',
-                        'sweep-lg': '15vw',
-                        'sweep-xl': '22vw'
+                        'sm': '0.25rem', DEFAULT: '0.375rem', 'md': '0.5rem',
+                        'lg': '0.625rem', 'xl': '0.75rem', '2xl': '0.875rem',
+                        '3xl': '1rem', 'sweep': '2vw', 'sweep-lg': '3vw', 'sweep-xl': '4vw'
                     },
                     boxShadow: {
                         'custom': '0px 4px 20px 0px rgba(0,0,0,0.06)',
@@ -295,15 +290,53 @@
         .pres-animate-in {
             animation: fadeInSlide 0.6s ease-out forwards;
         }
+
+        /* Responsive refinement: compact scale, restrained corners, readable fallback. */
+        *,*::before,*::after{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:5rem}
+        body{font-size:15px} #main-nav{height:78px;min-height:78px} #app-root{padding-top:78px}
+        #main-nav a.group{gap:.75rem!important} #main-nav a.group img{max-height:3.7rem}
+        #main-nav a.group span:first-child{letter-spacing:.035em!important;line-height:1.12!important}
+        #app-root h1{font-size:clamp(1.95rem,4.2vw,3.4rem)!important;line-height:1.12!important;letter-spacing:-.025em!important}
+        #app-root h2{font-size:clamp(1.45rem,2.8vw,2.25rem)!important;line-height:1.2!important}
+        #app-root h3{font-size:clamp(1.15rem,2vw,1.6rem)!important;line-height:1.3!important}
+        #view-home>section:first-child h1{font-size:clamp(2.2rem,5.1vw,4.25rem)!important} #app-root p{line-height:1.65}
+        #app-root [class*="rounded-"]:not([class*="rounded-full"]),#contact-modal-content,#action-modal-content{border-radius:8px!important}
+        #app-root [class*="rounded-br-["],#app-root [class*="rounded-tr-["],#app-root [class*="rounded-tl-["],#app-root [class*="rounded-bl-["]{border-radius:8px!important}
+        .dsm-wobble-horizontal{min-height:42px;padding:.68rem 1rem!important;font-size:.76rem!important;letter-spacing:.055em!important;box-shadow:none!important;animation:none!important}
+        a.dsm-wobble-horizontal,button.dsm-wobble-horizontal,button[class*="rounded-full"],a[class*="rounded-full"]{border-radius:4px!important}
+        #app-root section[class*="py-20"],#app-root section[class*="py-24"],#app-root section[class*="py-28"],#app-root section[class*="py-32"]{padding-block:clamp(2.75rem,5vw,4rem)!important}
+        .reveal,.reveal.active{opacity:1!important;transform:none!important}
+        .initiative-section{border-block:1px solid #e5e7eb}.initiative-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+        .initiative-card{display:flex;flex-direction:column;background:#fff;border:1px solid #d9dee5;min-width:0}
+        .initiative-card-media{height:190px;overflow:hidden;background:#e8eeea}.initiative-card-media img{height:100%;width:100%;object-fit:cover}
+        .initiative-card-content{padding:1.35rem}.initiative-card h3{margin:.35rem 0 .6rem;color:#112240}.initiative-card p{font-size:.94rem}
+        .initiative-label{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#2c5f53}
+        .initiative-actions{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0 .2rem}
+        .initiative-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:.6rem .9rem;font-weight:800;font-size:.76rem;border:1px solid #2c5f53;border-radius:4px!important}
+        .initiative-btn.primary{background:#2c5f53;color:#fff}.initiative-btn.secondary{background:#fff;color:#112240;border-color:#b7c1ca}
+        .initiative-details{border-top:1px solid #e1e5e9;margin-top:1rem;padding-top:1rem;font-size:.9rem}
+        .initiative-details ul{list-style:disc;padding-left:1.2rem;margin:.6rem 0 1rem}
+        .form-label{display:block;margin-bottom:.3rem;color:#112240;font-size:.8rem;font-weight:800}
+        .form-control{width:100%;min-height:42px;border:1px solid #c8d0d8;border-radius:4px;padding:.65rem .75rem;background:#fff;color:#112240;font-size:16px}
+        .form-check{display:flex;gap:.55rem;align-items:flex-start;font-size:.78rem;line-height:1.5}.form-check input{margin-top:.15rem;width:17px;height:17px;accent-color:#2c5f53;flex-shrink:0}
+        .legal-copy{max-width:850px;margin:0 auto;color:#596575;line-height:1.7}.legal-copy h2{font-size:1.15rem;font-weight:800;color:#112240;margin:1.5rem 0 .5rem}.legal-copy p{margin:.65rem 0}
+        .skip-link{position:absolute;left:.75rem;top:.5rem;z-index:200;background:#fff;border:2px solid #2c5f53;padding:.65rem .9rem;color:#112240;font-weight:800;transform:translateY(-150%)}.skip-link:focus{transform:translateY(0)}
+        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #cda34f;outline-offset:3px}
+        .image-fallback{background:linear-gradient(135deg,#eef1ed,#d9e3df)!important}
+        @media(max-width:639px){#main-nav{height:70px!important;min-height:70px!important}#main-nav a.group{max-width:calc(100vw - 4.75rem);gap:.5rem!important}#main-nav a.group img{max-height:2.9rem!important;max-width:3.1rem}#main-nav a.group span:first-child{font-size:.72rem!important;letter-spacing:.01em!important}#main-nav a.group span:nth-child(2){font-size:.55rem!important;letter-spacing:.1em!important}#app-root{padding-top:70px!important}#view-home>section:first-child{min-height:72svh!important}#view-home>section:first-child h1{font-size:clamp(2rem,8.2vw,3rem)!important}.initiative-grid{grid-template-columns:minmax(0,1fr)}.initiative-card-media{height:175px}.initiative-card-content{padding:1rem}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
     </style>
 </head>
 <body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
+    <a class="skip-link" href="#app-root">Skip to main content</a>
+    <noscript><div style="padding:1rem;background:#fff3cd;color:#112240;text-align:center">This website uses JavaScript for menus and programme details. For enquiries, email info@unitybridge-foundation.org.</div></noscript>
 
     <!-- TOP NAVBAR -->
-    <nav id="main-nav" class="fixed w-full z-50 top-0 bg-white shadow-[0px_4px_20px_0px_rgba(17,34,64,0.05)] h-[95px] flex items-center transition-all duration-300">
+    <nav id="main-nav" aria-label="Primary navigation" class="fixed w-full z-50 top-0 bg-white shadow-[0px_4px_20px_0px_rgba(17,34,64,0.05)] h-[78px] flex items-center transition-all duration-300">
         <div class="w-full max-w-[2560px] mx-auto px-5 sm:px-8 lg:px-12 flex justify-between items-center">
             <!-- Logo -->
-            <a onclick="switchPage('home')" class="flex-shrink-0 flex items-center h-full gap-4 cursor-pointer group">
+            <a role="button" tabindex="0" onclick="switchPage('home')" class="flex-shrink-0 flex items-center h-full gap-4 cursor-pointer group">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVAjhn2f4Q9faqA4fVUJdUxDvqi4-RZFTdMNOwVrn7Qy5fVBxXPCtmYU1goEA9VONRmVSe0yBdpj-qZLRxhY0wE5Gu8hdSOVKNizDPh-8WYvc0vQxtC6wOP-AOmCBIVIT0WHVFel9uxRNCAHzRlWq2EY7_hPodc2guHNnVfdvESjDCUOMDZdAwkh4vpc4/s320/4b3833b3-83b3-4fa9-b48d-5ef03566c492.png" alt="Unity Bridge Foundation Logo" class="h-16 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col justify-center">
                     <span class="font-bold text-[17px] md:text-[22px] text-brand-navy leading-none uppercase tracking-[0.05em] md:tracking-[0.1em]">UNITY BRIDGE FOUNDATION</span>
@@ -313,18 +346,18 @@
             
             <!-- Desktop Links -->
             <div class="hidden xl:flex items-center space-x-10">
-                <a onclick="switchPage('home')" id="nav-home" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer active">Home</a>
-                <a onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Programs</a>
-                <a onclick="switchPage('how')" id="nav-how" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Methodology</a>
-                <a onclick="switchPage('lab')" id="nav-lab" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">The Lab</a>
-                <a onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Shop</a>
-                <a onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQ</a>
+                <a role="button" tabindex="0" onclick="switchPage('home')" id="nav-home" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer active">Home</a>
+                <a role="button" tabindex="0" onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Work</a>
+                <a role="button" tabindex="0" onclick="switchPage('how')" id="nav-how" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Approach</a>
+                <a role="button" tabindex="0" onclick="switchPage('lab')" id="nav-lab" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Learning</a>
+                <a role="button" tabindex="0" onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Get Involved</a>
+                <a role="button" tabindex="0" onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQs</a>
                 
-                <a onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Partner</a>
+                <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Partner</a>
             </div>
 
             <!-- Mobile Hamburger -->
-            <button onclick="toggleMobileMenu()" class="xl:hidden text-brand-navy focus:outline-none z-[60]">
+            <button id="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()" class="xl:hidden text-brand-navy focus:outline-none z-[60]">
                 <i class="ph ph-list text-3xl"></i>
             </button>
         </div>
@@ -338,22 +371,22 @@
             </button>
         </div>
         <div class="flex flex-col space-y-8 text-center mt-10">
-            <a onclick="switchPage('home'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Home</a>
-            <a onclick="switchPage('services'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Programs</a>
-            <a onclick="switchPage('how'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Methodology</a>
-            <a onclick="switchPage('lab'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">The Lab</a>
-            <a onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Pricing</a>
-            <a onclick="switchPage('shop'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Shop (Vendors)</a>
-            <a onclick="switchPage('faq'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">FAQ</a>
-            <a onclick="openContactModal(); toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[15px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Contact Us</a>
+            <a role="button" tabindex="0" onclick="switchPage('home'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Home</a>
+            <a role="button" tabindex="0" onclick="switchPage('services'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Programs</a>
+            <a role="button" tabindex="0" onclick="switchPage('how'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Methodology</a>
+            <a role="button" tabindex="0" onclick="switchPage('lab'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">The Lab</a>
+            <a role="button" tabindex="0" onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Partnerships</a>
+            <a role="button" tabindex="0" onclick="switchPage('shop'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Get Involved</a>
+            <a role="button" tabindex="0" onclick="switchPage('faq'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">FAQ</a>
+            <a role="button" tabindex="0" onclick="openContactModal(); toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[15px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Contact Us</a>
         </div>
     </div>
 
     <!-- CONTACT MODAL -->
-    <div id="contact-modal" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+    <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-heading" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
         <div class="bg-white rounded-3xl p-8 md:p-10 w-full max-w-xs shadow-2xl transform scale-95 transition-transform duration-300" id="contact-modal-content">
             <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
-                <h3 class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3>
+                <h3 id="contact-modal-heading" class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3>
                 <button onclick="closeContactModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
                     <i class="ph-bold ph-x text-2xl"></i>
                 </button>
@@ -361,23 +394,23 @@
             <p class="text-brand-text-light text-sm mb-6 leading-relaxed">Reach out to the Unity Bridge Foundation team through any of the channels below.</p>
             
             <div class="space-y-4">
-                <a href="tel:+27839410276" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                <a href="tel:+27817461041" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-brand-navy shadow-sm group-hover:scale-110 transition-transform">
                         <i class="ph-fill ph-phone text-xl"></i>
                     </div>
                     <div>
                         <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">Call Us</span>
-                        <span class="block font-bold text-brand-navy text-sm">+27 83 941 0276</span>
+                        <span class="block font-bold text-brand-navy text-sm">+27 81 746 1041</span>
                     </div>
                 </a>
                 
-                <a href="https://wa.me/27839410276" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                <a href="https://wa.me/27817461041" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-[#25D366] shadow-sm group-hover:scale-110 transition-transform">
                         <i class="ph-fill ph-whatsapp-logo text-xl"></i>
                     </div>
                     <div>
                         <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">WhatsApp</span>
-                        <span class="block font-bold text-brand-navy text-sm">+27 83 941 0276</span>
+                        <span class="block font-bold text-brand-navy text-sm">+27 81 746 1041</span>
                     </div>
                 </a>
 
@@ -395,7 +428,7 @@
     </div>
 
     <!-- ACTION MODAL -->
-    <div id="action-modal" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+    <div id="action-modal" role="dialog" aria-modal="true" aria-labelledby="action-modal-title" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
         <div class="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl transform scale-95 transition-transform duration-300" id="action-modal-content">
             <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
                 <h3 class="text-xl font-bold text-brand-navy" id="action-modal-title">Get Involved</h3>
@@ -437,21 +470,21 @@
 
                 <div class="relative max-w-[1920px] mx-auto w-full px-6 sm:px-8 lg:px-[10%] z-10 flex flex-col items-center text-center mt-10 md:mt-0">
                     <div class="w-full md:max-w-4xl reveal flex flex-col justify-center items-center">
-                        <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-6 border-b border-brand-orange/50 pb-2 text-shadow-strong drop-shadow-md">Strategic Integration</span>
+                        <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-6 border-b border-brand-orange/50 pb-2 text-shadow-strong drop-shadow-md">Local opportunity. Practical support.</span>
                         <h1 class="text-4xl sm:text-5xl md:text-[5vw] lg:text-[70px] leading-[1.1em] font-extrabold text-white mb-8 text-shadow-strong">
-                            Our business is to <br>
-                            <span class="text-brand-teal-light italic font-light">grow yours.</span>
+                            Connecting local talent, <br>
+                            <span class="text-brand-teal-light italic font-light">opportunity and enterprise.</span>
                         </h1>
                         
                         <p class="mb-12 text-[16px] md:text-[20px] text-white leading-relaxed max-w-3xl font-bold text-shadow-strong">
-                            Do you have the drive to ignite positive change? We nurture aspiring entrepreneurs and enthusiastic work-seekers. We equip you with institutional tools, connect you directly with formal markets to thrive, and aggressively pursue our long-term sustainability goals.
+                            Unity Bridge Foundation is a Cape Town-based non-profit organisation. We support small and medium-sized businesses to grow and create opportunities for unemployed graduates and young people, while encouraging ethical community leadership and environmentally responsible pathways to work.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto justify-center">
-                            <a onclick="openContactModal()" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-brand-orange text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase hover:bg-white hover:text-brand-navy transition-colors shadow-[0_0_30px_rgba(205,163,79,0.4)] cursor-pointer">
+                            <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-brand-orange text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase hover:bg-white hover:text-brand-navy transition-colors shadow-[0_0_30px_rgba(205,163,79,0.4)] cursor-pointer">
                                 Partner with us
                             </a>
-                            <a onclick="switchPage('services')" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-transparent text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase border-2 border-white hover:bg-white hover:text-brand-navy transition-colors cursor-pointer shadow-lg backdrop-blur-sm">
+                            <a role="button" tabindex="0" onclick="switchPage('services')" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-transparent text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase border-2 border-white hover:bg-white hover:text-brand-navy transition-colors cursor-pointer shadow-lg backdrop-blur-sm">
                                 Our Programs
                             </a>
                         </div>
@@ -459,7 +492,56 @@
                 </div>
             </section>
 
-            <!-- REIMAGINED: Our Mandate Section -->
+
+            <!-- Current initiatives: immediately after the hero -->
+            <section id="current-initiatives" class="initiative-section bg-brand-gray py-14 md:py-16 px-5 sm:px-8 lg:px-[10%]">
+                <div class="max-w-[1280px] mx-auto">
+                    <div class="max-w-3xl mb-8 reveal"><span class="text-brand-teal font-bold tracking-[0.16em] uppercase text-xs">Current initiatives</span><h2 class="text-brand-navy font-extrabold mt-2 mb-3">Take part in a current programme</h2><p class="text-brand-text-light">Start with a short overview. Open the details for more information, or register your interest directly.</p></div>
+                    <div class="initiative-grid">
+                        <article class="initiative-card reveal">
+                            <div class="initiative-card-media"><img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="Person planning a small business" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-content">
+                                <span class="initiative-label">Business development · 2–30 November 2026</span><h3>Small Business Startup Program</h3>
+                                <p class="text-brand-text-light">A four-week programme focused on helping participants plan and professionalise a business, with practical work on research, payments, digital presence and operations.</p>
+                                <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('startup-details',this)" aria-expanded="false" aria-controls="startup-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('startup-form-panel',this)" aria-expanded="false" aria-controls="startup-form-panel">Sign up</button><a class="initiative-btn secondary" href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer">Register on Quicket</a></div>
+                                <div id="startup-details" class="initiative-details" hidden><p class="font-bold text-brand-navy mb-2">The poster lists these end-of-programme resources:</p><ul><li>Business plan</li><li>Market research</li><li>Banking and payment facilitation</li><li>Website and e-commerce</li><li>Business operations tools</li><li>Business professionalisation guides</li></ul><p>Programme dates: 2–30 November 2026. Use Quicket for the event registration process; this form is an additional expression of interest.</p></div>
+                                <div id="startup-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
+                                    <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Small Business Startup Program')">
+                                        <div><label class="form-label" for="startup-name">Full name *</label><input class="form-control" id="startup-name" name="Full name" autocomplete="name" required></div>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><div><label class="form-label" for="startup-email">Email address *</label><input class="form-control" type="email" id="startup-email" name="Email address" autocomplete="email" required></div><div><label class="form-label" for="startup-phone">Phone number</label><input class="form-control" type="tel" id="startup-phone" name="Phone number" autocomplete="tel"></div></div>
+                                        <div><label class="form-label" for="startup-business">Business name or idea (optional)</label><input class="form-control" id="startup-business" name="Business name or idea"></div>
+                                        <div class="form-check"><input type="checkbox" id="startup-privacy" required><label for="startup-privacy">I have read the <a role="button" tabindex="0" onclick="switchPage('privacy')" class="underline font-bold">Privacy Policy</a> and understand how my information will be used to respond to this enquiry.</label></div>
+                                        <div class="form-check"><input type="checkbox" id="startup-updates" name="Optional updates" value="Yes"><label for="startup-updates">I would also like to receive occasional UBF updates (optional).</label></div>
+                                        <button type="submit" class="initiative-btn primary">Prepare sign-up email</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="initiative-card reveal delay-100">
+                            <div class="initiative-card-media"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80" alt="Natural fynbos vegetation in a conservation area" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-content">
+                                <span class="initiative-label">Environment and work pathways · 2026–2027 pilot</span><h3>Sustainable Honeybush Programme</h3>
+                                <p class="text-brand-text-light">A planned community pilot linking sustainable Honeybush harvesting education, practical skills and fynbos conservation, with a focus on pathways for unemployed stewards.</p>
+                                <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('honeybush-details',this)" aria-expanded="false" aria-controls="honeybush-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('honeybush-form-panel',this)" aria-expanded="false" aria-controls="honeybush-form-panel">Sign up</button></div>
+                                <div id="honeybush-details" class="initiative-details" hidden><p>The revised work plan describes an intake target of 25 unemployed stewards, community mobilisation in Grassy Park and Lotus River, foundational learning in late 2026, planned practical training and field activities in early 2027, and community education in March and April 2027.</p><p>Selection, dates, eligibility and training arrangements remain subject to confirmation and available places. An expression of interest does not guarantee selection.</p></div>
+                                <div id="honeybush-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
+                                    <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Sustainable Honeybush Programme')">
+                                        <div><label class="form-label" for="honeybush-name">Full name *</label><input class="form-control" id="honeybush-name" name="Full name" autocomplete="name" required></div>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><div><label class="form-label" for="honeybush-email">Email address *</label><input class="form-control" type="email" id="honeybush-email" name="Email address" autocomplete="email" required></div><div><label class="form-label" for="honeybush-phone">Phone number</label><input class="form-control" type="tel" id="honeybush-phone" name="Phone number" autocomplete="tel"></div></div>
+                                        <div><label class="form-label" for="honeybush-community">Community / suburb *</label><input class="form-control" id="honeybush-community" name="Community or suburb" required></div><div><label class="form-label" for="honeybush-note">Additional information (optional)</label><textarea class="form-control" id="honeybush-note" name="Additional information" rows="3"></textarea></div>
+                                        <div class="form-check"><input type="checkbox" id="honeybush-privacy" required><label for="honeybush-privacy">I have read the <a role="button" tabindex="0" onclick="switchPage('privacy')" class="underline font-bold">Privacy Policy</a> and understand how my information will be used to respond to this enquiry.</label></div>
+                                        <div class="form-check"><input type="checkbox" id="honeybush-updates" name="Optional updates" value="Yes"><label for="honeybush-updates">I would also like to receive occasional UBF updates (optional).</label></div>
+                                        <button type="submit" class="initiative-btn primary">Prepare sign-up email</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <p class="text-xs text-brand-text-light mt-5">Programme information is based on UBF’s supplied poster and revised work plan. Please confirm changes with UBF.</p>
+                </div>
+            </section>
+
+            <!-- Our mandate section -->
             <section class="bg-white py-20 md:py-32 px-6 sm:px-8 lg:px-[10%] relative overflow-hidden border-b border-gray-100">
                 <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
                 <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-gray to-transparent skew-x-12 translate-x-20"></div>
@@ -473,13 +555,13 @@
                             <span class="text-brand-orange font-bold tracking-[0.2em] uppercase text-xs">Our Mandate</span>
                         </div>
                         <h2 class="text-3xl md:text-5xl font-light text-brand-navy mb-8 leading-[1.2em]">
-                            Transforming communities, <br>
-                            <span class="font-bold text-brand-teal">one project at a time.</span>
+                            Support for local businesses, <br>
+                            <span class="font-bold text-brand-teal">people and communities.</span>
                         </h2>
                         <p class="text-brand-text-light text-lg leading-relaxed mb-10 font-light">
-                            We bridge the gap between affluent resources and high-potential individuals. By deploying focused capital and structured education, we catalyze sustainable economic participation for those historically excluded from the formal market.
+                            UBF works to help local small and medium-sized enterprises strengthen their business practices and grow. We also support practical skills development, youth opportunity, ethical community leadership and community-based environmental learning.
                         </p>
-                        <a onclick="switchPage('services')" class="dsm-wobble-horizontal group flex items-center gap-4 cursor-pointer">
+                        <a role="button" tabindex="0" onclick="switchPage('services')" class="dsm-wobble-horizontal group flex items-center gap-4 cursor-pointer">
                             <span class="w-12 h-12 rounded-full border border-brand-orange flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
                                 <i class="ph ph-arrow-right text-xl"></i>
                             </span>
@@ -493,7 +575,7 @@
                             <img src="https://images.pexels.com/photos/14776851/pexels-photo-14776851.jpeg" alt="Agriculture and Food Security" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6">
-                                <h4 class="text-xl md:text-2xl text-white font-bold mb-1 drop-shadow-lg">Agriculture & Food Security</h4>
+                                <h4 class="text-xl md:text-2xl text-white font-bold mb-1 drop-shadow-lg">Environmental Learning</h4>
                                 <span class="text-brand-teal-light text-[10px] md:text-xs uppercase tracking-widest font-extrabold drop-shadow-md">Food Independence & Donor Funding</span>
                             </div>
                         </div>
@@ -527,8 +609,8 @@
                                 <li class="flex items-center gap-3 border-b border-gray-200 pb-3"><i class="ph-fill ph-users-three text-brand-teal text-xl"></i> Enterprise Resource Drives</li>
                             </ul>
                             <div class="flex flex-wrap gap-4">
-                                <a onclick="openActionModal('Register to Volunteer')" class="cursor-pointer dsm-wobble-horizontal bg-brand-navy text-white border border-brand-navy py-3.5 px-8 rounded-full text-xs uppercase tracking-widest font-extrabold hover:bg-brand-orange hover:border-brand-orange transition-colors">Register to Volunteer</a>
-                                <a onclick="openActionModal('Become a Donor')" class="cursor-pointer dsm-wobble-horizontal bg-transparent text-brand-navy border border-brand-navy py-3.5 px-8 rounded-full text-xs uppercase tracking-widest font-extrabold hover:bg-brand-navy hover:text-white transition-colors">Become a Donor</a>
+                                <a role="button" tabindex="0" onclick="openActionModal('Register to Volunteer')" class="cursor-pointer dsm-wobble-horizontal bg-brand-navy text-white border border-brand-navy py-3.5 px-8 rounded-full text-xs uppercase tracking-widest font-extrabold hover:bg-brand-orange hover:border-brand-orange transition-colors">Register to Volunteer</a>
+                                <a role="button" tabindex="0" onclick="openActionModal('Become a Donor')" class="cursor-pointer dsm-wobble-horizontal bg-transparent text-brand-navy border border-brand-navy py-3.5 px-8 rounded-full text-xs uppercase tracking-widest font-extrabold hover:bg-brand-navy hover:text-white transition-colors">Become a Donor</a>
                             </div>
                         </div>
                         
@@ -551,7 +633,7 @@
                         <p class="text-white/70 text-sm font-light">Partner with Unity Bridge Foundation to deploy strategic interventions in your community.</p>
                     </div>
                     <div class="w-full md:w-2/5 flex justify-center md:justify-end">
-                        <a onclick="openContactModal()" class="dsm-wobble-horizontal text-center bg-brand-orange text-white font-extrabold py-3 px-8 rounded-full text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all flex items-center gap-3 uppercase tracking-widest cursor-pointer">
+                        <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal text-center bg-brand-orange text-white font-extrabold py-3 px-8 rounded-full text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all flex items-center gap-3 uppercase tracking-widest cursor-pointer">
                             <span>Initiate Contact</span>
                             <i class="ph-bold ph-arrow-right text-lg"></i>
                         </a>
@@ -584,8 +666,8 @@
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
                             <span class="text-brand-orange font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-orange pb-2 inline-block w-max">Track 01</span>
-                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">The Startup Engine</h3>
-                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">Designed for individuals who have a vision but lack the roadmap. We provide the technical chassis for your passion, moving you from concept to formal entity.</p>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Small Business Startup Program</h3>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">A four-week November 2026 programme focused on practical business planning, market research, payments, digital presence and operations.</p>
                             
                             <ul class="space-y-4">
                                 <li class="flex items-start gap-4">
@@ -594,7 +676,7 @@
                                 </li>
                                 <li class="flex items-start gap-4">
                                     <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
-                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">6-Week Technical Build</h5><p class="text-sm text-brand-text-light">Rapid institutional build and asset creation.</p></div>
+                                    <div><h5 class="text-sm font-bold text-brand-navy uppercase tracking-wider mb-1">Website and e-commerce</h5><p class="text-sm text-brand-text-light">Practical guidance on digital presence and online business tools.</p></div>
                                 </li>
                                 <li class="flex items-start gap-4">
                                     <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
@@ -608,14 +690,14 @@
                     <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 mb-24 reveal delay-100">
                         <div class="w-full lg:w-1/2 relative">
                             <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-dark shadow-elegant">
-                                <img src="https://images.pexels.com/photos/36889849/pexels-photo-36889849.jpeg" alt="The Accelerator" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
+                                <img src="https://images.pexels.com/photos/36889849/pexels-photo-36889849.jpeg" alt="Small Business Support" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
                             </div>
                             <div class="absolute -top-6 -left-6 w-32 h-32 border-t-4 border-l-4 border-brand-teal-light z-0 rounded-tl-[2.5rem]"></div>
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
                             <span class="text-brand-teal-light font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-teal-light pb-2 inline-block w-max">Track 02</span>
                             <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">The Accelerator</h3>
-                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">For businesses already in operation, UBF performs a technical audit to identify and complete missing structural assets required for corporate procurement and funding.</p>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">UBF aims to help small and medium-sized businesses strengthen their planning, operations and workforce practices so they can grow responsibly.</p>
                             
                             <ul class="space-y-4">
                                 <li class="flex items-start gap-4">
@@ -644,8 +726,8 @@
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
                             <span class="text-brand-coral font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-coral pb-2 inline-block w-max">Track 03</span>
-                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Employment Opportunities</h3>
-                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">Securing the future for historically disadvantaged work-seekers through CV drives, corporate cover letter creation, and intensive job application execution.</p>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Work Pathways</h3>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">UBF’s wider mission is to help SMEs grow and create opportunities for unemployed graduates and young people. Specific placements are not guaranteed.</p>
                             
                             <ul class="space-y-4">
                                 <li class="flex items-start gap-4">
@@ -668,14 +750,14 @@
                     <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 mb-24 reveal delay-200">
                         <div class="w-full lg:w-1/2 relative">
                             <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-dark shadow-elegant">
-                                <img src="https://images.pexels.com/photos/34211747/pexels-photo-34211747.jpeg" alt="The School Bridge" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
+                                <img src="https://images.pexels.com/photos/34211747/pexels-photo-34211747.jpeg" alt="Community Learning" class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
                             </div>
                             <div class="absolute -top-6 -right-6 w-32 h-32 border-t-4 border-r-4 border-brand-cyan z-0 rounded-tr-[2.5rem]"></div>
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
                             <span class="text-brand-cyan font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-cyan pb-2 inline-block w-max">Track 04</span>
                             <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">The School Bridge</h3>
-                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">Targeted educational integration providing fundamental resources, mentorship, and foundational learning support to disadvantaged youth communities.</p>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">UBF seeks to cultivate ethical community and economic leadership through locally relevant learning and partnership-based activities.</p>
                             
                             <ul class="space-y-4">
                                 <li class="flex items-start gap-4">
@@ -705,7 +787,7 @@
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
                             <span class="text-brand-orange font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-orange pb-2 inline-block w-max">Track 05</span>
                             <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Agriculture & Food Security</h3>
-                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">Targeted agro-initiatives fostering community food independence and creating sustainable agricultural enterprise models.</p>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">The Sustainable Honeybush pilot links harvesting education, practical skills and fynbos conservation with planned community learning.</p>
                             
                             <ul class="space-y-4">
                                 <li class="flex items-start gap-4">
@@ -820,273 +902,48 @@
 
         <!-- ================= PAGE: EMPOWERMENT LAB ================= -->
         <div id="view-lab" class="page-view">
-            <section class="bg-brand-dark pt-32 md:pt-40 pb-24 px-6 relative overflow-hidden text-center md:text-left">
-                <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-screen"></div>
-                <div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-brand-teal-light rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
-                <div class="absolute bottom-[-10%] left-[-5%] w-[30vw] h-[30vw] bg-brand-orange rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
-
-                <div class="max-w-[1920px] mx-auto px-0 lg:px-[10%] relative z-10 reveal">
-                    <div class="flex flex-col md:flex-row justify-between items-end gap-8">
-                        <div>
-                            <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Knowledge Hub</span>
-                            <h1 class="text-4xl md:text-6xl lg:text-[70px] font-extrabold text-white mb-4 leading-tight">Empowerment <span class="text-brand-teal-light italic font-light">Lab</span></h1>
-                            <p class="text-lg text-white/70 max-w-xl font-light">Your central repository for zero-to-low-cost resources, practical tools, step-by-step guides, and direct mentoring access.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="py-20 bg-brand-gray border-t border-gray-200 relative">
-                <!-- FROSTED GLASS COMING SOON OVERLAY -->
-                <div class="absolute inset-0 z-50 backdrop-blur-md bg-brand-gray/60 flex items-center justify-center pointer-events-none">
-                    <div class="bg-brand-navy border-2 border-brand-orange py-6 px-16 rounded-full shadow-2xl transform -rotate-6">
-                        <span class="text-white text-2xl md:text-4xl font-extrabold uppercase tracking-[0.2em]">Launching Soon</span>
-                    </div>
-                </div>
-
-                <div class="max-w-[1920px] mx-auto px-6 lg:px-[10%] relative z-10 opacity-40">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                        
-                        <!-- Featured Toolkit (Spans 2 columns) -->
-                        <div class="col-span-1 lg:col-span-2 bg-gradient-to-br from-brand-navy to-[#1a365d] p-10 md:p-12 rounded-[3rem] shadow-elegant transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-orange opacity-10 rounded-full blur-3xl"></div>
-                            <div class="relative z-10">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <span class="bg-brand-orange text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest">Featured Toolkit</span>
-                                </div>
-                                <h4 class="text-3xl md:text-4xl font-extrabold text-white mb-4 pr-10">The Complete 90-Day Formalisation Blueprint</h4>
-                                <p class="text-base text-white/70 mb-10 max-w-xl font-light">From idea to CIPC registered, compliant, and operational. Follow our structured 12-week guide to legitimize your enterprise at near-zero cost.</p>
-                            </div>
-                        </div>
-
-                        <!-- Mentoring (Span 1) -->
-                        <div class="col-span-1 bg-brand-orange p-10 rounded-[3rem] shadow-sm flex flex-col h-full text-white relative overflow-hidden">
-                            <div class="absolute -right-8 -bottom-8 opacity-10">
-                                <i class="ph-fill ph-chalkboard-teacher text-[200px]"></i>
-                            </div>
-                            <div class="relative z-10 flex flex-col h-full">
-                                <div class="w-14 h-14 bg-white/20 text-white rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm">
-                                    <i class="ph-fill ph-calendar-plus text-3xl"></i>
-                                </div>
-                                <h4 class="text-2xl font-extrabold text-white mb-3">1-on-1 Mentorship</h4>
-                                <p class="text-sm text-white/90 mb-8 flex-grow font-light">Stuck on your business plan? Book a free 30-min virtual session with our enterprise experts.</p>
-                            </div>
-                        </div>
-
-                        <!-- Audio/Podcast -->
-                        <div class="col-span-1 bg-white p-8 md:p-10 rounded-[3rem] border border-gray-200 shadow-sm">
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center">
-                                    <i class="ph-fill ph-headphones text-3xl"></i>
-                                </div>
-                                <span class="text-brand-text-light text-[10px] font-extrabold px-3 py-1.5 bg-gray-100 rounded-full uppercase tracking-widest">Audio</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-brand-navy mb-3">Founder's Podcast: Overcoming the Funding Gap</h4>
-                            <p class="text-sm text-brand-text-light mb-6 font-light">Listen to real stories from youth entrepreneurs who scaled without initial capital.</p>
-                        </div>
-
-                        <!-- Video -->
-                        <div class="col-span-1 bg-white p-8 md:p-10 rounded-[3rem] border border-gray-200 shadow-sm">
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="w-14 h-14 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center">
-                                    <i class="ph-fill ph-youtube-logo text-3xl"></i>
-                                </div>
-                                <span class="text-brand-text-light text-[10px] font-extrabold px-3 py-1.5 bg-gray-100 rounded-full uppercase tracking-widest">Video</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-brand-navy mb-3">Mobile CIPC Registration Masterclass</h4>
-                            <p class="text-sm text-brand-text-light mb-6 font-light">Watch this quick 5-minute tutorial on registering your business using just your smartphone.</p>
-                        </div>
-
-                        <!-- Template -->
-                        <div class="col-span-1 bg-white p-8 md:p-10 rounded-[3rem] border border-gray-200 shadow-sm">
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="w-14 h-14 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center">
-                                    <i class="ph-fill ph-file-text text-3xl"></i>
-                                </div>
-                                <span class="text-brand-text-light text-[10px] font-extrabold px-3 py-1.5 bg-gray-100 rounded-full uppercase tracking-widest">Template</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-brand-navy mb-3">Corporate Pitch Deck Template</h4>
-                            <p class="text-sm text-brand-text-light mb-6 font-light">A plug-and-play PowerPoint template structured specifically for corporate procurement presentations.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <section class="bg-brand-navy text-white pt-32 md:pt-40 pb-20 px-6"><div class="max-w-5xl mx-auto"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Learning and information</span><h1 class="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">Practical knowledge for local progress</h1><p class="text-white/80 max-w-3xl">Information about UBF’s current initiatives, small-business development and community-based environmental learning.</p></div></section>
+            <section class="py-14 bg-white"><div class="max-w-5xl mx-auto px-5 sm:px-8 space-y-5">
+                <article class="border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Small Business Startup Program</h2><p class="text-sm text-brand-text-light mb-3">The November programme covers business planning, market research, banking and payment facilitation, website and e-commerce, business operations tools and professionalisation guides.</p><a href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer" class="text-brand-teal underline font-bold">Quicket registration</a></article>
+                <article class="border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Sustainable Honeybush Programme</h2><p class="text-sm text-brand-text-light">The 2026–2027 pilot work plan covers foundational learning, planned practical training, field activities and community education related to sustainable harvesting and fynbos conservation. Dates and arrangements are subject to confirmation.</p></article>
+            </div></section>
         </div>
 
-
-        <!-- ================= PAGE: PRICING (PARTNERSHIPS) ================= -->
         <div id="view-pricing" class="page-view">
             <section class="bg-brand-navy pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                <div class="max-w-4xl mx-auto relative z-10 reveal">
-                    <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Investment Tiers</span>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">Partnership <span class="text-brand-teal-light italic font-light">Tranches</span></h1>
-                    <p class="text-lg md:text-xl text-white/80 font-light">Support our Foundation through specific intake allocations and strategic corporate sponsorships.</p>
-                </div>
+                <div class="max-w-4xl mx-auto relative z-10"><span class="text-brand-orange font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Partnerships</span><h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-5">Work with <span class="text-brand-teal-light italic font-light">UBF</span></h1><p class="text-base md:text-lg text-white/80 max-w-2xl mx-auto">We welcome conversations with businesses, community organisations, training providers and supporters whose work aligns with local enterprise, youth opportunity and environmental learning.</p></div>
             </section>
-
-            <section class="py-20 md:py-28 bg-brand-gray border-t border-gray-200">
-                <div class="max-w-[1920px] mx-auto px-6 lg:px-[10%]">
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                        
-                        <!-- Basic -->
-                        <div class="bg-white p-10 border border-gray-200 flex flex-col h-full reveal shadow-sm hover:shadow-custom transition-shadow rounded-[3rem]">
-                            <div class="text-brand-teal font-extrabold text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2"><i class="ph-fill ph-user"></i> Individual Allocation</div>
-                            <h5 class="text-2xl font-extrabold text-brand-navy mb-2">Startup Engine Intake</h5>
-                            <div class="text-4xl font-extrabold text-brand-navy mb-6">R 1,500 <span class="text-sm text-gray-400 font-normal">/ intake</span></div>
-                            <p class="text-sm mb-8 flex-grow text-brand-text-light font-light">Sponsor capital required to guide one founder through our 6-week technical build.</p>
-                            
-                            <ul class="space-y-4 mb-10 text-sm font-bold">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Idea Validation Funding</li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Digital Identity Capital</li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Training Subsidies</li>
-                            </ul>
-                            <a onclick="openContactModal()" class="dsm-wobble-horizontal w-full text-center bg-transparent text-brand-navy border-2 border-brand-navy py-4 rounded-full font-extrabold hover:bg-brand-navy hover:text-white transition-colors cursor-pointer uppercase tracking-widest text-[11px]">Commit Funds</a>
-                        </div>
-
-                        <!-- Standard (Highlighted) -->
-                        <div class="bg-brand-navy p-10 border border-brand-navy shadow-elegant flex flex-col h-full transform lg:-translate-y-6 relative reveal delay-100 rounded-[3.5rem] overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-brand-orange text-white font-extrabold text-[10px] uppercase tracking-widest py-3 px-6 rounded-bl-3xl">Primary Mandate</div>
-                            <div class="text-brand-orange font-extrabold text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2 mt-4"><i class="ph-fill ph-star"></i> Institutional Cohort</div>
-                            <h5 class="text-2xl font-extrabold text-white mb-2">Placement Drive</h5>
-                            <div class="text-4xl font-extrabold text-white mb-6">R 15,000 <span class="text-sm text-white/50 font-normal">/ cohort</span></div>
-                            <p class="text-white/80 text-sm mb-8 flex-grow font-light">Fund a 3-month directed application drive for 10 historically disadvantaged work-seekers.</p>
-                            
-                            <ul class="space-y-4 mb-10 text-sm font-bold text-white/90">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Portfolio Construction</li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Managed Application Drives</li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Recruitment Network Access</li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Audited Placement Reports</li>
-                            </ul>
-                            <a onclick="openContactModal()" class="dsm-wobble-horizontal w-full text-center bg-brand-orange text-white border-2 border-brand-orange py-4 rounded-full font-extrabold hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-widest text-[11px]">Sponsor Cohort</a>
-                        </div>
-
-                        <!-- Premium -->
-                        <div class="bg-white p-10 border border-gray-200 flex flex-col h-full reveal delay-200 shadow-sm hover:shadow-custom transition-shadow rounded-[3rem]">
-                            <div class="text-brand-teal font-extrabold text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2"><i class="ph-fill ph-buildings"></i> Network Partner</div>
-                            <h5 class="text-2xl font-extrabold text-brand-navy mb-2">The Accelerator Audit</h5>
-                            <div class="text-4xl font-extrabold text-brand-navy mb-6">R 5,000 <span class="text-sm text-gray-400 font-normal">/ audit</span></div>
-                            <p class="text-sm mb-8 flex-grow text-brand-text-light font-light">Deploy capital to provide an active informal business with a total formalisation upgrade.</p>
-                            
-                            <ul class="space-y-4 mb-10 text-sm font-bold">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Business Plan Formulation</li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> CIPC & SARS Filings</li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-brand-teal-light text-lg mt-0.5"></i> Commercial Banking Setup</li>
-                            </ul>
-                            <a onclick="openContactModal()" class="dsm-wobble-horizontal w-full text-center bg-transparent text-brand-navy border-2 border-brand-navy py-4 rounded-full font-extrabold hover:bg-brand-navy hover:text-white transition-colors cursor-pointer uppercase tracking-widest text-[11px]">Fund Audit</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="py-16 bg-brand-gray text-center px-6 reveal border-t border-gray-300">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-brand-navy text-3xl font-extrabold mb-6">Ready to empower the next generation?</h2>
-                    <a onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-navy text-white py-4 px-10 rounded-full uppercase tracking-widest font-extrabold cursor-pointer hover:bg-brand-orange transition-colors">Become a Partner</a>
-                </div>
-            </section>
+            <section class="py-16 bg-brand-gray border-t border-gray-200"><div class="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+                <article class="bg-white p-6 border border-gray-200 shadow-sm"><h2 class="text-xl font-bold text-brand-navy mb-3">Small business development</h2><p class="text-sm text-brand-text-light">Discuss collaboration around business planning, market research, digital presence and everyday operations.</p></article>
+                <article class="bg-white p-6 border border-gray-200 shadow-sm"><h2 class="text-xl font-bold text-brand-navy mb-3">Skills and work pathways</h2><p class="text-sm text-brand-text-light">Explore ways to support young people, unemployed graduates and local SMEs, subject to programme scope.</p></article>
+                <article class="bg-white p-6 border border-gray-200 shadow-sm"><h2 class="text-xl font-bold text-brand-navy mb-3">Community environment projects</h2><p class="text-sm text-brand-text-light">Explore collaboration around sustainable Honeybush learning and community-based environmental education.</p></article>
+            </div><div class="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 mt-6"><div class="border border-gray-200 bg-white px-6 py-5 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between"><p class="text-sm text-brand-text-light">Scope, responsibilities, costs and reporting should be agreed directly and confirmed in writing. No fixed sponsorship rates are published on this site.</p><a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-teal text-white font-bold uppercase cursor-pointer">Discuss a partnership</a></div></div></section>
         </div>
 
-
-        <!-- ================= PAGE: FAQ ================= -->
+        <!-- ================= PAGE: FAQ ================= -->        <!-- ================= PAGE: FAQ ================= -->
         <div id="view-faq" class="page-view">
-            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 text-center border-b border-gray-200">
-                <div class="max-w-3xl mx-auto reveal">
-                    <span class="text-brand-teal-light font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Insights</span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-brand-navy mb-6">Common <span class="text-brand-orange italic font-light">Inquiries</span></h1>
-                </div>
-            </section>
-
-            <section class="py-20 md:py-24 bg-white">
-                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-                    <!-- FAQ Tabs -->
-                    <div class="flex justify-center border-b border-gray-200 mb-12 gap-8">
-                        <button onclick="switchFaqTab('faq-tab-1')" id="btn-faq-tab-1" class="faq-tab-btn tab-btn active pb-4 text-[11px] font-extrabold uppercase tracking-[0.2em] text-brand-navy border-brand-teal-light">Methodologies</button>
-                        <button onclick="switchFaqTab('faq-tab-2')" id="btn-faq-tab-2" class="faq-tab-btn tab-btn pb-4 text-[11px] font-extrabold uppercase tracking-[0.2em] text-gray-400">Governance</button>
-                    </div>
-
-                    <!-- Programs FAQ Content -->
-                    <div id="faq-tab-1" class="faq-tab-content active">
-                        <!-- Accordion 1 -->
-                        <div class="faq-accordion border-b border-gray-200 py-6 cursor-pointer" onclick="toggleAccordion(this)">
-                            <div class="flex justify-between items-center group">
-                                <h6 class="text-lg font-extrabold text-brand-navy pr-4 group-hover:text-brand-teal transition-colors">What constitutes the 14-Day Intervention?</h6>
-                                <i class="ph ph-plus text-2xl faq-icon transition-transform text-brand-teal"></i>
-                            </div>
-                            <div class="faq-answer text-sm md:text-base text-brand-text-light leading-relaxed pr-8 font-light">
-                                Direct assistance for historically disadvantaged work-seekers. We provide professional CV architecture reviews, layout evaluations, and rigorous employability coaching completely free of charge to designated community members.
-                            </div>
-                        </div>
-                        <!-- Accordion 2 -->
-                        <div class="faq-accordion border-b border-gray-200 py-6 cursor-pointer" onclick="toggleAccordion(this)">
-                            <div class="flex justify-between items-center group">
-                                <h6 class="text-lg font-extrabold text-brand-navy pr-4 group-hover:text-brand-teal transition-colors">How does the White Label stream function?</h6>
-                                <i class="ph ph-plus text-2xl faq-icon transition-transform text-brand-teal"></i>
-                            </div>
-                            <div class="faq-answer text-sm md:text-base text-brand-text-light leading-relaxed pr-8 font-light">
-                                It generates immediate income channels for individuals lacking proprietary business concepts. Participants broker Digital Identity products while UBF assumes responsibility for technical fulfillment and deployment.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Partnerships FAQ Content -->
-                    <div id="faq-tab-2" class="faq-tab-content">
-                        <!-- Accordion 3 -->
-                        <div class="faq-accordion border-b border-gray-200 py-6 cursor-pointer" onclick="toggleAccordion(this)">
-                            <div class="flex justify-between items-center group">
-                                <h6 class="text-lg font-extrabold text-brand-navy pr-4 group-hover:text-brand-teal transition-colors">How can our institution participate?</h6>
-                                <i class="ph ph-plus text-2xl faq-icon transition-transform text-brand-teal"></i>
-                            </div>
-                            <div class="faq-answer text-sm md:text-base text-brand-text-light leading-relaxed pr-8 font-light">
-                                We bridge affluent institutions with high-potential cohorts. Your organization can allocate grants that empower UBF to execute job preparation and placement initiatives for historically disadvantaged candidates.
-                            </div>
-                        </div>
-                        <!-- Accordion 4 -->
-                        <div class="faq-accordion border-b border-gray-200 py-6 cursor-pointer" onclick="toggleAccordion(this)">
-                            <div class="flex justify-between items-center group">
-                                <h6 class="text-lg font-extrabold text-brand-navy pr-4 group-hover:text-brand-teal transition-colors">Are capital contributions tax-deductible?</h6>
-                                <i class="ph ph-plus text-2xl faq-icon transition-transform text-brand-teal"></i>
-                            </div>
-                            <div class="faq-answer text-sm md:text-base text-brand-text-light leading-relaxed pr-8 font-light">
-                                Affirmative. Unity Bridge Foundation is a registered Non-Profit Organisation (NPO) and Public Benefit Organisation (PBO). Corporate sponsorships and allocations are processed officially to yield tax benefits.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="py-16 bg-brand-orange text-center px-6 reveal">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-white text-3xl font-extrabold mb-6">Still have questions?</h2>
-                    <a onclick="openContactModal()" class="dsm-wobble-horizontal bg-transparent border-2 border-white text-white py-3.5 px-10 rounded-full uppercase tracking-widest font-extrabold cursor-pointer hover:bg-white hover:text-brand-orange transition-colors">Reach Out to Us</a>
-                </div>
-            </section>
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-16 px-6 text-center border-b border-gray-200"><div class="max-w-3xl mx-auto"><span class="text-brand-teal font-bold tracking-widest uppercase text-xs">FAQs</span><h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mt-3 mb-4">Common questions</h1><p class="text-brand-text-light">Information about current initiatives, applications and working with UBF.</p></div></section>
+            <section class="py-12 bg-white"><div class="max-w-4xl mx-auto px-5 sm:px-8 space-y-3">
+                <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">How do I apply for a current initiative?</summary><p class="text-sm text-brand-text-light mt-3">Open the initiative section on the home page, select Sign up and complete the form. This static site prepares an email; it does not store submissions online. Startup participants can also register through Quicket.</p></details>
+                <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">Does an expression of interest guarantee a place?</summary><p class="text-sm text-brand-text-light mt-3">No. An expression of interest is not confirmation of selection. UBF will communicate any relevant eligibility requirements, available places and next steps.</p></details>
+                <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">When is the Small Business Startup Program?</summary><p class="text-sm text-brand-text-light mt-3">The supplied poster lists 2 November to 30 November 2026. A Quicket registration link is provided in the initiative card on the home page.</p></details>
+                <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">What is the Honeybush Programme?</summary><p class="text-sm text-brand-text-light mt-3">It is a phased 2026–2027 pilot with planned learning on sustainable harvesting, practical training, field activities and community education. The revised work plan identifies an intake target of 25 unemployed stewards; selection and dates remain subject to arrangements and available places.</p></details>
+                <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">How will UBF use my information?</summary><p class="text-sm text-brand-text-light mt-3">Information is used to respond to enquiries and coordinate relevant programme steps. It may be shared with service providers or programme partners where necessary and lawful. Read the Privacy Policy for details.</p></details>
+                <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">How can my organisation partner with UBF?</summary><p class="text-sm text-brand-text-light mt-3">Email info@unitybridge-foundation.org to outline your organisation and the area of support you would like to discuss.</p></details>
+            </div></section>
         </div>
 
-
-        <!-- ================= PAGE: SHOP ================= -->
+        <!-- ================= PAGE: SHOP ================= -->        <!-- ================= PAGE: SHOP ================= -->
         <div id="view-shop" class="page-view">
-            <section class="bg-brand-navy pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                <div class="max-w-4xl mx-auto relative z-10 reveal">
-                    <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Commercial Ecosystem</span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Vendor <span class="text-brand-teal-light italic font-light">Network</span></h1>
-                    <p class="text-lg text-white/80 font-light">Procure high-grade operational assets from our curated network of suppliers. Products designed to accelerate business formalisation and enhance work-seeker marketability.</p>
-                </div>
-            </section>
-
-            <section class="py-32 bg-brand-gray border-t border-gray-200 flex items-center justify-center">
-                <div class="text-center reveal">
-                    <div class="w-24 h-24 bg-brand-orange/20 text-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="ph-fill ph-storefront text-5xl"></i>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-4">Store Opening Soon</h2>
-                    <p class="text-brand-text-light text-lg">We are currently curating our vendor network to bring you the best operational assets.</p>
-                </div>
-            </section>
+            <section class="bg-brand-navy pt-32 md:pt-40 pb-20 px-6 text-white"><div class="max-w-5xl mx-auto"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Get involved</span><h1 class="text-4xl md:text-5xl text-white font-extrabold mt-3 mb-4">Connect with local opportunity</h1><p class="max-w-3xl text-white/80">UBF welcomes conversations with SMEs, community organisations, training providers and potential supporters whose work aligns with local enterprise, youth opportunity and environmental learning.</p></div></section>
+            <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+                <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">SMEs</h2><p class="text-sm text-brand-text-light">Discuss business development needs, planning and practical support for responsible growth.</p></article>
+                <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">Community partners</h2><p class="text-sm text-brand-text-light">Explore community learning and participation in relevant local initiatives.</p></article>
+                <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">Organisations and supporters</h2><p class="text-sm text-brand-text-light">Discuss training, resources or collaboration linked to UBF’s mission.</p></article>
+            </div><div class="max-w-6xl mx-auto px-5 sm:px-8 mt-6 border border-gray-200 p-5 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between"><div><h2 class="text-brand-navy font-bold mb-1">Start a conversation</h2><p class="text-sm text-brand-text-light">Tell us who you are and what you would like to explore.</p></div><a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-teal text-white font-bold">Contact UBF</a></div></section>
         </div>
 
-        <!-- ================= PAGE: PRESENTATION (HIDDEN) ================= -->
+        <!-- ================= PAGE: PRESENTATION (HIDDEN) ================= -->        <!-- ================= PAGE: PRESENTATION (HIDDEN) ================= -->
         <div id="view-presentation" class="page-view">
             
             <div class="pres-progress-indicator" id="pres-progress">Slide 1 / 7</div>
@@ -1339,62 +1196,42 @@
         </div>
 
         <!-- ================= LEGAL PAGES ================= -->
+
         <div id="view-privacy" class="page-view">
-            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 border-b border-gray-200">
-                <div class="max-w-4xl mx-auto reveal text-center">
-                    <span class="text-brand-teal-light font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Legal</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6">Privacy Policy</h1>
-                </div>
-            </section>
-            <section class="py-16 bg-white">
-                <div class="max-w-3xl mx-auto px-6 text-brand-text-light font-light leading-relaxed space-y-6">
-                    <p>At Unity Bridge Foundation, we take your privacy seriously. This Privacy Policy outlines our commitment to protecting the personal information you provide to us.</p>
-                    <h3 class="text-xl font-bold text-brand-navy mt-8">Data Collection</h3>
-                    <p>We collect information you voluntarily provide when registering for events, making donations, or utilizing our forms. This may include your name, email address, phone number, and organization details.</p>
-                    <h3 class="text-xl font-bold text-brand-navy mt-8">How We Use Your Data</h3>
-                    <p>The information we collect is strictly used to facilitate program deployments, communicate institutional updates, process charitable donations, and provide you with required tax certificates.</p>
-                    <p class="pt-8 text-sm italic">For full detailed disclosures, please contact our administrative office.</p>
-                </div>
-            </section>
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-16 px-6 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-widest text-xs">Legal</span><h1 class="text-4xl font-extrabold text-brand-navy mt-3 mb-4">Privacy Policy</h1><p class="text-sm text-brand-text-light">Last reviewed: 9 October 2026. Draft wording; verify against UBF’s actual operations before launch.</p></div></section>
+            <section class="py-12 bg-white px-5 sm:px-8"><div class="legal-copy">
+                <p>Unity Bridge Foundation South Africa (“UBF”, “we”, “us”) is a Cape Town-based non-profit organisation. This notice explains how we may handle personal information when you visit this site, ask a question, express interest in a programme or discuss a partnership.</p>
+                <h2>Information we may collect</h2><p>Depending on your interaction, this may include your name, email address, telephone number, community or suburb, business name, programme interest and messages. The website host and third-party resource providers may also process technical information needed to deliver and secure the site.</p>
+                <h2>How we use information</h2><ul><li>Respond to questions and expressions of interest.</li><li>Coordinate applications and relevant programme steps.</li><li>Communicate with applicants and partners about activities.</li><li>Maintain security and meet applicable obligations.</li><li>Send optional updates only where permitted by law and where required consent has been obtained.</li></ul>
+                <h2>Third-party operators and programme partners</h2><p>The website is hosted and maintained using third-party infrastructure. Technical operators may process technical data or access logs needed to provide, troubleshoot and secure the site. UBF may also share relevant applicant information with delivery partners, training providers, venues, referral organisations, funders or reporting bodies where necessary and lawful to assess applications, coordinate activities or report on programme delivery. Sharing should be limited to the relevant purpose.</p>
+                <h2>External resources and cross-border processing</h2><p>This HTML loads fonts, icons, stylesheets and images from third-party services. A provider may receive technical information when your browser requests those resources. The actual host, provider contracts, processing locations and settings must be confirmed before launch. If personal information is processed or transferred outside South Africa, UBF must assess and apply the safeguards required by POPIA.</p>
+                <h2>Retention and security</h2><p>Information should be retained only as long as reasonably necessary for its purpose, subject to legal, reporting and audit requirements. UBF should use appropriate safeguards and restrict access to people who need the information for their role. No online system can be described as completely secure.</p>
+                <h2>Your rights</h2><p>Subject to applicable law, you may request access to information, ask for correction or deletion, object to certain processing, withdraw consent where applicable, or ask that optional marketing stop. Use the <a role="button" tabindex="0" onclick="switchPage('data-rights')" class="underline font-bold">data rights request</a> page or email <a href="mailto:admin@unitybridge-foundation.org" class="underline font-bold">admin@unitybridge-foundation.org</a>. UBF may need reasonable identity verification.</p>
+                <h2>Contact and complaints</h2><p>For privacy requests, contact admin@unitybridge-foundation.org. You may also contact the South African Information Regulator at <a href="https://inforegulator.org.za/" target="_blank" rel="noopener noreferrer" class="underline font-bold">inforegulator.org.za</a>.</p>
+            </div></section>
         </div>
-
         <div id="view-popi" class="page-view">
-            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 border-b border-gray-200">
-                <div class="max-w-4xl mx-auto reveal text-center">
-                    <span class="text-brand-teal-light font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Legal</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6">POPI Act Compliance</h1>
-                </div>
-            </section>
-            <section class="py-16 bg-white">
-                <div class="max-w-3xl mx-auto px-6 text-brand-text-light font-light leading-relaxed space-y-6">
-                    <p>Unity Bridge Foundation adheres strictly to the Protection of Personal Information Act (POPIA) of South Africa.</p>
-                    <h3 class="text-xl font-bold text-brand-navy mt-8">Your Rights</h3>
-                    <p>As a data subject, you have the right to request access to the personal information we hold about you. You also have the right to ask us to update, correct or delete your personal information.</p>
-                    <h3 class="text-xl font-bold text-brand-navy mt-8">Data Security</h3>
-                    <p>We are legally obligated to provide adequate protection for the personal information we hold and to stop unauthorized access and use of personal information. We continually review our security controls and related processes to ensure your personal information remains secure.</p>
-                </div>
-            </section>
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-16 px-6 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-widest text-xs">South Africa</span><h1 class="text-4xl font-extrabold text-brand-navy mt-3 mb-4">POPIA and data protection</h1></div></section>
+            <section class="py-12 bg-white px-5 sm:px-8"><div class="legal-copy"><p>The Protection of Personal Information Act 4 of 2013 regulates personal information processing in South Africa. This page is one part of responsible data handling; it does not itself certify operational compliance.</p><h2>Our intended approach</h2><ul><li>Collect information relevant to the stated enquiry or programme.</li><li>Explain collection purposes and categories of recipients.</li><li>Use appropriate safeguards and limit access.</li><li>Keep information only as long as required for its purpose and applicable obligations.</li><li>Respond to valid access, correction, deletion, objection and consent-withdrawal requests.</li><li>Handle security incidents and any required notifications in line with applicable law.</li></ul><h2>Information Officer</h2><p>For privacy requests, contact admin@unitybridge-foundation.org. UBF should confirm and publish the designated Information Officer’s name and details before launch.</p><p>Official information: <a href="https://www.gov.za/documents/protection-personal-information-act" target="_blank" rel="noopener noreferrer" class="underline font-bold">South African Government POPIA page</a> and <a href="https://inforegulator.org.za/" target="_blank" rel="noopener noreferrer" class="underline font-bold">Information Regulator</a>.</p></div></section>
         </div>
-
+        <div id="view-cookies" class="page-view">
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-16 px-6 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-widest text-xs">Legal</span><h1 class="text-4xl font-extrabold text-brand-navy mt-3 mb-4">Cookie and third-party resource policy</h1></div></section>
+            <section class="py-12 bg-white px-5 sm:px-8"><div class="legal-copy"><h2>External resources</h2><p>This HTML loads fonts, icons, stylesheets and images from third-party services. Those providers may receive technical information when your browser requests resources. Hosting and technical providers may keep logs needed to deliver or secure the site.</p><h2>Cookies and similar technologies</h2><p>The source does not show a deliberate UBF analytics or advertising pixel, but the live host and provider settings have not been verified. UBF should check the deployed site and provider settings before making a complete statement about cookies or tracking. If analytics, embedded media, maps or marketing tools are added, this policy and any required choices should be updated.</p><h2>Programme-related sharing</h2><p>UBF may share relevant applicant information with delivery partners, training providers, venues, funders or reporting bodies where necessary and lawful. Access should be limited to the purpose involved.</p><h2>Your choices</h2><p>You can adjust browser cookie settings or block external content, although styling, icons or images may then be unavailable. Contact admin@unitybridge-foundation.org with questions.</p></div></section>
+        </div>
         <div id="view-terms" class="page-view">
-            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 border-b border-gray-200">
-                <div class="max-w-4xl mx-auto reveal text-center">
-                    <span class="text-brand-teal-light font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Legal</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6">Terms of Engagement</h1>
-                </div>
-            </section>
-            <section class="py-16 bg-white">
-                <div class="max-w-3xl mx-auto px-6 text-brand-text-light font-light leading-relaxed space-y-6">
-                    <p>By interacting with the Unity Bridge Foundation, either as a work-seeker, entrepreneur, or corporate partner, you agree to the following terms of engagement.</p>
-                    <h3 class="text-xl font-bold text-brand-navy mt-8">Service Limitations</h3>
-                    <p>While UBF provides extensive frameworks and educational material, we do not guarantee specific financial outcomes, job placements, or tender acquisitions. Success is dependent on the participant's execution.</p>
-                    <h3 class="text-xl font-bold text-brand-navy mt-8">Code of Conduct</h3>
-                    <p>All participants and partners are expected to engage in a professional, respectful manner. UBF reserves the right to terminate any mentorship or funding program if a participant breaches our institutional code of conduct.</p>
-                </div>
-            </section>
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-16 px-6 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-widest text-xs">Legal</span><h1 class="text-4xl font-extrabold text-brand-navy mt-3 mb-4">Terms of Service</h1></div></section>
+            <section class="py-12 bg-white px-5 sm:px-8"><div class="legal-copy"><h2>Website information</h2><p>This site provides general information about UBF and its initiatives. Programme dates, availability, eligibility and arrangements may change; confirm material details directly with UBF.</p><h2>Applications and selection</h2><p>Submitting an expression of interest does not guarantee selection, a place, employment, funding, business growth or a particular financial outcome. Requirements and next steps should be confirmed with UBF.</p><h2>Third-party links</h2><p>External websites and services are managed by their operators and may have separate terms and privacy practices. UBF does not control those websites.</p><h2>Acceptable use</h2><p>Do not misuse the site, attempt unauthorised access, submit another person’s information without authority or use the site unlawfully.</p><h2>Contact</h2><p>Questions may be sent to info@unitybridge-foundation.org.</p></div></section>
+        </div>
+        <div id="view-unsubscribe" class="page-view">
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-16 px-6 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-widest text-xs">Communication preferences</span><h1 class="text-4xl font-extrabold text-brand-navy mt-3 mb-4">Unsubscribe from updates</h1><p class="text-brand-text-light">Ask UBF to stop sending optional updates to your address.</p></div></section>
+            <section class="py-12 bg-white px-5 sm:px-8"><div class="max-w-3xl mx-auto border border-gray-200 p-5 sm:p-7"><p class="text-sm text-brand-text-light mb-5">This static site prepares an email; it does not automatically update a mailing list. You can email admin@unitybridge-foundation.org directly.</p><form class="space-y-4" onsubmit="return submitEmailRequest(event,'Unsubscribe request')"><div><label class="form-label" for="unsubscribe-email">Email address *</label><input class="form-control" id="unsubscribe-email" type="email" name="Email address" autocomplete="email" required></div><button type="submit" class="dsm-wobble-horizontal bg-brand-teal text-white font-bold">Prepare unsubscribe request</button></form></div></section>
+        </div>
+        <div id="view-data-rights" class="page-view">
+            <section class="bg-brand-gray pt-32 md:pt-40 pb-16 px-6 border-b border-gray-200"><div class="max-w-4xl mx-auto"><span class="text-brand-teal font-bold uppercase tracking-widest text-xs">Privacy requests</span><h1 class="text-4xl font-extrabold text-brand-navy mt-3 mb-4">Access, correction or deletion request</h1><p class="text-brand-text-light">Contact UBF about personal information it may hold.</p></div></section>
+            <section class="py-12 bg-white px-5 sm:px-8"><div class="max-w-3xl mx-auto border border-gray-200 p-5 sm:p-7"><p class="text-sm text-brand-text-light mb-5">This static site prepares an email and does not store your request. UBF may request reasonable identity verification. Deletion requests are assessed against applicable law and valid retention requirements.</p><form class="space-y-4" onsubmit="return submitEmailRequest(event,'POPIA personal information request')"><div><label class="form-label" for="rights-name">Full name *</label><input class="form-control" id="rights-name" name="Full name" autocomplete="name" required></div><div><label class="form-label" for="rights-email">Email address *</label><input class="form-control" type="email" id="rights-email" name="Email address" autocomplete="email" required></div><div><label class="form-label" for="rights-type">Request type *</label><select class="form-control" id="rights-type" name="Request type" required><option value="">Select an option</option><option>Access my information</option><option>Correct my information</option><option>Request deletion</option><option>Object to processing</option><option>Withdraw consent</option><option>Other privacy question</option></select></div><div><label class="form-label" for="rights-details">Request details *</label><textarea class="form-control" rows="4" id="rights-details" name="Request details" required></textarea></div><button type="submit" class="dsm-wobble-horizontal bg-brand-teal text-white font-bold">Prepare privacy request</button></form></div></section>
         </div>
 
-    </main>
+    </main>    </main>
 
     <!-- FOOTER -->
     <footer id="contact" class="bg-brand-dark pt-20 md:pt-28 pb-10 px-6 sm:px-8 lg:px-[10%] relative overflow-hidden border-t border-white/5">
@@ -1435,13 +1272,13 @@
                 <div class="md:col-span-6 lg:col-span-3 flex flex-col">
                     <h4 class="text-xs text-brand-orange font-bold mb-6 uppercase tracking-[0.2em]">Directory</h4>
                     <div class="flex flex-col gap-4 font-bold">
-                        <a onclick="switchPage('home')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Overview</a>
-                        <a onclick="switchPage('services')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Strategies</a>
-                        <a onclick="switchPage('how')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Methodology</a>
-                        <a onclick="switchPage('lab')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">The Lab</a>
-                        <a onclick="switchPage('pricing')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Partnerships</a>
-                        <a onclick="switchPage('shop')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Vendor Network</a>
-                        <a onclick="switchPage('faq')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Insights</a>
+                        <a role="button" tabindex="0" onclick="switchPage('home')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Overview</a>
+                        <a role="button" tabindex="0" onclick="switchPage('services')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Strategies</a>
+                        <a role="button" tabindex="0" onclick="switchPage('how')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Methodology</a>
+                        <a role="button" tabindex="0" onclick="switchPage('lab')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">The Lab</a>
+                        <a role="button" tabindex="0" onclick="switchPage('pricing')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Partnerships</a>
+                        <a role="button" tabindex="0" onclick="switchPage('shop')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Vendor Network</a>
+                        <a role="button" tabindex="0" onclick="switchPage('faq')" class="text-white/80 hover:text-brand-teal-light text-[14px] transition-colors cursor-pointer w-max">Insights</a>
                     </div>
                 </div>
 
@@ -1476,11 +1313,13 @@
                     &copy; 2026 Unity Bridge Foundation. All Rights Reserved.
                 </p>
                 <div class="flex flex-wrap justify-center md:justify-end gap-6 text-[13px] items-center">
-                    <a onclick="switchPage('privacy')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Privacy Policy</a>
-                    <a onclick="switchPage('popi')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">POPI Act</a>
-                    <a onclick="switchPage('terms')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Terms of Engagement</a>
-                    <!-- HIDDEN PRESENTATION BUTTON -->
-                    <a onclick="switchPage('presentation')" class="text-white/30 hover:text-white font-bold transition-colors cursor-pointer text-[11px] ml-4">Presentation</a>
+                    <a role="button" tabindex="0" onclick="switchPage('privacy')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Privacy Policy</a>
+                    <a role="button" tabindex="0" onclick="switchPage('popi')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">POPIA</a>
+                    <a role="button" tabindex="0" onclick="switchPage('cookies')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Cookie Policy</a>
+                    <a role="button" tabindex="0" onclick="switchPage('terms')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Terms of Service</a>
+                    <a role="button" tabindex="0" onclick="switchPage('unsubscribe')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Unsubscribe</a>
+                    <a role="button" tabindex="0" onclick="switchPage('data-rights')" class="text-white/60 hover:text-white font-bold transition-colors cursor-pointer">Data rights / deletion</a>
+                    
                 </div>
             </div>
             
@@ -1496,55 +1335,33 @@
     <!-- INTERACTIVE SCRIPTS -->
     <script>
         // Router Logic (Single File Multi-Page)
+
         function switchPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page-view').forEach(page => {
-                page.classList.remove('active');
-            });
-            // Show target page
-            document.getElementById('view-' + pageId).classList.add('active');
-            
-            // Update Nav Links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active', 'text-brand-orange');
-                link.classList.add('text-brand-text');
-            });
+            const target = document.getElementById('view-' + pageId);
+            if (!target) return;
+            document.querySelectorAll('.page-view').forEach(page => { page.classList.remove('active'); page.setAttribute('aria-hidden', 'true'); });
+            target.classList.add('active'); target.setAttribute('aria-hidden', 'false');
+            document.querySelectorAll('.nav-link').forEach(link => { link.classList.remove('active', 'text-brand-orange'); link.classList.add('text-brand-text'); link.removeAttribute('aria-current'); });
             const activeLink = document.getElementById('nav-' + pageId);
-            if(activeLink) {
-                activeLink.classList.add('active', 'text-brand-orange');
-                activeLink.classList.remove('text-brand-text');
-            }
-
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'auto' });
-            
-            // Close mobile menu if open
+            if (activeLink) { activeLink.classList.add('active', 'text-brand-orange'); activeLink.classList.remove('text-brand-text'); activeLink.setAttribute('aria-current', 'page'); }
+            window.scrollTo({top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
             const mobileMenu = document.getElementById('mobile-menu');
-            if(!mobileMenu.classList.contains('translate-x-full')) {
-                toggleMobileMenu();
-            }
-            
-            // Trigger reveals
-            setTimeout(observeReveals, 100);
-
-            // Trigger presentation logic if presentation page is opened
-            if(pageId === 'presentation') {
-                currentSlide = 1;
-                updatePresentation();
-            }
+            if (mobileMenu && !mobileMenu.classList.contains('translate-x-full')) toggleMobileMenu();
+            setTimeout(observeReveals, 30);
+            if (pageId === 'presentation') { currentSlide = 1; updatePresentation(); }
         }
 
-        // Mobile Menu Toggle
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
+            const menu = document.getElementById('mobile-menu'), button = document.getElementById('mobile-menu-toggle');
+            if (!menu) return;
             menu.classList.toggle('translate-x-full');
-            if (!menu.classList.contains('translate-x-full')) {
-                document.body.style.overflow = 'hidden'; 
-            } else {
-                document.body.style.overflow = ''; 
-            }
+            const open = !menu.classList.contains('translate-x-full');
+            menu.setAttribute('aria-hidden', String(!open));
+            document.body.style.overflow = open ? 'hidden' : '';
+            if (button) { button.setAttribute('aria-expanded', String(open)); if (!open) button.focus(); }
         }
 
+        // Contact Modal Logic
         // Contact Modal Logic
         function openContactModal() {
             const modal = document.getElementById('contact-modal');
@@ -1605,7 +1422,7 @@
             const text = `Hi, my name is ${name}. I am reaching out regarding: ${subject}. ${msg}`;
             
             if(method === 'whatsapp') {
-                window.open(`https://wa.me/27839410276?text=${encodeURIComponent(text)}`, '_blank');
+                window.open(`https://wa.me/27817461041?text=${encodeURIComponent(text)}`, '_blank');
             } else {
                 window.location.href = `mailto:admin@unitybridge-foundation.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
             }
@@ -1639,21 +1456,7 @@
 
         // Scroll Reveal Intersection Observer
         function observeReveals() {
-            const reveals = document.querySelectorAll('.reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            });
-
-            reveals.forEach(reveal => {
-                observer.observe(reveal);
-            });
+            document.querySelectorAll('.reveal').forEach(reveal => reveal.classList.add('active'));
         }
         
         // Solidify Navbar on Scroll
@@ -1713,8 +1516,63 @@
             }
         });
 
+
+        function toggleInitiativePanel(panelId, button) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return;
+            const opening = panel.hidden;
+            panel.hidden = !opening;
+            if (button) button.setAttribute('aria-expanded', String(opening));
+            if (opening) {
+                panel.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest'});
+                const first = panel.querySelector('input, textarea, select, button, a');
+                if (first) setTimeout(() => first.focus({preventScroll: true}), 150);
+            }
+        }
+
+        function submitInitiativeEmail(event, programme) {
+            event.preventDefault();
+            const form = event.currentTarget;
+            if (!form.reportValidity()) return false;
+            const lines = ['Programme: ' + programme, ''];
+            new FormData(form).forEach((value, key) => lines.push(key + ': ' + String(value)));
+            lines.push('', 'Please contact me about the next steps.');
+            window.location.href = 'mailto:info@unitybridge-foundation.org?subject=' +
+                encodeURIComponent('Expression of interest — ' + programme) + '&body=' + encodeURIComponent(lines.join('\n'));
+            return false;
+        }
+
+        function submitEmailRequest(event, subject) {
+            event.preventDefault();
+            const form = event.currentTarget;
+            if (!form.reportValidity()) return false;
+            const lines = [];
+            new FormData(form).forEach((value, key) => lines.push(key + ': ' + String(value)));
+            lines.push('', 'Please let me know if you need further information to process this request.');
+            window.location.href = 'mailto:admin@unitybridge-foundation.org?subject=' +
+                encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+            return false;
+        }
+
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const contact = document.getElementById('contact-modal'), action = document.getElementById('action-modal'), mobile = document.getElementById('mobile-menu');
+                if (contact && !contact.classList.contains('hidden')) closeContactModal();
+                if (action && !action.classList.contains('hidden')) closeActionModal();
+                if (mobile && !mobile.classList.contains('translate-x-full')) toggleMobileMenu();
+            }
+            if ((event.key === 'Enter' || event.key === ' ') && event.target &&
+                event.target.matches('a[role="button"],a[role="link"]') && !event.target.hasAttribute('href')) {
+                event.preventDefault(); event.target.click();
+            }
+        });
+
         // Initialize logic on load
         document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.page-view').forEach(page => page.setAttribute('aria-hidden', page.classList.contains('active') ? 'false' : 'true'));
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.setAttribute('aria-hidden', 'true');
             observeReveals();
         });
     </script>
