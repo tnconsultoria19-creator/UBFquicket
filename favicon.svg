@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Unity Bridge Foundation">
+  <rect width="64" height="64" rx="14" fill="#112240"/>
+  <path d="M12 42V31c0-11 8-19 20-19s20 8 20 19v11h-7V31c0-7-5-12-13-12s-13 5-13 12v11z" fill="#2c5f53"/>
+  <path d="M7 40L56 16l-8 1 5-7 2 8L7 46z" fill="#cda34f"/>
+</svg>
