@@ -360,12 +360,13 @@
     </style>
 </head>
 <body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
+    <a class="skip-link" href="#app-root">Skip to main content</a>
 
     <!-- TOP NAVBAR -->
     <nav id="main-nav" aria-label="Primary navigation" class="fixed w-full z-50 top-0 bg-white shadow-[0px_4px_20px_0px_rgba(17,34,64,0.05)] h-[95px] flex items-center transition-all duration-300">
         <div class="w-full max-w-[2560px] mx-auto px-5 sm:px-8 lg:px-12 flex justify-between items-center">
             <!-- Logo -->
-            <a onclick="switchPage('home')" class="flex-shrink-0 flex items-center h-full gap-4 cursor-pointer group">
+            <a role="button" tabindex="0" onclick="switchPage('home')" class="flex-shrink-0 flex items-center h-full gap-4 cursor-pointer group">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVAjhn2f4Q9faqA4fVUJdUxDvqi4-RZFTdMNOwVrn7Qy5fVBxXPCtmYU1goEA9VONRmVSe0yBdpj-qZLRxhY0wE5Gu8hdSOVKNizDPh-8WYvc0vQxtC6wOP-AOmCBIVIT0WHVFel9uxRNCAHzRlWq2EY7_hPodc2guHNnVfdvESjDCUOMDZdAwkh4vpc4/s320/4b3833b3-83b3-4fa9-b48d-5ef03566c492.png" alt="Unity Bridge Foundation Logo" class="h-16 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col justify-center">
                     <span class="font-bold text-[17px] md:text-[22px] text-brand-navy leading-none uppercase tracking-[0.05em] md:tracking-[0.1em]">UNITY BRIDGE FOUNDATION</span>
@@ -375,14 +376,14 @@
             
             <!-- Desktop Links -->
             <div class="hidden xl:flex items-center space-x-10">
-                <a onclick="switchPage('home')" id="nav-home" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer active">Home</a>
-                <a onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Work</a>
-                <a onclick="switchPage('how')" id="nav-how" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Approach</a>
-                <a onclick="switchPage('lab')" id="nav-lab" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Learning</a>
-                <a onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Get Involved</a>
-                <a onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQs</a>
+                <a role="button" tabindex="0" onclick="switchPage('home')" id="nav-home" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer active">Home</a>
+                <a role="button" tabindex="0" onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Work</a>
+                <a role="button" tabindex="0" onclick="switchPage('how')" id="nav-how" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Approach</a>
+                <a role="button" tabindex="0" onclick="switchPage('lab')" id="nav-lab" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Learning</a>
+                <a role="button" tabindex="0" onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Get Involved</a>
+                <a role="button" tabindex="0" onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQs</a>
                 
-                <a onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Partner</a>
+                <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Partner</a>
             </div>
 
             <!-- Mobile Hamburger -->
@@ -400,19 +401,19 @@
             </button>
         </div>
         <div class="flex flex-col space-y-8 text-center mt-10">
-            <a onclick="switchPage('home'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Home</a>
-            <a onclick="switchPage('services'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Our Work</a>
-            <a onclick="switchPage('how'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Our Approach</a>
-            <a onclick="switchPage('lab'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Learning</a>
-            <a onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Pricing</a>
-            <a onclick="switchPage('shop'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Get Involved</a>
-            <a onclick="switchPage('faq'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">FAQs</a>
-            <a onclick="openContactModal(); toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[15px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Contact Us</a>
+            <a role="button" tabindex="0" onclick="switchPage('home'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Home</a>
+            <a role="button" tabindex="0" onclick="switchPage('services'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Our Work</a>
+            <a role="button" tabindex="0" onclick="switchPage('how'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Our Approach</a>
+            <a role="button" tabindex="0" onclick="switchPage('lab'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Learning</a>
+            <a role="button" tabindex="0" onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Pricing</a>
+            <a role="button" tabindex="0" onclick="switchPage('shop'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Get Involved</a>
+            <a role="button" tabindex="0" onclick="switchPage('faq'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">FAQs</a>
+            <a role="button" tabindex="0" onclick="openContactModal(); toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[15px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Contact Us</a>
         </div>
     </div>
 
     <!-- CONTACT MODAL -->
-    <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-heading" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
+    <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-heading" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
         <div class="bg-white rounded-3xl p-8 md:p-10 w-full max-w-xs shadow-2xl transform scale-95 transition-transform duration-300" id="contact-modal-content">
             <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
                 <h3 id="contact-modal-heading" class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3>
@@ -429,7 +430,7 @@
                     </div>
                     <div>
                         <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">Call Us</span>
-                        <span class="block font-bold text-brand-navy text-sm">+27 83 941 0276</span>
+                        <span class="block font-bold text-brand-navy text-sm">+27 81 746 1041</span>
                     </div>
                 </a>
                 
@@ -443,7 +444,7 @@
                     </div>
                 </a>
 
-                <a href="mailto:admin@unitybridge-foundation.org" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
+                <a href="mailto:info@unitybridge-foundation.org" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-brand-orange shadow-sm group-hover:scale-110 transition-transform">
                         <i class="ph-fill ph-envelope-simple text-xl"></i>
                     </div>
@@ -488,8 +489,7 @@
 
     <!-- MAIN APP ROUTER -->
     <main id="app-root" class="pt-[85px]" tabindex="-1" aria-label="Unity Bridge Foundation website content">
-        <a class="skip-link" href="#main-content">Skip to main content</a>
-        <div id="main-content"></div>
+        <div id="main-content" tabindex="-1"></div>
 
         <!-- HOME -->
         <div id="view-home" class="page-view active">
