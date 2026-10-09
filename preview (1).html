@@ -1424,7 +1424,6 @@
         }
 
         function submitAction(method) {
-        function submitAction(method) {
             const name = document.getElementById('action-name').value;
             const msg = document.getElementById('action-message').value;
             const subject = document.getElementById('action-modal-title').innerText;
@@ -1439,7 +1438,7 @@
             if(method === 'whatsapp') {
                 window.open(`https://wa.me/27817461041?text=${encodeURIComponent(text)}`, '_blank');
             } else {
-                window.location.href = `mailto:admin@unitybridge-foundation.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+                window.location.href = `mailto:info@unitybridge-foundation.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
             }
             closeActionModal();
         }
@@ -1564,7 +1563,7 @@
             const lines = [];
             new FormData(form).forEach((value, key) => lines.push(key + ': ' + String(value)));
             lines.push('', 'Please let me know if you need further information to process this request.');
-            window.location.href = 'mailto:admin@unitybridge-foundation.org?subject=' +
+            window.location.href = 'mailto:info@unitybridge-foundation.org?subject=' +
                 encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
             return false;
         }
