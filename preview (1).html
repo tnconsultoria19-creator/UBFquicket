@@ -1361,54 +1361,69 @@
             if (button) { button.setAttribute('aria-expanded', String(open)); if (!open) button.focus(); }
         }
 
-        // Contact Modal Logic
+
         // Contact Modal Logic
         function openContactModal() {
             const modal = document.getElementById('contact-modal');
             const content = document.getElementById('contact-modal-content');
+            if (!modal || !content) return;
             modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 content.classList.remove('scale-95');
+                const first = modal.querySelector('a,button');
+                if (first) first.focus();
             }, 10);
-            document.body.style.overflow = 'hidden';
         }
 
         function closeContactModal() {
             const modal = document.getElementById('contact-modal');
             const content = document.getElementById('contact-modal-content');
+            if (!modal || !content) return;
             modal.classList.add('opacity-0');
             content.classList.add('scale-95');
+            modal.setAttribute('aria-hidden', 'true');
             setTimeout(() => {
                 modal.classList.add('hidden');
                 document.body.style.overflow = '';
-            }, 300);
+            }, 200);
         }
 
-        // Action Modal Logic (Volunteer / Donor)
+
+        // Action Modal Logic
         function openActionModal(title) {
-            document.getElementById('action-modal-title').innerText = title;
+            const heading = document.getElementById('action-modal-title');
             const modal = document.getElementById('action-modal');
             const content = document.getElementById('action-modal-content');
+            if (!heading || !modal || !content) return;
+            heading.innerText = title;
             modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 content.classList.remove('scale-95');
+                const first = modal.querySelector('input,textarea,button');
+                if (first) first.focus();
             }, 10);
-            document.body.style.overflow = 'hidden';
         }
 
         function closeActionModal() {
             const modal = document.getElementById('action-modal');
             const content = document.getElementById('action-modal-content');
+            if (!modal || !content) return;
             modal.classList.add('opacity-0');
             content.classList.add('scale-95');
+            modal.setAttribute('aria-hidden', 'true');
             setTimeout(() => {
                 modal.classList.add('hidden');
                 document.body.style.overflow = '';
-            }, 300);
+            }, 200);
         }
 
+        function submitAction(method) {
         function submitAction(method) {
             const name = document.getElementById('action-name').value;
             const msg = document.getElementById('action-message').value;
