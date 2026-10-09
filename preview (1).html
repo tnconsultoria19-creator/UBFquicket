@@ -470,14 +470,14 @@
 
                 <div class="relative max-w-[1920px] mx-auto w-full px-6 sm:px-8 lg:px-[10%] z-10 flex flex-col items-center text-center mt-10 md:mt-0">
                     <div class="w-full md:max-w-4xl reveal flex flex-col justify-center items-center">
-                        <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-6 border-b border-brand-orange/50 pb-2 text-shadow-strong drop-shadow-md">Strategic Integration</span>
+                        <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-6 border-b border-brand-orange/50 pb-2 text-shadow-strong drop-shadow-md">Local opportunity. Practical support.</span>
                         <h1 class="text-4xl sm:text-5xl md:text-[5vw] lg:text-[70px] leading-[1.1em] font-extrabold text-white mb-8 text-shadow-strong">
-                            Our business is to <br>
-                            <span class="text-brand-teal-light italic font-light">grow yours.</span>
+                            Connecting local talent, <br>
+                            <span class="text-brand-teal-light italic font-light">opportunity and enterprise.</span>
                         </h1>
                         
                         <p class="mb-12 text-[16px] md:text-[20px] text-white leading-relaxed max-w-3xl font-bold text-shadow-strong">
-                            Do you have the drive to ignite positive change? We nurture aspiring entrepreneurs and enthusiastic work-seekers. We equip you with institutional tools, connect you directly with formal markets to thrive, and aggressively pursue our long-term sustainability goals.
+                            Unity Bridge Foundation is a Cape Town-based non-profit organisation. We support small and medium-sized businesses to grow and create opportunities for unemployed graduates and young people, while encouraging ethical community leadership and environmentally responsible pathways to work.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto justify-center">
@@ -492,7 +492,56 @@
                 </div>
             </section>
 
-            <!-- REIMAGINED: Our Mandate Section -->
+
+            <!-- Current initiatives: immediately after the hero -->
+            <section id="current-initiatives" class="initiative-section bg-brand-gray py-14 md:py-16 px-5 sm:px-8 lg:px-[10%]">
+                <div class="max-w-[1280px] mx-auto">
+                    <div class="max-w-3xl mb-8 reveal"><span class="text-brand-teal font-bold tracking-[0.16em] uppercase text-xs">Current initiatives</span><h2 class="text-brand-navy font-extrabold mt-2 mb-3">Take part in a current programme</h2><p class="text-brand-text-light">Start with a short overview. Open the details for more information, or register your interest directly.</p></div>
+                    <div class="initiative-grid">
+                        <article class="initiative-card reveal">
+                            <div class="initiative-card-media"><img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="Person planning a small business" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-content">
+                                <span class="initiative-label">Business development · 2–30 November 2026</span><h3>Small Business Startup Program</h3>
+                                <p class="text-brand-text-light">A four-week programme focused on helping participants plan and professionalise a business, with practical work on research, payments, digital presence and operations.</p>
+                                <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('startup-details',this)" aria-expanded="false" aria-controls="startup-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('startup-form-panel',this)" aria-expanded="false" aria-controls="startup-form-panel">Sign up</button><a class="initiative-btn secondary" href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer">Register on Quicket</a></div>
+                                <div id="startup-details" class="initiative-details" hidden><p class="font-bold text-brand-navy mb-2">The poster lists these end-of-programme resources:</p><ul><li>Business plan</li><li>Market research</li><li>Banking and payment facilitation</li><li>Website and e-commerce</li><li>Business operations tools</li><li>Business professionalisation guides</li></ul><p>Programme dates: 2–30 November 2026. Use Quicket for the event registration process; this form is an additional expression of interest.</p></div>
+                                <div id="startup-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
+                                    <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Small Business Startup Program')">
+                                        <div><label class="form-label" for="startup-name">Full name *</label><input class="form-control" id="startup-name" name="Full name" autocomplete="name" required></div>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><div><label class="form-label" for="startup-email">Email address *</label><input class="form-control" type="email" id="startup-email" name="Email address" autocomplete="email" required></div><div><label class="form-label" for="startup-phone">Phone number</label><input class="form-control" type="tel" id="startup-phone" name="Phone number" autocomplete="tel"></div></div>
+                                        <div><label class="form-label" for="startup-business">Business name or idea (optional)</label><input class="form-control" id="startup-business" name="Business name or idea"></div>
+                                        <div class="form-check"><input type="checkbox" id="startup-privacy" required><label for="startup-privacy">I have read the <a role="button" tabindex="0" onclick="switchPage('privacy')" class="underline font-bold">Privacy Policy</a> and understand how my information will be used to respond to this enquiry.</label></div>
+                                        <div class="form-check"><input type="checkbox" id="startup-updates" name="Optional updates" value="Yes"><label for="startup-updates">I would also like to receive occasional UBF updates (optional).</label></div>
+                                        <button type="submit" class="initiative-btn primary">Prepare sign-up email</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="initiative-card reveal delay-100">
+                            <div class="initiative-card-media"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80" alt="Natural fynbos vegetation in a conservation area" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-content">
+                                <span class="initiative-label">Environment and work pathways · 2026–2027 pilot</span><h3>Sustainable Honeybush Programme</h3>
+                                <p class="text-brand-text-light">A planned community pilot linking sustainable Honeybush harvesting education, practical skills and fynbos conservation, with a focus on pathways for unemployed stewards.</p>
+                                <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('honeybush-details',this)" aria-expanded="false" aria-controls="honeybush-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('honeybush-form-panel',this)" aria-expanded="false" aria-controls="honeybush-form-panel">Sign up</button></div>
+                                <div id="honeybush-details" class="initiative-details" hidden><p>The revised work plan describes an intake target of 25 unemployed stewards, community mobilisation in Grassy Park and Lotus River, foundational learning in late 2026, planned practical training and field activities in early 2027, and community education in March and April 2027.</p><p>Selection, dates, eligibility and training arrangements remain subject to confirmation and available places. An expression of interest does not guarantee selection.</p></div>
+                                <div id="honeybush-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
+                                    <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Sustainable Honeybush Programme')">
+                                        <div><label class="form-label" for="honeybush-name">Full name *</label><input class="form-control" id="honeybush-name" name="Full name" autocomplete="name" required></div>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><div><label class="form-label" for="honeybush-email">Email address *</label><input class="form-control" type="email" id="honeybush-email" name="Email address" autocomplete="email" required></div><div><label class="form-label" for="honeybush-phone">Phone number</label><input class="form-control" type="tel" id="honeybush-phone" name="Phone number" autocomplete="tel"></div></div>
+                                        <div><label class="form-label" for="honeybush-community">Community / suburb *</label><input class="form-control" id="honeybush-community" name="Community or suburb" required></div><div><label class="form-label" for="honeybush-note">Additional information (optional)</label><textarea class="form-control" id="honeybush-note" name="Additional information" rows="3"></textarea></div>
+                                        <div class="form-check"><input type="checkbox" id="honeybush-privacy" required><label for="honeybush-privacy">I have read the <a role="button" tabindex="0" onclick="switchPage('privacy')" class="underline font-bold">Privacy Policy</a> and understand how my information will be used to respond to this enquiry.</label></div>
+                                        <div class="form-check"><input type="checkbox" id="honeybush-updates" name="Optional updates" value="Yes"><label for="honeybush-updates">I would also like to receive occasional UBF updates (optional).</label></div>
+                                        <button type="submit" class="initiative-btn primary">Prepare sign-up email</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <p class="text-xs text-brand-text-light mt-5">Programme information is based on UBF’s supplied poster and revised work plan. Please confirm changes with UBF.</p>
+                </div>
+            </section>
+
+            <!-- Our mandate section -->
             <section class="bg-white py-20 md:py-32 px-6 sm:px-8 lg:px-[10%] relative overflow-hidden border-b border-gray-100">
                 <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
                 <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-gray to-transparent skew-x-12 translate-x-20"></div>
@@ -506,11 +555,11 @@
                             <span class="text-brand-orange font-bold tracking-[0.2em] uppercase text-xs">Our Mandate</span>
                         </div>
                         <h2 class="text-3xl md:text-5xl font-light text-brand-navy mb-8 leading-[1.2em]">
-                            Transforming communities, <br>
-                            <span class="font-bold text-brand-teal">one project at a time.</span>
+                            Support for local businesses, <br>
+                            <span class="font-bold text-brand-teal">people and communities.</span>
                         </h2>
                         <p class="text-brand-text-light text-lg leading-relaxed mb-10 font-light">
-                            We bridge the gap between affluent resources and high-potential individuals. By deploying focused capital and structured education, we catalyze sustainable economic participation for those historically excluded from the formal market.
+                            UBF works to help local small and medium-sized enterprises strengthen their business practices and grow. We also support practical skills development, youth opportunity, ethical community leadership and community-based environmental learning.
                         </p>
                         <a onclick="switchPage('services')" class="dsm-wobble-horizontal group flex items-center gap-4 cursor-pointer">
                             <span class="w-12 h-12 rounded-full border border-brand-orange flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
