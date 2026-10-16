@@ -1394,6 +1394,7 @@
         function openContactModal(topic) {
             const modal = document.getElementById('contact-modal');
             const topicField = document.getElementById('contact-topic');
+            if (topicField) topicField.value = topic || '';
             if (topic && topicField) {
                 const match = Array.from(topicField.options).find(option => option.value === topic || option.textContent.trim() === topic);
                 if (match) topicField.value = match.value;
@@ -1432,10 +1433,10 @@
             const content = document.getElementById('action-modal-content');
             if (!heading || !modal || !content) return;
             heading.innerText = title;
-            const requestType = document.getElementById('action-request-type');
-            if (requestType) requestType.value = title;
             const actionForm = document.getElementById('action-form');
             if (actionForm) actionForm.reset();
+            const requestType = document.getElementById('action-request-type');
+            if (requestType) requestType.value = title;
             const actionStatus = document.getElementById('action-status');
             if (actionStatus) actionStatus.classList.add('hidden');
             modal.classList.remove('hidden');
