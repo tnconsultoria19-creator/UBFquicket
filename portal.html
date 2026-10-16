@@ -11,6 +11,14 @@
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <style>
 :root{--navy:#112240;--teal:#187c72;--orange:#bd7b2d;--ink:#172b3a;--muted:#63717b;--line:#e0e6e7;--pale:#f4f6f4}*{box-sizing:border-box}body{margin:0;background:var(--pale);font-family:Nunito,Arial,sans-serif;color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{background:#fff;border-bottom:1px solid var(--line)}.topin{max-width:1120px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:14px;font-weight:800;letter-spacing:.06em;color:var(--navy)}.brand small{display:block;color:var(--teal);font-size:11px;letter-spacing:.14em;margin-top:3px}.top a{color:var(--navy);font-size:13px;font-weight:700;text-decoration:none}.wrap{max-width:1120px;margin:0 auto;padding:36px 22px 70px}.eyebrow{text-transform:uppercase;color:var(--orange);letter-spacing:.15em;font-size:11px;font-weight:800}.intro{max-width:700px;margin-bottom:28px}.intro h1{font-size:clamp(30px,5vw,46px);line-height:1.1;color:var(--navy);margin:10px 0 12px}.intro p{color:var(--muted);line-height:1.65;margin:0}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.7fr);gap:22px;align-items:start}.panel{background:#fff;border:1px solid var(--line);padding:25px;border-radius:8px}.panel h2{font-size:20px;color:var(--navy);margin:0 0 7px}.sub{font-size:13px;color:var(--muted);line-height:1.55;margin:0 0 20px}.field{display:grid;gap:6px;margin-bottom:14px}.field label{font-size:12px;font-weight:800;color:var(--navy)}.field input,.field select,.field textarea{width:100%;min-height:44px;border:1px solid #cfd8da;border-radius:5px;padding:10px 12px;background:#fff;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #187c7244;border-color:var(--teal)}.btn{border:1px solid var(--navy);background:var(--navy);color:#fff;padding:11px 16px;border-radius:5px;font-size:13px;font-weight:800}.btn.secondary{background:white;color:var(--navy)}.btn:disabled{opacity:.55;cursor:not-allowed}.tabs{display:flex;gap:8px;margin-bottom:18px}.tabs button{flex:1}.status{font-size:13px;line-height:1.5;margin-top:14px;color:var(--muted)}.status.error{color:#9e3228}.status.ok{color:var(--teal)}.notice{background:#f7f4ec;border-left:3px solid var(--orange);padding:13px 14px;font-size:12px;line-height:1.55;color:#57452e;margin-top:18px}.side{background:var(--navy);color:#fff;padding:26px;border-radius:8px}.side h2{font-size:20px;margin:0 0 12px}.side p,.side li{color:#d9e1e7;font-size:13px;line-height:1.65}.side ul{padding-left:18px}.hidden{display:none!important}.dashboard-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.stat{padding:18px;background:#fff;border:1px solid var(--line);border-radius:7px}.stat small{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;color:var(--navy);font-size:23px;margin-top:6px}.progress{height:8px;background:#e7eceb;border-radius:20px;overflow:hidden;margin:12px 0}.progress span{display:block;width:0;height:100%;background:var(--teal)}.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.list{border-top:1px solid var(--line);padding:12px 0;font-size:13px}.footer{color:var(--muted);font-size:11px;text-align:center;margin-top:30px}@media(max-width:760px){.wrap{padding:28px 16px 48px}.topin{padding:15px 16px}.layout,.dash-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.panel,.side{padding:20px}.intro{margin-bottom:22px}}
+
+.task-row{display:flex;align-items:center;gap:10px;cursor:pointer;padding:12px 0}
+.task-row input{accent-color:var(--teal);width:17px;height:17px;flex-shrink:0}
+#dashboard-view h2{font-size:19px}
+#dashboard-view .panel,#dashboard-view .stat{border-radius:6px}
+#resource-files{padding:8px;border:1px dashed #c7d2d4;background:#f8faf9;font-size:13px}
+.intro h1{font-size:clamp(27px,4vw,36px)}
+@media(max-width:760px){.intro h1{font-size:clamp(27px,7vw,35px)}.cards{grid-template-columns:1fr}.task-row{align-items:flex-start}}
 </style>
 </head>
 <body>
@@ -19,39 +27,158 @@
 <section class="intro"><span class="eyebrow">Participant access</span><h1>Your programme, in one place.</h1><p>Sign in to manage your Small Business Startup Program journey. Book an intake session, review your action points and keep track of progress without relying on long WhatsApp threads.</p></section>
 <section id="auth-view" class="layout">
 <div class="panel">
-<h2>Participant sign-in</h2><p class="sub">Use your programme access code and account credentials. If you are new, create an account using the code shared by UBF.</p>
+<h2>Participant sign-in</h2><p class="sub">Preview mode is open for review. Enter any email address and password to view the dashboard; the access code is optional in this prototype.</p>
 <div class="tabs"><button type="button" id="tab-login" class="btn" aria-pressed="true">Sign in</button><button type="button" id="tab-register" class="btn secondary" aria-pressed="false">Create account</button></div>
 <form id="auth-form">
 <div class="field"><label for="access-code">Programme access code</label><input id="access-code" name="accessCode" autocomplete="off" required placeholder="Enter the code shared by UBF"></div>
 <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
-<div class="field"><label for="password">Password</label><input id="password" name="password" type="password" minlength="10" autocomplete="current-password" required placeholder="At least 10 characters"></div>
-<div id="confirm-field" class="field hidden"><label for="confirm-password">Confirm password</label><input id="confirm-password" type="password" minlength="10" autocomplete="new-password" placeholder="Enter password again"></div>
-<button id="auth-submit" class="btn" type="submit">Sign in</button><p id="auth-status" class="status" role="status" aria-live="polite">Portal preview: the secure Cloudflare API still needs to be connected. No password is stored by this page.</p>
+<div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Enter any password"></div>
+<div id="confirm-field" class="field hidden"><label for="confirm-password">Confirm password</label><input id="confirm-password" type="password" autocomplete="new-password" placeholder="Enter password again"></div>
+<button id="auth-submit" class="btn" type="submit">Sign in</button><p id="auth-status" class="status" role="status" aria-live="polite">Preview only: any email and password will open the demo dashboard. Do not use a real password; no password is stored.</p>
 </form>
-<div class="notice">For your protection, do not use a password that you use for another service. UBF will share the access code privately with eligible participants.</div>
+<div class="notice"><strong>Preview mode:</strong> use any email address and password to view the sample dashboard. This does not create a real account, verify access codes, save programme data to UBF or send bookings. Do not enter sensitive information.</div>
 </div>
 <aside class="side"><h2>What you can do here</h2><ul><li>Request an intake or interview session.</li><li>See confirmed appointments and next steps.</li><li>Track programme milestones and completed tasks.</li><li>Access programme documents and resources as they become available.</li></ul><p>Designed to be simple on mobile. The portal will only become active once UBF connects its secure authentication and data services.</p></aside>
 </section>
 <section id="dashboard-view" class="hidden">
-<div class="dashboard-head"><div><span class="eyebrow">Participant dashboard</span><h2 id="welcome" style="font-size:28px;color:var(--navy);margin:5px 0">Welcome</h2><p class="sub" style="margin:0">Small Business Startup Program</p></div><button type="button" id="signout" class="btn secondary">Sign out</button></div>
-<div class="cards"><div class="stat"><small>Programme progress</small><strong id="progress-label">0%</strong><div class="progress"><span id="progress-bar"></span></div><small>Progress is updated by your programme coordinator.</small></div><div class="stat"><small>Next session</small><strong id="next-session" style="font-size:17px">Not booked</strong><small>Book an intake conversation below.</small></div><div class="stat"><small>Action points</small><strong id="task-count">0</strong><small>Items to complete or review.</small></div></div>
-<div class="dash-grid"><section class="panel"><h2>Book an intake session</h2><p class="sub">Choose a preferred date and time. Your request is not confirmed until UBF approves it.</p><form id="booking-form"><div class="field"><label for="session-date">Preferred date</label><input type="date" id="session-date" required></div><div class="field"><label for="session-time">Preferred time</label><select id="session-time" required><option value="">Choose a time</option><option>09:00</option><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option>15:00</option></select></div><div class="field"><label for="session-note">What would you like us to know? (optional)</label><textarea id="session-note" rows="3"></textarea></div><button class="btn" type="submit">Request session</button><p id="booking-status" class="status" role="status"></p></form></section>
-<section class="panel"><h2>Your programme checklist</h2><p class="sub">Your coordinator will update the status of each milestone.</p><div id="task-list"><div class="list">Business idea and goals <strong style="float:right;color:var(--muted)">Pending</strong></div><div class="list">Market research <strong style="float:right;color:var(--muted)">Pending</strong></div><div class="list">Business plan <strong style="float:right;color:var(--muted)">Pending</strong></div><div class="list">Digital presence and payments <strong style="float:right;color:var(--muted)">Pending</strong></div><div class="list">Operations and next steps <strong style="float:right;color:var(--muted)">Pending</strong></div></div></section></div>
+<div class="dashboard-head">
+  <div><span class="eyebrow">Participant dashboard</span><h2 id="welcome" style="font-size:25px;color:var(--navy);margin:5px 0">Welcome</h2><p class="sub" style="margin:0">Small Business Startup Program · Preview dashboard</p></div>
+  <button type="button" id="signout" class="btn secondary">Sign out</button>
+</div>
+<div class="cards">
+  <div class="stat"><small>Programme progress</small><strong id="progress-label">0%</strong><div class="progress"><span id="progress-bar"></span></div><small>Tick milestones below to preview progress.</small></div>
+  <div class="stat"><small>Next session</small><strong id="next-session" style="font-size:17px">Not booked</strong><small>Any request here is for preview only.</small></div>
+  <div class="stat"><small>Milestones outstanding</small><strong id="task-count">6</strong><small>Items left to review or complete.</small></div>
+</div>
+<div class="dash-grid">
+  <section class="panel">
+    <h2>Programme milestones</h2><p class="sub">Tick an item to see the progress indicator change. These are sample milestones.</p>
+    <div id="task-list">
+      <label class="list task-row"><input type="checkbox" class="task-check"> Business idea and goals</label>
+      <label class="list task-row"><input type="checkbox" class="task-check"> Customer and market research</label>
+      <label class="list task-row"><input type="checkbox" class="task-check"> Business plan</label>
+      <label class="list task-row"><input type="checkbox" class="task-check"> Banking and payments</label>
+      <label class="list task-row"><input type="checkbox" class="task-check"> Website and digital presence</label>
+      <label class="list task-row"><input type="checkbox" class="task-check"> Operations and next steps</label>
+    </div>
+  </section>
+  <section class="panel">
+    <h2>Book an intake session</h2><p class="sub">Choose a preferred date and time. This prototype will show your request but will not send it to UBF.</p>
+    <form id="booking-form">
+      <div class="field"><label for="session-date">Preferred date</label><input type="date" id="session-date" required></div>
+      <div class="field"><label for="session-time">Preferred time</label><select id="session-time" required><option value="">Choose a time</option><option>09:00</option><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option>15:00</option></select></div>
+      <div class="field"><label for="session-note">What would you like us to know? (optional)</label><textarea id="session-note" rows="3" placeholder="Optional note"></textarea></div>
+      <button class="btn" type="submit">Preview session request</button><p id="booking-status" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</div>
+<section class="panel" style="margin-top:16px">
+  <h2>Programme resources</h2><p class="sub">The future document area. Select a file to preview its name here; the file will not be uploaded or saved.</p>
+  <div class="field"><label for="resource-files">Select documents to preview</label><input id="resource-files" type="file" multiple></div>
+  <div id="resource-list" class="status" role="status">No documents selected.</div>
 </section>
+</section>
+
 <p class="footer">Unity Bridge Foundation · Participant information should be handled securely and only for programme administration.</p>
 </main>
 <script>
-const apiBase = ""; // Configure the same-origin Cloudflare Worker API when deployed.
 let authMode = "login";
 const $ = id => document.getElementById(id);
-function setMode(mode){authMode=mode;const registering=mode==="register";$("confirm-field").classList.toggle("hidden",!registering);$("password").autocomplete=registering?"new-password":"current-password";$("auth-submit").textContent=registering?"Create account":"Sign in";$("tab-login").className="btn"+(registering?" secondary":"");$("tab-register").className="btn"+(registering?"":" secondary");$("tab-login").setAttribute("aria-pressed",String(!registering));$("tab-register").setAttribute("aria-pressed",String(registering));$("auth-status").textContent="";$("auth-status").className="status";}
-$("tab-login").addEventListener("click",()=>setMode("login"));$("tab-register").addEventListener("click",()=>setMode("register"));
-async function api(path,options={}){const response=await fetch(apiBase+"/api"+path,{...options,headers:{"Content-Type":"application/json",...(options.headers||{})}});const data=await response.json().catch(()=>({error:"The service returned an unreadable response."}));if(!response.ok)throw new Error(data.error||"The request could not be completed.");return data;}
-$("auth-form").addEventListener("submit",async e=>{e.preventDefault();const code=$("access-code").value.trim(),email=$("email").value.trim(),password=$("password").value;const status=$("auth-status");if(authMode==="register"&&password!==$("confirm-password").value){status.textContent="The passwords do not match.";status.className="status error";return;}status.textContent="Connecting securely…";status.className="status";$("auth-submit").disabled=true;try{const data=await api(authMode==="register"?"/auth/register":"/auth/login",{method:"POST",body:JSON.stringify({accessCode:code,email,password})});if(!data.token)throw new Error("The API response did not include a session token.");sessionStorage.setItem("ubf_session",data.token);await loadDashboard(data);}catch(err){status.textContent=err instanceof TypeError?"Secure sign-in is not active yet. The Cloudflare API must be deployed before participants can create accounts or sign in.":err.message;status.className="status error";}finally{$("auth-submit").disabled=false;}});
-async function loadDashboard(initial){const token=sessionStorage.getItem("ubf_session");try{const data=initial||await api("/me",{headers:{Authorization:"Bearer "+token}});$("auth-view").classList.add("hidden");$("dashboard-view").classList.remove("hidden");$("welcome").textContent="Welcome"+(data.name?", "+data.name:"");if(data.progress!==undefined){$("progress-label").textContent=data.progress+"%";$("progress-bar").style.width=Math.max(0,Math.min(100,Number(data.progress)))+"%";}if(data.nextSession)$("next-session").textContent=data.nextSession;if(Array.isArray(data.tasks)){$("task-count").textContent=data.tasks.filter(t=>!t.done).length;$("task-list").innerHTML=data.tasks.map(t=>'<div class="list"></div>').join("");[...$("task-list").children].forEach((node,i)=>{const task=data.tasks[i];node.textContent=task.title+" ";const label=document.createElement("strong");label.style.float="right";label.style.color=task.done?"var(--teal)":"var(--muted)";label.textContent=task.done?"Complete":"Pending";node.appendChild(label);});}}catch(e){sessionStorage.removeItem("ubf_session");$("auth-view").classList.remove("hidden");$("dashboard-view").classList.add("hidden");$("auth-status").textContent=e.message;$("auth-status").className="status error";}}
-$("booking-form").addEventListener("submit",async e=>{e.preventDefault();const status=$("booking-status");status.textContent="Sending session request…";try{const token=sessionStorage.getItem("ubf_session");const data=await api("/sessions",{method:"POST",headers:{Authorization:"Bearer "+token},body:JSON.stringify({date:$("session-date").value,time:$("session-time").value,note:$("session-note").value})});status.textContent=data.message||"Request sent. UBF will confirm the session.";status.className="status ok";}catch(err){status.textContent=err instanceof TypeError?"Session booking will work once the Cloudflare API is connected. No booking has been saved.":err.message;status.className="status error";}});
-$("signout").addEventListener("click",()=>{sessionStorage.removeItem("ubf_session");$("dashboard-view").classList.add("hidden");$("auth-view").classList.remove("hidden");$("auth-form").reset();setMode("login");});
-if(sessionStorage.getItem("ubf_session"))loadDashboard();
+
+function setMode(mode){
+  authMode=mode;
+  const registering=mode==="register";
+  $("confirm-field").classList.toggle("hidden",!registering);
+  $("password").autocomplete=registering?"new-password":"current-password";
+  $("auth-submit").textContent=registering?"Open demo dashboard":"Sign in";
+  $("tab-login").className="btn"+(registering?" secondary":"");
+  $("tab-register").className="btn"+(registering?"":" secondary");
+  $("tab-login").setAttribute("aria-pressed",String(!registering));
+  $("tab-register").setAttribute("aria-pressed",String(registering));
+  $("auth-status").textContent="Preview mode: any email and password will work. No account or password is saved.";
+  $("auth-status").className="status";
+}
+$("tab-login").addEventListener("click",()=>setMode("login"));
+$("tab-register").addEventListener("click",()=>setMode("register"));
+
+function updateTasks(){
+  const checks=[...document.querySelectorAll(".task-check")];
+  const done=checks.filter(check=>check.checked).length;
+  const percent=checks.length?Math.round(done/checks.length*100):0;
+  $("progress-label").textContent=percent+"%";
+  $("progress-bar").style.width=percent+"%";
+  $("task-count").textContent=checks.length-done;
+  checks.forEach(check=>{check.closest(".task-row").style.color=check.checked?"var(--teal)":"var(--ink)";});
+}
+function showDashboard(email){
+  $("auth-view").classList.add("hidden");
+  $("dashboard-view").classList.remove("hidden");
+  let name=(email||"preview participant").split("@")[0];
+  name=name.split(/[._-]/).map(word=>word?word.charAt(0).toUpperCase()+word.slice(1):"").join(" ");
+  $("welcome").textContent="Welcome, "+name;
+  sessionStorage.setItem("ubf_demo_email",email||"preview.participant@example.com");
+  updateTasks();
+}
+$("auth-form").addEventListener("submit",event=>{
+  event.preventDefault();
+  const email=$("email").value.trim();
+  const password=$("password").value;
+  const status=$("auth-status");
+  if(!email||!password){
+    status.textContent="Enter any email address and password to continue.";
+    status.className="status error";
+    return;
+  }
+  if(authMode==="register"&&password!==$("confirm-password").value){
+    status.textContent="The passwords do not match.";
+    status.className="status error";
+    return;
+  }
+  status.textContent="Opening preview dashboard…";
+  status.className="status ok";
+  showDashboard(email);
+});
+document.querySelectorAll(".task-check").forEach(check=>check.addEventListener("change",updateTasks));
+
+$("booking-form").addEventListener("submit",event=>{
+  event.preventDefault();
+  const date=$("session-date").value;
+  const time=$("session-time").value;
+  const status=$("booking-status");
+  if(!date||!time){
+    status.textContent="Choose a preferred date and time.";
+    status.className="status error";
+    return;
+  }
+  const displayDate=new Date(date+"T12:00:00").toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"});
+  $("next-session").textContent=displayDate+" · "+time;
+  status.textContent="Preview only: the preferred session is shown on this screen but has not been sent to UBF.";
+  status.className="status ok";
+});
+$("resource-files").addEventListener("change",event=>{
+  const files=[...event.target.files];
+  const list=$("resource-list");
+  list.replaceChildren();
+  if(!files.length){list.textContent="No documents selected.";return;}
+  files.forEach(file=>{
+    const item=document.createElement("div");
+    item.className="list";
+    item.textContent=file.name+" · "+Math.max(1,Math.round(file.size/1024))+" KB";
+    list.appendChild(item);
+  });
+  const note=document.createElement("p");
+  note.className="status";
+  note.textContent="These file names are shown only in this browser preview. Nothing was uploaded.";
+  list.appendChild(note);
+});
+$("signout").addEventListener("click",()=>{
+  sessionStorage.removeItem("ubf_demo_email");
+  $("dashboard-view").classList.add("hidden");
+  $("auth-view").classList.remove("hidden");
+  $("auth-form").reset();
+  setMode("login");
+});
+if(sessionStorage.getItem("ubf_demo_email"))showDashboard(sessionStorage.getItem("ubf_demo_email"));
 </script>
 </body>
 </html>
