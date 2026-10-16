@@ -335,6 +335,31 @@
         .initiative-details li::before { content: "✓"; position: absolute; left: 0; color: #187c72; font-weight: 700; }
         @media (max-width: 640px) { .initiative-card-media-larger { height: 220px; } }
 
+
+        /* Compact type and spacing; branded geometric pattern backgrounds. */
+        #app-root h1{font-size:clamp(1.75rem,3.5vw,2.85rem)!important;line-height:1.13!important;letter-spacing:-.02em!important}
+        #view-home>section:first-child h1{font-size:clamp(1.9rem,3.9vw,3.15rem)!important}
+        #app-root h2{font-size:clamp(1.25rem,2.25vw,1.9rem)!important;line-height:1.22!important}
+        #app-root h3{font-size:clamp(1.05rem,1.8vw,1.35rem)!important;line-height:1.3!important}
+        #app-root section[class*="py-20"],#app-root section[class*="py-24"],#app-root section[class*="py-28"],#app-root section[class*="py-32"]{padding-block:clamp(2.15rem,3.8vw,3.2rem)!important}
+        #view-home>section:first-child{padding-block:1.5rem!important}
+        #view-home>section:first-child .grid{min-height:0!important}
+        #view-home>section:first-child .grid>div:first-child{padding-block:2rem!important}
+        #view-home>section:first-child .grid>div:last-child{min-height:260px!important;height:clamp(260px,34vw,430px)!important}
+        #view-how>section:first-child,#view-services>section:first-child,#view-shop>section:first-child,#view-lab>section:first-child,#view-faq>section:first-child,#view-pricing>section:first-child{padding-top:clamp(5.25rem,8vw,6.75rem)!important;padding-bottom:clamp(2.25rem,3.8vw,3.25rem)!important}
+        .ubf-pattern-hero{background-color:#112240;background-image:url('./assets/ubf-african-pattern.svg');background-repeat:repeat;background-size:230px 230px;background-position:center}
+        .ubf-pattern-layer{background-image:url('./assets/ubf-african-pattern.svg');background-repeat:repeat;background-size:230px 230px;background-position:center;opacity:.58;pointer-events:none}
+        .ubf-pattern-faq{background-image:url('./assets/ubf-african-pattern.svg');background-size:180px 180px;background-position:center;background-repeat:repeat}
+        #action-modal-content{max-width:34rem!important;padding:1.25rem!important}
+        #action-modal-content .action-option{display:flex;gap:.6rem;align-items:center;border:1px solid #d9dee5;background:#f8f9f7;padding:.65rem .75rem;font-size:.85rem;color:#112240;border-radius:4px}
+        #action-modal-content .action-option input{accent-color:#187c72;width:17px;height:17px;flex-shrink:0}
+        @media(max-width:767px){
+          #view-home>section:first-child .grid>div:last-child{height:300px!important}
+          #app-root section[class*="py-20"],#app-root section[class*="py-24"],#app-root section[class*="py-28"],#app-root section[class*="py-32"]{padding-block:2rem!important}
+          .ubf-pattern-hero{background-size:165px 165px}
+          .ubf-pattern-layer{background-size:165px 165px}
+        }
+
     </style>
 </head>
 <body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
@@ -362,7 +387,7 @@
                 <a role="button" tabindex="0" onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Get Involved</a>
                 <a role="button" tabindex="0" onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQs</a>
                 
-                <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Contact Us</a>
+                <a href="./portal.html" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-6 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.1em]">Sign in</a>
             </div>
 
             <!-- Mobile Hamburger -->
@@ -387,7 +412,7 @@
             <a role="button" tabindex="0" onclick="switchPage('pricing'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Partnerships</a>
             <a role="button" tabindex="0" onclick="switchPage('shop'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">Get Involved</a>
             <a role="button" tabindex="0" onclick="switchPage('faq'); toggleMobileMenu()" class="font-semibold text-white hover:text-brand-orange text-xl tracking-widest uppercase cursor-pointer transition-colors">FAQ</a>
-            <a role="button" tabindex="0" onclick="openContactModal(); toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[15px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Contact Us</a>
+            <a href="./portal.html" onclick="toggleMobileMenu()" class="mt-8 dsm-wobble-horizontal bg-brand-orange text-white font-bold rounded-full py-4 px-10 text-[13px] tracking-widest mx-auto block w-max uppercase border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all cursor-pointer">Sign in to portal</a>
         </div>
     </div>
 
@@ -398,7 +423,7 @@
                 <div><p class="text-xs uppercase tracking-widest font-bold text-brand-orange mb-1">Unity Bridge Foundation</p><h3 id="contact-modal-heading" class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3></div>
                 <button type="button" aria-label="Close contact form" onclick="closeContactModal()" class="text-brand-text-light hover:text-brand-coral transition-colors p-2"><i class="ph-bold ph-x text-2xl"></i></button>
             </div>
-            <p class="text-brand-text-light text-sm mb-5 leading-relaxed">Tell us a little about yourself and what you would like to discuss. Your email application will open with your message ready to send to our team.</p>
+            <p class="text-brand-text-light text-sm mb-5 leading-relaxed">Complete the short form and the UBF team will get back to you.</p>
             <form class="space-y-4" action="https://formsubmit.co/info@unitybridge-foundation.org" method="POST">
                 <input type="hidden" name="_subject" value="Contact Us — Unity Bridge Foundation">
                 <input type="hidden" name="_template" value="table">
@@ -410,7 +435,7 @@
                     <div><label for="contact-organisation" class="form-label">Organisation / business</label><input id="contact-organisation" name="Organisation or business" autocomplete="organization" class="form-control"></div>
                     <div><label for="contact-role" class="form-label">Who are you?</label><select id="contact-role" name="I am a" class="form-control"><option value="Individual">Individual</option><option value="Small business / SME">Small business / SME</option><option value="Community organisation">Community organisation</option><option value="Training or service provider">Training or service provider</option><option value="Potential partner or supporter">Potential partner or supporter</option><option value="Other">Other</option></select></div>
                 </div>
-                <div><label for="contact-topic" class="form-label">What would you like to discuss? *</label><select id="contact-topic" name="Enquiry topic" required class="form-control"><option value="">Select a topic</option><option>Small business support</option><option>Current programmes</option><option>Vendor network</option><option>Partnership opportunity</option><option>Volunteering or donations</option><option>General enquiry</option></select></div>
+                <div><label for="contact-topic" class="form-label">What would you like to discuss? *</label><select id="contact-topic" name="Enquiry topic" required class="form-control"><option value="">Select a topic</option><option>Small business support</option><option>Current programmes</option><option>Vendor network</option><option>Partnership opportunity</option><option>Local opportunities</option><option>Volunteering or donations</option><option>General enquiry</option></select></div>
                 <div><label for="contact-message" class="form-label">Message *</label><textarea id="contact-message" name="Message" rows="4" required class="form-control"></textarea></div>
                 <div class="flex flex-col sm:flex-row gap-3 pt-2"><button type="submit" class="bg-brand-orange text-white font-bold rounded-md py-3 px-5 text-sm hover:bg-brand-navy transition-colors">Send enquiry</button><button type="button" onclick="closeContactModal()" class="border border-gray-300 text-brand-navy font-bold rounded-md py-3 px-5 text-sm">Cancel</button></div>
                 <p class="text-xs text-brand-text-light">Your enquiry is sent through FormSubmit, a third-party form delivery service, to the UBF information inbox. See the Privacy Policy for details.</p>
@@ -419,31 +444,32 @@
     </div>
 
     <!-- ACTION MODAL -->
-    <div id="action-modal" role="dialog" aria-modal="true" aria-labelledby="action-modal-title" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
-        <div class="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl transform scale-95 transition-transform duration-300" id="action-modal-content">
-            <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
-                <h3 class="text-xl font-bold text-brand-navy" id="action-modal-title">Get Involved</h3>
-                <button onclick="closeActionModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
-                    <i class="ph-bold ph-x text-2xl"></i>
-                </button>
+    <div id="action-modal" role="dialog" aria-modal="true" aria-labelledby="action-modal-title" aria-hidden="true" class="fixed inset-0 bg-brand-navy/80 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 px-4 py-6 overflow-y-auto">
+        <div class="bg-white rounded-lg p-6 md:p-7 w-full max-w-lg shadow-2xl transform scale-95 transition-transform duration-300" id="action-modal-content">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-200 pb-4">
+                <div><p class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-1">Unity Bridge Foundation</p><h3 class="font-bold text-brand-navy" id="action-modal-title">Get involved</h3></div>
+                <button type="button" aria-label="Close form" onclick="closeActionModal()" class="text-brand-text-light hover:text-brand-coral p-2"><i class="ph-bold ph-x text-2xl"></i></button>
             </div>
-            <form id="action-form" class="space-y-4">
-                <div>
-                    <label class="block text-[10px] font-bold text-brand-navy uppercase tracking-widest mb-1">Your Name</label>
-                    <input type="text" id="action-name" class="w-full bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal" required>
+            <p class="text-sm text-brand-text-light mb-4">Share your details and the kind of contribution you would like to make. We will follow up with you.</p>
+            <form id="action-form" class="space-y-3" action="https://formsubmit.co/info@unitybridge-foundation.org" method="POST" onsubmit="return validateActionForm()">
+                <input type="hidden" name="_subject" value="Volunteer and donor interest — Unity Bridge Foundation">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="Request type" id="action-request-type" value="Get involved">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div><label for="action-name" class="form-label">Contact person *</label><input type="text" id="action-name" name="Contact person" autocomplete="name" class="form-control" required></div>
+                    <div><label for="action-email" class="form-label">Email address *</label><input type="email" id="action-email" name="Email address" autocomplete="email" class="form-control" required></div>
                 </div>
-                <div>
-                    <label class="block text-[10px] font-bold text-brand-navy uppercase tracking-widest mb-1">Message / Details</label>
-                    <textarea id="action-message" rows="3" class="w-full bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal" required></textarea>
-                </div>
-                <div class="pt-2 flex flex-col gap-3">
-                    <button type="button" onclick="submitAction('email')" class="w-full bg-brand-orange text-white font-extrabold rounded-full py-3 text-xs uppercase tracking-widest hover:bg-brand-navy transition-colors flex items-center justify-center gap-2">
-                        <i class="ph-fill ph-envelope-simple text-lg"></i> Send via Email
-                    </button>
-                    <button type="button" onclick="submitAction('whatsapp')" class="w-full bg-[#25D366] text-white font-extrabold rounded-full py-3 text-xs uppercase tracking-widest hover:bg-[#1EBE5A] transition-colors flex items-center justify-center gap-2">
-                        <i class="ph-fill ph-whatsapp-logo text-lg"></i> Send via WhatsApp
-                    </button>
-                </div>
+                <div><label for="action-organisation" class="form-label">Organisation (if applicable)</label><input type="text" id="action-organisation" name="Organisation" autocomplete="organization" class="form-control"></div>
+                <fieldset class="space-y-2">
+                    <legend class="form-label">How would you like to contribute? Select all that apply. *</legend>
+                    <label class="action-option"><input type="checkbox" name="Contribution" value="Funds">Funds or financial support</label>
+                    <label class="action-option"><input type="checkbox" name="Contribution" value="Resources and equipment">Resources, materials or equipment</label>
+                    <label class="action-option"><input type="checkbox" name="Contribution" value="Professional skills">Professional skills or mentoring</label>
+                    <label class="action-option"><input type="checkbox" name="Contribution" value="Practical manpower">Practical support or manpower</label>
+                    <label class="action-option"><input type="checkbox" name="Contribution" value="Volunteer hours">Volunteer hours</label>
+                </fieldset>
+                <p id="action-status" class="text-xs text-red-700 hidden" role="alert">Please select at least one contribution option.</p>
+                <div class="pt-1 flex justify-end gap-3"><button type="button" onclick="closeActionModal()" class="border border-gray-300 text-brand-navy py-2.5 px-4 text-sm font-bold">Cancel</button><button type="submit" class="bg-brand-orange text-white font-bold py-2.5 px-6 text-sm hover:bg-brand-navy transition-colors">Send</button></div>
             </form>
         </div>
     </div>
@@ -467,7 +493,7 @@
                             </div>
                         </div>
                         <div class="relative min-h-[300px] md:min-h-full overflow-hidden bg-brand-gray">
-                            <img src="https://images.pexels.com/photos/31635958/pexels-photo-31635958.jpeg" alt="Community-focused work and local opportunity, reflecting Unity Bridge Foundation's mission" class="absolute inset-0 w-full h-full object-cover object-center" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
+                            <img src="https://images.pexels.com/photos/31635958/pexels-photo-31635958.jpeg" alt="Community-focused work and local opportunity, reflecting Unity Bridge Foundation's mission" class="absolute inset-0 w-full h-full object-cover object-center" style="object-position:62% center" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/30 via-transparent to-transparent pointer-events-none"></div>
                         </div>
                     </div>
@@ -589,10 +615,9 @@
                         </div>
                         
                         <div class="w-full lg:w-1/2 relative reveal delay-100">
-                            <div class="aspect-square bg-white p-6 shadow-elegant relative z-10 border border-gray-100 rounded-[3rem]">
-                                <img src="https://images.pexels.com/photos/7475178/pexels-photo-7475178.jpeg" alt="Volunteer Team" class="w-full h-full object-cover transition-all duration-700 rounded-[2.5rem]" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
+                            <div class="aspect-[3/2] bg-white shadow-elegant relative z-10 border border-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://images.pexels.com/photos/7475178/pexels-photo-7475178.jpeg" alt="Volunteers taking part in community support activities" class="w-full h-full object-cover transition-all duration-700" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             </div>
-                            <div class="absolute -bottom-6 -left-6 w-full h-full border-2 border-brand-orange/30 z-0 rounded-[3.5rem]"></div>
                         </div>
                     </div>
                 </div>
@@ -603,8 +628,8 @@
                 <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
                 <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
                     <div class="w-full md:w-3/5 text-center md:text-left mb-6 md:mb-0 pr-0 md:pr-10">
-                        <h2 class="text-white text-xl md:text-2xl font-extrabold leading-tight mb-2">Ready to accelerate formalisation and employment?</h2>
-                        <p class="text-white/70 text-sm font-light">Partner with Unity Bridge Foundation to deploy strategic innovation in your community.</p>
+                        <h2 class="text-white text-xl md:text-2xl font-extrabold leading-tight mb-2">Ready to support local businesses and create more work opportunities?</h2>
+                        <p class="text-white/70 text-sm font-light">Work with Unity Bridge Foundation to help small businesses strengthen their operations and connect people with practical pathways into work.</p>
                     </div>
                     <div class="w-full md:w-2/5 flex justify-center md:justify-end">
                         <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal text-center bg-brand-orange text-white font-extrabold py-3 px-8 rounded-full text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all flex items-center gap-3 uppercase tracking-widest cursor-pointer">
@@ -614,13 +639,14 @@
                     </div>
                 </div>
             </section>
+            <div class="bg-white h-16 md:h-24" aria-hidden="true"></div>
         </div>
 
 
         <!-- ================= PAGE: SERVICES (PROGRAMS) ================= -->
         <div id="view-services" class="page-view">
             <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
-                <img src="https://images.pexels.com/photos/7475178/pexels-photo-7475178.jpeg" alt="Community volunteers working together" class="absolute right-0 top-0 h-full w-1/2 object-cover opacity-[0.12] pointer-events-none" onerror="this.style.display='none'">
+                
                 <div class="max-w-4xl mx-auto relative z-10 reveal">
                     <span class="text-brand-teal font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Strategies</span>
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy mb-6">Our <span class="text-brand-orange font-light">Programs</span></h1>
@@ -640,9 +666,8 @@
                             <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b-4 border-r-4 border-brand-orange z-0 rounded-br-[2.5rem]"></div>
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
-                            <span class="text-brand-orange font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-orange pb-2 inline-block w-max">Track 01</span>
                             <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Small Business Startup Program</h3>
-                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">A four-week November 2026 programme focused on practical business planning, market research, payments, digital presence and operations.</p>
+                            <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">A four-week programme helping entrepreneurs build or strengthen a business through practical planning, customer and market research, payments, digital presence and day-to-day operations.</p>
                             
                             <ul class="space-y-4">
                                 <li class="flex items-start gap-4">
@@ -670,7 +695,6 @@
                             <div class="absolute -top-6 -left-6 w-32 h-32 border-t-4 border-l-4 border-brand-teal-light z-0 rounded-tl-[2.5rem]"></div>
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
-                            <span class="text-brand-teal-light font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-teal-light pb-2 inline-block w-max">Track 02</span>
                             <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">The Accelerator</h3>
                             <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">UBF aims to help small and medium-sized businesses strengthen their planning, operations and workforce practices so they can grow responsibly.</p>
                             
@@ -695,12 +719,11 @@
                     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-24 reveal delay-200">
                         <div class="w-full lg:w-1/2 relative">
                             <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-dark shadow-elegant">
-                                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" alt="Youth Employment" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
+                                <img src="https://images.pexels.com/photos/3846262/pexels-photo-3846262.jpeg" alt="A skilled worker guiding an apprentice in a practical workshop" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             </div>
                             <div class="absolute -bottom-6 -left-6 w-32 h-32 border-b-4 border-l-4 border-brand-coral z-0 rounded-bl-[2.5rem]"></div>
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
-                            <span class="text-brand-coral font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-coral pb-2 inline-block w-max">Track 03</span>
                             <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Work Pathways</h3>
                             <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">UBF’s wider mission is to help SMEs grow and create opportunities for unemployed graduates and young people. Specific placements are not guaranteed.</p>
                             
@@ -730,7 +753,6 @@
                             <div class="absolute -top-6 -right-6 w-32 h-32 border-t-4 border-r-4 border-brand-cyan z-0 rounded-tr-[2.5rem]"></div>
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
-                            <span class="text-brand-cyan font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-cyan pb-2 inline-block w-max">Track 04</span>
                             <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">The School Bridge</h3>
                             <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">UBF seeks to cultivate ethical community and economic leadership through locally relevant learning and partnership-based activities.</p>
                             
@@ -760,7 +782,6 @@
                             <div class="absolute -bottom-6 -left-6 w-32 h-32 border-b-4 border-l-4 border-brand-orange z-0 rounded-bl-[2.5rem]"></div>
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
-                            <span class="text-brand-orange font-extrabold text-[10px] uppercase tracking-widest mb-3 border-b border-brand-orange pb-2 inline-block w-max">Track 05</span>
                             <h3 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-5">Agriculture & Food Security</h3>
                             <p class="text-brand-text-light mb-8 leading-relaxed text-lg font-light">The Sustainable Honeybush pilot links harvesting education, practical skills and fynbos conservation with planned community learning.</p>
                             
@@ -788,13 +809,9 @@
         <!-- ================= PAGE: HOW WE WORK ================= -->
         <div id="view-how" class="page-view">
             <!-- Image Background Banner -->
-            <section class="relative pt-32 md:pt-48 pb-24 px-6 text-center overflow-hidden flex items-center justify-center">
-                <!-- Static Image Hero -->
-                <div class="absolute inset-0 w-full h-full z-0 bg-brand-navy">
-                    <img src="https://media.istockphoto.com/id/2220243310/photo/volunteers-discussing-during-donation-drive-in-office.jpg?b=1&s=612x612&w=0&k=20&c=U4ECqIbZ_XEPzwOQbdGLU5hSeKRWJ_ZKVCNcOmZfwIE=" class="w-full h-full object-cover opacity-40 mix-blend-luminosity" alt="Methodology Background" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-gray via-transparent to-transparent"></div>
-                </div>
-
+            <section class="ubf-pattern-hero relative py-16 px-6 text-center overflow-hidden flex items-center justify-center">
+                <div class="ubf-pattern-layer absolute inset-0" aria-hidden="true"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-brand-navy/55 via-brand-navy/65 to-brand-gray/90" aria-hidden="true"></div>
                 <div class="max-w-4xl mx-auto relative z-10 reveal">
                     <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Our Methodology</span>
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">The <span class="text-brand-teal-light italic font-light">Way</span> We Work</h1>
@@ -877,11 +894,24 @@
 
         <!-- ================= PAGE: EMPOWERMENT LAB ================= -->
         <div id="view-lab" class="page-view">
-            <section class="bg-brand-navy text-white pt-32 md:pt-40 pb-20 px-6 relative overflow-hidden"><img src="https://images.pexels.com/photos/7475178/pexels-photo-7475178.jpeg" alt="Community volunteers working together" class="absolute inset-0 w-full h-full object-cover opacity-20" onerror="this.style.display='none'"><div class="absolute inset-0 bg-brand-navy/75"></div><div class="max-w-5xl mx-auto relative z-10"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Learning and information</span><h1 class="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">The Lab</h1><p class="text-white/80 max-w-3xl">A planned gallery of resources for self-study and self-learning, including practical guides, learning materials and community knowledge. The Lab is coming soon.</p></div></section>
-            <section class="py-14 bg-white"><div class="max-w-5xl mx-auto px-5 sm:px-8 space-y-5">
-                <article class="border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Small Business Startup Program</h2><p class="text-sm text-brand-text-light mb-3">The November programme covers business planning, market research, banking and payment facilitation, website and e-commerce, business operations tools and professionalisation guides.</p><a href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer" class="text-brand-teal underline font-bold">Quicket registration</a></article>
-                <article class="border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Sustainable Honeybush Programme</h2><p class="text-sm text-brand-text-light">The 2026–2027 pilot work plan covers foundational learning, planned practical training, field activities and community education related to sustainable harvesting and fynbos conservation. Dates and arrangements are subject to confirmation.</p></article>
-            </div></section>
+            <section class="ubf-pattern-hero relative py-16 px-6 overflow-hidden">
+                <div class="ubf-pattern-layer absolute inset-0" aria-hidden="true"></div>
+                <div class="absolute inset-0 bg-brand-navy/75" aria-hidden="true"></div>
+                <div class="max-w-5xl mx-auto relative z-10">
+                    <span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Resources and self-study</span>
+                    <h1 class="text-white font-extrabold mt-3 mb-4">The Lab</h1>
+                    <p class="text-white/85 max-w-2xl">The Lab is being prepared. Curated guides, learning materials and practical resources will be added here when they are ready.</p>
+                </div>
+            </section>
+            <section class="py-12 bg-white">
+                <div class="max-w-5xl mx-auto px-5 sm:px-8">
+                    <div class="border border-gray-200 bg-brand-gray p-6 sm:p-8">
+                        <span class="text-brand-teal text-xs font-extrabold uppercase tracking-widest">Coming soon</span>
+                        <h2 class="text-brand-navy font-bold mt-2 mb-3">A practical resource gallery</h2>
+                        <p class="text-sm text-brand-text-light max-w-2xl">We are preparing a collection of self-study material for entrepreneurs, young people and community partners. No resources or courses are currently open in The Lab.</p>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <div id="view-pricing" class="page-view">
@@ -898,11 +928,11 @@
 
         <!-- ================= PAGE: FAQ ================= -->        <!-- ================= PAGE: FAQ ================= -->
         <div id="view-faq" class="page-view">
-            <section class="bg-brand-gray pt-32 md:pt-40 pb-16 px-6 text-center border-b border-gray-200 relative overflow-hidden"><img src="https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg" alt="People collaborating around a table" class="absolute right-0 top-0 h-full w-1/2 object-cover opacity-[0.12] pointer-events-none" onerror="this.style.display='none'"><div class="max-w-3xl mx-auto"><span class="text-brand-teal font-bold tracking-widest uppercase text-xs">FAQs</span><h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mt-3 mb-4">Common questions</h1><p class="text-brand-text-light">Information about current initiatives, applications and working with UBF.</p></div></section>
+            <section class="ubf-pattern-faq bg-brand-gray py-12 px-6 text-center border-b border-gray-200 relative overflow-hidden"><div class="max-w-3xl mx-auto relative z-10"><span class="text-brand-teal font-bold tracking-widest uppercase text-xs">FAQs</span><h1 class="text-brand-navy font-extrabold mt-3 mb-4">Common questions</h1><p class="text-brand-text-light">Information about current initiatives, applications and working with UBF.</p></div></section>
             <section class="py-12 bg-white"><div class="max-w-4xl mx-auto px-5 sm:px-8 space-y-3">
                 <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">How do I apply for a current initiative?</summary><p class="text-sm text-brand-text-light mt-3">Open the initiative section on the home page, select Sign up and complete the form. This static site prepares an email; it does not store submissions online. Startup participants can also register through Quicket.</p></details>
                 <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">Does an expression of interest guarantee a place?</summary><p class="text-sm text-brand-text-light mt-3">No. An expression of interest is not confirmation of selection. UBF will communicate any relevant eligibility requirements, available places and next steps.</p></details>
-                <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">When is the Small Business Startup Program?</summary><p class="text-sm text-brand-text-light mt-3">The supplied poster lists 2 November to 30 November 2026. A Quicket registration link is provided in the initiative card on the home page.</p></details>
+                <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">How long is the Small Business Startup Program?</summary><p class="text-sm text-brand-text-light mt-3">The programme is designed as a four-week offering. Intake dates and registration arrangements are announced for each cohort.</p></details>
                 <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">What is the Honeybush Programme?</summary><p class="text-sm text-brand-text-light mt-3">It is a phased 2026–2027 pilot with planned learning on sustainable harvesting, practical training, field activities and community education. The revised work plan identifies an intake target of 25 unemployed stewards; selection and dates remain subject to arrangements and available places.</p></details>
                 <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">How will UBF use my information?</summary><p class="text-sm text-brand-text-light mt-3">Information is used to respond to enquiries and coordinate relevant programme steps. It may be shared with service providers or programme partners where necessary and lawful. Read the Privacy Policy for details.</p></details>
                 <details class="border border-gray-200 p-4"><summary class="font-bold text-brand-navy cursor-pointer">How can my organisation partner with UBF?</summary><p class="text-sm text-brand-text-light mt-3">Email info@unitybridge-foundation.org to outline your organisation and the area of support you would like to discuss.</p></details>
@@ -911,12 +941,20 @@
 
         <!-- ================= PAGE: SHOP ================= -->        <!-- ================= PAGE: SHOP ================= -->
         <div id="view-shop" class="page-view">
-            <section class="bg-brand-navy pt-32 md:pt-40 pb-20 px-6 text-white relative overflow-hidden"><img src="https://images.pexels.com/photos/7475178/pexels-photo-7475178.jpeg" alt="Community partners working together" class="absolute inset-0 w-full h-full object-cover opacity-20" onerror="this.style.display='none'"><div class="absolute inset-0 bg-brand-navy/75"></div><div class="max-w-5xl mx-auto relative z-10"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Get involved</span><h1 class="text-4xl md:text-5xl text-white font-extrabold mt-3 mb-4">Connect with local opportunity</h1><p class="max-w-3xl text-white/80">UBF welcomes conversations with SMEs, community organisations, training providers and potential supporters whose work aligns with local enterprise, youth opportunity and environmental learning.</p></div></section>
+            <section class="ubf-pattern-hero relative py-16 px-6 text-white overflow-hidden">
+                <div class="ubf-pattern-layer absolute inset-0" aria-hidden="true"></div>
+                <div class="absolute inset-0 bg-brand-navy/75" aria-hidden="true"></div>
+                <div class="max-w-5xl mx-auto relative z-10">
+                    <span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Get involved</span>
+                    <h1 class="text-white font-extrabold mt-3 mb-4">Connect with local opportunity</h1>
+                    <p class="max-w-3xl text-white/85">Connect with a local programme, introduce your business, or discuss a practical contribution to community development.</p>
+                </div>
+            </section>
             <section class="py-14 bg-white"><div class="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-5">
-                <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">SMEs</h2><p class="text-sm text-brand-text-light">Discuss business development needs, planning and practical support for responsible growth.</p></article>
+                <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">SME community</h2><p class="text-sm text-brand-text-light">Discuss business development needs, planning and practical support for responsible growth.</p></article>
                 <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">Community partners</h2><p class="text-sm text-brand-text-light">Explore community learning and participation in relevant local initiatives.</p></article>
                 <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">Organisations and supporters</h2><p class="text-sm text-brand-text-light">Discuss training, resources or collaboration linked to UBF’s mission.</p></article>
-            </div><div class="max-w-6xl mx-auto px-5 sm:px-8 mt-6 border border-gray-200 p-5 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between"><div><h2 class="text-brand-navy font-bold mb-1">Start a conversation</h2><p class="text-sm text-brand-text-light">Tell us who you are and what you would like to explore.</p></div><a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-teal text-white font-bold">Contact UBF</a></div></section>
+            </div><div class="max-w-6xl mx-auto px-5 sm:px-8 mt-6 border border-gray-200 p-5 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between"><div><h2 class="text-brand-navy font-bold mb-1">Start a conversation</h2><p class="text-sm text-brand-text-light">Tell us who you are and what you would like to explore.</p></div><a role="button" tabindex="0" onclick="openContactModal('Small business support')" class="dsm-wobble-horizontal bg-brand-teal text-white font-bold">Start a conversation</a></div></section>
             <section class="py-14 bg-brand-gray border-t border-gray-200">
                 <div class="max-w-6xl mx-auto px-5 sm:px-8">
                     <div class="mb-8"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Work together</span><h2 class="text-2xl md:text-3xl text-brand-navy font-bold mt-2 mb-3">Vendor network</h2><p class="text-sm md:text-base text-brand-text-light max-w-3xl">We welcome enquiries from local suppliers and service providers whose work can support small businesses, community initiatives and responsible local development. Contact us to introduce your services and discuss possible alignment.</p></div>
@@ -925,12 +963,15 @@
                         <article class="bg-white border border-gray-200 p-5"><i class="ph ph-wrench text-2xl text-brand-teal"></i><h3 class="font-bold text-brand-navy mt-3 mb-2">Professional services</h3><p class="text-sm text-brand-text-light">Introduce training, digital, operational or specialist services relevant to SMEs.</p></article>
                         <article class="bg-white border border-gray-200 p-5"><i class="ph ph-leaf text-2xl text-brand-teal"></i><h3 class="font-bold text-brand-navy mt-3 mb-2">Community and environment</h3><p class="text-sm text-brand-text-light">Connect around community learning, sustainable Honeybush and local environmental work.</p></article>
                     </div>
+                    <div class="mt-6 flex justify-start">
+                        <button type="button" onclick="openContactModal('Vendor network')" class="dsm-wobble-horizontal bg-brand-teal text-white font-bold">Connect with UBF about the vendor network</button>
+                    </div>
                 </div>
             </section>
             <section class="py-14 bg-white border-t border-gray-200">
                 <div class="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div><span class="text-brand-teal font-bold uppercase tracking-widest text-xs">Partnerships</span><h2 class="text-2xl md:text-3xl text-brand-navy font-bold mt-2 mb-3">Build a practical partnership</h2><p class="text-sm md:text-base text-brand-text-light mb-5">We welcome conversations with SMEs, community organisations, training providers and supporters. We can discuss business development, skills and work pathways, and community environmental learning.</p><ul class="space-y-2 text-sm text-brand-text-light"><li>• Small-business planning and professionalisation</li><li>• Skills development and youth opportunity</li><li>• Community learning and environmental initiatives</li></ul></div>
-                    <div class="bg-brand-gray border border-gray-200 p-6"><h3 class="text-xl font-bold text-brand-navy mb-2">Connect with local opportunities</h3><p class="text-sm text-brand-text-light mb-5">Tell us who you are, what you offer, or what support you are looking for. UBF will review the enquiry and advise whether there is a relevant next step.</p><button type="button" onclick="openContactModal()" class="bg-brand-orange text-white font-bold rounded-md py-3 px-5 text-sm hover:bg-brand-navy transition-colors">Contact Us</button></div>
+                    <div class="bg-brand-gray border border-gray-200 p-6"><h3 class="text-xl font-bold text-brand-navy mb-2">Connect with local opportunities</h3><p class="text-sm text-brand-text-light mb-5">Tell us who you are, what you offer, or what support you are looking for. UBF will review the enquiry and advise whether there is a relevant next step.</p><button type="button" onclick="openContactModal('Local opportunities')" class="bg-brand-orange text-white font-bold rounded-md py-3 px-5 text-sm hover:bg-brand-navy transition-colors">Contact Us</button></div>
                 </div>
             </section>
         </div>
@@ -1350,8 +1391,13 @@
 
 
         // Contact Modal Logic
-        function openContactModal() {
+        function openContactModal(topic) {
             const modal = document.getElementById('contact-modal');
+            const topicField = document.getElementById('contact-topic');
+            if (topic && topicField) {
+                const match = Array.from(topicField.options).find(option => option.value === topic || option.textContent.trim() === topic);
+                if (match) topicField.value = match.value;
+            }
             const content = document.getElementById('contact-modal-content');
             if (!modal || !content) return;
             modal.classList.remove('hidden');
@@ -1386,6 +1432,12 @@
             const content = document.getElementById('action-modal-content');
             if (!heading || !modal || !content) return;
             heading.innerText = title;
+            const requestType = document.getElementById('action-request-type');
+            if (requestType) requestType.value = title;
+            const actionForm = document.getElementById('action-form');
+            if (actionForm) actionForm.reset();
+            const actionStatus = document.getElementById('action-status');
+            if (actionStatus) actionStatus.classList.add('hidden');
             modal.classList.remove('hidden');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
@@ -1410,24 +1462,15 @@
             }, 200);
         }
 
-        function submitAction(method) {
-            const name = document.getElementById('action-name').value;
-            const msg = document.getElementById('action-message').value;
-            const subject = document.getElementById('action-modal-title').innerText;
-            
-            if(!name || !msg) {
-                alert("Please fill in your name and message.");
-                return;
+        function validateActionForm() {
+            const options = document.querySelectorAll('#action-form input[name="Contribution"]:checked');
+            const status = document.getElementById('action-status');
+            if (!options.length) {
+                if (status) status.classList.remove('hidden');
+                return false;
             }
-
-            const text = `Hi, my name is ${name}. I am reaching out regarding: ${subject}. ${msg}`;
-            
-            if(method === 'whatsapp') {
-                window.open(`https://wa.me/27817461041?text=${encodeURIComponent(text)}`, '_blank');
-            } else {
-                window.location.href = `mailto:info@unitybridge-foundation.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-            }
-            closeActionModal();
+            if (status) status.classList.add('hidden');
+            return true;
         }
 
         // FAQ Tabs Toggle
