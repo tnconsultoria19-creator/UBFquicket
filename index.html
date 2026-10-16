@@ -326,6 +326,15 @@
         @media(max-width:639px){#main-nav{height:70px!important;min-height:70px!important}#main-nav a.group{max-width:calc(100vw - 4.75rem);gap:.5rem!important}#main-nav a.group img{max-height:2.9rem!important;max-width:3.1rem}#main-nav a.group span:first-child{font-size:.72rem!important;letter-spacing:.01em!important}#main-nav a.group span:nth-child(2){font-size:.55rem!important;letter-spacing:.1em!important}#app-root{padding-top:70px!important}#view-home>section:first-child{min-height:72svh!important}#view-home>section:first-child h1{font-size:clamp(2rem,8.2vw,3rem)!important}.initiative-grid{grid-template-columns:minmax(0,1fr)}.initiative-card-media{height:175px}.initiative-card-content{padding:1rem}}
         @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+            .initiative-card-media-larger { height: 240px; overflow: hidden; background: #f1f3f2; }
+        .initiative-card-media-larger img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
+        .initiative-card:hover .initiative-card-media-larger img { transform: scale(1.035); }
+        .initiative-details { line-height: 1.7; }
+        .initiative-details ul { padding-left: 0; list-style: none; }
+        .initiative-details li { position: relative; padding-left: 1.1rem; }
+        .initiative-details li::before { content: "✓"; position: absolute; left: 0; color: #187c72; font-weight: 700; }
+        @media (max-width: 640px) { .initiative-card-media-larger { height: 220px; } }
+
     </style>
 </head>
 <body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
@@ -469,12 +478,17 @@
                     <div class="max-w-3xl mb-8 reveal"><span class="text-brand-teal font-bold tracking-[0.16em] uppercase text-xs">Current initiatives</span><h2 class="text-brand-navy font-extrabold mt-2 mb-3">Take part in our current programs</h2><p class="text-brand-text-light">Start with a short overview. Open the details for more information, or register your interest directly.</p></div>
                     <div class="initiative-grid">
                         <article class="initiative-card reveal">
-                            <div class="initiative-card-media"><img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="Person planning a small business" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-media initiative-card-media-larger"><img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="Person planning a small business" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
                             <div class="initiative-card-content">
                                 <span class="initiative-label">Business development</span><h3>Small Business Startup Program</h3>
                                 <p class="text-brand-text-light">A four-week programme focused on helping participants plan and professionalise a business, with practical work on research, payments, digital presence and operations.</p>
                                 <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('startup-details',this)" aria-expanded="false" aria-controls="startup-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('startup-form-panel',this)" aria-expanded="false" aria-controls="startup-form-panel">Sign up</button><a class="initiative-btn secondary" href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer">Register on Quicket</a></div>
-                                <div id="startup-details" class="initiative-details" hidden><p class="font-bold text-brand-navy mb-2">The poster lists these end-of-programme resources:</p><ul><li>Business plan</li><li>Market research</li><li>Banking and payment facilitation</li><li>Website and e-commerce</li><li>Business operations tools</li><li>Business professionalisation guides</li></ul><p>This programme is one example of the practical business-development support UBF offers. Specific cohorts, dates and registration arrangements are announced when confirmed. For the current intake, see the Quicket listing.</p></div>
+                                <div id="startup-details" class="initiative-details" hidden>
+                                    <div class="flex items-start gap-3 mb-4"><span class="text-brand-teal text-2xl"><i class="ph ph-lightbulb"></i></span><div><h4 class="font-bold text-brand-navy mb-1">What is the programme about?</h4><p>A practical business-startup and professionalisation programme designed to help entrepreneurs turn an idea or early-stage business into a clearer, more organised operation. The programme format can be adapted to the cohort and the needs identified during intake.</p></div></div>
+                                    <h4 class="font-bold text-brand-navy mb-2">Learning areas may include</h4>
+                                    <ul class="space-y-2 mb-4"><li>• Business planning and setting priorities.</li><li>• Market research and understanding customers.</li><li>• Banking, payments and basic business administration.</li><li>• Website, digital presence and e-commerce fundamentals.</li><li>• Day-to-day operations and practical business tools.</li><li>• Professionalisation and responsible business growth.</li></ul>
+                                    <p>Specific cohorts, dates and registration arrangements are announced when confirmed. For the current intake, see the Quicket listing.</p>
+                                </div>
                                 <div id="startup-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
                                     <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Small Business Startup Program')">
                                         <div><label class="form-label" for="startup-name">Full name *</label><input class="form-control" id="startup-name" name="Full name" autocomplete="name" required></div>
@@ -488,12 +502,17 @@
                             </div>
                         </article>
                         <article class="initiative-card reveal delay-100">
-                            <div class="initiative-card-media"><img src="https://images.pexels.com/photos/4505166/pexels-photo-4505166.jpeg" alt="Natural fynbos vegetation in a conservation area" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-media initiative-card-media-larger"><img src="https://www.dffe.gov.za/sites/default/files/images/honeybushcommunityharvesting.jpg" alt="Community members planting a young honeybush seedling as part of sustainable cultivation" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
                             <div class="initiative-card-content">
                                 <span class="initiative-label">Environment and work pathways · 2026–2027 pilot</span><h3>Sustainable Honeybush Programme</h3>
                                 <p class="text-brand-text-light">A planned community pilot linking sustainable Honeybush harvesting education, practical skills and fynbos conservation, with a focus on pathways for unemployed stewards.</p>
                                 <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('honeybush-details',this)" aria-expanded="false" aria-controls="honeybush-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('honeybush-form-panel',this)" aria-expanded="false" aria-controls="honeybush-form-panel">Sign up</button></div>
-                                <div id="honeybush-details" class="initiative-details" hidden><p>The revised work plan describes an intake target of 25 unemployed stewards, community mobilisation in Grassy Park and Lotus River, foundational learning in late 2026, planned practical training and field activities in early 2027, and community education in March and April 2027.</p><p>Selection, dates, eligibility and training arrangements remain subject to confirmation and available places. An expression of interest does not guarantee selection.</p></div>
+                                <div id="honeybush-details" class="initiative-details" hidden>
+                                    <div class="flex items-start gap-3 mb-4"><span class="text-brand-teal text-2xl"><i class="ph ph-leaf"></i></span><div><h4 class="font-bold text-brand-navy mb-1">What is the programme about?</h4><p>The Sustainable Honeybush Programme is a planned community pilot connecting environmental learning with practical skills and potential work pathways. It focuses on the sustainable cultivation and care of honeybush, a South African fynbos plant.</p></div></div>
+                                    <h4 class="font-bold text-brand-navy mb-2">Planned areas of activity</h4>
+                                    <ul class="space-y-2 mb-4"><li>• Introductory learning about honeybush and local biodiversity.</li><li>• Practical planting, cultivation and responsible harvesting education.</li><li>• Field activities and community awareness sessions.</li><li>• Exploring pathways for unemployed community members to build relevant skills.</li></ul>
+                                    <p>The current work plan identifies an intake target of 25 unemployed stewards, with community mobilisation in Grassy Park and Lotus River. Training dates, eligibility, selection and available places remain subject to confirmation. An expression of interest does not guarantee selection.</p>
+                                </div>
                                 <div id="honeybush-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
                                     <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Sustainable Honeybush Programme')">
                                         <div><label class="form-label" for="honeybush-name">Full name *</label><input class="form-control" id="honeybush-name" name="Full name" autocomplete="name" required></div>
@@ -1025,7 +1044,7 @@
                                 </div>
                             </div>
                             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="https://images.pexels.com/photos/4505166/pexels-photo-4505166.jpeg" alt="Natural vegetation in a forest conservation area" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
+                                <img src="https://www.dffe.gov.za/sites/default/files/images/honeybushcommunityharvesting.jpg" alt="Natural vegetation in a forest conservation area" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                                 <div class="absolute inset-0 bg-black/40 flex items-end p-8">
                                     <p class="text-white font-semibold text-lg">Reconnecting community and economic opportunity to environmental heritage.</p>
                                 </div>
