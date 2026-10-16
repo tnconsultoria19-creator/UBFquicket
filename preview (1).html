@@ -326,6 +326,15 @@
         @media(max-width:639px){#main-nav{height:70px!important;min-height:70px!important}#main-nav a.group{max-width:calc(100vw - 4.75rem);gap:.5rem!important}#main-nav a.group img{max-height:2.9rem!important;max-width:3.1rem}#main-nav a.group span:first-child{font-size:.72rem!important;letter-spacing:.01em!important}#main-nav a.group span:nth-child(2){font-size:.55rem!important;letter-spacing:.1em!important}#app-root{padding-top:70px!important}#view-home>section:first-child{min-height:72svh!important}#view-home>section:first-child h1{font-size:clamp(2rem,8.2vw,3rem)!important}.initiative-grid{grid-template-columns:minmax(0,1fr)}.initiative-card-media{height:175px}.initiative-card-content{padding:1rem}}
         @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+            .initiative-card-media-larger { height: 240px; overflow: hidden; background: #f1f3f2; }
+        .initiative-card-media-larger img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
+        .initiative-card:hover .initiative-card-media-larger img { transform: scale(1.035); }
+        .initiative-details { line-height: 1.7; }
+        .initiative-details ul { padding-left: 0; list-style: none; }
+        .initiative-details li { position: relative; padding-left: 1.1rem; }
+        .initiative-details li::before { content: "✓"; position: absolute; left: 0; color: #187c72; font-weight: 700; }
+        @media (max-width: 640px) { .initiative-card-media-larger { height: 220px; } }
+
     </style>
 </head>
 <body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
@@ -347,13 +356,13 @@
             <!-- Desktop Links -->
             <div class="hidden xl:flex items-center space-x-10">
                 <a role="button" tabindex="0" onclick="switchPage('home')" id="nav-home" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer active">Home</a>
-                <a role="button" tabindex="0" onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Work</a>
+                <a role="button" tabindex="0" onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Programs</a>
                 <a role="button" tabindex="0" onclick="switchPage('how')" id="nav-how" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Approach</a>
                 <a role="button" tabindex="0" onclick="switchPage('lab')" id="nav-lab" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Learning</a>
                 <a role="button" tabindex="0" onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Get Involved</a>
                 <a role="button" tabindex="0" onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQs</a>
                 
-                <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Partner</a>
+                <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Contact Us</a>
             </div>
 
             <!-- Mobile Hamburger -->
@@ -382,48 +391,28 @@
         </div>
     </div>
 
-    <!-- CONTACT MODAL -->
-    <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-heading" aria-hidden="true" class="fixed inset-0 bg-brand-navy/90 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm px-4">
-        <div class="bg-white rounded-3xl p-8 md:p-10 w-full max-w-xs shadow-2xl transform scale-95 transition-transform duration-300" id="contact-modal-content">
-            <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
-                <h3 id="contact-modal-heading" class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3>
-                <button onclick="closeContactModal()" class="text-brand-text-light hover:text-brand-coral transition-colors focus:outline-none">
-                    <i class="ph-bold ph-x text-2xl"></i>
-                </button>
+    <!-- CONTACT US FORM -->
+    <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-heading" aria-hidden="true" class="fixed inset-0 bg-brand-navy/80 z-[100] hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 px-4 py-6 overflow-y-auto">
+        <div class="bg-white rounded-lg p-6 md:p-8 w-full max-w-xl shadow-2xl transform scale-95 transition-transform duration-300" id="contact-modal-content">
+            <div class="flex justify-between items-center mb-5 border-b border-gray-200 pb-4">
+                <div><p class="text-xs uppercase tracking-widest font-bold text-brand-orange mb-1">Unity Bridge Foundation</p><h3 id="contact-modal-heading" class="text-xl md:text-2xl font-bold text-brand-navy">Contact Us</h3></div>
+                <button type="button" aria-label="Close contact form" onclick="closeContactModal()" class="text-brand-text-light hover:text-brand-coral transition-colors p-2"><i class="ph-bold ph-x text-2xl"></i></button>
             </div>
-            <p class="text-brand-text-light text-sm mb-6 leading-relaxed">Reach out to the Unity Bridge Foundation team through any of the channels below.</p>
-            
-            <div class="space-y-4">
-                <a href="tel:+27817461041" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
-                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-brand-navy shadow-sm group-hover:scale-110 transition-transform">
-                        <i class="ph-fill ph-phone text-xl"></i>
-                    </div>
-                    <div>
-                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">Call Us</span>
-                        <span class="block font-bold text-brand-navy text-sm">+27 81 746 1041</span>
-                    </div>
-                </a>
-                
-                <a href="https://wa.me/27817461041" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
-                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-[#25D366] shadow-sm group-hover:scale-110 transition-transform">
-                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
-                    </div>
-                    <div>
-                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">WhatsApp</span>
-                        <span class="block font-bold text-brand-navy text-sm">+27 81 746 1041</span>
-                    </div>
-                </a>
-
-                <a href="mailto:admin@unitybridge-foundation.org" class="flex items-center gap-4 p-4 rounded-2xl bg-brand-gray hover:bg-brand-gray-dark transition-colors border border-gray-200 group cursor-pointer">
-                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-brand-orange shadow-sm group-hover:scale-110 transition-transform">
-                        <i class="ph-fill ph-envelope-simple text-xl"></i>
-                    </div>
-                    <div class="w-full">
-                        <span class="block text-[10px] font-extrabold text-brand-teal-light uppercase tracking-widest">Email</span>
-                        <span class="block font-bold text-brand-navy text-sm break-words whitespace-normal">admin@unitybridge-foundation.org</span>
-                    </div>
-                </a>
-            </div>
+            <p class="text-brand-text-light text-sm mb-5 leading-relaxed">Tell us a little about yourself and what you would like to discuss. Your email application will open with your message ready to send to our team.</p>
+            <form class="space-y-4" onsubmit="return submitEmailRequest(event, &quot;Contact Us — Unity Bridge Foundation&quot;)">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div><label for="contact-name" class="form-label">Full name *</label><input id="contact-name" name="Full name" autocomplete="name" required class="form-control"></div>
+                    <div><label for="contact-email" class="form-label">Email address *</label><input id="contact-email" name="Email address" type="email" autocomplete="email" required class="form-control"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div><label for="contact-organisation" class="form-label">Organisation / business</label><input id="contact-organisation" name="Organisation or business" autocomplete="organization" class="form-control"></div>
+                    <div><label for="contact-role" class="form-label">Who are you?</label><select id="contact-role" name="I am a" class="form-control"><option value="Individual">Individual</option><option value="Small business / SME">Small business / SME</option><option value="Community organisation">Community organisation</option><option value="Training or service provider">Training or service provider</option><option value="Potential partner or supporter">Potential partner or supporter</option><option value="Other">Other</option></select></div>
+                </div>
+                <div><label for="contact-topic" class="form-label">What would you like to discuss? *</label><select id="contact-topic" name="Enquiry topic" required class="form-control"><option value="">Select a topic</option><option>Small business support</option><option>Current programmes</option><option>Vendor network</option><option>Partnership opportunity</option><option>Volunteering or donations</option><option>General enquiry</option></select></div>
+                <div><label for="contact-message" class="form-label">Message *</label><textarea id="contact-message" name="Message" rows="4" required class="form-control"></textarea></div>
+                <div class="flex flex-col sm:flex-row gap-3 pt-2"><button type="submit" class="bg-brand-orange text-white font-bold rounded-md py-3 px-5 text-sm hover:bg-brand-navy transition-colors">Prepare email to UBF</button><button type="button" onclick="closeContactModal()" class="border border-gray-300 text-brand-navy font-bold rounded-md py-3 px-5 text-sm">Cancel</button></div>
+                <p class="text-xs text-brand-text-light">This static form does not store your information. Submitting opens your default email application.</p>
+            </form>
         </div>
     </div>
 
@@ -462,49 +451,44 @@
 
         <!-- ================= PAGE: HOME ================= -->
         <div id="view-home" class="page-view active">
-            <!-- FULLSCREEN HERO SECTION -->
-            <section class="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden">
-                <div class="absolute inset-0 z-0">
-                    <img src="https://images.pexels.com/photos/6146703/pexels-photo-6146703.jpeg" class="w-full h-full object-cover object-center" alt="Hero Background" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
-                </div>
-
-                <div class="relative max-w-[1920px] mx-auto w-full px-6 sm:px-8 lg:px-[10%] z-10 flex flex-col items-center text-center mt-10 md:mt-0">
-                    <div class="w-full md:max-w-4xl reveal flex flex-col justify-center items-center">
-                        <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-6 border-b border-brand-orange/50 pb-2 text-shadow-strong drop-shadow-md">Local opportunity. Practical support.</span>
-                        <h1 class="text-4xl sm:text-5xl md:text-[5vw] lg:text-[70px] leading-[1.1em] font-extrabold text-white mb-8 text-shadow-strong">
-                            Connecting local talent, <br>
-                            <span class="text-brand-teal-light italic font-light">opportunity and enterprise.</span>
-                        </h1>
-                        
-                        <p class="mb-12 text-[16px] md:text-[20px] text-white leading-relaxed max-w-3xl font-bold text-shadow-strong">
-                            Unity Bridge Foundation is a Cape Town-based non-profit organisation. We support small and medium-sized businesses to grow and create opportunities for unemployed graduates and young people, while encouraging ethical community leadership and environmentally responsible pathways to work.
-                        </p>
-                        
-                        <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto justify-center">
-                            <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-brand-orange text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase hover:bg-white hover:text-brand-navy transition-colors shadow-[0_0_30px_rgba(205,163,79,0.4)] cursor-pointer">
-                                Partner with us
-                            </a>
-                            <a role="button" tabindex="0" onclick="switchPage('services')" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-transparent text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase border-2 border-white hover:bg-white hover:text-brand-navy transition-colors cursor-pointer shadow-lg backdrop-blur-sm">
-                                Our Programs
-                            </a>
+            <!-- Split hero: mission copy left, relevant community image right -->
+            <section class="bg-white pt-8 md:pt-12 pb-8 md:pb-12">
+                <div class="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-[7%]">
+                    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[520px] md:min-h-[590px] border-b border-gray-100">
+                        <div class="flex flex-col justify-center py-10 md:py-14 md:pr-12 lg:pr-16">
+                            <span class="text-brand-orange font-bold tracking-[0.18em] uppercase text-xs mb-5">Local opportunity. Practical support.</span>
+                            <h1 class="text-[2.4rem] sm:text-5xl lg:text-[3.65rem] leading-[1.08] font-extrabold text-brand-navy mb-6">Connecting local talent,<span class="block text-brand-teal">opportunity and enterprise.</span></h1>
+                            <p class="text-base md:text-lg text-brand-text-light leading-relaxed max-w-xl mb-8">Unity Bridge Foundation is a Cape Town-based non-profit organisation supporting small and medium-sized businesses, unemployed graduates and young people through practical business development, community leadership and environmentally responsible pathways to work.</p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a role="button" tabindex="0" onclick="openContactModal()" class="inline-flex justify-center items-center bg-brand-orange text-white font-bold rounded-md py-3 px-6 text-sm hover:bg-brand-navy transition-colors">Contact Us</a>
+                                <a role="button" tabindex="0" onclick="switchPage('services')" class="inline-flex justify-center items-center border border-brand-navy text-brand-navy font-bold rounded-md py-3 px-6 text-sm hover:bg-brand-navy hover:text-white transition-colors">View our programs</a>
+                            </div>
+                        </div>
+                        <div class="relative min-h-[300px] md:min-h-full overflow-hidden bg-brand-gray">
+                            <img src="https://images.pexels.com/photos/31635958/pexels-photo-31635958.jpeg" alt="Community-focused work and local opportunity, reflecting Unity Bridge Foundation's mission" class="absolute inset-0 w-full h-full object-cover object-center" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/30 via-transparent to-transparent pointer-events-none"></div>
                         </div>
                     </div>
                 </div>
             </section>
 
-
             <!-- Current initiatives: immediately after the hero -->
             <section id="current-initiatives" class="initiative-section bg-brand-gray py-14 md:py-16 px-5 sm:px-8 lg:px-[10%]">
                 <div class="max-w-[1280px] mx-auto">
-                    <div class="max-w-3xl mb-8 reveal"><span class="text-brand-teal font-bold tracking-[0.16em] uppercase text-xs">Current initiatives</span><h2 class="text-brand-navy font-extrabold mt-2 mb-3">Take part in a current programme</h2><p class="text-brand-text-light">Start with a short overview. Open the details for more information, or register your interest directly.</p></div>
+                    <div class="max-w-3xl mb-8 reveal"><span class="text-brand-teal font-bold tracking-[0.16em] uppercase text-xs">Current initiatives</span><h2 class="text-brand-navy font-extrabold mt-2 mb-3">Take part in our current programs</h2><p class="text-brand-text-light">Start with a short overview. Open the details for more information, or register your interest directly.</p></div>
                     <div class="initiative-grid">
                         <article class="initiative-card reveal">
-                            <div class="initiative-card-media"><img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="Person planning a small business" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-media initiative-card-media-larger"><img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="Person planning a small business" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
                             <div class="initiative-card-content">
-                                <span class="initiative-label">Business development · 2–30 November 2026</span><h3>Small Business Startup Program</h3>
+                                <span class="initiative-label">Business development</span><h3>Small Business Startup Program</h3>
                                 <p class="text-brand-text-light">A four-week programme focused on helping participants plan and professionalise a business, with practical work on research, payments, digital presence and operations.</p>
                                 <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('startup-details',this)" aria-expanded="false" aria-controls="startup-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('startup-form-panel',this)" aria-expanded="false" aria-controls="startup-form-panel">Sign up</button><a class="initiative-btn secondary" href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer">Register on Quicket</a></div>
-                                <div id="startup-details" class="initiative-details" hidden><p class="font-bold text-brand-navy mb-2">The poster lists these end-of-programme resources:</p><ul><li>Business plan</li><li>Market research</li><li>Banking and payment facilitation</li><li>Website and e-commerce</li><li>Business operations tools</li><li>Business professionalisation guides</li></ul><p>Programme dates: 2–30 November 2026. Use Quicket for the event registration process; this form is an additional expression of interest.</p></div>
+                                <div id="startup-details" class="initiative-details" hidden>
+                                    <div class="flex items-start gap-3 mb-4"><span class="text-brand-teal text-2xl"><i class="ph ph-lightbulb"></i></span><div><h4 class="font-bold text-brand-navy mb-1">What is the programme about?</h4><p>A practical business-startup and professionalisation programme designed to help entrepreneurs turn an idea or early-stage business into a clearer, more organised operation. The programme format can be adapted to the cohort and the needs identified during intake.</p></div></div>
+                                    <h4 class="font-bold text-brand-navy mb-2">Learning areas may include</h4>
+                                    <ul class="space-y-2 mb-4"><li>• Business planning and setting priorities.</li><li>• Market research and understanding customers.</li><li>• Banking, payments and basic business administration.</li><li>• Website, digital presence and e-commerce fundamentals.</li><li>• Day-to-day operations and practical business tools.</li><li>• Professionalisation and responsible business growth.</li></ul>
+                                    <p>Specific cohorts, dates and registration arrangements are announced when confirmed. For the current intake, see the Quicket listing.</p>
+                                </div>
                                 <div id="startup-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
                                     <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Small Business Startup Program')">
                                         <div><label class="form-label" for="startup-name">Full name *</label><input class="form-control" id="startup-name" name="Full name" autocomplete="name" required></div>
@@ -518,12 +502,17 @@
                             </div>
                         </article>
                         <article class="initiative-card reveal delay-100">
-                            <div class="initiative-card-media"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80" alt="Natural fynbos vegetation in a conservation area" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-media initiative-card-media-larger"><img src="https://www.dffe.gov.za/sites/default/files/images/honeybushcommunityharvesting.jpg" alt="Community members planting a young honeybush seedling as part of sustainable cultivation" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
                             <div class="initiative-card-content">
                                 <span class="initiative-label">Environment and work pathways · 2026–2027 pilot</span><h3>Sustainable Honeybush Programme</h3>
                                 <p class="text-brand-text-light">A planned community pilot linking sustainable Honeybush harvesting education, practical skills and fynbos conservation, with a focus on pathways for unemployed stewards.</p>
                                 <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('honeybush-details',this)" aria-expanded="false" aria-controls="honeybush-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('honeybush-form-panel',this)" aria-expanded="false" aria-controls="honeybush-form-panel">Sign up</button></div>
-                                <div id="honeybush-details" class="initiative-details" hidden><p>The revised work plan describes an intake target of 25 unemployed stewards, community mobilisation in Grassy Park and Lotus River, foundational learning in late 2026, planned practical training and field activities in early 2027, and community education in March and April 2027.</p><p>Selection, dates, eligibility and training arrangements remain subject to confirmation and available places. An expression of interest does not guarantee selection.</p></div>
+                                <div id="honeybush-details" class="initiative-details" hidden>
+                                    <div class="flex items-start gap-3 mb-4"><span class="text-brand-teal text-2xl"><i class="ph ph-leaf"></i></span><div><h4 class="font-bold text-brand-navy mb-1">What is the programme about?</h4><p>The Sustainable Honeybush Programme is a planned community pilot connecting environmental learning with practical skills and potential work pathways. It focuses on the sustainable cultivation and care of honeybush, a South African fynbos plant.</p></div></div>
+                                    <h4 class="font-bold text-brand-navy mb-2">Planned areas of activity</h4>
+                                    <ul class="space-y-2 mb-4"><li>• Introductory learning about honeybush and local biodiversity.</li><li>• Practical planting, cultivation and responsible harvesting education.</li><li>• Field activities and community awareness sessions.</li><li>• Exploring pathways for unemployed community members to build relevant skills.</li></ul>
+                                    <p>The current work plan identifies an intake target of 25 unemployed stewards, with community mobilisation in Grassy Park and Lotus River. Training dates, eligibility, selection and available places remain subject to confirmation. An expression of interest does not guarantee selection.</p>
+                                </div>
                                 <div id="honeybush-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
                                     <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Sustainable Honeybush Programme')">
                                         <div><label class="form-label" for="honeybush-name">Full name *</label><input class="form-control" id="honeybush-name" name="Full name" autocomplete="name" required></div>
@@ -546,11 +535,11 @@
                 <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
                 <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-gray to-transparent skew-x-12 translate-x-20"></div>
 
-                <div class="max-w-[1920px] mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center gap-8">
                     
                     <!-- Left: Typography & Mission -->
-                    <div class="w-full lg:w-5/12 reveal">
-                        <div class="flex items-center gap-4 mb-6">
+                    <div class="w-full reveal">
+                        <div class="flex items-center justify-center gap-4 mb-6">
                             <div class="w-12 h-px bg-brand-orange"></div>
                             <span class="text-brand-orange font-bold tracking-[0.2em] uppercase text-xs">Our Mandate</span>
                         </div>
@@ -558,38 +547,17 @@
                             Support for local businesses, <br>
                             <span class="font-bold text-brand-teal">people and communities.</span>
                         </h2>
-                        <p class="text-brand-text-light text-lg leading-relaxed mb-10 font-light">
+                        <p class="text-brand-text-light text-base md:text-lg leading-relaxed mb-6 font-light max-w-3xl mx-auto">
                             UBF works to help local small and medium-sized enterprises strengthen their business practices and grow. We also support practical skills development, youth opportunity, ethical community leadership and community-based environmental learning.
                         </p>
                         <a role="button" tabindex="0" onclick="switchPage('services')" class="dsm-wobble-horizontal group flex items-center gap-4 cursor-pointer">
                             <span class="w-12 h-12 rounded-full border border-brand-orange flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
                                 <i class="ph ph-arrow-right text-xl"></i>
                             </span>
-                            <span class="text-brand-navy font-extrabold uppercase tracking-widest text-sm group-hover:text-brand-orange transition-colors">View All Projects</span>
+                            <span class="text-brand-navy font-extrabold uppercase tracking-widest text-sm group-hover:text-brand-orange transition-colors">View all programs</span>
                         </a>
                     </div>
                     
-                    <!-- Right: Staggered Elegant Images -->
-                    <div class="w-full lg:w-7/12 relative h-[500px] md:h-[600px] reveal delay-100">
-                        <div class="absolute top-0 right-0 w-[70%] md:w-[65%] h-[70%] rounded-[3rem] overflow-hidden shadow-2xl border-[4px] border-white z-20 hover:z-30 transition-all duration-500 hover:scale-105 cursor-pointer group" onclick="switchPage('services')">
-                            <img src="https://images.pexels.com/photos/14776851/pexels-photo-14776851.jpeg" alt="Agriculture and Food Security" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
-                            <div class="absolute bottom-6 left-6 right-6">
-                                <h4 class="text-xl md:text-2xl text-white font-bold mb-1 drop-shadow-lg">Environmental Learning</h4>
-                                <span class="text-brand-teal-light text-[10px] md:text-xs uppercase tracking-widest font-extrabold drop-shadow-md">Food Independence & Donor Funding</span>
-                            </div>
-                        </div>
-
-                        <div class="absolute bottom-0 left-0 w-[60%] md:w-[55%] h-[65%] rounded-[3rem] overflow-hidden shadow-2xl border-[4px] border-white z-10 hover:z-30 transition-all duration-500 hover:scale-105 cursor-pointer group" onclick="switchPage('services')">
-                            <img src="https://images.pexels.com/photos/6720586/pexels-photo-6720586.jpeg" alt="Economic Outreach" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
-                            <div class="absolute bottom-6 left-6 right-6">
-                                <h4 class="text-xl md:text-2xl text-white font-bold mb-1 drop-shadow-lg">Small business development</h4>
-                                <span class="text-brand-orange text-[10px] md:text-xs uppercase tracking-widest font-extrabold drop-shadow-md">Enterprise Fulfillment</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </section>
             
@@ -630,7 +598,7 @@
                 <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
                     <div class="w-full md:w-3/5 text-center md:text-left mb-6 md:mb-0 pr-0 md:pr-10">
                         <h2 class="text-white text-xl md:text-2xl font-extrabold leading-tight mb-2">Ready to accelerate formalisation and employment?</h2>
-                        <p class="text-white/70 text-sm font-light">Partner with Unity Bridge Foundation to deploy strategic interventions in your community.</p>
+                        <p class="text-white/70 text-sm font-light">Partner with Unity Bridge Foundation to deploy strategic innovation in your community.</p>
                     </div>
                     <div class="w-full md:w-2/5 flex justify-center md:justify-end">
                         <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal text-center bg-brand-orange text-white font-extrabold py-3 px-8 rounded-full text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all flex items-center gap-3 uppercase tracking-widest cursor-pointer">
@@ -648,7 +616,7 @@
             <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
                 <div class="max-w-4xl mx-auto relative z-10 reveal">
                     <span class="text-brand-teal font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Strategies</span>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy mb-6">Structured <span class="text-brand-orange italic font-light">Programs</span></h1>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy mb-6">Our <span class="text-brand-orange font-light">Programs</span></h1>
                     <p class="text-lg md:text-xl text-brand-text-light font-light">Comprehensive interventions providing high-quality infrastructure for formalisation and employment.</p>
                 </div>
             </section>
@@ -873,7 +841,7 @@
                             <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
                                 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdyurPAUrDYCyS7pjX9YN1WVfn3UPVG0Rb8av91bTLtU8-leGNe-JTjVQx0eB3tT5ZkXKgPk06FfNshGlQYGCy2m9o2NYSGFWBCG3GoGB5gOsqyG5J5nYtrOQENkqTN8U5fI8BEEjvYEg_5z9JsQiaN7TQsOQ?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" alt="Executive Director" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             </div>
-                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Logan J.</h5>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Monique M.</h5>
                             <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Executive Director</div>
                         </div>
                         <!-- Member 2 -->
@@ -881,7 +849,7 @@
                             <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
                                 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc1qOy9OoFzNPjfPgDphUt_aLu5Qh4q_A-7JFnjgCXC-CoMTXoPTE1HNx5HkPF3w5OB6W-9DI8_TT3XHy9KyqEpL6HcVHVLqALTTYn5474Qeju_9dELWEBVbc3LlTiRAXU-nBgprpvOoNAmiDX-auBj75QLSzg?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover object-top transition-all duration-700 hover:scale-105" alt="Director of Operations" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             </div>
-                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Tarcio S.</h5>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Pastor S.</h5>
                             <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Director of Operations</div>
                         </div>
                         <!-- Member 3 -->
@@ -889,7 +857,7 @@
                             <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
                                 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcQkNjeygWljod0Wf1vJ_uLjNH-fpZxEV2ybVraraezR8R-nbrnC9vRb_0Aqcag4I74WVORVpNb02ENXcnDHHmmiwEwop4wxct7pfq_YTipOshMgThIfuqgWAd0ToOzb4hklyV77EKBssY-AQgglap6jvbf3Uc?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" alt="Head of Strategy" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             </div>
-                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Monique M.</h5>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Logan J.</h5>
                             <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Head of Strategy</div>
                         </div>
                     </div>
@@ -902,7 +870,7 @@
 
         <!-- ================= PAGE: EMPOWERMENT LAB ================= -->
         <div id="view-lab" class="page-view">
-            <section class="bg-brand-navy text-white pt-32 md:pt-40 pb-20 px-6"><div class="max-w-5xl mx-auto"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Learning and information</span><h1 class="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">Practical knowledge for local progress</h1><p class="text-white/80 max-w-3xl">Information about UBF’s current initiatives, small-business development and community-based environmental learning.</p></div></section>
+            <section class="bg-brand-navy text-white pt-32 md:pt-40 pb-20 px-6"><div class="max-w-5xl mx-auto"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Learning and information</span><h1 class="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">The Lab</h1><p class="text-white/80 max-w-3xl">A planned gallery of resources for self-study and self-learning, including practical guides, learning materials and community knowledge. The Lab is coming soon.</p></div></section>
             <section class="py-14 bg-white"><div class="max-w-5xl mx-auto px-5 sm:px-8 space-y-5">
                 <article class="border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Small Business Startup Program</h2><p class="text-sm text-brand-text-light mb-3">The November programme covers business planning, market research, banking and payment facilitation, website and e-commerce, business operations tools and professionalisation guides.</p><a href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer" class="text-brand-teal underline font-bold">Quicket registration</a></article>
                 <article class="border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Sustainable Honeybush Programme</h2><p class="text-sm text-brand-text-light">The 2026–2027 pilot work plan covers foundational learning, planned practical training, field activities and community education related to sustainable harvesting and fynbos conservation. Dates and arrangements are subject to confirmation.</p></article>
@@ -941,6 +909,22 @@
                 <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">Community partners</h2><p class="text-sm text-brand-text-light">Explore community learning and participation in relevant local initiatives.</p></article>
                 <article class="border border-gray-200 p-5"><h2 class="text-brand-navy font-bold mb-2">Organisations and supporters</h2><p class="text-sm text-brand-text-light">Discuss training, resources or collaboration linked to UBF’s mission.</p></article>
             </div><div class="max-w-6xl mx-auto px-5 sm:px-8 mt-6 border border-gray-200 p-5 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between"><div><h2 class="text-brand-navy font-bold mb-1">Start a conversation</h2><p class="text-sm text-brand-text-light">Tell us who you are and what you would like to explore.</p></div><a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-teal text-white font-bold">Contact UBF</a></div></section>
+            <section class="py-14 bg-brand-gray border-t border-gray-200">
+                <div class="max-w-6xl mx-auto px-5 sm:px-8">
+                    <div class="mb-8"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Work together</span><h2 class="text-2xl md:text-3xl text-brand-navy font-bold mt-2 mb-3">Vendor network</h2><p class="text-sm md:text-base text-brand-text-light max-w-3xl">We welcome enquiries from local suppliers and service providers whose work can support small businesses, community initiatives and responsible local development. Contact us to introduce your services and discuss possible alignment.</p></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <article class="bg-white border border-gray-200 p-5"><i class="ph ph-storefront text-2xl text-brand-teal"></i><h3 class="font-bold text-brand-navy mt-3 mb-2">Local suppliers</h3><p class="text-sm text-brand-text-light">Share your business profile, service area and the products or services you provide.</p></article>
+                        <article class="bg-white border border-gray-200 p-5"><i class="ph ph-wrench text-2xl text-brand-teal"></i><h3 class="font-bold text-brand-navy mt-3 mb-2">Professional services</h3><p class="text-sm text-brand-text-light">Introduce training, digital, operational or specialist services relevant to SMEs.</p></article>
+                        <article class="bg-white border border-gray-200 p-5"><i class="ph ph-leaf text-2xl text-brand-teal"></i><h3 class="font-bold text-brand-navy mt-3 mb-2">Community and environment</h3><p class="text-sm text-brand-text-light">Connect around community learning, sustainable Honeybush and local environmental work.</p></article>
+                    </div>
+                </div>
+            </section>
+            <section class="py-14 bg-white border-t border-gray-200">
+                <div class="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div><span class="text-brand-teal font-bold uppercase tracking-widest text-xs">Partnerships</span><h2 class="text-2xl md:text-3xl text-brand-navy font-bold mt-2 mb-3">Build a practical partnership</h2><p class="text-sm md:text-base text-brand-text-light mb-5">We welcome conversations with SMEs, community organisations, training providers and supporters. We can discuss business development, skills and work pathways, and community environmental learning.</p><ul class="space-y-2 text-sm text-brand-text-light"><li>• Small-business planning and professionalisation</li><li>• Skills development and youth opportunity</li><li>• Community learning and environmental initiatives</li></ul></div>
+                    <div class="bg-brand-gray border border-gray-200 p-6"><h3 class="text-xl font-bold text-brand-navy mb-2">Connect with local opportunities</h3><p class="text-sm text-brand-text-light mb-5">Tell us who you are, what you offer, or what support you are looking for. UBF will review the enquiry and advise whether there is a relevant next step.</p><button type="button" onclick="openContactModal()" class="bg-brand-orange text-white font-bold rounded-md py-3 px-5 text-sm hover:bg-brand-navy transition-colors">Contact Us</button></div>
+                </div>
+            </section>
         </div>
 
         <!-- ================= PAGE: PRESENTATION (HIDDEN) ================= -->        <!-- ================= PAGE: PRESENTATION (HIDDEN) ================= -->
@@ -1060,7 +1044,7 @@
                                 </div>
                             </div>
                             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80" alt="Natural vegetation in a forest conservation area" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
+                                <img src="https://www.dffe.gov.za/sites/default/files/images/honeybushcommunityharvesting.jpg" alt="Natural vegetation in a forest conservation area" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                                 <div class="absolute inset-0 bg-black/40 flex items-end p-8">
                                     <p class="text-white font-semibold text-lg">Reconnecting community and economic opportunity to environmental heritage.</p>
                                 </div>
@@ -1206,7 +1190,7 @@
                 <h2>Third-party operators and programme partners</h2><p>The website is hosted and maintained using third-party infrastructure. Technical operators may process technical data or access logs needed to provide, troubleshoot and secure the site. UBF may also share relevant applicant information with delivery partners, training providers, venues, referral organisations, funders or reporting bodies where necessary and lawful to assess applications, coordinate activities or report on programme delivery. Sharing should be limited to the relevant purpose.</p>
                 <h2>External resources and cross-border processing</h2><p>This HTML loads fonts, icons, stylesheets and images from third-party services. A provider may receive technical information when your browser requests those resources. The actual host, provider contracts, processing locations and settings must be confirmed before launch. If personal information is processed or transferred outside South Africa, UBF must assess and apply the safeguards required by POPIA.</p>
                 <h2>Retention and security</h2><p>Information should be retained only as long as reasonably necessary for its purpose, subject to legal, reporting and audit requirements. UBF should use appropriate safeguards and restrict access to people who need the information for their role. No online system can be described as completely secure.</p>
-                <h2>Your rights</h2><p>Subject to applicable law, you may request access to information, ask for correction or deletion, object to certain processing, withdraw consent where applicable, or ask that optional marketing stop. Use the <a role="button" tabindex="0" onclick="switchPage('data-rights')" class="underline font-bold">data rights request</a> page or email <a href="mailto:admin@unitybridge-foundation.org" class="underline font-bold">admin@unitybridge-foundation.org</a>. UBF may need reasonable identity verification.</p>
+                <h2>Your rights</h2><p>Subject to applicable law, you may request access to information, ask for correction or deletion, object to certain processing, withdraw consent where applicable, or ask that optional marketing stop. Use the <a role="button" tabindex="0" onclick="switchPage('data-rights')" class="underline font-bold">data rights request</a> page or email <a href="mailto:info@unitybridge-foundation.org" class="underline font-bold">admin@unitybridge-foundation.org</a>. UBF may need reasonable identity verification.</p>
                 <h2>Contact and complaints</h2><p>For privacy requests, contact admin@unitybridge-foundation.org. You may also contact the South African Information Regulator at <a href="https://inforegulator.org.za/" target="_blank" rel="noopener noreferrer" class="underline font-bold">inforegulator.org.za</a>.</p>
             </div></section>
         </div>
@@ -1280,9 +1264,9 @@
                     <h4 class="text-xs text-brand-orange font-bold mb-6 uppercase tracking-[0.2em]">Join the Network</h4>
                     <p class="text-white/80 text-[14px] leading-relaxed mb-6 font-bold">Subscribe to receive updates on our impact reports, new vendor additions, and volunteer opportunities.</p>
                     
-                    <form class="flex w-full bg-brand-navy/60 border border-white/20 focus-within:border-brand-teal-light transition-colors mb-10 rounded-full overflow-hidden backdrop-blur-md">
-                        <input type="email" placeholder="Corporate Email Address" required class="bg-transparent border-none outline-none text-white px-6 py-3 w-full text-sm placeholder-white/50 font-bold">
-                        <button type="submit" class="bg-brand-orange text-white px-6 font-extrabold text-xs uppercase tracking-widest hover:bg-brand-teal transition-colors">Subscribe</button>
+                    <form class="flex w-full bg-brand-navy/60 border border-white/20 focus-within:border-brand-teal-light transition-colors mb-10 rounded-md overflow-hidden backdrop-blur-md" onsubmit="return submitEmailRequest(event, &quot;UBF mailing list subscription&quot;)">
+                        <input type="email" placeholder="Email address" required class="bg-transparent border-none outline-none text-white px-6 py-3 w-full text-sm placeholder-white/50 font-bold">
+                        <button type="submit" class="bg-brand-orange text-white px-6 font-extrabold text-xs uppercase tracking-widest hover:bg-brand-teal transition-colors">Submit</button>
                     </form>
                     
                     <h4 class="text-xs text-brand-orange font-bold mb-6 uppercase tracking-[0.2em]">Connect</h4>
