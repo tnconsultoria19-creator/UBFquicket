@@ -347,13 +347,13 @@
             <!-- Desktop Links -->
             <div class="hidden xl:flex items-center space-x-10">
                 <a role="button" tabindex="0" onclick="switchPage('home')" id="nav-home" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer active">Home</a>
-                <a role="button" tabindex="0" onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Work</a>
+                <a role="button" tabindex="0" onclick="switchPage('services')" id="nav-services" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Programs</a>
                 <a role="button" tabindex="0" onclick="switchPage('how')" id="nav-how" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Our Approach</a>
                 <a role="button" tabindex="0" onclick="switchPage('lab')" id="nav-lab" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Learning</a>
                 <a role="button" tabindex="0" onclick="switchPage('shop')" id="nav-shop" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">Get Involved</a>
                 <a role="button" tabindex="0" onclick="switchPage('faq')" id="nav-faq" class="nav-link font-semibold text-brand-text hover:text-brand-orange text-[12px] tracking-[0.1em] uppercase cursor-pointer">FAQs</a>
                 
-                <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Partner</a>
+                <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal bg-brand-orange text-white font-semibold rounded-full py-3 px-8 text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-colors cursor-pointer uppercase tracking-[0.15em]">Contact Us</a>
             </div>
 
             <!-- Mobile Hamburger -->
@@ -462,49 +462,39 @@
 
         <!-- ================= PAGE: HOME ================= -->
         <div id="view-home" class="page-view active">
-            <!-- FULLSCREEN HERO SECTION -->
-            <section class="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden">
-                <div class="absolute inset-0 z-0">
-                    <img src="https://images.pexels.com/photos/6146703/pexels-photo-6146703.jpeg" class="w-full h-full object-cover object-center" alt="Hero Background" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
-                </div>
-
-                <div class="relative max-w-[1920px] mx-auto w-full px-6 sm:px-8 lg:px-[10%] z-10 flex flex-col items-center text-center mt-10 md:mt-0">
-                    <div class="w-full md:max-w-4xl reveal flex flex-col justify-center items-center">
-                        <span class="text-brand-orange font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-6 border-b border-brand-orange/50 pb-2 text-shadow-strong drop-shadow-md">Local opportunity. Practical support.</span>
-                        <h1 class="text-4xl sm:text-5xl md:text-[5vw] lg:text-[70px] leading-[1.1em] font-extrabold text-white mb-8 text-shadow-strong">
-                            Connecting local talent, <br>
-                            <span class="text-brand-teal-light italic font-light">opportunity and enterprise.</span>
-                        </h1>
-                        
-                        <p class="mb-12 text-[16px] md:text-[20px] text-white leading-relaxed max-w-3xl font-bold text-shadow-strong">
-                            Unity Bridge Foundation is a Cape Town-based non-profit organisation. We support small and medium-sized businesses to grow and create opportunities for unemployed graduates and young people, while encouraging ethical community leadership and environmentally responsible pathways to work.
-                        </p>
-                        
-                        <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto justify-center">
-                            <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-brand-orange text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase hover:bg-white hover:text-brand-navy transition-colors shadow-[0_0_30px_rgba(205,163,79,0.4)] cursor-pointer">
-                                Partner with us
-                            </a>
-                            <a role="button" tabindex="0" onclick="switchPage('services')" class="dsm-wobble-horizontal w-full sm:w-auto text-center bg-transparent text-white font-extrabold rounded-full py-4 px-12 text-[14px] tracking-widest uppercase border-2 border-white hover:bg-white hover:text-brand-navy transition-colors cursor-pointer shadow-lg backdrop-blur-sm">
-                                Our Programs
-                            </a>
+            <!-- Split hero: mission copy left, relevant community image right -->
+            <section class="bg-white pt-8 md:pt-12 pb-8 md:pb-12">
+                <div class="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-[7%]">
+                    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[520px] md:min-h-[590px] border-b border-gray-100">
+                        <div class="flex flex-col justify-center py-10 md:py-14 md:pr-12 lg:pr-16">
+                            <span class="text-brand-orange font-bold tracking-[0.18em] uppercase text-xs mb-5">Local opportunity. Practical support.</span>
+                            <h1 class="text-[2.4rem] sm:text-5xl lg:text-[3.65rem] leading-[1.08] font-extrabold text-brand-navy mb-6">Connecting local talent,<span class="block text-brand-teal">opportunity and enterprise.</span></h1>
+                            <p class="text-base md:text-lg text-brand-text-light leading-relaxed max-w-xl mb-8">Unity Bridge Foundation is a Cape Town-based non-profit organisation supporting small and medium-sized businesses, unemployed graduates and young people through practical business development, community leadership and environmentally responsible pathways to work.</p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a role="button" tabindex="0" onclick="openContactModal()" class="inline-flex justify-center items-center bg-brand-orange text-white font-bold rounded-md py-3 px-6 text-sm hover:bg-brand-navy transition-colors">Contact Us</a>
+                                <a role="button" tabindex="0" onclick="switchPage('services')" class="inline-flex justify-center items-center border border-brand-navy text-brand-navy font-bold rounded-md py-3 px-6 text-sm hover:bg-brand-navy hover:text-white transition-colors">View our programs</a>
+                            </div>
+                        </div>
+                        <div class="relative min-h-[300px] md:min-h-full overflow-hidden bg-brand-gray">
+                            <img src="https://images.pexels.com/photos/31635958/pexels-photo-31635958.jpeg" alt="Community-focused work and local opportunity, reflecting Unity Bridge Foundation's mission" class="absolute inset-0 w-full h-full object-cover object-center" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/30 via-transparent to-transparent pointer-events-none"></div>
                         </div>
                     </div>
                 </div>
             </section>
 
-
             <!-- Current initiatives: immediately after the hero -->
             <section id="current-initiatives" class="initiative-section bg-brand-gray py-14 md:py-16 px-5 sm:px-8 lg:px-[10%]">
                 <div class="max-w-[1280px] mx-auto">
-                    <div class="max-w-3xl mb-8 reveal"><span class="text-brand-teal font-bold tracking-[0.16em] uppercase text-xs">Current initiatives</span><h2 class="text-brand-navy font-extrabold mt-2 mb-3">Take part in a current programme</h2><p class="text-brand-text-light">Start with a short overview. Open the details for more information, or register your interest directly.</p></div>
+                    <div class="max-w-3xl mb-8 reveal"><span class="text-brand-teal font-bold tracking-[0.16em] uppercase text-xs">Current initiatives</span><h2 class="text-brand-navy font-extrabold mt-2 mb-3">Take part in our current programs</h2><p class="text-brand-text-light">Start with a short overview. Open the details for more information, or register your interest directly.</p></div>
                     <div class="initiative-grid">
                         <article class="initiative-card reveal">
                             <div class="initiative-card-media"><img src="https://images.pexels.com/photos/32319632/pexels-photo-32319632.jpeg" alt="Person planning a small business" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
                             <div class="initiative-card-content">
-                                <span class="initiative-label">Business development · 2–30 November 2026</span><h3>Small Business Startup Program</h3>
+                                <span class="initiative-label">Business development</span><h3>Small Business Startup Program</h3>
                                 <p class="text-brand-text-light">A four-week programme focused on helping participants plan and professionalise a business, with practical work on research, payments, digital presence and operations.</p>
                                 <div class="initiative-actions"><button type="button" class="initiative-btn secondary" onclick="toggleInitiativePanel('startup-details',this)" aria-expanded="false" aria-controls="startup-details">Find out more</button><button type="button" class="initiative-btn primary" onclick="toggleInitiativePanel('startup-form-panel',this)" aria-expanded="false" aria-controls="startup-form-panel">Sign up</button><a class="initiative-btn secondary" href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer">Register on Quicket</a></div>
-                                <div id="startup-details" class="initiative-details" hidden><p class="font-bold text-brand-navy mb-2">The poster lists these end-of-programme resources:</p><ul><li>Business plan</li><li>Market research</li><li>Banking and payment facilitation</li><li>Website and e-commerce</li><li>Business operations tools</li><li>Business professionalisation guides</li></ul><p>Programme dates: 2–30 November 2026. Use Quicket for the event registration process; this form is an additional expression of interest.</p></div>
+                                <div id="startup-details" class="initiative-details" hidden><p class="font-bold text-brand-navy mb-2">The poster lists these end-of-programme resources:</p><ul><li>Business plan</li><li>Market research</li><li>Banking and payment facilitation</li><li>Website and e-commerce</li><li>Business operations tools</li><li>Business professionalisation guides</li></ul><p>This programme is one example of the practical business-development support UBF offers. Specific cohorts, dates and registration arrangements are announced when confirmed. For the current intake, see the Quicket listing.</p></div>
                                 <div id="startup-form-panel" class="initiative-details" hidden><h4 class="text-brand-navy font-bold mb-2">Register your interest</h4><p class="text-sm mb-4">This static website prepares an email; it does not save submissions online.</p>
                                     <form class="initiative-form space-y-3" onsubmit="return submitInitiativeEmail(event,'Small Business Startup Program')">
                                         <div><label class="form-label" for="startup-name">Full name *</label><input class="form-control" id="startup-name" name="Full name" autocomplete="name" required></div>
@@ -518,7 +508,7 @@
                             </div>
                         </article>
                         <article class="initiative-card reveal delay-100">
-                            <div class="initiative-card-media"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80" alt="Natural fynbos vegetation in a conservation area" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
+                            <div class="initiative-card-media"><img src="https://images.pexels.com/photos/4505166/pexels-photo-4505166.jpeg" alt="Natural fynbos vegetation in a conservation area" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')"></div>
                             <div class="initiative-card-content">
                                 <span class="initiative-label">Environment and work pathways · 2026–2027 pilot</span><h3>Sustainable Honeybush Programme</h3>
                                 <p class="text-brand-text-light">A planned community pilot linking sustainable Honeybush harvesting education, practical skills and fynbos conservation, with a focus on pathways for unemployed stewards.</p>
@@ -546,11 +536,11 @@
                 <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
                 <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-gray to-transparent skew-x-12 translate-x-20"></div>
 
-                <div class="max-w-[1920px] mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center gap-8">
                     
                     <!-- Left: Typography & Mission -->
-                    <div class="w-full lg:w-5/12 reveal">
-                        <div class="flex items-center gap-4 mb-6">
+                    <div class="w-full reveal">
+                        <div class="flex items-center justify-center gap-4 mb-6">
                             <div class="w-12 h-px bg-brand-orange"></div>
                             <span class="text-brand-orange font-bold tracking-[0.2em] uppercase text-xs">Our Mandate</span>
                         </div>
@@ -558,38 +548,17 @@
                             Support for local businesses, <br>
                             <span class="font-bold text-brand-teal">people and communities.</span>
                         </h2>
-                        <p class="text-brand-text-light text-lg leading-relaxed mb-10 font-light">
+                        <p class="text-brand-text-light text-base md:text-lg leading-relaxed mb-6 font-light max-w-3xl mx-auto">
                             UBF works to help local small and medium-sized enterprises strengthen their business practices and grow. We also support practical skills development, youth opportunity, ethical community leadership and community-based environmental learning.
                         </p>
                         <a role="button" tabindex="0" onclick="switchPage('services')" class="dsm-wobble-horizontal group flex items-center gap-4 cursor-pointer">
                             <span class="w-12 h-12 rounded-full border border-brand-orange flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
                                 <i class="ph ph-arrow-right text-xl"></i>
                             </span>
-                            <span class="text-brand-navy font-extrabold uppercase tracking-widest text-sm group-hover:text-brand-orange transition-colors">View All Projects</span>
+                            <span class="text-brand-navy font-extrabold uppercase tracking-widest text-sm group-hover:text-brand-orange transition-colors">View all programs</span>
                         </a>
                     </div>
                     
-                    <!-- Right: Staggered Elegant Images -->
-                    <div class="w-full lg:w-7/12 relative h-[500px] md:h-[600px] reveal delay-100">
-                        <div class="absolute top-0 right-0 w-[70%] md:w-[65%] h-[70%] rounded-[3rem] overflow-hidden shadow-2xl border-[4px] border-white z-20 hover:z-30 transition-all duration-500 hover:scale-105 cursor-pointer group" onclick="switchPage('services')">
-                            <img src="https://images.pexels.com/photos/14776851/pexels-photo-14776851.jpeg" alt="Agriculture and Food Security" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
-                            <div class="absolute bottom-6 left-6 right-6">
-                                <h4 class="text-xl md:text-2xl text-white font-bold mb-1 drop-shadow-lg">Environmental Learning</h4>
-                                <span class="text-brand-teal-light text-[10px] md:text-xs uppercase tracking-widest font-extrabold drop-shadow-md">Food Independence & Donor Funding</span>
-                            </div>
-                        </div>
-
-                        <div class="absolute bottom-0 left-0 w-[60%] md:w-[55%] h-[65%] rounded-[3rem] overflow-hidden shadow-2xl border-[4px] border-white z-10 hover:z-30 transition-all duration-500 hover:scale-105 cursor-pointer group" onclick="switchPage('services')">
-                            <img src="https://images.pexels.com/photos/6720586/pexels-photo-6720586.jpeg" alt="Economic Outreach" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
-                            <div class="absolute bottom-6 left-6 right-6">
-                                <h4 class="text-xl md:text-2xl text-white font-bold mb-1 drop-shadow-lg">Small business development</h4>
-                                <span class="text-brand-orange text-[10px] md:text-xs uppercase tracking-widest font-extrabold drop-shadow-md">Enterprise Fulfillment</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </section>
             
@@ -630,7 +599,7 @@
                 <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
                     <div class="w-full md:w-3/5 text-center md:text-left mb-6 md:mb-0 pr-0 md:pr-10">
                         <h2 class="text-white text-xl md:text-2xl font-extrabold leading-tight mb-2">Ready to accelerate formalisation and employment?</h2>
-                        <p class="text-white/70 text-sm font-light">Partner with Unity Bridge Foundation to deploy strategic interventions in your community.</p>
+                        <p class="text-white/70 text-sm font-light">Partner with Unity Bridge Foundation to deploy strategic innovation in your community.</p>
                     </div>
                     <div class="w-full md:w-2/5 flex justify-center md:justify-end">
                         <a role="button" tabindex="0" onclick="openContactModal()" class="dsm-wobble-horizontal text-center bg-brand-orange text-white font-extrabold py-3 px-8 rounded-full text-[12px] border border-brand-orange hover:bg-transparent hover:text-brand-orange transition-all flex items-center gap-3 uppercase tracking-widest cursor-pointer">
@@ -648,7 +617,7 @@
             <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
                 <div class="max-w-4xl mx-auto relative z-10 reveal">
                     <span class="text-brand-teal font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Strategies</span>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy mb-6">Structured <span class="text-brand-orange italic font-light">Programs</span></h1>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy mb-6">Our <span class="text-brand-orange font-light">Programs</span></h1>
                     <p class="text-lg md:text-xl text-brand-text-light font-light">Comprehensive interventions providing high-quality infrastructure for formalisation and employment.</p>
                 </div>
             </section>
@@ -873,7 +842,7 @@
                             <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
                                 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdyurPAUrDYCyS7pjX9YN1WVfn3UPVG0Rb8av91bTLtU8-leGNe-JTjVQx0eB3tT5ZkXKgPk06FfNshGlQYGCy2m9o2NYSGFWBCG3GoGB5gOsqyG5J5nYtrOQENkqTN8U5fI8BEEjvYEg_5z9JsQiaN7TQsOQ?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" alt="Executive Director" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             </div>
-                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Logan J.</h5>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Monique M.</h5>
                             <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Executive Director</div>
                         </div>
                         <!-- Member 2 -->
@@ -881,7 +850,7 @@
                             <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
                                 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc1qOy9OoFzNPjfPgDphUt_aLu5Qh4q_A-7JFnjgCXC-CoMTXoPTE1HNx5HkPF3w5OB6W-9DI8_TT3XHy9KyqEpL6HcVHVLqALTTYn5474Qeju_9dELWEBVbc3LlTiRAXU-nBgprpvOoNAmiDX-auBj75QLSzg?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover object-top transition-all duration-700 hover:scale-105" alt="Director of Operations" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             </div>
-                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Tarcio S.</h5>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Pastor S.</h5>
                             <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Director of Operations</div>
                         </div>
                         <!-- Member 3 -->
@@ -889,7 +858,7 @@
                             <div class="w-48 aspect-[3/4] bg-brand-gray mb-6 overflow-hidden shadow-elegant rounded-3xl mx-auto">
                                 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcQkNjeygWljod0Wf1vJ_uLjNH-fpZxEV2ybVraraezR8R-nbrnC9vRb_0Aqcag4I74WVORVpNb02ENXcnDHHmmiwEwop4wxct7pfq_YTipOshMgThIfuqgWAd0ToOzb4hklyV77EKBssY-AQgglap6jvbf3Uc?key=KPDE2Lo8HhnJ3v--HqdAAw" class="w-full h-full object-cover transition-all duration-700 hover:scale-105" alt="Head of Strategy" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                             </div>
-                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Monique M.</h5>
+                            <h5 class="text-xl font-extrabold text-brand-navy mb-1 text-center tracking-wide">Logan J.</h5>
                             <div class="text-[10px] text-brand-teal-light font-bold uppercase tracking-widest text-center">Head of Strategy</div>
                         </div>
                     </div>
@@ -902,7 +871,7 @@
 
         <!-- ================= PAGE: EMPOWERMENT LAB ================= -->
         <div id="view-lab" class="page-view">
-            <section class="bg-brand-navy text-white pt-32 md:pt-40 pb-20 px-6"><div class="max-w-5xl mx-auto"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Learning and information</span><h1 class="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">Practical knowledge for local progress</h1><p class="text-white/80 max-w-3xl">Information about UBF’s current initiatives, small-business development and community-based environmental learning.</p></div></section>
+            <section class="bg-brand-navy text-white pt-32 md:pt-40 pb-20 px-6"><div class="max-w-5xl mx-auto"><span class="text-brand-orange font-bold uppercase tracking-widest text-xs">Learning and information</span><h1 class="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">The Lab</h1><p class="text-white/80 max-w-3xl">A planned gallery of resources for self-study and self-learning, including practical guides, learning materials and community knowledge. The Lab is coming soon.</p></div></section>
             <section class="py-14 bg-white"><div class="max-w-5xl mx-auto px-5 sm:px-8 space-y-5">
                 <article class="border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Small Business Startup Program</h2><p class="text-sm text-brand-text-light mb-3">The November programme covers business planning, market research, banking and payment facilitation, website and e-commerce, business operations tools and professionalisation guides.</p><a href="https://www.quicket.co.za/events/399925-small-business-startup-program/" target="_blank" rel="noopener noreferrer" class="text-brand-teal underline font-bold">Quicket registration</a></article>
                 <article class="border border-gray-200 p-5 sm:p-6"><h2 class="text-brand-navy font-bold mb-2">Sustainable Honeybush Programme</h2><p class="text-sm text-brand-text-light">The 2026–2027 pilot work plan covers foundational learning, planned practical training, field activities and community education related to sustainable harvesting and fynbos conservation. Dates and arrangements are subject to confirmation.</p></article>
@@ -1060,7 +1029,7 @@
                                 </div>
                             </div>
                             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80" alt="Natural vegetation in a forest conservation area" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
+                                <img src="https://images.pexels.com/photos/4505166/pexels-photo-4505166.jpeg" alt="Natural vegetation in a forest conservation area" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
                                 <div class="absolute inset-0 bg-black/40 flex items-end p-8">
                                     <p class="text-white font-semibold text-lg">Reconnecting community and economic opportunity to environmental heritage.</p>
                                 </div>
@@ -1280,9 +1249,9 @@
                     <h4 class="text-xs text-brand-orange font-bold mb-6 uppercase tracking-[0.2em]">Join the Network</h4>
                     <p class="text-white/80 text-[14px] leading-relaxed mb-6 font-bold">Subscribe to receive updates on our impact reports, new vendor additions, and volunteer opportunities.</p>
                     
-                    <form class="flex w-full bg-brand-navy/60 border border-white/20 focus-within:border-brand-teal-light transition-colors mb-10 rounded-full overflow-hidden backdrop-blur-md">
-                        <input type="email" placeholder="Corporate Email Address" required class="bg-transparent border-none outline-none text-white px-6 py-3 w-full text-sm placeholder-white/50 font-bold">
-                        <button type="submit" class="bg-brand-orange text-white px-6 font-extrabold text-xs uppercase tracking-widest hover:bg-brand-teal transition-colors">Subscribe</button>
+                    <form class="flex w-full bg-brand-navy/60 border border-white/20 focus-within:border-brand-teal-light transition-colors mb-10 rounded-md overflow-hidden backdrop-blur-md" onsubmit="return submitEmailRequest(event, &quot;UBF mailing list subscription&quot;)">
+                        <input type="email" placeholder="Email address" required class="bg-transparent border-none outline-none text-white px-6 py-3 w-full text-sm placeholder-white/50 font-bold">
+                        <button type="submit" class="bg-brand-orange text-white px-6 font-extrabold text-xs uppercase tracking-widest hover:bg-brand-teal transition-colors">Submit</button>
                     </form>
                     
                     <h4 class="text-xs text-brand-orange font-bold mb-6 uppercase tracking-[0.2em]">Connect</h4>
