@@ -74,7 +74,6 @@
 </head>
 <body>
 <header class="top"><div class="topin"><div class="brand">UNITY BRIDGE FOUNDATION<small>PROGRAM PORTAL</small></div><a href="./index.html">← Back to UBF website</a></div></header>
-<main class="wrap">
 <section class="portal-hero">
   <div class="portal-hero-inner">
     <span class="eyebrow">Unity Bridge Foundation · Participant portal</span>
@@ -82,12 +81,13 @@
     <p>Questionnaires, programme updates and resources in one space.</p>
   </div>
 </section>
+<main class="wrap">
 <section id="auth-view" class="layout">
 <div class="panel">
 <h2>Participant sign-in</h2><p class="sub">Preview mode is open for review. Enter any email address and password to view the dashboard; the access code is optional in this prototype.</p>
 <div class="tabs"><button type="button" id="tab-login" class="btn" aria-pressed="true">Sign in</button><button type="button" id="tab-register" class="btn secondary" aria-pressed="false">Create account</button></div>
 <form id="auth-form">
-<div class="field"><label for="access-code">Programme access code</label><input id="access-code" name="accessCode" autocomplete="off" required placeholder="Enter the code shared by UBF"></div>
+<div class="field"><label for="access-code">Programme access code</label><input id="access-code" name="accessCode" autocomplete="off" placeholder="Optional in this preview"></div>
 <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
 <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Enter any password"></div>
 <div id="confirm-field" class="field hidden"><label for="confirm-password">Confirm password</label><input id="confirm-password" type="password" autocomplete="new-password" placeholder="Enter password again"></div>
