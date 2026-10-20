@@ -1578,6 +1578,9 @@
                 toggleMobileMenu();
             }
             
+            if(pageId === 'dashboard') renderClientDashboard();
+            if(pageId === 'admin') renderAdminDashboard();
+
             // Trigger reveals
             setTimeout(observeReveals, 100);
 
@@ -1599,7 +1602,65 @@
             }
         }
 
-        // Contact Modal Logic
+
+        // Dashboard preview logic. Data is browser-local until a secure backend is connected.
+        const ubfWorkstreams = [
+          {key:'businessPlan',name:'Business plan',detail:'Business model and action plan'},
+          {key:'marketResearch',name:'Market research',detail:'Customers, demand and competitors'},
+          {key:'banking',name:'Banking & payment facilitation',detail:'Banking and payment options'},
+          {key:'website',name:'Website & e-commerce',detail:'Digital presence and sales channels'},
+          {key:'operations',name:'Business operations tools',detail:'Practical systems and templates'},
+          {key:'professionalization',name:'Professionalization guide',detail:'Formalisation and growth readiness'}
+        ];
+        const ubfWorkStatusOptions=['Not started','In progress','Awaiting client','Completed'];
+        function ubfGetProfile(){try{return JSON.parse(localStorage.getItem('ubfStartupProfile')||'null')}catch(e){return null}}
+        function ubfGetStatuses(){try{return JSON.parse(localStorage.getItem('ubfDeliverableStatuses')||'{}')}catch(e){return {}}}
+        function ubfEscape(value){return String(value||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+        function ubfSetWorkStatus(key,value){const all=ubfGetStatuses();all[key]=value;try{localStorage.setItem('ubfDeliverableStatuses',JSON.stringify(all))}catch(e){}renderClientDashboard();renderAdminDashboard()}
+        function renderClientDashboard(){
+          const root=document.getElementById('view-dashboard');if(!root)return;
+          const profile=ubfGetProfile();const statuses=ubfGetStatuses();
+          const complete=ubfWorkstreams.filter(function(item){return (statuses[item.key]||'Not started')==='Completed'}).length;
+          const completedEl=root.querySelector('#dbCompleted');if(completedEl)completedEl.textContent=complete+' / 6 complete';
+          const list=root.querySelector('#dbDeliverableList');
+          if(list)list.innerHTML=ubfWorkstreams.map(function(item){const status=statuses[item.key]||'Not started';return '<div style="padding:13px 0;border-top:1px solid #edf0ef;display:flex;justify-content:space-between;gap:12px;align-items:center"><div><b style="display:block;color:#112240;font-size:13px">'+item.name+'</b><small style="color:#667486">'+item.detail+'</small></div><span style="font-size:11px;color:#17685c;font-weight:bold;text-align:right">'+status+'</span></div>'}).join('');
+          const statusEl=root.querySelector('#dbProfileStatus');if(statusEl)statusEl.textContent=profile?(profile.profileSubmitted?'Completed':'In progress'):'Not started';
+          const summary=root.querySelector('#dbProfileSummary');
+          if(summary){
+            if(!profile){summary.innerHTML='Complete onboarding to see your profile here.'}
+            else {
+              const rows=[['Contact',profile.fullName],['Business',profile.businessName],['Stage',profile.stage],['Ownership',profile.ownership],['Registration',profile.registered],['Industry',profile.industry],['Location',profile.location],['Offer type',profile.offerType]];
+              summary.innerHTML=rows.filter(function(row){return row[1]}).map(function(row){return '<div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #edf0ef;font-size:12px"><span style="color:#667486">'+row[0]+'</span><b style="text-align:right;color:#112240">'+ubfEscape(row[1])+'</b></div>'}).join('');
+            }
+          }
+        }
+        function renderAdminDashboard(){
+          const root=document.getElementById('view-admin');if(!root)return;
+          const profile=ubfGetProfile();const statuses=ubfGetStatuses();
+          const count=root.querySelector('#adClients');if(count)count.textContent=profile?'1':'0';
+          const submitted=root.querySelector('#adProfilesDone');if(submitted)submitted.textContent=profile&&profile.profileSubmitted?'1':'0';
+          const workDone=root.querySelector('#adWorkDone');if(workDone)workDone.textContent=ubfWorkstreams.filter(function(item){return (statuses[item.key]||'Not started')==='Completed'}).length;
+          const table=root.querySelector('#adClientTable');const editor=root.querySelector('#adStatusEditor');
+          const search=(root.querySelector('#adSearch')?.value||'').toLowerCase();
+          if(!profile){
+            if(table)table.innerHTML='No profile is saved in this browser yet. Complete the onboarding form to preview a client record.';
+            if(editor)editor.innerHTML='Complete onboarding to manage statuses in this preview.';
+            return;
+          }
+          const haystack=[profile.businessName,profile.fullName,profile.email,profile.industry,profile.location].filter(Boolean).join(' ').toLowerCase();
+          if(table){
+            if(search&&!haystack.includes(search)){table.innerHTML='No local profile matches that search.'}
+            else {table.innerHTML='<div style="overflow:auto"><table style="width:100%;min-width:650px;border-collapse:collapse;font-size:12px"><thead><tr style="text-align:left;background:#f7f9f7"><th style="padding:12px">Business / contact</th><th style="padding:12px">Industry</th><th style="padding:12px">Stage</th><th style="padding:12px">Location</th><th style="padding:12px">Profile</th></tr></thead><tbody><tr style="border-top:1px solid #edf0ef"><td style="padding:12px"><b>'+ubfEscape(profile.businessName||'Business name pending')+'</b><br>'+ubfEscape(profile.fullName)+'<br>'+ubfEscape(profile.email)+'</td><td style="padding:12px">'+ubfEscape(profile.industry||'Not specified')+'</td><td style="padding:12px">'+ubfEscape(profile.stage||'Not specified')+'</td><td style="padding:12px">'+ubfEscape(profile.location||'Not specified')+'</td><td style="padding:12px">'+(profile.profileSubmitted?'Submitted':'Draft')+'</td></tr></tbody></table></div>'}
+          }
+          if(editor){
+            editor.innerHTML=ubfWorkstreams.map(function(item){
+              const current=statuses[item.key]||'Not started';
+              return '<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(135px,170px);gap:12px;align-items:center;padding:13px 0;border-top:1px solid #edf0ef"><div><b style="font-size:12px;color:#112240;display:block">'+item.name+'</b><small style="font-size:11px;color:#667486">'+item.detail+'</small></div><select aria-label="Status for '+item.name+'" onchange="ubfSetWorkStatus(\''+item.key+'\',this.value)" style="padding:9px;border:1px solid #e5eae8;border-radius:9px;background:white;font-size:11px">'+ubfWorkStatusOptions.map(function(option){return '<option '+(current===option?'selected':'')+'>'+option+'</option>'}).join('')+'</select></div>'
+            }).join('')+'<p style="font-size:11px;color:#667486">Updates are stored in this browser only.</p>';
+          }
+        }
+
+                // Contact Modal Logic
         function openContactModal() {
             const modal = document.getElementById('contact-modal');
             const content = document.getElementById('contact-modal-content');
