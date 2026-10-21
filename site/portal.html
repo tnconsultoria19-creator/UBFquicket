@@ -459,7 +459,7 @@ function renderParticipant(){
  $("resource-count").textContent=person.resources.length;
  const tasks=$("task-list");tasks.replaceChildren();
  person.milestones.forEach((state,index)=>{
-  const row=document.createElement("div");row.className="list";
+  const row=document.createElement("div");row.className="list milestone-item "+state;
   const top=document.createElement("div");top.className="participant-milestone";
   const label=document.createElement("strong");label.textContent=milestoneNames[index];
   const badge=document.createElement("span");badge.className="task-status "+state;badge.textContent=formatStatus(state);
@@ -482,6 +482,20 @@ function renderParticipant(){
    const link=document.createElement("a");link.href=resource.url;link.download=resource.fileName;link.textContent="Download";
    row.appendChild(link);resourceList.appendChild(row);
   });
+ }
+ const launch=$("questionnaire-launch");
+ const surveyComplete=!!person.questionnaire;
+ if(launch){launch.classList.toggle("is-required",!surveyComplete);launch.classList.toggle("is-complete",surveyComplete);}
+ const nudge=$("start-here-nudge");
+ if(nudge)nudge.innerHTML=surveyComplete?'<i class="ph-bold ph-check-circle"></i> Survey completed':'<i class="ph-bold ph-arrow-down-right"></i> Start here';
+ const booking=$("booking-card"),bookingForm=$("booking-form"),gate=$("booking-gate");
+ if(booking&&bookingForm){
+   booking.classList.toggle("is-locked",!surveyComplete);
+   bookingForm.querySelectorAll("input,select,textarea,button[type=submit]").forEach(field=>field.disabled=!surveyComplete);
+   if(gate){
+     gate.textContent=surveyComplete?"Your survey is complete. Choose a time that works for you.":"Complete Step 1 — your business survey — to unlock session booking.";
+     gate.classList.toggle("unlocked",surveyComplete);
+   }
  }
  if(person.questionnaire){
    $("questionnaire-state").textContent="Completed in this preview";
@@ -602,7 +616,7 @@ $("admin-resource-form").addEventListener("submit",event=>{
 function showQuestionStep(){
  const steps=[...document.querySelectorAll(".question-step")];
  steps.forEach((step,index)=>step.classList.toggle("hidden",index!==questionnaireStep));
- $("question-step-title").textContent="Step "+(questionnaireStep+1)+" of "+steps.length+" · "+["About you","Your business or idea","Support and goals"][questionnaireStep];
+ $("question-step-title").textContent="Step "+(questionnaireStep+1)+" of "+steps.length+" · "+["About you","Your business profile","Support and goals"][questionnaireStep];
  $("question-progress").style.width=((questionnaireStep+1)/steps.length*100)+"%";
  $("question-prev").disabled=questionnaireStep===0;
  $("question-next").classList.toggle("hidden",questionnaireStep===steps.length-1);
@@ -642,13 +656,22 @@ function populateQuestionnaire(answers){
    if(field.type==="checkbox")field.checked=Array.isArray(value)&&value.includes(field.value);
    else field.value=Array.isArray(value)?value[0]:value;
  }
+ updateIndustryQuestions();
 }
+function updateIndustryQuestions(){
+ const industry=$("q-industry")?.value||"";
+ document.querySelectorAll("[data-industry-panel]").forEach(panel=>{
+   panel.classList.toggle("hidden",panel.getAttribute("data-industry-panel")!==industry);
+ });
+}
+$("q-industry").addEventListener("change",updateIndustryQuestions);
 $("questionnaire-form").addEventListener("submit",event=>{
  event.preventDefault();
  if(!validateCurrentQuestionStep())return;
  const form=$("questionnaire-form"),answers={};
  for(const field of form.querySelectorAll("input,select,textarea")){
    if(!field.name)continue;
+   if(field.closest("[data-industry-panel].hidden"))continue;
    if(field.type==="checkbox"){
      if(!answers[field.name])answers[field.name]=[];
      if(field.checked)answers[field.name].push(field.value);
