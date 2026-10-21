@@ -131,6 +131,30 @@
 }
 @media(prefers-reduced-motion:reduce){.start-nudge i{animation:none}}
 
+
+/* Extended business assessment and UBF build brief */
+.question-section-intro{padding:0 0 14px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.question-section-intro h3{font-size:19px;color:var(--navy);margin:7px 0 5px}
+.question-section-intro p{font-size:12px;color:var(--muted);line-height:1.55;margin:0;max-width:650px}
+.question-step[data-step="2"]>.field.support-options{margin:0 0 15px}
+.question-step[data-step="2"]>.form-grid,.question-step[data-step="3"]>.form-grid{gap:7px 16px}
+.question-step[data-step="3"]>.support-options{margin:0 0 16px}
+.question-step[data-step="3"] .industry-questions{margin:0 0 16px}
+.question-step[data-step="3"] .industry-questions h3{margin-bottom:8px}
+.question-step[data-step="3"] .industry-questions p{margin-bottom:12px}
+.industry-questions[data-deliverable-panel]{width:100%}
+.brief-actions{display:flex;justify-content:flex-end;margin:-6px 0 14px}
+.generated-brief{background:#f8faf8;border:1px solid #dbe5df;border-radius:6px;padding:16px;margin-bottom:18px}
+.generated-brief h3{font-size:17px;color:var(--navy);margin:0 0 5px}
+.brief-summary{font-size:12px;color:var(--muted);margin:0 0 14px;line-height:1.6}
+.brief-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.brief-summary-item{display:grid;align-content:start;gap:4px;background:#fff;border:1px solid #e1e8e4;border-radius:4px;padding:10px}
+.brief-summary-item strong{font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal)}
+.brief-summary-item span{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.55;color:var(--ink)}
+.brief-scope-note{border-top:1px solid #dbe5df;padding-top:11px;margin:13px 0 0;color:var(--muted);font-size:11px;line-height:1.6}
+.response-detail-heading{font-size:14px;color:var(--navy);margin:16px 0 4px}
+@media(max-width:760px){.brief-summary-grid{grid-template-columns:1fr}.brief-actions{justify-content:flex-start}.question-section-intro h3{font-size:17px}}
+
 </style>
 </head>
 <body>
@@ -298,19 +322,146 @@
         </div>
       </div>
       <div class="question-step hidden" data-step="2">
+        <div class="question-section-intro"><span class="eyebrow">Business model</span><h3>Products, services and how you deliver them</h3><p>Select everything that applies. The follow-up questions will adapt to your choices.</p></div>
+        <fieldset class="field support-options">
+          <legend>What do you sell or plan to sell? Select all that apply. *</legend>
+          <label><input type="checkbox" name="Products or services model" value="Physical products"> Physical products or stock</label>
+          <label><input type="checkbox" name="Products or services model" value="Services"> Services or professional work</label>
+          <label><input type="checkbox" name="Products or services model" value="Digital products"> Digital products, courses or downloads</label>
+          <label><input type="checkbox" name="Products or services model" value="Food and beverages"> Food or beverages</label>
+          <label><input type="checkbox" name="Products or services model" value="Made or handmade products"> Manufactured, handmade or made-to-order products</label>
+          <label><input type="checkbox" name="Products or services model" value="Bookings and experiences"> Bookings, appointments or experiences</label>
+          <label><input type="checkbox" name="Products or services model" value="Wholesale and supply"> Wholesale, supply or business-to-business orders</label>
+          <label><input type="checkbox" name="Products or services model" value="Other offer"> Other / more than one type</label>
+        </fieldset>
+        <div class="form-grid">
+          <div class="field"><label for="q-catalogue">How many products or services do you currently offer?</label><select id="q-catalogue" name="Number of products or services"><option value="">Choose one</option><option>Not offering anything yet</option><option>1–5</option><option>6–20</option><option>21–100</option><option>More than 100</option><option>Not sure</option></select></div>
+          <div class="field"><label for="q-order-source">How do customers place an order or request?</label><select id="q-order-source" name="Order or enquiry method"><option value="">Choose one</option><option>In person</option><option>Phone or WhatsApp</option><option>Social media messages</option><option>Website or online store</option><option>Email</option><option>Formal quotation / tender</option><option>Booking platform</option><option>Not selling yet</option><option>Several methods</option></select></div>
+          <div class="field"><label for="q-fulfilment">How do you deliver the product or service?</label><select id="q-fulfilment" name="Delivery or fulfilment"><option value="">Choose one</option><option>Customer collects</option><option>Local delivery</option><option>Courier / freight</option><option>Digital delivery</option><option>Appointment / service at my premises</option><option>Visit the customer's location</option><option>Not applicable yet</option><option>Mixed / other</option></select></div>
+          <div class="field"><label for="q-stock-status">Do you keep stock or materials?</label><select id="q-stock-status" name="Stock and materials"><option value="">Choose one</option><option>Yes, I hold stock</option><option>Buy materials when ordered</option><option>Made to order</option><option>Supplier or partner fulfils orders</option><option>Not applicable to my business</option><option>Not sure how to manage it</option></select></div>
+          <div class="field"><label for="q-pricing-detail">How do you usually price your offer?</label><select id="q-pricing-detail" name="Pricing method"><option value="">Choose one</option><option>Fixed price per product</option><option>Packages or service rates</option><option>Cost plus margin</option><option>Hourly / daily rate</option><option>Quotation based on each job</option><option>Subscription / recurring fee</option><option>Prices change by customer or volume</option><option>Still need to work out prices</option></select></div>
+          <div class="field"><label for="q-variations">Do you have product options, sizes, packages or add-ons?</label><select id="q-variations" name="Product variants and packages"><option value="">Choose one</option><option>Yes, several options</option><option>A few options</option><option>No, one standard offer</option><option>Not sure yet</option><option>Not applicable</option></select></div>
+        </div>
+
+        <div class="industry-questions-wrap">
+          <div class="industry-questions-intro"><i class="ph ph-cube" aria-hidden="true"></i><div><strong>Product and service details</strong><span>Only the sections matching your selected offer types will appear.</span></div></div>
+          <div class="industry-questions hidden" data-offering-panel="Physical products">
+            <h3>Physical products and stock</h3><p>These answers help scope a catalogue, stock tracker or online product store.</p><div class="form-grid">
+              <div class="field"><label for="q-product-list">List your main products and current prices</label><textarea id="q-product-list" name="Product list and prices" rows="3" placeholder="Product name, options and price where known"></textarea></div>
+              <div class="field"><label for="q-product-photos">Do you have product photos?</label><select id="q-product-photos" name="Product photos readiness"><option value="">Choose one</option><option>Yes, ready to use</option><option>Some products have photos</option><option>Need help with photography</option><option>Product not ready yet</option></select></div>
+              <div class="field"><label for="q-stock-tool">How do you track stock today?</label><select id="q-stock-tool" name="Stock tracking tool"><option value="">Choose one</option><option>Notebook / manual count</option><option>Spreadsheet</option><option>Point-of-sale or stock system</option><option>Supplier handles it</option><option>No tracking system</option><option>Not applicable</option></select></div>
+              <div class="field"><label for="q-product-supplier">Where do you source products or stock?</label><textarea id="q-product-supplier" name="Product suppliers" rows="2" placeholder="Suppliers, makers, wholesalers, imports..."></textarea></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-offering-panel="Services">
+            <h3>Services and professional work</h3><p>These answers help scope service pages, a quotation tool or a booking flow.</p><div class="form-grid">
+              <div class="field"><label for="q-service-list">List your main services and prices</label><textarea id="q-service-list" name="Service list and prices" rows="3" placeholder="Service, what is included, price or rate"></textarea></div>
+              <div class="field"><label for="q-service-time">How long does a typical service take?</label><select id="q-service-time" name="Service duration"><option value="">Choose one</option><option>Under 30 minutes</option><option>30–60 minutes</option><option>Several hours</option><option>One or more days</option><option>Varies by project</option><option>Not sure</option></select></div>
+              <div class="field"><label for="q-service-quote">Do customers need a quotation first?</label><select id="q-service-quote" name="Quotation requirement"><option value="">Choose one</option><option>Yes, for most work</option><option>Only for large jobs</option><option>No, fixed prices</option><option>Would like a quotation form</option></select></div>
+              <div class="field"><label for="q-service-area">Where can you deliver the service?</label><input id="q-service-area" name="Service area" placeholder="Suburbs, towns, province or online"></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-offering-panel="Digital products">
+            <h3>Digital products and downloads</h3><div class="form-grid">
+              <div class="field"><label for="q-digital-goods">What digital items do you sell?</label><textarea id="q-digital-goods" name="Digital product types" rows="2" placeholder="Courses, templates, music, e-books, subscriptions..."></textarea></div>
+              <div class="field"><label for="q-digital-delivery">How should customers receive the item?</label><select id="q-digital-delivery" name="Digital delivery method"><option value="">Choose one</option><option>Download after payment</option><option>Email delivery</option><option>Member login / learning area</option><option>Access link / streaming</option><option>Manual fulfilment</option><option>Need advice</option></select></div>
+              <div class="field"><label for="q-digital-access">Should access expire or renew?</label><select id="q-digital-access" name="Digital access model"><option value="">Choose one</option><option>One-time purchase, permanent access</option><option>Time-limited access</option><option>Monthly / annual subscription</option><option>Course cohort / scheduled access</option><option>Not applicable / unsure</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-offering-panel="Food and beverages">
+            <h3>Food and beverages</h3><div class="form-grid">
+              <div class="field"><label for="q-food-menu">Menu, products or packages</label><textarea id="q-food-menu" name="Food menu and prices" rows="3" placeholder="Items, portions, packages and prices"></textarea></div>
+              <div class="field"><label for="q-food-safety">Are food permits or safety requirements relevant?</label><select id="q-food-safety" name="Food safety readiness"><option value="">Choose one</option><option>Relevant requirements already in place</option><option>Need help understanding requirements</option><option>Not sure</option><option>Not applicable to my activity</option></select></div>
+              <div class="field"><label for="q-food-capacity">How much can you produce or serve?</label><input id="q-food-capacity" name="Food production capacity" placeholder="Orders per day, meals per event, etc."></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-offering-panel="Made or handmade products">
+            <h3>Manufactured, handmade or made-to-order items</h3><div class="form-grid">
+              <div class="field"><label for="q-made-list">Products and custom options</label><textarea id="q-made-list" name="Made to order products" rows="2" placeholder="Materials, styles, customisations and prices"></textarea></div>
+              <div class="field"><label for="q-made-time">Typical production lead time</label><select id="q-made-time" name="Production lead time"><option value="">Choose one</option><option>Same day</option><option>2–3 days</option><option>Up to 2 weeks</option><option>More than 2 weeks</option><option>Varies by order</option></select></div>
+              <div class="field"><label for="q-made-capacity">What limits production?</label><select id="q-made-capacity" name="Production constraints"><option value="">Choose one</option><option>Materials / suppliers</option><option>Equipment / tools</option><option>Workspace</option><option>Production time / staff</option><option>Quality / packaging</option><option>Capital</option><option>Other</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-offering-panel="Bookings and experiences">
+            <h3>Bookings, appointments and experiences</h3><div class="form-grid">
+              <div class="field"><label for="q-booking-type">What is booked?</label><input id="q-booking-type" name="Booking item" placeholder="Appointment, tour, venue, class, session..."></div>
+              <div class="field"><label for="q-booking-capacity">How many clients can you serve per time slot?</label><input id="q-booking-capacity" name="Booking capacity" placeholder="e.g. 1 client, 10 guests"></div>
+              <div class="field"><label for="q-booking-current">How are bookings currently managed?</label><select id="q-booking-current" name="Booking management today"><option value="">Choose one</option><option>Phone / WhatsApp</option><option>Notebook / calendar</option><option>Social media</option><option>Online booking system</option><option>Walk-ins</option><option>No process yet</option></select></div>
+              <div class="field"><label for="q-booking-deposit">Do you require a deposit?</label><select id="q-booking-deposit" name="Booking deposit requirement"><option value="">Choose one</option><option>Yes</option><option>No</option><option>Depends on service</option><option>Need advice</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-offering-panel="Wholesale and supply">
+            <h3>Wholesale and business-to-business supply</h3><div class="form-grid">
+              <div class="field"><label for="q-wholesale-buyers">Who do you supply?</label><input id="q-wholesale-buyers" name="Wholesale buyer types" placeholder="Retailers, offices, contractors, institutions..."></div>
+              <div class="field"><label for="q-wholesale-min">Minimum order or volume</label><input id="q-wholesale-min" name="Wholesale minimum order" placeholder="Quantity, order value or minimum order"></div>
+              <div class="field"><label for="q-wholesale-docs">What business documents do buyers request?</label><input id="q-wholesale-docs" name="Wholesale buyer requirements" placeholder="Company profile, quotes, tax documents, references..."></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-offering-panel="Other offer">
+            <h3>Other or mixed offering</h3><div class="field"><label for="q-other-offer-detail">Describe your products, services or revenue streams</label><textarea id="q-other-offer-detail" name="Other product and service details" rows="3"></textarea></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-step hidden" data-step="3">
+        <div class="question-section-intro"><span class="eyebrow">Support and deliverables</span><h3>What should UBF help you build?</h3><p>Choose the support you need. Your answers will form a draft business development brief for review with the UBF coordinator.</p></div>
         <fieldset class="field support-options">
           <legend>What support would be most useful? Select all that apply. *</legend>
           <label><input type="checkbox" name="Support needed" value="Business plan"> Business plan and business profile</label>
-          <label><input type="checkbox" name="Support needed" value="Market research"> Market research and finding customers</label>
-          <label><input type="checkbox" name="Support needed" value="Banking and payments"> Banking, payments and administration</label>
-          <label><input type="checkbox" name="Support needed" value="Website and digital presence"> Website, digital presence and e-commerce</label>
-          <label><input type="checkbox" name="Support needed" value="Marketing and sales"> Marketing and sales</label>
-          <label><input type="checkbox" name="Support needed" value="Operations and compliance"> Operations, records and compliance</label>
+          <label><input type="checkbox" name="Support needed" value="Market research"> Market research, competitors and finding customers</label>
+          <label><input type="checkbox" name="Support needed" value="Banking and payments"> Banking, payment options and invoicing</label>
+          <label><input type="checkbox" name="Support needed" value="Website and digital presence"> Website, catalogue, bookings or e-commerce</label>
+          <label><input type="checkbox" name="Support needed" value="Marketing and sales"> Marketing, sales and brand materials</label>
+          <label><input type="checkbox" name="Support needed" value="Operations and compliance"> Operations, stock, orders and recordkeeping</label>
+          <label><input type="checkbox" name="Support needed" value="Business professionalisation"> Business profile, quotations, invoices and professional documents</label>
           <label><input type="checkbox" name="Support needed" value="Skills and work opportunities"> Skills development or work opportunities</label>
+          <label><input type="checkbox" name="Support needed" value="Supplier support"> Supplier research or business-to-business connections</label>
+          <label><input type="checkbox" name="Support needed" value="Not sure"> I'm not sure yet — please assess my business with me</label>
         </fieldset>
-        <div class="field"><label for="q-challenge">What is your biggest challenge right now? *</label><textarea id="q-challenge" name="Main challenge" rows="3" required placeholder="A short answer is fine"></textarea></div>
-        <div class="field"><label for="q-goal">What would you like to achieve through the programme? *</label><textarea id="q-goal" name="Programme goal" rows="3" required></textarea></div>
-        <label class="consent-line"><input type="checkbox" id="q-consent" required> I confirm that the information is accurate to the best of my knowledge and may be used by UBF to assess and coordinate programme support.</label>
+
+        <div class="industry-questions hidden" data-deliverable-panel="Website and digital presence">
+          <h3>Website and e-commerce requirements</h3><p>Choose the scope that best matches what customers need to do online.</p>
+          <div class="form-grid">
+            <div class="field"><label for="q-web-purpose">Main purpose of the website</label><select id="q-web-purpose" name="Website purpose"><option value="">Choose one</option><option>Introduce the business and build trust</option><option>Showcase products or services</option><option>Sell products online</option><option>Take bookings or appointments</option><option>Receive quotation requests</option><option>Generate leads and enquiries</option><option>Deliver digital products or courses</option><option>Several purposes</option><option>Need advice</option></select></div>
+            <div class="field"><label for="q-web-size">How many products or services should it display?</label><select id="q-web-size" name="Website catalogue size"><option value="">Choose one</option><option>1–5</option><option>6–20</option><option>21–100</option><option>100+</option><option>No catalogue needed</option><option>Not sure</option></select></div>
+            <div class="field"><label for="q-web-domain">Do you own a domain name?</label><select id="q-web-domain" name="Website domain status"><option value="">Choose one</option><option>Yes, domain is ready</option><option>Yes, but needs configuration</option><option>No, need help choosing one</option><option>Not sure</option></select></div>
+            <div class="field"><label for="q-web-maintainer">Who will update the website after the programme?</label><select id="q-web-maintainer" name="Website maintenance owner"><option value="">Choose one</option><option>I will update it</option><option>UBF may assist within agreed scope</option><option>A staff member or partner</option><option>I will need training</option><option>Need advice</option></select></div>
+            <div class="field"><label for="q-web-pages">Pages or features you need</label><textarea id="q-web-pages" name="Requested website pages and features" rows="3" placeholder="e.g. Home, About, services, catalogue, bookings, FAQs, contact"></textarea></div>
+            <div class="field"><label for="q-web-contact">Preferred customer contact options</label><select id="q-web-contact" name="Website contact options"><option value="">Choose one</option><option>WhatsApp</option><option>Phone and email</option><option>Enquiry form</option><option>Booking calendar</option><option>Online chat</option><option>Several options</option></select></div>
+            <div class="field"><label for="q-web-payment">Do you need customers to pay online?</label><select id="q-web-payment" name="Online payment requirement"><option value="">Choose one</option><option>Yes, full online checkout</option><option>Payment links or deposits</option><option>Invoices / EFT details only</option><option>No online payments</option><option>Need advice</option></select></div>
+            <div class="field"><label for="q-web-delivery">How will orders be fulfilled?</label><select id="q-web-delivery" name="Website order fulfilment"><option value="">Choose one</option><option>Collection</option><option>Local delivery</option><option>Courier</option><option>Digital download or access</option><option>Appointment / service booking</option><option>Not applicable</option><option>Need advice</option></select></div>
+            <div class="field"><label for="q-web-assets">Do you have a logo, brand and usable images?</label><select id="q-web-assets" name="Website brand assets"><option value="">Choose one</option><option>All ready</option><option>Some items ready</option><option>Need help preparing them</option><option>Need branding guidance</option></select></div>
+          </div>
+        </div>
+
+        <div class="industry-questions hidden" data-deliverable-panel="Banking and payments">
+          <h3>Banking, payments and invoicing</h3><div class="form-grid">
+            <div class="field"><label for="q-pay-method">How do customers pay you currently?</label><select id="q-pay-method" name="Current payment methods"><option value="">Choose one</option><option>Cash</option><option>EFT / bank transfer</option><option>Card machine</option><option>Payment link / online checkout</option><option>Invoice with payment details</option><option>Mixed</option><option>Not receiving payments yet</option></select></div>
+            <div class="field"><label for="q-pay-need">What payment tools would help?</label><select id="q-pay-need" name="Requested payment tools"><option value="">Choose one</option><option>Business account readiness checklist</option><option>Card / payment link provider guidance</option><option>Invoice and receipt templates</option><option>Online checkout integration</option><option>Reconciliation / payment record tracker</option><option>Need advice</option></select></div>
+            <div class="field"><label for="q-pay-separate">Do you separate business and personal money?</label><select id="q-pay-separate" name="Business financial separation"><option value="">Choose one</option><option>Yes</option><option>Not yet</option><option>Partly</option><option>Not applicable / unsure</option></select></div>
+          </div>
+        </div>
+
+        <div class="industry-questions hidden" data-deliverable-panel="Operations and compliance">
+          <h3>Operations and recordkeeping</h3><div class="form-grid">
+            <div class="field"><label for="q-ops-current">How do you manage orders, customers or jobs today?</label><select id="q-ops-current" name="Current operations process"><option value="">Choose one</option><option>Notebook / paper records</option><option>Spreadsheet</option><option>WhatsApp and messages</option><option>Accounting / POS / CRM software</option><option>No consistent process</option><option>Not applicable yet</option></select></div>
+            <div class="field"><label for="q-ops-tools">Which tools would save the most time?</label><select id="q-ops-tools" name="Requested operations tools"><option value="">Choose one</option><option>Order tracker</option><option>Inventory / stock tracker</option><option>Customer list / CRM</option><option>Booking / appointment tracker</option><option>Invoices / quotes / expenses</option><option>Daily tasks / procedures</option><option>Sales dashboard / reports</option><option>More than one / unsure</option></select></div>
+            <div class="field"><label for="q-ops-records">Which business records do you keep?</label><select id="q-ops-records" name="Business records"><option value="">Choose one</option><option>Sales and expenses</option><option>Orders and customers</option><option>Stock and supplier records</option><option>Invoices and receipts</option><option>Most of these</option><option>Very few formal records</option></select></div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field"><label for="q-challenge">What is your biggest challenge right now? *</label><textarea id="q-challenge" name="Main challenge" rows="3" required placeholder="A short answer is fine"></textarea></div>
+          <div class="field"><label for="q-goal">What would you like to achieve by the end of the four weeks? *</label><textarea id="q-goal" name="Programme goal" rows="3" required placeholder="Describe the outcome that would make this programme valuable to you"></textarea></div>
+          <div class="field"><label for="q-priority">Which deliverable is most urgent?</label><select id="q-priority" name="Most urgent deliverable"><option value="">Choose one</option><option>Business plan / profile</option><option>Market and customer research</option><option>Payment and invoice setup</option><option>Website / catalogue / booking flow</option><option>Operations tracker or dashboard</option><option>Business documents and professionalisation</option><option>Clarify needs with UBF first</option></select></div>
+          <div class="field"><label for="q-deadline">Do you have a fixed deadline or upcoming opportunity?</label><input id="q-deadline" name="Deadline or opportunity" placeholder="Optional"></div>
+          <div class="field"><label for="q-time">How much time can you commit each week?</label><select id="q-time" name="Weekly time commitment"><option value="">Choose one</option><option>Less than 2 hours</option><option>2–4 hours</option><option>5–7 hours</option><option>8+ hours</option><option>Varies</option></select></div>
+          <div class="field"><label for="q-sales-range">Estimated monthly sales (optional)</label><select id="q-sales-range" name="Monthly sales range"><option value="">Prefer not to say / not sure</option><option>Not selling yet</option><option>Under R2,000</option><option>R2,000–R9,999</option><option>R10,000–R29,999</option><option>R30,000–R99,999</option><option>R100,000 or more</option></select></div>
+          <div class="field"><label for="q-existing-assets">What do you already have?</label><textarea id="q-existing-assets" name="Existing business assets" rows="3" placeholder="Business plan, logo, website, product list, price list, supplier list, invoice templates, etc."></textarea></div>
+          <div class="field"><label for="q-web-link">Existing website or social media links</label><textarea id="q-web-link" name="Existing online links" rows="2" placeholder="Paste website, Instagram, Facebook, TikTok or other links"></textarea></div>
+          <div class="field"><label for="q-build-notes">Anything else UBF should know before planning your support?</label><textarea id="q-build-notes" name="Additional build requirements" rows="3" placeholder="Include preferred languages, access needs, tools you already use or other priorities"></textarea></div>
+        </div>
+        <label class="consent-line"><input type="checkbox" id="q-consent" name="Consent acknowledged" value="Yes" required> I confirm that the information is accurate to the best of my knowledge and may be used by UBF to assess and coordinate programme support. I understand this is a programme assessment, not a guarantee that every requested item will be built.</label>
       </div>
       <div class="wizard-controls"><button type="button" id="question-prev" class="btn secondary" disabled>Back</button><span id="question-save-note" class="status">Preview only: your answers will not be sent to UBF.</span><button type="button" id="question-next" class="btn">Next</button><button type="submit" id="question-submit" class="btn hidden">Submit questionnaire</button></div>
     </form>
@@ -368,7 +519,7 @@
     </section>
   </div>
   <section class="panel" style="margin-top:16px">
-    <h2>Questionnaire response</h2><p class="sub">Responses submitted in this preview appear here for the selected participant.</p>
+    <h2>Business development brief</h2><p class="sub">A working brief is generated from the participant’s assessment to help the coordinator decide what to build. Review requests and confirm scope with the participant.</p><div class="brief-actions"><button type="button" id="download-business-brief" class="btn secondary" disabled>Download business brief</button></div>
     <div id="admin-questionnaire-response" class="response-preview"><p class="status">No questionnaire has been submitted for this participant in the current preview session.</p></div>
   </section>
 </section>
@@ -593,6 +744,44 @@ $("save-admin-note").addEventListener("click",()=>{
 });
 function renderQuestionnaireResponse(person){
  const container=$("admin-questionnaire-response");container.replaceChildren();
+ const downloadButton=$("download-business-brief");
+ if(downloadButton)downloadButton.disabled=!person.questionnaire;
+ if(person.questionnaire){
+   const answers=person.questionnaire;
+   const brief=document.createElement("div");brief.className="generated-brief";
+   const title=document.createElement("h3");title.textContent=(answers["Business name or idea"]||person.business||"Business development brief");brief.appendChild(title);
+   const summary=document.createElement("p");summary.className="brief-summary";
+   summary.textContent="Participant: "+(answers["Full name"]||person.name)+" · Sector: "+(answers["Industry or sector"]||"Not provided")+" · Stage: "+(answers["Business stage"]||"Not provided");
+   brief.appendChild(summary);
+   const support=Array.isArray(answers["Support needed"])?answers["Support needed"]:[];
+   const offer=Array.isArray(answers["Products or services model"])?answers["Products or services model"]:[];
+   const briefItems=[
+     ["Business offering",answers["Product or service"]||answers["Product list and prices"]||answers["Service list and prices"]||"Needs clarification"],
+     ["Products / service model",offer.join(", ")||"Not selected"],
+     ["Main challenge",answers["Main challenge"]||"Not provided"],
+     ["Target customer group",answers["Main customer group"]||"Not provided"],
+     ["Requested deliverables",support.join(", ")||"Not selected"],
+     ["Most urgent deliverable",answers["Most urgent deliverable"]||"Not specified"],
+     ["Programme goal",answers["Programme goal"]||"Not provided"],
+     ["Website purpose",answers["Website purpose"]||"Not requested / not specified"],
+     ["Requested operations tools",answers["Requested operations tools"]||"Not requested / not specified"],
+     ["Existing assets and links",[answers["Existing business assets"],answers["Existing online links"]].filter(Boolean).join("\n")||"Not provided"],
+     ["Additional build requirements",answers["Additional build requirements"]||"None provided"]
+   ];
+   const grid=document.createElement("div");grid.className="brief-summary-grid";
+   briefItems.forEach(([label,value])=>{
+     if(!value||value==="Not requested / not specified")return;
+     const item=document.createElement("div");item.className="brief-summary-item";
+     const strong=document.createElement("strong");strong.textContent=label;
+     const valueNode=document.createElement("span");valueNode.textContent=Array.isArray(value)?value.join(", "):String(value);
+     item.append(strong,valueNode);grid.appendChild(item);
+   });
+   brief.appendChild(grid);
+   const scope=document.createElement("p");scope.className="brief-scope-note";scope.textContent="Draft only: the coordinator must review feasibility, missing materials and the four-week programme scope before confirming deliverables.";
+   brief.appendChild(scope);container.appendChild(brief);
+   const detailHeading=document.createElement("h3");detailHeading.className="response-detail-heading";detailHeading.textContent="Full questionnaire responses";container.appendChild(detailHeading);
+ }
+
  if(!person.questionnaire){
   const empty=document.createElement("p");empty.className="status";empty.textContent="No questionnaire has been submitted for this participant in the current preview session.";container.appendChild(empty);return;
  }
@@ -603,6 +792,16 @@ function renderQuestionnaireResponse(person){
   row.append(title,answer);container.appendChild(row);
  });
 }
+$("download-business-brief")?.addEventListener("click",()=>{
+ const person=selectedParticipant();if(!person.questionnaire)return;
+ const answers=person.questionnaire;
+ const lines=["UBF BUSINESS DEVELOPMENT BRIEF","Generated from participant portal preview","", "Participant: "+(answers["Full name"]||person.name),"Business: "+(answers["Business name or idea"]||person.business||"Not provided"),"Industry: "+(answers["Industry or sector"]||"Not provided"),"Stage: "+(answers["Business stage"]||"Not provided"),"","ASSESSMENT RESPONSES"];
+ Object.entries(answers).forEach(([key,value])=>lines.push("",key+":",Array.isArray(value)?value.join(", "):String(value)));
+ lines.push("","NEXT STEP","Review and agree the actual deliverables with the participant. This is a draft generated in a browser-only preview.");
+ const blob=new Blob([lines.join("\n")],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob);
+ const link=document.createElement("a");link.href=url;link.download=((answers["Business name or idea"]||"business").toString().toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"business")+"-ubf-development-brief.txt";
+ link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
 $("admin-resource-form").addEventListener("submit",event=>{
  event.preventDefault();
  const person=selectedParticipant(),title=$("resource-title").value.trim(),category=$("resource-category").value,file=$("resource-file").files[0];
@@ -616,7 +815,7 @@ $("admin-resource-form").addEventListener("submit",event=>{
 function showQuestionStep(){
  const steps=[...document.querySelectorAll(".question-step")];
  steps.forEach((step,index)=>step.classList.toggle("hidden",index!==questionnaireStep));
- $("question-step-title").textContent="Step "+(questionnaireStep+1)+" of "+steps.length+" · "+["About you","Your business profile","Support and goals"][questionnaireStep];
+ $("question-step-title").textContent="Step "+(questionnaireStep+1)+" of "+steps.length+" · "+["About you","Your business profile","Products and delivery","Support and build brief"][questionnaireStep];
  $("question-progress").style.width=((questionnaireStep+1)/steps.length*100)+"%";
  $("question-prev").disabled=questionnaireStep===0;
  $("question-next").classList.toggle("hidden",questionnaireStep===steps.length-1);
@@ -629,7 +828,8 @@ function validateCurrentQuestionStep(){
    if(field.type==="checkbox"&&!field.checked){field.reportValidity();return false;}
    if(!field.checkValidity()){field.reportValidity();return false;}
  }
- if(questionnaireStep===2&&!document.querySelector('input[name="Support needed"]:checked')){
+ if(questionnaireStep===2&&!document.querySelector('input[name="Products or services model"]:checked')){ showStatus("questionnaire-status","Please select at least one type of product or service.","error");return false; }
+ if(questionnaireStep===3&&!document.querySelector('input[name="Support needed"]:checked')){
    showStatus("questionnaire-status","Please choose at least one area of support.","error");return false;
  }
  return true;
@@ -642,7 +842,7 @@ $("open-questionnaire").addEventListener("click",()=>{
 $("close-questionnaire").addEventListener("click",()=>$("questionnaire-card").classList.add("hidden"));
 $("question-next").addEventListener("click",()=>{
  if(!validateCurrentQuestionStep())return;
- questionnaireStep=Math.min(2,questionnaireStep+1);showQuestionStep();showStatus("questionnaire-status","","");
+ questionnaireStep=Math.min(document.querySelectorAll(".question-step").length-1,questionnaireStep+1);showQuestionStep();showStatus("questionnaire-status","","");
 });
 $("question-prev").addEventListener("click",()=>{
  questionnaireStep=Math.max(0,questionnaireStep-1);showQuestionStep();showStatus("questionnaire-status","","");
@@ -663,15 +863,26 @@ function updateIndustryQuestions(){
  document.querySelectorAll("[data-industry-panel]").forEach(panel=>{
    panel.classList.toggle("hidden",panel.getAttribute("data-industry-panel")!==industry);
  });
+ const offerTypes=[...document.querySelectorAll('input[name="Products or services model"]:checked')].map(input=>input.value);
+ document.querySelectorAll("[data-offering-panel]").forEach(panel=>{
+   panel.classList.toggle("hidden",!offerTypes.includes(panel.getAttribute("data-offering-panel")));
+ });
+ const deliverables=[...document.querySelectorAll('input[name="Support needed"]:checked')].map(input=>input.value);
+ document.querySelectorAll("[data-deliverable-panel]").forEach(panel=>{
+   panel.classList.toggle("hidden",!deliverables.includes(panel.getAttribute("data-deliverable-panel")));
+ });
 }
 $("q-industry").addEventListener("change",updateIndustryQuestions);
+$("questionnaire-form").addEventListener("change",event=>{
+ if(event.target.matches('input[name="Products or services model"],input[name="Support needed"]'))updateIndustryQuestions();
+});
 $("questionnaire-form").addEventListener("submit",event=>{
  event.preventDefault();
  if(!validateCurrentQuestionStep())return;
  const form=$("questionnaire-form"),answers={};
  for(const field of form.querySelectorAll("input,select,textarea")){
    if(!field.name)continue;
-   if(field.closest("[data-industry-panel].hidden"))continue;
+   if(field.closest("[data-industry-panel].hidden,[data-offering-panel].hidden,[data-deliverable-panel].hidden"))continue;
    if(field.type==="checkbox"){
      if(!answers[field.name])answers[field.name]=[];
      if(field.checked)answers[field.name].push(field.value);
