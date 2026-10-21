@@ -70,6 +70,67 @@
  .cards.admin-stats{grid-template-columns:1fr 1fr}
 }
 
+
+/* Portal usability pass: profile cue, clear task sequence and horizontal milestone line. */
+.welcome-block{display:flex;align-items:center;gap:14px;min-width:0}
+.profile-avatar{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;flex:0 0 54px;background:#e7f0ed;color:var(--teal);border:1px solid #d5e5df}
+.profile-avatar i{font-size:31px}.welcome-copy{min-width:0}
+#dashboard-view{max-width:1120px;margin:0 auto}#dashboard-view .cards{gap:12px}#dashboard-view .stat{padding:17px 18px}
+.milestone-track{margin:14px 0 22px;padding:19px 21px 16px;overflow:hidden}
+.milestone-track-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px}
+.milestone-track-heading h2{font-size:19px;color:var(--navy);margin:5px 0 0}.milestone-track-heading .sub{max-width:440px;margin:0}
+.milestone-track #task-list{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;position:relative}
+.milestone-track #task-list:before{content:"";position:absolute;left:5px;right:5px;top:5px;height:2px;background:#dce6e2}
+.milestone-track #task-list>.status{grid-column:1/-1}
+.milestone-track #task-list .list{position:relative;z-index:1;background:transparent;border-top:0;padding:0;font-size:12px}
+.milestone-track .participant-milestone{display:flex;flex-direction:column;align-items:flex-start;gap:9px;position:relative;padding-top:0}
+.milestone-track .participant-milestone:before{content:"";width:12px;height:12px;border-radius:50%;background:#cdd8d4;border:2px solid #fff;box-shadow:0 0 0 1px #cdd8d4;display:block;margin-bottom:3px}
+.milestone-track .list.complete .participant-milestone:before{background:var(--teal);box-shadow:0 0 0 1px var(--teal)}
+.milestone-track .list.in-progress .participant-milestone:before{background:var(--orange);box-shadow:0 0 0 1px var(--orange)}
+.milestone-track .list.needs-support .participant-milestone:before{background:#b85d32;box-shadow:0 0 0 1px #b85d32}
+.milestone-track .participant-milestone strong{font-size:12px;line-height:1.4;color:var(--navy);font-weight:800}.milestone-track .task-status{font-size:9px}
+.questionnaire-launch{border:1px solid #d7e4df;box-shadow:0 3px 16px rgba(17,34,64,.035);margin:0 0 14px;position:relative;overflow:hidden}
+.questionnaire-launch.is-required{border:2px solid #187c72;background:linear-gradient(110deg,#fff 0%,#f3f8f5 100%)}
+.questionnaire-launch.is-required:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--teal)}
+.questionnaire-launch.is-complete{background:#fff;border:1px solid var(--line)}
+.questionnaire-launch .eyebrow{display:inline-flex;align-items:center;gap:6px}
+.questionnaire-launch-action{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0}
+.start-nudge{display:inline-flex;align-items:center;gap:7px;border-radius:20px;background:#dcefe7;color:#176d61;font-size:11px;font-weight:900;padding:7px 11px}
+.start-nudge i{font-size:17px;animation:ubf-gentle-point 1.8s ease-in-out infinite}
+@keyframes ubf-gentle-point{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,2px)}}
+.questionnaire-launch.is-complete .start-nudge{display:none}
+.questionnaire-launch .btn,.booking-card .btn{display:inline-flex;align-items:center;gap:9px;justify-content:center}
+.booking-card{margin:0 0 16px;transition:border-color .2s,opacity .2s}
+.booking-card.is-locked{background:#f8faf9;border-color:#e0e7e4}
+.booking-card.is-locked .booking-fields{opacity:.56}
+.booking-card.is-locked .field input,.booking-card.is-locked .field select,.booking-card.is-locked .field textarea{background:#f1f4f2}
+.booking-card .booking-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:14px}
+.booking-card .step-number{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:#edf1ef;color:#6c7e79;font-weight:900;font-size:12px;flex:0 0 39px}
+.booking-card:not(.is-locked) .step-number{background:#dcefe7;color:var(--teal)}
+.booking-gate{margin:0 0 14px;padding:10px 12px;border-radius:5px;background:#f0f3f2}
+.booking-gate.unlocked{background:#e6f3ed;color:#21664b}
+.booking-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 16px}.booking-note-field{grid-column:1/-1}
+.industry-questions-wrap{margin-top:12px;border-top:1px solid var(--line);padding-top:14px}
+.industry-questions-intro{display:flex;align-items:center;gap:11px;padding:11px 13px;background:#f2f6f3;border:1px solid #e2eae5;border-radius:5px;margin-bottom:10px;color:var(--navy)}
+.industry-questions-intro>i{font-size:23px;color:var(--teal)}
+.industry-questions-intro strong,.industry-questions-intro span{display:block}.industry-questions-intro strong{font-size:13px}.industry-questions-intro span{font-size:11px;color:var(--muted);margin-top:2px}
+.industry-questions{border:1px solid #d9e5df;border-radius:6px;padding:14px;background:#fbfcfb;margin-bottom:10px}
+.industry-questions h3{font-size:14px;color:var(--navy);font-weight:900;margin:0 0 4px}.industry-questions>p{font-size:12px;color:var(--muted);margin:0 0 12px}
+.industry-questions .field{margin-bottom:10px}.industry-questions.hidden{display:none!important}
+.question-step .form-grid{gap:6px 16px}.question-step .field{margin-bottom:12px}.question-step .field label{font-size:12px}
+.question-step .field input,.question-step .field select,.question-step .field textarea{border-radius:6px}
+@media(max-width:760px){
+ .welcome-block{align-items:flex-start}.profile-avatar{width:46px;height:46px;flex-basis:46px}.profile-avatar i{font-size:27px}
+ .milestone-track{padding:17px 16px}.milestone-track-heading{display:block}.milestone-track-heading .sub{margin-top:9px}
+ .milestone-track #task-list{display:flex;overflow-x:auto;padding:2px 0 8px;gap:18px;scroll-snap-type:x proximity}
+ .milestone-track #task-list:before{right:auto;width:calc(100% - 20px)}
+ .milestone-track #task-list .list{min-width:142px;max-width:142px;scroll-snap-align:start}
+ .questionnaire-launch{display:block;padding:20px 18px}.questionnaire-launch-action{align-items:flex-start;margin-top:15px}
+ .booking-fields{grid-template-columns:1fr;gap:0}.booking-note-field{grid-column:auto}.booking-card{padding:20px 18px}
+ .questionnaire-launch.is-required .questionnaire-launch-copy{padding-left:4px}
+}
+@media(prefers-reduced-motion:reduce){.start-nudge i{animation:none}}
+
 </style>
 </head>
 <body>
@@ -99,7 +160,7 @@
 </section>
 <section id="dashboard-view" class="hidden">
   <div class="dashboard-head">
-    <div><span class="eyebrow">Participant dashboard</span><h2 id="welcome" style="font-size:25px;color:var(--navy);margin:5px 0">Welcome</h2><p class="sub" style="margin:0">Small Business Startup Program</p></div>
+    <div class="welcome-block"><div class="profile-avatar" aria-hidden="true"><i class="ph ph-user-circle"></i></div><div class="welcome-copy"><span class="eyebrow">Participant dashboard</span><h2 id="welcome" style="font-size:25px;color:var(--navy);margin:5px 0">Welcome</h2><p class="sub" style="margin:0">Small Business Startup Program</p></div></div>
     <div class="dashboard-actions"><button type="button" id="admin-preview-button" class="btn secondary">Admin preview</button><button type="button" id="signout" class="btn secondary">Sign out</button></div>
   </div>
   <div class="cards">
@@ -107,12 +168,16 @@
     <div class="stat"><small>Next session</small><strong id="next-session" style="font-size:17px">Not booked</strong><small>Session details will appear here.</small></div>
     <div class="stat"><small>Resources available</small><strong id="resource-count">0</strong><small>Documents shared for you to download.</small></div>
   </div>
-  <section class="panel questionnaire-launch">
-    <div><span class="eyebrow">Getting started</span><h2 style="margin-top:6px">Participant questionnaire</h2><p class="sub" style="margin:6px 0 0">Tell us about your business, current situation and the support you need.</p><p id="questionnaire-state" class="status" role="status">Not completed</p></div>
-    <button type="button" id="open-questionnaire" class="btn">Complete questionnaire</button>
+  <section class="panel milestone-track" aria-labelledby="milestone-title">
+    <div class="milestone-track-heading"><div><span class="eyebrow">Your journey</span><h2 id="milestone-title">Programme milestones</h2></div><p class="sub">A simple overview of the key stages. Your UBF coordinator updates these as you progress.</p></div>
+    <div id="task-list"><p class="status">Your milestones will appear here when they are added by your programme coordinator.</p></div>
+  </section>
+  <section id="questionnaire-launch" class="panel questionnaire-launch is-required">
+    <div class="questionnaire-launch-copy"><span class="eyebrow">Step 1 · Start here</span><h2 style="margin-top:6px">Business and participant survey</h2><p class="sub" style="margin:6px 0 0">Help us understand your business, products, customers and support needs so the programme fits your situation.</p><p id="questionnaire-state" class="status" role="status">Not completed — this is your first task.</p></div>
+    <div class="questionnaire-launch-action"><span id="start-here-nudge" class="start-nudge"><i class="ph-bold ph-arrow-down-right"></i> Start here</span><button type="button" id="open-questionnaire" class="btn"><i class="ph-bold ph-clipboard-text" aria-hidden="true"></i> Complete survey</button></div>
   </section>
   <section id="questionnaire-card" class="panel questionnaire-panel hidden">
-    <div class="dashboard-head"><div><span class="eyebrow">Participant intake</span><h2 style="margin:5px 0">Your questionnaire</h2><p class="sub" style="margin:0">Three short steps. You can go back before submitting.</p></div><button type="button" id="close-questionnaire" class="btn secondary">Close</button></div>
+    <div class="dashboard-head"><div><span class="eyebrow">Participant intake</span><h2 style="margin:5px 0">Your questionnaire</h2><p class="sub" style="margin:0">Answer the questions that apply to your business. Industry questions adjust to the sector you choose.</p></div><button type="button" id="close-questionnaire" class="btn secondary">Close</button></div>
     <div class="wizard-head"><span id="question-step-title">Step 1 of 3 · About you</span><div class="progress"><span id="question-progress" style="width:33.33%"></span></div></div>
     <form id="questionnaire-form" novalidate>
       <div class="question-step" data-step="0">
@@ -126,9 +191,110 @@
       <div class="question-step hidden" data-step="1">
         <div class="form-grid">
           <div class="field"><label for="q-business">Business name or idea *</label><input id="q-business" name="Business name or idea" required placeholder="Write “Still deciding” if unsure"></div>
-          <div class="field"><label for="q-industry">Industry / sector *</label><select id="q-industry" name="Industry or sector" required><option value="">Choose a sector</option><option>Food and agriculture</option><option>Retail and trading</option><option>Construction and property</option><option>Beauty and personal care</option><option>Digital and creative services</option><option>Professional services</option><option>Tourism and hospitality</option><option>Manufacturing and making</option><option>Community or non-profit work</option><option>Other</option></select></div>
+          <div class="field"><label for="q-industry">Industry / sector *</label><select id="q-industry" name="Industry or sector" required><option value="">Choose a sector</option><option>Food and agriculture</option><option>Retail and trading</option><option>Construction and property</option><option>Beauty and personal care</option><option>Digital and creative services</option><option>Professional services</option><option>Tourism and hospitality</option><option>Manufacturing and making</option><option>Community or non-profit work</option><option>Transport and logistics</option><option>Education and training</option><option>Health and wellbeing</option><option>Other</option></select></div>
           <div class="field"><label for="q-stage">Current stage *</label><select id="q-stage" name="Business stage" required><option value="">Choose current stage</option><option>Idea only</option><option>Testing the idea</option><option>Already trading</option><option>Growing an existing business</option><option>Not applicable yet</option></select></div>
-          <div class="field"><label for="q-offering">What do you sell or plan to offer? *</label><textarea id="q-offering" name="Product or service" rows="3" required></textarea></div>
+          <div class="field"><label for="q-offering">What do you sell or plan to offer? *</label><textarea id="q-offering" name="Product or service" rows="3" required placeholder="List your main products or services"></textarea></div>
+          <div class="field"><label for="q-registration">Business registration status</label><select id="q-registration" name="Registration status"><option value="">Choose one</option><option>Not registered yet</option><option>Registered company (Pty Ltd)</option><option>Sole proprietor</option><option>Co-operative</option><option>Non-profit organisation / NPO</option><option>Other registration</option><option>Not sure</option></select></div>
+          <div class="field"><label for="q-location">Where do you operate or plan to operate?</label><input id="q-location" name="Operating area" placeholder="Neighbourhood, town, province or online"></div>
+          <div class="field"><label for="q-customer">Who are your main customers?</label><select id="q-customer" name="Main customer group"><option value="">Choose one</option><option>Individuals / households</option><option>Other businesses</option><option>Government / public sector</option><option>Schools or education providers</option><option>Tourists / visitors</option><option>Community organisations</option><option>Mixed customer groups</option><option>Still identifying customers</option></select></div>
+          <div class="field"><label for="q-sales">How do customers currently buy from you?</label><select id="q-sales" name="Sales channel"><option value="">Choose one</option><option>In person / physical location</option><option>WhatsApp or social media</option><option>Website or online store</option><option>Markets / events / pop-ups</option><option>Direct sales / referrals</option><option>Suppliers / contracts / tenders</option><option>Not selling yet</option><option>More than one channel</option></select></div>
+          <div class="field"><label for="q-team">How many people are involved?</label><select id="q-team" name="Team size"><option value="">Choose one</option><option>Just me</option><option>2–3 people</option><option>4–10 people</option><option>11–25 people</option><option>More than 25 people</option><option>Volunteers / family support</option></select></div>
+          <div class="field"><label for="q-revenue">Average monthly sales (estimate)</label><select id="q-revenue" name="Monthly sales range"><option value="">Prefer not to say / not sure</option><option>Not selling yet</option><option>Under R2,000</option><option>R2,000–R9,999</option><option>R10,000–R29,999</option><option>R30,000–R99,999</option><option>R100,000 or more</option></select></div>
+          <div class="field"><label for="q-pricing">How do you set your prices?</label><select id="q-pricing" name="Pricing approach"><option value="">Choose one</option><option>Based on costs and profit margin</option><option>Based on competitor prices</option><option>Based on what customers can pay</option><option>Rates / quotations per job</option><option>Still working out prices</option><option>Not applicable</option></select></div>
+          <div class="field"><label for="q-marketing">How do people currently find you?</label><select id="q-marketing" name="Customer discovery"><option value="">Choose one</option><option>Word of mouth / referrals</option><option>WhatsApp groups</option><option>Social media</option><option>Website / search engines</option><option>Physical foot traffic</option><option>Events / markets</option><option>Partnerships / tenders</option><option>Not yet attracting customers</option><option>Other</option></select></div>
+        </div>
+        <div class="industry-questions-wrap">
+          <div class="industry-questions-intro"><i class="ph ph-squares-four" aria-hidden="true"></i><div><strong>Questions for your sector</strong><span>Choose your industry above to see the questions most relevant to your products or services.</span></div></div>
+          <div class="industry-questions hidden" data-industry-panel="Food and agriculture">
+            <h3>Food and agriculture</h3><p>Tell us about what you produce, prepare or source.</p><div class="form-grid">
+              <div class="field"><label for="q-food-model">Main activity</label><select id="q-food-model" name="Food/agriculture activity"><option value="">Choose one</option><option>Crop or vegetable production</option><option>Livestock / poultry</option><option>Food preparation / catering</option><option>Food processing / packaged goods</option><option>Honey / herbs / natural products</option><option>Food retail / distribution</option><option>Agricultural inputs / services</option><option>Other</option></select></div>
+              <div class="field"><label for="q-food-supply">Where do you source inputs or ingredients?</label><input id="q-food-supply" name="Food/agriculture sourcing" placeholder="Local suppliers, farms, markets..."></div>
+              <div class="field"><label for="q-food-constraints">What limits growth most?</label><select id="q-food-constraints" name="Food/agriculture constraints"><option value="">Choose one</option><option>Land / production space</option><option>Water / equipment / infrastructure</option><option>Inputs / working capital</option><option>Food safety / packaging</option><option>Transport / cold storage</option><option>Access to buyers</option><option>Permits / compliance</option><option>Other</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Retail and trading">
+            <h3>Retail and trading</h3><p>Tell us about your stock, customers and sales channels.</p><div class="form-grid">
+              <div class="field"><label for="q-retail-goods">What kinds of goods do you sell?</label><input id="q-retail-goods" name="Retail product categories" placeholder="Clothing, groceries, accessories..."></div>
+              <div class="field"><label for="q-retail-stock">How do you manage stock?</label><select id="q-retail-stock" name="Stock management"><option value="">Choose one</option><option>Notebook / manual tracking</option><option>Spreadsheet</option><option>Point-of-sale system</option><option>Supplier manages / made to order</option><option>No system yet</option></select></div>
+              <div class="field"><label for="q-retail-supplier">Where do you buy stock?</label><input id="q-retail-supplier" name="Retail suppliers" placeholder="Wholesalers, makers, imports..."></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Construction and property">
+            <h3>Construction and property</h3><p>Tell us about your projects, trade and site requirements.</p><div class="form-grid">
+              <div class="field"><label for="q-build-trade">Main trade or service</label><input id="q-build-trade" name="Construction/property trade" placeholder="Building, plumbing, maintenance, property..."></div>
+              <div class="field"><label for="q-build-client">Typical client</label><select id="q-build-client" name="Construction/property clients"><option value="">Choose one</option><option>Households</option><option>Landlords / property managers</option><option>Businesses</option><option>Developers / contractors</option><option>Public sector</option><option>Mixed</option></select></div>
+              <div class="field"><label for="q-build-needs">What would help you win more work?</label><select id="q-build-needs" name="Construction/property support"><option value="">Choose one</option><option>Portfolio / references</option><option>Quotations and costing</option><option>Registration / compliance</option><option>Tools / equipment</option><option>Supplier connections</option><option>Access to tenders / contracts</option><option>Other</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Beauty and personal care">
+            <h3>Beauty and personal care</h3><p>Tell us about your services or beauty products.</p><div class="form-grid">
+              <div class="field"><label for="q-beauty-type">Main offering</label><select id="q-beauty-type" name="Beauty service/product"><option value="">Choose one</option><option>Hair / barbering</option><option>Nails / lashes</option><option>Skin care / wellness</option><option>Cosmetics / beauty retail</option><option>Mobile / home-based beauty</option><option>Training / products for professionals</option><option>Other</option></select></div>
+              <div class="field"><label for="q-beauty-place">Where do you serve customers?</label><select id="q-beauty-place" name="Beauty delivery location"><option value="">Choose one</option><option>Salon / shop</option><option>Home-based</option><option>Mobile / clients' homes</option><option>Online product sales</option><option>Mixed</option></select></div>
+              <div class="field"><label for="q-beauty-booking">How are appointments or orders managed?</label><select id="q-beauty-booking" name="Beauty booking system"><option value="">Choose one</option><option>WhatsApp / phone</option><option>Social media messages</option><option>Online booking system</option><option>Walk-ins</option><option>No consistent system yet</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Digital and creative services">
+            <h3>Digital and creative services</h3><p>Tell us about your creative output and how clients commission you.</p><div class="form-grid">
+              <div class="field"><label for="q-digital-type">Main service or product</label><select id="q-digital-type" name="Digital/creative specialism"><option value="">Choose one</option><option>Design / branding</option><option>Photography / video</option><option>Web / software / IT</option><option>Marketing / content / social media</option><option>Music / arts / performance</option><option>Writing / publishing</option><option>Digital products / courses</option><option>Other</option></select></div>
+              <div class="field"><label for="q-digital-portfolio">Do you have a portfolio or online presence?</label><select id="q-digital-portfolio" name="Digital portfolio"><option value="">Choose one</option><option>Website / online portfolio</option><option>Social media page</option><option>Examples available on request</option><option>Not yet</option></select></div>
+              <div class="field"><label for="q-digital-billing">How do you charge for your work?</label><select id="q-digital-billing" name="Digital pricing model"><option value="">Choose one</option><option>Per project</option><option>Hourly / daily rate</option><option>Monthly retainer</option><option>Product / subscription</option><option>Still deciding</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Professional services">
+            <h3>Professional services</h3><p>Tell us about your expertise, clients and delivery.</p><div class="form-grid">
+              <div class="field"><label for="q-prof-type">Type of service</label><input id="q-prof-type" name="Professional service type" placeholder="Consulting, bookkeeping, HR, etc."></div>
+              <div class="field"><label for="q-prof-credentials">Relevant credentials or registrations</label><input id="q-prof-credentials" name="Professional credentials" placeholder="Qualifications, licences, memberships..."></div>
+              <div class="field"><label for="q-prof-acquisition">How do you currently find clients?</label><select id="q-prof-acquisition" name="Professional service client acquisition"><option value="">Choose one</option><option>Referrals / network</option><option>Direct outreach</option><option>Online presence</option><option>Tenders / panels</option><option>Not yet established</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Tourism and hospitality">
+            <h3>Tourism and hospitality</h3><p>Tell us about your visitors, experiences and booking operations.</p><div class="form-grid">
+              <div class="field"><label for="q-tourism-type">What do you offer?</label><select id="q-tourism-type" name="Tourism/hospitality offering"><option value="">Choose one</option><option>Accommodation</option><option>Tours / experiences</option><option>Food / catering / restaurant</option><option>Transport / transfers</option><option>Events / venues</option><option>Crafts / visitor retail</option><option>Travel services</option><option>Other</option></select></div>
+              <div class="field"><label for="q-tourism-market">Who is your target market?</label><select id="q-tourism-market" name="Tourism target market"><option value="">Choose one</option><option>Local visitors</option><option>Domestic travellers</option><option>International tourists</option><option>Corporate groups</option><option>Schools / educational groups</option><option>Mixed</option></select></div>
+              <div class="field"><label for="q-tourism-booking">How are bookings handled?</label><select id="q-tourism-booking" name="Tourism booking channel"><option value="">Choose one</option><option>WhatsApp / phone</option><option>Website</option><option>Booking platform</option><option>Travel agents / partners</option><option>Walk-in</option><option>Not yet operating</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Manufacturing and making">
+            <h3>Manufacturing and making</h3><p>Tell us about the products you make and how they reach customers.</p><div class="form-grid">
+              <div class="field"><label for="q-make-product">What do you make?</label><input id="q-make-product" name="Manufacturing product" placeholder="Clothing, furniture, crafts, packaged goods..."></div>
+              <div class="field"><label for="q-make-capacity">Current production capacity</label><select id="q-make-capacity" name="Production capacity"><option value="">Choose one</option><option>Made to order</option><option>Small batches</option><option>Regular production</option><option>Outsourced production</option><option>Still developing samples</option></select></div>
+              <div class="field"><label for="q-make-constraints">Main production challenge</label><select id="q-make-constraints" name="Production challenge"><option value="">Choose one</option><option>Equipment / tools</option><option>Materials / suppliers</option><option>Workspace</option><option>Quality / packaging</option><option>Costing / pricing</option><option>Orders / distribution</option><option>Other</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Community or non-profit work">
+            <h3>Community or non-profit work</h3><p>Tell us about your community outcomes and how the work is organised.</p><div class="form-grid">
+              <div class="field"><label for="q-npo-type">Organisation type</label><select id="q-npo-type" name="Community organisation type"><option value="">Choose one</option><option>Community initiative</option><option>Registered NPO / NGO</option><option>Co-operative</option><option>Social enterprise</option><option>Church / faith-based initiative</option><option>Youth / sports organisation</option><option>Other</option></select></div>
+              <div class="field"><label for="q-npo-beneficiaries">Who benefits from your work?</label><input id="q-npo-beneficiaries" name="Community beneficiaries" placeholder="Young people, families, local community..."></div>
+              <div class="field"><label for="q-npo-income">How is the work funded?</label><select id="q-npo-income" name="Community funding"><option value="">Choose one</option><option>Sales / earned income</option><option>Donations</option><option>Grants / sponsorships</option><option>Membership / contributions</option><option>Mixed / not yet funded</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Transport and logistics">
+            <h3>Transport and logistics</h3><p>Tell us about your fleet, routes and delivery model.</p><div class="form-grid">
+              <div class="field"><label for="q-transport-service">Main service</label><select id="q-transport-service" name="Transport service"><option value="">Choose one</option><option>Passenger transport</option><option>Courier / last-mile delivery</option><option>Freight / logistics</option><option>Vehicle hire</option><option>Tourism transfers</option><option>Other</option></select></div>
+              <div class="field"><label for="q-transport-assets">Do you own or access vehicles?</label><select id="q-transport-assets" name="Transport assets"><option value="">Choose one</option><option>Own vehicle / fleet</option><option>Lease / rent</option><option>Partner network</option><option>Not yet</option></select></div>
+              <div class="field"><label for="q-transport-market">Main customer group</label><input id="q-transport-market" name="Transport customer group" placeholder="Households, companies, travel operators..."></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Education and training">
+            <h3>Education and training</h3><p>Tell us about your learners, programme and delivery format.</p><div class="form-grid">
+              <div class="field"><label for="q-edu-offering">Main learning offer</label><input id="q-edu-offering" name="Education offering" placeholder="Tutoring, skills, courses, training..."></div>
+              <div class="field"><label for="q-edu-audience">Who do you teach or train?</label><select id="q-edu-audience" name="Education audience"><option value="">Choose one</option><option>Children / school learners</option><option>Students / graduates</option><option>Adults / professionals</option><option>Businesses / teams</option><option>Community groups</option><option>Mixed</option></select></div>
+              <div class="field"><label for="q-edu-mode">How is it delivered?</label><select id="q-edu-mode" name="Education delivery mode"><option value="">Choose one</option><option>In person</option><option>Online</option><option>Hybrid</option><option>Mobile / on-site</option><option>Still developing</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Health and wellbeing">
+            <h3>Health and wellbeing</h3><p>Tell us about your service scope and how clients access it.</p><div class="form-grid">
+              <div class="field"><label for="q-health-type">Type of service or product</label><input id="q-health-type" name="Health/wellbeing type" placeholder="Fitness, wellbeing, care, health products..."></div>
+              <div class="field"><label for="q-health-setting">Where is it delivered?</label><select id="q-health-setting" name="Health/wellbeing setting"><option value="">Choose one</option><option>Facility / studio</option><option>Client's home</option><option>Mobile / community</option><option>Online</option><option>Retail product</option><option>Mixed</option></select></div>
+              <div class="field"><label for="q-health-requirements">Are permits or professional requirements relevant?</label><select id="q-health-requirements" name="Health/wellbeing requirements"><option value="">Choose one</option><option>Yes, already in place</option><option>Need help understanding requirements</option><option>No special requirements known</option><option>Not sure</option></select></div>
+            </div>
+          </div>
+          <div class="industry-questions hidden" data-industry-panel="Other">
+            <h3>Other business type</h3><p>Describe what makes your business or idea unique.</p><div class="form-grid">
+              <div class="field"><label for="q-other-detail">Describe your field and what you offer</label><textarea id="q-other-detail" name="Other sector details" rows="2"></textarea></div>
+              <div class="field"><label for="q-other-needs">What equipment, resources or relationships do you rely on?</label><textarea id="q-other-needs" name="Other sector resources" rows="2"></textarea></div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="question-step hidden" data-step="2">
@@ -150,21 +316,18 @@
     </form>
     <p id="questionnaire-status" class="status" role="status" aria-live="polite"></p>
   </section>
-  <div class="dash-grid">
-    <section class="panel">
-      <h2>Programme milestones</h2><p class="sub">Your UBF coordinator will update each milestone and any actions required.</p>
-      <div id="task-list"><p class="status">Your milestones will appear here when they are added by your programme coordinator.</p></div>
-    </section>
-    <section class="panel">
-      <h2>Book an intake session</h2><p class="sub">Choose a preferred date and time. This preview will show the request but will not send it to UBF.</p>
-      <form id="booking-form">
+  <section id="booking-card" class="panel booking-card is-locked" aria-labelledby="booking-title">
+    <div class="booking-heading"><div><span class="eyebrow">Step 2 · After your survey</span><h2 id="booking-title" style="margin:6px 0 7px">Book an intake session</h2><p class="sub" style="margin:0">Choose a preferred date and time to discuss the next steps for your business.</p></div><span class="step-number">02</span></div>
+    <p id="booking-gate" class="booking-gate status" role="status">Complete Step 1 — your business survey — to unlock session booking.</p>
+    <form id="booking-form">
+      <div class="booking-fields">
         <div class="field"><label for="session-date">Preferred date</label><input type="date" id="session-date" required></div>
         <div class="field"><label for="session-time">Preferred time</label><select id="session-time" required><option value="">Choose a time</option><option>09:00</option><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option>15:00</option></select></div>
-        <div class="field"><label for="session-note">Optional note</label><textarea id="session-note" rows="2" placeholder="Anything you would like UBF to know"></textarea></div>
-        <button class="btn" type="submit">Preview session request</button><p id="booking-status" class="status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-  </div>
+        <div class="field booking-note-field"><label for="session-note">What would you like to discuss? (optional)</label><textarea id="session-note" rows="2" placeholder="Any question or challenge you would like to discuss"></textarea></div>
+      </div>
+      <button class="btn" type="submit">Request a session preview <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></button><p id="booking-status" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
   <section class="panel" style="margin-top:16px">
     <h2>My resources</h2><p class="sub">Documents and learning material shared specifically with you will appear here for download.</p>
     <div id="resource-list" class="resource-list"><p class="status">No resources have been shared with you yet.</p></div>
