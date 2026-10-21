@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#112240">
+<title>UBF Program Portal</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<style>
+:root{--navy:#112240;--teal:#187c72;--orange:#bd7b2d;--ink:#172b3a;--muted:#63717b;--line:#e0e6e7;--pale:#f4f6f4}*{box-sizing:border-box}body{margin:0;background:var(--pale);font-family:Nunito,Arial,sans-serif;color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{background:#fff;border-bottom:1px solid var(--line)}.topin{max-width:1120px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:14px;font-weight:800;letter-spacing:.06em;color:var(--navy)}.brand small{display:block;color:var(--teal);font-size:11px;letter-spacing:.14em;margin-top:3px}.top a{color:var(--navy);font-size:13px;font-weight:700;text-decoration:none}.wrap{max-width:1120px;margin:0 auto;padding:36px 22px 70px}.eyebrow{text-transform:uppercase;color:var(--orange);letter-spacing:.15em;font-size:11px;font-weight:800}.intro{max-width:700px;margin-bottom:28px}.intro h1{font-size:clamp(30px,5vw,46px);line-height:1.1;color:var(--navy);margin:10px 0 12px}.intro p{color:var(--muted);line-height:1.65;margin:0}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.7fr);gap:22px;align-items:start}.panel{background:#fff;border:1px solid var(--line);padding:25px;border-radius:8px}.panel h2{font-size:20px;color:var(--navy);margin:0 0 7px}.sub{font-size:13px;color:var(--muted);line-height:1.55;margin:0 0 20px}.field{display:grid;gap:6px;margin-bottom:14px}.field label{font-size:12px;font-weight:800;color:var(--navy)}.field input,.field select,.field textarea{width:100%;min-height:44px;border:1px solid #cfd8da;border-radius:5px;padding:10px 12px;background:#fff;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #187c7244;border-color:var(--teal)}.btn{border:1px solid var(--navy);background:var(--navy);color:#fff;padding:11px 16px;border-radius:5px;font-size:13px;font-weight:800}.btn.secondary{background:white;color:var(--navy)}.btn:disabled{opacity:.55;cursor:not-allowed}.tabs{display:flex;gap:8px;margin-bottom:18px}.tabs button{flex:1}.status{font-size:13px;line-height:1.5;margin-top:14px;color:var(--muted)}.status.error{color:#9e3228}.status.ok{color:var(--teal)}.notice{background:#f7f4ec;border-left:3px solid var(--orange);padding:13px 14px;font-size:12px;line-height:1.55;color:#57452e;margin-top:18px}.side{background:var(--navy);color:#fff;padding:26px;border-radius:8px}.side h2{font-size:20px;margin:0 0 12px}.side p,.side li{color:#d9e1e7;font-size:13px;line-height:1.65}.side ul{padding-left:18px}.hidden{display:none!important}.dashboard-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.stat{padding:18px;background:#fff;border:1px solid var(--line);border-radius:7px}.stat small{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;color:var(--navy);font-size:23px;margin-top:6px}.progress{height:8px;background:#e7eceb;border-radius:20px;overflow:hidden;margin:12px 0}.progress span{display:block;width:0;height:100%;background:var(--teal)}.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.list{border-top:1px solid var(--line);padding:12px 0;font-size:13px}.footer{color:var(--muted);font-size:11px;text-align:center;margin-top:30px}@media(max-width:760px){.wrap{padding:28px 16px 48px}.topin{padding:15px 16px}.layout,.dash-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.panel,.side{padding:20px}.intro{margin-bottom:22px}}
+
+.task-row{display:flex;align-items:center;gap:10px;cursor:pointer;padding:12px 0}
+.task-row input{accent-color:var(--teal);width:17px;height:17px;flex-shrink:0}
+#dashboard-view h2{font-size:19px}
+#dashboard-view .panel,#dashboard-view .stat{border-radius:6px}
+#resource-files{padding:8px;border:1px dashed #c7d2d4;background:#f8faf9;font-size:13px}
+.intro h1{font-size:clamp(27px,4vw,36px)}
+@media(max-width:760px){.intro h1{font-size:clamp(27px,7vw,35px)}.cards{grid-template-columns:1fr}.task-row{align-items:flex-start}}
+
+/* Compact portal hero. A user-supplied image will be placed here next. */
+.portal-hero{min-height:150px;background:linear-gradient(120deg,#112240 0%,#173652 58%,#187c72 100%);color:#fff;display:flex;align-items:center}
+.portal-hero-inner{width:min(1120px,100%);margin:0 auto;padding:23px 22px}
+.portal-hero .eyebrow{color:#e7bd7a}.portal-hero h1{font-size:clamp(25px,3.3vw,36px);line-height:1.12;color:#fff;margin:7px 0 6px;letter-spacing:-.02em}
+.portal-hero p{font-size:13px;color:#e0e9ea;line-height:1.5;margin:0}
+.wrap{padding-top:25px}
+.dashboard-actions{display:flex;gap:8px;flex-wrap:wrap}
+.questionnaire-launch{display:flex;justify-content:space-between;align-items:center;gap:22px;margin:16px 0}
+.questionnaire-launch h2{font-size:20px}.questionnaire-panel{margin:16px 0}
+.wizard-head{display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--navy);font-weight:800;font-size:12px;margin:3px 0 14px}
+.wizard-head .progress{width:160px;max-width:36%;margin:0}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
+.question-step{padding:8px 0}.question-step.hidden{display:none!important}
+.wizard-controls{display:flex;align-items:center;gap:9px;justify-content:space-between;border-top:1px solid var(--line);padding-top:16px;margin-top:12px}
+.wizard-controls .status{margin:0;max-width:320px;font-size:11px}
+.support-options{border:0;padding:0;min-width:0}
+.support-options legend{font-size:12px;font-weight:800;color:var(--navy);margin-bottom:9px}
+.support-options label{display:flex;gap:10px;align-items:center;border:1px solid var(--line);padding:10px 12px;margin:6px 0;border-radius:5px;font-size:13px}
+.support-options input,.consent-line input{accent-color:var(--teal);width:17px;height:17px;flex-shrink:0}
+.consent-line{display:flex;align-items:flex-start;gap:9px;line-height:1.5;font-size:12px;margin:16px 0;color:var(--muted)}
+.task-row-admin{display:grid;grid-template-columns:minmax(0,1fr) 170px;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:11px 0}
+.task-row-admin:last-child{border-bottom:0}
+.task-row-admin strong{display:block;color:var(--navy);font-size:13px}.task-row-admin small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.task-row-admin select{width:100%;border:1px solid #cfd8da;background:#fff;border-radius:4px;min-height:38px;padding:7px;font-size:12px;color:var(--ink)}
+.task-status{display:inline-block;background:#edf1ef;color:#596b68;padding:4px 7px;border-radius:3px;font-size:10px;font-weight:800}
+.task-status.complete{background:#e2f1e9;color:#21664b}.task-status.needs-support{background:#fff0df;color:#8a5515}.task-status.in-progress{background:#e6f1f3;color:#1d6170}
+.admin-select-panel{display:grid;grid-template-columns:minmax(230px,.6fr) minmax(0,1fr);gap:22px;align-items:center;margin-bottom:14px}
+.admin-person-summary{font-size:12px;color:var(--muted);line-height:1.6}
+.resource-item{display:flex;justify-content:space-between;align-items:center;gap:14px;border-top:1px solid var(--line);padding:13px 0}
+.resource-item:first-child{border-top:0}
+.resource-item strong{display:block;font-size:13px;color:var(--navy)}
+.resource-item small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.resource-item a{font-size:12px;font-weight:800;color:var(--teal);white-space:nowrap}
+.response-preview{font-size:13px;line-height:1.6;color:var(--muted)}
+.response-line{border-top:1px solid var(--line);padding:10px 0;white-space:pre-wrap}
+.response-line strong{display:block;color:var(--navy);font-size:11px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+@media(max-width:760px){
+ .portal-hero{min-height:132px}.portal-hero-inner{padding:19px 16px}
+ .wrap{padding:20px 16px 48px}
+ .questionnaire-launch,.admin-select-panel{display:block}
+ .questionnaire-launch .btn{margin-top:14px}
+ .form-grid{grid-template-columns:1fr;gap:0}
+ .wizard-controls{flex-wrap:wrap}
+ .wizard-controls .status{order:3;flex-basis:100%;max-width:none}
+ .task-row-admin{grid-template-columns:1fr;gap:7px}
+ .task-row-admin select{max-width:100%}
+ .resource-item{align-items:flex-start}
+ .cards.admin-stats{grid-template-columns:1fr 1fr}
+}
+
+</style>
+</head>
+<body>
+<header class="top"><div class="topin"><div class="brand">UNITY BRIDGE FOUNDATION<small>PROGRAM PORTAL</small></div><a href="./index.html">← Back to UBF website</a></div></header>
+<section class="portal-hero">
+  <div class="portal-hero-inner">
+    <span class="eyebrow">Unity Bridge Foundation · Participant portal</span>
+    <h1>Your programme, in one place.</h1>
+    <p>Questionnaires, programme updates and resources in one space.</p>
+  </div>
+</section>
+<main class="wrap">
+<section id="auth-view" class="layout">
+<div class="panel">
+<h2>Participant sign-in</h2><p class="sub">Preview mode is open for review. Enter any email address and password to view the dashboard; the access code is optional in this prototype.</p>
+<div class="tabs"><button type="button" id="tab-login" class="btn" aria-pressed="true">Sign in</button><button type="button" id="tab-register" class="btn secondary" aria-pressed="false">Create account</button></div>
+<form id="auth-form">
+<div class="field"><label for="access-code">Programme access code</label><input id="access-code" name="accessCode" autocomplete="off" placeholder="Optional in this preview"></div>
+<div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+<div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Enter any password"></div>
+<div id="confirm-field" class="field hidden"><label for="confirm-password">Confirm password</label><input id="confirm-password" type="password" autocomplete="new-password" placeholder="Enter password again"></div>
+<button id="auth-submit" class="btn" type="submit">Sign in</button><p id="auth-status" class="status" role="status" aria-live="polite">Preview only: any email and password will open the demo dashboard. Do not use a real password; no password is stored.</p>
+</form>
+<div class="notice"><strong>Preview mode:</strong> use any email address and password to view the sample dashboard. This does not create a real account, verify access codes, save programme data to UBF or send bookings. Do not enter sensitive information.</div>
+</div>
+<aside class="side"><h2>What you can do here</h2><ul><li>Request an intake or interview session.</li><li>See confirmed appointments and next steps.</li><li>Track programme milestones and completed tasks.</li><li>Access programme documents and resources as they become available.</li></ul><p>Designed to be simple on mobile. The portal will only become active once UBF connects its secure authentication and data services.</p></aside>
+</section>
+<section id="dashboard-view" class="hidden">
+  <div class="dashboard-head">
+    <div><span class="eyebrow">Participant dashboard</span><h2 id="welcome" style="font-size:25px;color:var(--navy);margin:5px 0">Welcome</h2><p class="sub" style="margin:0">Small Business Startup Program</p></div>
+    <div class="dashboard-actions"><button type="button" id="admin-preview-button" class="btn secondary">Admin preview</button><button type="button" id="signout" class="btn secondary">Sign out</button></div>
+  </div>
+  <div class="cards">
+    <div class="stat"><small>Programme progress</small><strong id="progress-label">0%</strong><div class="progress"><span id="progress-bar"></span></div><small>Updated by your UBF coordinator.</small></div>
+    <div class="stat"><small>Next session</small><strong id="next-session" style="font-size:17px">Not booked</strong><small>Session details will appear here.</small></div>
+    <div class="stat"><small>Resources available</small><strong id="resource-count">0</strong><small>Documents shared for you to download.</small></div>
+  </div>
+  <section class="panel questionnaire-launch">
+    <div><span class="eyebrow">Getting started</span><h2 style="margin-top:6px">Participant questionnaire</h2><p class="sub" style="margin:6px 0 0">Tell us about your business, current situation and the support you need.</p><p id="questionnaire-state" class="status" role="status">Not completed</p></div>
+    <button type="button" id="open-questionnaire" class="btn">Complete questionnaire</button>
+  </section>
+  <section id="questionnaire-card" class="panel questionnaire-panel hidden">
+    <div class="dashboard-head"><div><span class="eyebrow">Participant intake</span><h2 style="margin:5px 0">Your questionnaire</h2><p class="sub" style="margin:0">Three short steps. You can go back before submitting.</p></div><button type="button" id="close-questionnaire" class="btn secondary">Close</button></div>
+    <div class="wizard-head"><span id="question-step-title">Step 1 of 3 · About you</span><div class="progress"><span id="question-progress" style="width:33.33%"></span></div></div>
+    <form id="questionnaire-form" novalidate>
+      <div class="question-step" data-step="0">
+        <div class="form-grid">
+          <div class="field"><label for="q-name">Full name *</label><input id="q-name" name="Full name" autocomplete="name" required></div>
+          <div class="field"><label for="q-phone">Contact number *</label><input id="q-phone" name="Contact number" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="q-area">Town or area *</label><input id="q-area" name="Town or area" placeholder="e.g. Khayelitsha, Cape Town" required></div>
+          <div class="field"><label for="q-situation">Which best describes you? *</label><select id="q-situation" name="Current situation" required><option value="">Choose one</option><option>Starting a business idea</option><option>Running an informal business</option><option>Running a registered business</option><option>Graduate or jobseeker</option><option>Community organisation</option><option>Other</option></select></div>
+        </div>
+      </div>
+      <div class="question-step hidden" data-step="1">
+        <div class="form-grid">
+          <div class="field"><label for="q-business">Business name or idea *</label><input id="q-business" name="Business name or idea" required placeholder="Write “Still deciding” if unsure"></div>
+          <div class="field"><label for="q-industry">Industry / sector *</label><select id="q-industry" name="Industry or sector" required><option value="">Choose a sector</option><option>Food and agriculture</option><option>Retail and trading</option><option>Construction and property</option><option>Beauty and personal care</option><option>Digital and creative services</option><option>Professional services</option><option>Tourism and hospitality</option><option>Manufacturing and making</option><option>Community or non-profit work</option><option>Other</option></select></div>
+          <div class="field"><label for="q-stage">Current stage *</label><select id="q-stage" name="Business stage" required><option value="">Choose current stage</option><option>Idea only</option><option>Testing the idea</option><option>Already trading</option><option>Growing an existing business</option><option>Not applicable yet</option></select></div>
+          <div class="field"><label for="q-offering">What do you sell or plan to offer? *</label><textarea id="q-offering" name="Product or service" rows="3" required></textarea></div>
+        </div>
+      </div>
+      <div class="question-step hidden" data-step="2">
+        <fieldset class="field support-options">
+          <legend>What support would be most useful? Select all that apply. *</legend>
+          <label><input type="checkbox" name="Support needed" value="Business plan"> Business plan and business profile</label>
+          <label><input type="checkbox" name="Support needed" value="Market research"> Market research and finding customers</label>
+          <label><input type="checkbox" name="Support needed" value="Banking and payments"> Banking, payments and administration</label>
+          <label><input type="checkbox" name="Support needed" value="Website and digital presence"> Website, digital presence and e-commerce</label>
+          <label><input type="checkbox" name="Support needed" value="Marketing and sales"> Marketing and sales</label>
+          <label><input type="checkbox" name="Support needed" value="Operations and compliance"> Operations, records and compliance</label>
+          <label><input type="checkbox" name="Support needed" value="Skills and work opportunities"> Skills development or work opportunities</label>
+        </fieldset>
+        <div class="field"><label for="q-challenge">What is your biggest challenge right now? *</label><textarea id="q-challenge" name="Main challenge" rows="3" required placeholder="A short answer is fine"></textarea></div>
+        <div class="field"><label for="q-goal">What would you like to achieve through the programme? *</label><textarea id="q-goal" name="Programme goal" rows="3" required></textarea></div>
+        <label class="consent-line"><input type="checkbox" id="q-consent" required> I confirm that the information is accurate to the best of my knowledge and may be used by UBF to assess and coordinate programme support.</label>
+      </div>
+      <div class="wizard-controls"><button type="button" id="question-prev" class="btn secondary" disabled>Back</button><span id="question-save-note" class="status">Preview only: your answers will not be sent to UBF.</span><button type="button" id="question-next" class="btn">Next</button><button type="submit" id="question-submit" class="btn hidden">Submit questionnaire</button></div>
+    </form>
+    <p id="questionnaire-status" class="status" role="status" aria-live="polite"></p>
+  </section>
+  <div class="dash-grid">
+    <section class="panel">
+      <h2>Programme milestones</h2><p class="sub">Your UBF coordinator will update each milestone and any actions required.</p>
+      <div id="task-list"><p class="status">Your milestones will appear here when they are added by your programme coordinator.</p></div>
+    </section>
+    <section class="panel">
+      <h2>Book an intake session</h2><p class="sub">Choose a preferred date and time. This preview will show the request but will not send it to UBF.</p>
+      <form id="booking-form">
+        <div class="field"><label for="session-date">Preferred date</label><input type="date" id="session-date" required></div>
+        <div class="field"><label for="session-time">Preferred time</label><select id="session-time" required><option value="">Choose a time</option><option>09:00</option><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option>15:00</option></select></div>
+        <div class="field"><label for="session-note">Optional note</label><textarea id="session-note" rows="2" placeholder="Anything you would like UBF to know"></textarea></div>
+        <button class="btn" type="submit">Preview session request</button><p id="booking-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+  <section class="panel" style="margin-top:16px">
+    <h2>My resources</h2><p class="sub">Documents and learning material shared specifically with you will appear here for download.</p>
+    <div id="resource-list" class="resource-list"><p class="status">No resources have been shared with you yet.</p></div>
+  </section>
+</section>
+
+<section id="admin-view" class="hidden">
+  <div class="dashboard-head">
+    <div><span class="eyebrow">Coordinator workspace · Demo</span><h2 style="font-size:25px;color:var(--navy);margin:5px 0">Participant administration</h2><p class="sub" style="margin:0">Update individual milestones and share resources with participants.</p></div>
+    <div class="dashboard-actions"><button type="button" id="return-participant" class="btn secondary">Participant preview</button><button type="button" id="admin-signout" class="btn secondary">Sign out</button></div>
+  </div>
+  <div class="notice"><strong>Prototype only:</strong> these changes exist in this browser session only. This is not secured or connected to a database. Do not add real participant information or sensitive files.</div>
+  <section class="panel admin-select-panel">
+    <div class="field" style="margin:0"><label for="admin-participant">Select participant</label><select id="admin-participant"></select></div>
+    <div id="admin-participant-summary" class="admin-person-summary"></div>
+  </section>
+  <div class="cards admin-stats">
+    <div class="stat"><small>Milestones complete</small><strong id="admin-complete-count">0 / 6</strong></div>
+    <div class="stat"><small>Progress</small><strong id="admin-progress">0%</strong></div>
+    <div class="stat"><small>Shared resources</small><strong id="admin-resource-count">0</strong></div>
+  </div>
+  <div class="dash-grid">
+    <section class="panel">
+      <h2>Milestones and actions</h2><p class="sub">Set the current status for this participant. They see the status and completion percentage in their portal.</p>
+      <div id="admin-milestones" class="admin-milestones"></div>
+      <div class="field" style="margin-top:16px"><label for="admin-notes">Coordinator note / next action</label><textarea id="admin-notes" rows="3" placeholder="What should the participant work on next?"></textarea></div>
+      <button type="button" id="save-admin-note" class="btn">Save note in preview</button><p id="admin-note-status" class="status" role="status"></p>
+    </section>
+    <section class="panel">
+      <h2>Share a document or resource</h2><p class="sub">Choose a file and give it a clear title. It will appear in this participant’s “My resources” panel in this preview.</p>
+      <form id="admin-resource-form">
+        <div class="field"><label for="resource-title">Resource title *</label><input id="resource-title" required placeholder="e.g. Business plan template"></div>
+        <div class="field"><label for="resource-category">Resource type</label><select id="resource-category"><option>Template</option><option>Guide</option><option>Programme document</option><option>Feedback</option><option>Other resource</option></select></div>
+        <div class="field"><label for="resource-file">Choose file *</label><input id="resource-file" type="file" required></div>
+        <button type="submit" class="btn">Add resource to participant preview</button><p id="admin-resource-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+      <div id="admin-resource-list" class="resource-list" style="margin-top:14px"></div>
+    </section>
+  </div>
+  <section class="panel" style="margin-top:16px">
+    <h2>Questionnaire response</h2><p class="sub">Responses submitted in this preview appear here for the selected participant.</p>
+    <div id="admin-questionnaire-response" class="response-preview"><p class="status">No questionnaire has been submitted for this participant in the current preview session.</p></div>
+  </section>
+</section>
+
+<p class="footer">Unity Bridge Foundation · Participant information should be handled securely and only for programme administration.</p>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let authMode = "login";
+let activeParticipantEmail = "";
+let selectedAdminEmail = "";
+let questionnaireStep = 0;
+let currentObjectUrls = [];
+
+const milestoneNames = [
+  "Business idea and goals",
+  "Customer and market research",
+  "Business plan",
+  "Banking and payments",
+  "Website and digital presence",
+  "Operations and next steps"
+];
+const statuses = [
+  {value:"not-started",label:"Not started"},
+  {value:"in-progress",label:"In progress"},
+  {value:"complete",label:"Complete"},
+  {value:"needs-support",label:"Needs support"}
+];
+const participantStore = new Map();
+
+function newParticipant(email,name,business,statusesForMilestones){
+  return {email:email,name:name,business:business||"Not yet provided",
+    milestones:(statusesForMilestones||milestoneNames.map(()=> "not-started")).slice(),
+    note:"",resources:[],questionnaire:null,session:null};
+}
+participantStore.set("thando.mokoena@example.com",newParticipant("thando.mokoena@example.com","Thando Mokoena","Mokoena Fresh Produce",["complete","complete","in-progress","not-started","not-started","not-started"]));
+participantStore.set("lihle.ndlovu@example.com",newParticipant("lihle.ndlovu@example.com","Lihle Ndlovu","Lihle Creative Studio",["complete","in-progress","not-started","not-started","not-started","not-started"]));
+participantStore.set("amanda.smith@example.com",newParticipant("amanda.smith@example.com","Amanda Smith","Cape Corner Catering",["complete","complete","complete","in-progress","not-started","not-started"]));
+
+function humaniseEmail(email){
+  const source=(email||"preview participant").split("@")[0];
+  return source.split(/[._-]/).map(word=>word?word.charAt(0).toUpperCase()+word.slice(1):"").join(" ");
+}
+function ensureParticipant(email){
+  const key=(email||"preview.participant@example.com").trim().toLowerCase();
+  if(!participantStore.has(key))participantStore.set(key,newParticipant(key,humaniseEmail(key),""));
+  return participantStore.get(key);
+}
+function currentParticipant(){return participantStore.get(activeParticipantEmail)||ensureParticipant(activeParticipantEmail);}
+function selectedParticipant(){return participantStore.get(selectedAdminEmail)||currentParticipant();}
+function formatStatus(value){const found=statuses.find(status=>status.value===value);return found?found.label:"Not started";}
+function progressFor(person){return Math.round(person.milestones.filter(value=>value==="complete").length/milestoneNames.length*100);}
+function showStatus(id,message,type){
+ const node=$(id);if(!node)return;
+ node.textContent=message;node.className="status"+(type?" "+type:"");
+}
+function setMode(mode){
+ authMode=mode;
+ const registering=mode==="register";
+ $("confirm-field").classList.toggle("hidden",!registering);
+ $("password").autocomplete=registering?"new-password":"current-password";
+ $("auth-submit").textContent=registering?"Open demo dashboard":"Sign in";
+ $("tab-login").className="btn"+(registering?" secondary":"");
+ $("tab-register").className="btn"+(registering?"":" secondary");
+ $("tab-login").setAttribute("aria-pressed",String(!registering));
+ $("tab-register").setAttribute("aria-pressed",String(registering));
+ showStatus("auth-status","Preview mode: any email and password will work. No account or password is saved.","");
+}
+$("tab-login").addEventListener("click",()=>setMode("login"));
+$("tab-register").addEventListener("click",()=>setMode("register"));
+
+function showDashboard(email){
+ activeParticipantEmail=(email||"preview.participant@example.com").trim().toLowerCase();
+ const person=ensureParticipant(activeParticipantEmail);
+ $("auth-view").classList.add("hidden");
+ $("dashboard-view").classList.remove("hidden");
+ $("admin-view").classList.add("hidden");
+ $("welcome").textContent="Welcome, "+person.name;
+ sessionStorage.setItem("ubf_demo_email",activeParticipantEmail);
+ renderParticipant();
+}
+function renderParticipant(){
+ const person=currentParticipant();
+ $("welcome").textContent="Welcome, "+person.name;
+ $("progress-label").textContent=progressFor(person)+"%";
+ $("progress-bar").style.width=progressFor(person)+"%";
+ $("next-session").textContent=person.session||"Not booked";
+ $("resource-count").textContent=person.resources.length;
+ const tasks=$("task-list");tasks.replaceChildren();
+ person.milestones.forEach((state,index)=>{
+  const row=document.createElement("div");row.className="list";
+  const top=document.createElement("div");top.className="participant-milestone";
+  const label=document.createElement("strong");label.textContent=milestoneNames[index];
+  const badge=document.createElement("span");badge.className="task-status "+state;badge.textContent=formatStatus(state);
+  top.append(label,badge);row.appendChild(top);
+  if(state==="needs-support"){
+   const note=document.createElement("p");note.className="status";note.textContent="Please review the next action shared by your coordinator.";row.appendChild(note);
+  }
+  tasks.appendChild(row);
+ });
+ const resourceList=$("resource-list");resourceList.replaceChildren();
+ if(!person.resources.length){
+  const empty=document.createElement("p");empty.className="status";empty.textContent="No resources have been shared with you yet.";resourceList.appendChild(empty);
+ }else{
+  person.resources.forEach(resource=>{
+   const row=document.createElement("div");row.className="resource-item";
+   const info=document.createElement("div");
+   const title=document.createElement("strong");title.textContent=resource.title;
+   const meta=document.createElement("small");meta.textContent=resource.category+" · "+resource.fileName;
+   info.append(title,meta);row.appendChild(info);
+   const link=document.createElement("a");link.href=resource.url;link.download=resource.fileName;link.textContent="Download";
+   row.appendChild(link);resourceList.appendChild(row);
+  });
+ }
+ if(person.questionnaire){
+   $("questionnaire-state").textContent="Completed in this preview";
+   $("questionnaire-state").className="status ok";
+   $("open-questionnaire").textContent="Review questionnaire";
+ }else{
+   $("questionnaire-state").textContent="Not completed";
+   $("questionnaire-state").className="status";
+   $("open-questionnaire").textContent="Complete questionnaire";
+ }
+}
+$("auth-form").addEventListener("submit",event=>{
+ event.preventDefault();
+ const email=$("email").value.trim(),password=$("password").value;
+ if(!email||!password){showStatus("auth-status","Enter any email address and password to continue.","error");return;}
+ if(authMode==="register"&&password!==$("confirm-password").value){showStatus("auth-status","The passwords do not match.","error");return;}
+ showStatus("auth-status","Opening preview dashboard…","ok");
+ showDashboard(email);
+});
+$("signout").addEventListener("click",signOut);
+$("admin-signout").addEventListener("click",signOut);
+function signOut(){
+ sessionStorage.removeItem("ubf_demo_email");
+ $("dashboard-view").classList.add("hidden");$("admin-view").classList.add("hidden");$("auth-view").classList.remove("hidden");
+ $("auth-form").reset();setMode("login");
+}
+$("admin-preview-button").addEventListener("click",showAdmin);
+$("return-participant").addEventListener("click",()=>{
+ activeParticipantEmail=selectedAdminEmail||activeParticipantEmail;
+ $("admin-view").classList.add("hidden");$("dashboard-view").classList.remove("hidden");
+ renderParticipant();
+});
+function showAdmin(){
+ $("dashboard-view").classList.add("hidden");$("auth-view").classList.add("hidden");$("admin-view").classList.remove("hidden");
+ const select=$("admin-participant");select.replaceChildren();
+ const active=ensureParticipant(activeParticipantEmail);
+ const options=Array.from(participantStore.values()).sort((a,b)=>a.name.localeCompare(b.name));
+ options.forEach(person=>{
+   const option=document.createElement("option");option.value=person.email;option.textContent=person.name+" · "+person.email;select.appendChild(option);
+ });
+ selectedAdminEmail=active.email;select.value=selectedAdminEmail;
+ renderAdmin();
+}
+$("admin-participant").addEventListener("change",event=>{selectedAdminEmail=event.target.value;renderAdmin();});
+function renderAdmin(){
+ const person=selectedParticipant();
+ selectedAdminEmail=person.email;
+ $("admin-participant-summary").textContent=person.name+" · "+person.email+" · Business / idea: "+person.business;
+ const completed=person.milestones.filter(value=>value==="complete").length;
+ $("admin-complete-count").textContent=completed+" / "+milestoneNames.length;
+ $("admin-progress").textContent=progressFor(person)+"%";
+ $("admin-resource-count").textContent=person.resources.length;
+ $("admin-notes").value=person.note||"";
+ const container=$("admin-milestones");container.replaceChildren();
+ person.milestones.forEach((state,index)=>{
+   const row=document.createElement("div");row.className="task-row-admin";
+   const name=document.createElement("div");
+   const title=document.createElement("strong");title.textContent=milestoneNames[index];
+   const hint=document.createElement("small");hint.textContent="Participant view: "+formatStatus(state);
+   name.append(title,hint);
+   const select=document.createElement("select");select.setAttribute("aria-label","Status for "+milestoneNames[index]);select.dataset.milestone=String(index);
+   statuses.forEach(optionData=>{
+     const option=document.createElement("option");option.value=optionData.value;option.textContent=optionData.label;select.appendChild(option);
+   });
+   select.value=state;
+   select.addEventListener("change",()=>{
+     person.milestones[index]=select.value;
+     hint.textContent="Participant view: "+formatStatus(select.value);
+     $("admin-complete-count").textContent=person.milestones.filter(value=>value==="complete").length+" / "+milestoneNames.length;
+     $("admin-progress").textContent=progressFor(person)+"%";
+     if(activeParticipantEmail===person.email&& !$("dashboard-view").classList.contains("hidden"))renderParticipant();
+   });
+   row.append(name,select);container.appendChild(row);
+ });
+ const resources=$("admin-resource-list");resources.replaceChildren();
+ if(!person.resources.length){
+  const empty=document.createElement("p");empty.className="status";empty.textContent="No resources added for this participant.";resources.appendChild(empty);
+ }else{
+  person.resources.forEach(resource=>{
+   const row=document.createElement("div");row.className="resource-item";
+   const info=document.createElement("div");
+   const title=document.createElement("strong");title.textContent=resource.title;
+   const meta=document.createElement("small");meta.textContent=resource.category+" · "+resource.fileName;
+   info.append(title,meta);row.appendChild(info);
+   const link=document.createElement("a");link.href=resource.url;link.download=resource.fileName;link.textContent="Download";
+   row.appendChild(link);resources.appendChild(row);
+  });
+ }
+ renderQuestionnaireResponse(person);
+ showStatus("admin-note-status","","");
+}
+$("save-admin-note").addEventListener("click",()=>{
+ const person=selectedParticipant();person.note=$("admin-notes").value.trim();
+ showStatus("admin-note-status","Coordinator note saved in this browser preview only.","ok");
+});
+function renderQuestionnaireResponse(person){
+ const container=$("admin-questionnaire-response");container.replaceChildren();
+ if(!person.questionnaire){
+  const empty=document.createElement("p");empty.className="status";empty.textContent="No questionnaire has been submitted for this participant in the current preview session.";container.appendChild(empty);return;
+ }
+ Object.entries(person.questionnaire).forEach(([key,value])=>{
+  const row=document.createElement("div");row.className="response-line";
+  const title=document.createElement("strong");title.textContent=key;
+  const answer=document.createElement("div");answer.textContent=Array.isArray(value)?value.join(", "):String(value);
+  row.append(title,answer);container.appendChild(row);
+ });
+}
+$("admin-resource-form").addEventListener("submit",event=>{
+ event.preventDefault();
+ const person=selectedParticipant(),title=$("resource-title").value.trim(),category=$("resource-category").value,file=$("resource-file").files[0];
+ if(!title||!file){showStatus("admin-resource-status","Add a resource title and choose a file.","error");return;}
+ const url=URL.createObjectURL(file);currentObjectUrls.push(url);
+ person.resources.push({title:title,category:category,fileName:file.name,url:url,size:file.size});
+ $("admin-resource-form").reset();renderAdmin();renderParticipant();
+ showStatus("admin-resource-status","Resource added to "+person.name+"'s participant preview. This does not upload or persist the file.","ok");
+});
+
+function showQuestionStep(){
+ const steps=[...document.querySelectorAll(".question-step")];
+ steps.forEach((step,index)=>step.classList.toggle("hidden",index!==questionnaireStep));
+ $("question-step-title").textContent="Step "+(questionnaireStep+1)+" of "+steps.length+" · "+["About you","Your business or idea","Support and goals"][questionnaireStep];
+ $("question-progress").style.width=((questionnaireStep+1)/steps.length*100)+"%";
+ $("question-prev").disabled=questionnaireStep===0;
+ $("question-next").classList.toggle("hidden",questionnaireStep===steps.length-1);
+ $("question-submit").classList.toggle("hidden",questionnaireStep!==steps.length-1);
+}
+function validateCurrentQuestionStep(){
+ const step=document.querySelector('.question-step[data-step="'+questionnaireStep+'"]');
+ if(!step)return true;
+ for(const field of step.querySelectorAll("input[required],select[required],textarea[required]")){
+   if(field.type==="checkbox"&&!field.checked){field.reportValidity();return false;}
+   if(!field.checkValidity()){field.reportValidity();return false;}
+ }
+ if(questionnaireStep===2&&!document.querySelector('input[name="Support needed"]:checked')){
+   showStatus("questionnaire-status","Please choose at least one area of support.","error");return false;
+ }
+ return true;
+}
+$("open-questionnaire").addEventListener("click",()=>{
+ const panel=$("questionnaire-card");panel.classList.remove("hidden");
+ if(currentParticipant().questionnaire)populateQuestionnaire(currentParticipant().questionnaire);
+ showQuestionStep();panel.scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("close-questionnaire").addEventListener("click",()=>$("questionnaire-card").classList.add("hidden"));
+$("question-next").addEventListener("click",()=>{
+ if(!validateCurrentQuestionStep())return;
+ questionnaireStep=Math.min(2,questionnaireStep+1);showQuestionStep();showStatus("questionnaire-status","","");
+});
+$("question-prev").addEventListener("click",()=>{
+ questionnaireStep=Math.max(0,questionnaireStep-1);showQuestionStep();showStatus("questionnaire-status","","");
+});
+function populateQuestionnaire(answers){
+ const form=$("questionnaire-form");
+ for(const field of form.querySelectorAll("input,select,textarea")){
+   if(!field.name)continue;
+   const value=answers[field.name];
+   if(value===undefined)continue;
+   if(field.type==="checkbox")field.checked=Array.isArray(value)&&value.includes(field.value);
+   else field.value=Array.isArray(value)?value[0]:value;
+ }
+}
+$("questionnaire-form").addEventListener("submit",event=>{
+ event.preventDefault();
+ if(!validateCurrentQuestionStep())return;
+ const form=$("questionnaire-form"),answers={};
+ for(const field of form.querySelectorAll("input,select,textarea")){
+   if(!field.name)continue;
+   if(field.type==="checkbox"){
+     if(!answers[field.name])answers[field.name]=[];
+     if(field.checked)answers[field.name].push(field.value);
+   }else answers[field.name]=field.value.trim();
+ }
+ currentParticipant().questionnaire=answers;
+ if(answers["Full name"])currentParticipant().name=answers["Full name"];
+ renderParticipant();
+ $("welcome").textContent="Welcome, "+currentParticipant().name;
+ renderQuestionnaireResponse(currentParticipant());
+ showStatus("questionnaire-status","Questionnaire saved in this browser preview only. It has not been submitted to UBF.","ok");
+ showStatus("questionnaire-state","Completed in this preview","ok");
+});
+$("booking-form").addEventListener("submit",event=>{
+ event.preventDefault();
+ const date=$("session-date").value,time=$("session-time").value,status=$("booking-status");
+ if(!date||!time){showStatus("booking-status","Choose a preferred date and time.","error");return;}
+ const displayDate=new Date(date+"T12:00:00").toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"});
+ currentParticipant().session=displayDate+" · "+time;
+ renderParticipant();
+ showStatus("booking-status","Preview only: this session preference has not been sent to UBF.","ok");
+});
+$("session-date").min=new Date().toISOString().slice(0,10);
+showQuestionStep();
+if(sessionStorage.getItem("ubf_demo_email"))showDashboard(sessionStorage.getItem("ubf_demo_email"));
+</script>
+</body>
+</html>
