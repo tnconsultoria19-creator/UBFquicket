@@ -360,6 +360,37 @@
           .ubf-pattern-layer{background-size:165px 165px}
         }
 
+    
+        /* Refinement pass: narrower proportions, calmer rhythm, existing colors and type preserved. */
+        .ubf-home-hero{isolation:isolate;min-height:clamp(430px,47vw,590px);background:#f7f8f6}
+        .ubf-home-hero::before{content:"";position:absolute;inset:0;z-index:-2;background-image:url("https://images.pexels.com/photos/31635958/pexels-photo-31635958.jpeg");background-size:cover;background-position:center 48%;transform:scale(1.005)}
+        .ubf-home-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.94) 37%,rgba(255,255,255,.78) 56%,rgba(255,255,255,.15) 100%)}
+        .ubf-home-hero-content{position:relative}
+        .ubf-home-hero h1{max-width:780px}
+        .ubf-home-hero p{max-width:650px}
+        .ubf-program-pattern{background-color:#112240!important;background-image:url('./assets/ubf-african-pattern.svg');background-repeat:repeat;background-size:210px 210px;background-position:center;position:relative}
+        .ubf-program-pattern::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(17,34,64,.28),rgba(17,34,64,.04));pointer-events:none}
+        .ubf-program-pattern>div{position:relative;z-index:1}
+        .ubf-program-pattern h1{color:#fff!important}
+        .ubf-program-pattern p{color:rgba(255,255,255,.86)!important}
+        #app-root .page-view>section{border-bottom:1px solid #e7ebe8}
+        #app-root section>div[class*="max-w-[1920px]"]{max-width:1240px!important}
+        #app-root section>div[class*="max-w-[1440px]"]{max-width:1240px!important}
+        #app-root section[class*="py-20"],#app-root section[class*="py-24"],#app-root section[class*="py-28"],#app-root section[class*="py-32"]{padding-block:clamp(2.65rem,4.2vw,3.8rem)!important}
+        #app-root [class*="mb-24"]{margin-bottom:clamp(2.8rem,4.7vw,4rem)!important}
+        #app-root .initiative-grid{gap:1.1rem}
+        #app-root .initiative-card-content{padding:1.15rem}
+        #app-root .initiative-card-media-larger{height:218px}
+        @media(max-width:767px){
+          .ubf-home-hero{min-height:500px}
+          .ubf-home-hero::before{background-position:62% center}
+          .ubf-home-hero::after{background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.90) 60%,rgba(255,255,255,.63) 100%)}
+          .ubf-home-hero-content{padding-block:3.2rem}
+          .ubf-program-pattern{background-size:165px 165px}
+          #app-root .initiative-card-media-larger{height:205px}
+        }
+        @media(prefers-reduced-motion:reduce){.ubf-home-hero::before{transform:none}}
+
     </style>
 </head>
 <body class="bg-brand-gray text-[14px] md:text-[16px] leading-[1.6em]">
@@ -479,22 +510,16 @@
 
         <!-- ================= PAGE: HOME ================= -->
         <div id="view-home" class="page-view active">
-            <!-- Split hero: mission copy left, relevant community image right -->
-            <section class="bg-white pt-8 md:pt-12 pb-8 md:pb-12">
-                <div class="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-[7%]">
-                    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[520px] md:min-h-[590px] border-b border-gray-100">
-                        <div class="flex flex-col justify-center py-10 md:py-14 md:pr-12 lg:pr-16">
-                            <span class="text-brand-orange font-bold tracking-[0.18em] uppercase text-xs mb-5">Local opportunity. Practical support.</span>
-                            <h1 class="text-[2.4rem] sm:text-5xl lg:text-[3.65rem] leading-[1.08] font-extrabold text-brand-navy mb-6">Connecting local talent,<span class="block text-brand-teal">opportunity and enterprise.</span></h1>
-                            <p class="text-base md:text-lg text-brand-text-light leading-relaxed max-w-xl mb-8">Unity Bridge Foundation is a Cape Town-based non-profit organisation supporting small and medium-sized businesses, unemployed graduates and young people through practical business development, community leadership and environmentally responsible pathways to work.</p>
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <a role="button" tabindex="0" onclick="openContactModal()" class="inline-flex justify-center items-center bg-brand-orange text-white font-bold rounded-md py-3 px-6 text-sm hover:bg-brand-navy transition-colors">Contact Us</a>
-                                <a role="button" tabindex="0" onclick="switchPage('services')" class="inline-flex justify-center items-center border border-brand-navy text-brand-navy font-bold rounded-md py-3 px-6 text-sm hover:bg-brand-navy hover:text-white transition-colors">View our programs</a>
-                            </div>
-                        </div>
-                        <div class="relative min-h-[300px] md:min-h-full overflow-hidden bg-brand-gray">
-                            <img src="https://images.pexels.com/photos/31635958/pexels-photo-31635958.jpeg" alt="Community-focused work and local opportunity, reflecting Unity Bridge Foundation's mission" class="absolute inset-0 w-full h-full object-cover object-center" style="object-position:62% center" onerror="this.style.display='none';if(this.parentElement)this.parentElement.classList.add('image-fallback')">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/30 via-transparent to-transparent pointer-events-none"></div>
+            <!-- Full-width background hero with a readable overlay -->
+            <section class="ubf-home-hero relative overflow-hidden flex items-center">
+                <div class="ubf-home-hero-content w-full max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-12 py-14 md:py-20">
+                    <div class="max-w-3xl relative z-10">
+                        <span class="text-brand-orange font-bold tracking-[0.18em] uppercase text-xs mb-4 block">Local opportunity. Practical support.</span>
+                        <h1 class="text-[2.4rem] sm:text-5xl lg:text-[3.65rem] leading-[1.08] font-extrabold text-brand-navy mb-5">Connecting local talent,<span class="block text-brand-teal">opportunity and enterprise.</span></h1>
+                        <p class="text-base md:text-lg text-brand-text-light leading-relaxed max-w-2xl mb-7">Unity Bridge Foundation is a Cape Town-based non-profit organisation supporting small and medium-sized businesses, unemployed graduates and young people through practical business development, community leadership and environmentally responsible pathways to work.</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a role="button" tabindex="0" onclick="openContactModal()" class="inline-flex justify-center items-center bg-brand-orange text-white font-bold rounded-md py-3 px-6 text-sm hover:bg-brand-navy transition-colors">Contact Us</a>
+                            <a role="button" tabindex="0" onclick="switchPage('services')" class="inline-flex justify-center items-center border border-brand-navy text-brand-navy font-bold rounded-md py-3 px-6 text-sm hover:bg-brand-navy hover:text-white transition-colors">View our programs</a>
                         </div>
                     </div>
                 </div>
@@ -645,12 +670,12 @@
 
         <!-- ================= PAGE: SERVICES (PROGRAMS) ================= -->
         <div id="view-services" class="page-view">
-            <section class="bg-brand-gray pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
+            <section class="ubf-program-pattern pt-32 md:pt-40 pb-20 px-6 text-center relative overflow-hidden">
                 
                 <div class="max-w-4xl mx-auto relative z-10 reveal">
                     <span class="text-brand-teal font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Strategies</span>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy mb-6">Our <span class="text-brand-orange font-light">Programs</span></h1>
-                    <p class="text-lg md:text-xl text-brand-text-light font-light">Comprehensive interventions providing high-quality infrastructure for formalisation and employment.</p>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">Our <span class="text-brand-orange font-light">Programs</span></h1>
+                    <p class="text-lg md:text-xl text-white/85 font-light">Practical support for enterprise, skills and community opportunity.</p>
                 </div>
             </section>
 
