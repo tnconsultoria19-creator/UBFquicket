@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="230" height="230" viewBox="0 0 230 230">
+<defs><pattern id="weave" width="92" height="92" patternUnits="userSpaceOnUse">
+<path d="M46 4 84 46 46 88 8 46Z" fill="none" stroke="#cda34f" stroke-width="2.2" opacity=".48"/>
+<path d="M46 18 70 46 46 74 22 46Z" fill="none" stroke="#48a99a" stroke-width="2" opacity=".55"/>
+<path d="M0 0 23 23 0 46 -23 23Z M92 46 115 69 92 92 69 69Z" fill="#cda34f" opacity=".13"/>
+<path d="M46 0V18 M46 74V92 M0 46H22 M70 46H92" stroke="#ffffff" stroke-width="1.2" opacity=".38"/>
+<path d="M13 13 24 13 24 24 13 24Z M68 68 79 68 79 79 68 79Z" fill="#48a99a" opacity=".55"/>
+<circle cx="46" cy="46" r="4" fill="#cda34f" opacity=".8"/>
+</pattern></defs><rect width="230" height="230" fill="url(#weave)"/></svg>
