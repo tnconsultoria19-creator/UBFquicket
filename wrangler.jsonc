@@ -3,7 +3,6 @@
   "name": "ubfquicket",
   "compatibility_date": "2026-10-21",
   "assets": {
-    "directory": "./site",
-    "binding": "ASSETS"
+    "directory": "./site"
   }
 }
